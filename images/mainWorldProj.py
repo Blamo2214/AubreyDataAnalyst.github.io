@@ -158,3 +158,19 @@ plt.xlabel('Country')
 plt.ylabel('Physicians per thousand')
 plt.title('Physicians per thousand by Country (Sorted)')
 plt.show()
+
+#PieChart of CO2 Emissions of Specified Counties
+selected_countries = ['United States', 'China', 'India', 'Germany', 'Russia']
+filtered_data = num_data[num_data['Country'].isin(selected_countries)]
+filtered_data = filtered_data.dropna()
+plt.pie(filtered_data['Co2-Emissions'], labels=filtered_data['Country'], autopct='%1.1f%%')
+plt.title('CO2 Emissions by Country')
+plt.show()
+
+#PieChart of CO2 Emissions Per Capita of Specified Counties
+selected_countries = ['United States', 'China', 'India', 'Germany', 'Russia']
+filtered_data = num_data[num_data['Country'].isin(selected_countries)]
+filtered_data = filtered_data.dropna()
+plt.pie(filtered_data['CO2_Emissions_Per_Capita'], labels=filtered_data['Country'], autopct='%1.1f%%')
+plt.title('CO2 Emissions per Capita by Country')
+plt.show()
