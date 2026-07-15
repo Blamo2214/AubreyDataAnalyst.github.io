@@ -2,317 +2,430 @@
 <!--
 	Massively by HTML5 UP
 	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+	Free for personal and commercial use under the CCA 3.0 license.
 -->
-<html>
+<html lang="en">
 	<head>
-		<title>Agitlytics</title>
+		<title>Research & Commentary | Agitlytics</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="Reporting and commentary by Aubrey Waddle on political economy, elections, foreign policy, markets, and public policy." />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			:root {
+				--research-bg: #090b0f;
+				--research-panel: #12161c;
+				--research-panel-soft: #171c23;
+				--research-text: #f5f7fa;
+				--research-muted: #a8b0ba;
+				--research-border: #2a313b;
+				--research-accent: #c84d5c;
+				--research-accent-soft: rgba(200, 77, 92, 0.14);
+			}
+
+			body {
+				background: var(--research-bg);
+				color: var(--research-text);
+			}
+
+			#wrapper,
+			#wrapper.fade-in,
+			#main,
+			#footer {
+				background-color: var(--research-bg);
+			}
+
+			#intro {
+				background:
+					linear-gradient(rgba(5, 7, 10, 0.76), rgba(5, 7, 10, 0.92)),
+					url("images/bg.jpg") center center / cover fixed;
+			}
+
+			#intro h1,
+			#intro p,
+			#intro a,
+			#header .logo,
+			#nav a,
+			#main h1,
+			#main h2,
+			#main h3,
+			#main p,
+			#main strong,
+			#footer h3,
+			#footer p,
+			#footer a {
+				color: var(--research-text);
+			}
+
+			#header {
+				background: rgba(9, 11, 15, 0.92);
+				border-bottom: 1px solid var(--research-border);
+			}
+
+			#header .logo {
+				border-color: var(--research-text);
+			}
+
+			#nav {
+				background: rgba(18, 22, 28, 0.96);
+				border-bottom: 1px solid var(--research-border);
+			}
+
+			#nav ul.links li.active {
+				background: var(--research-accent-soft);
+			}
+
+			#nav ul.links li.active a,
+			#nav a:hover {
+				color: #ffffff !important;
+			}
+
+			#main {
+				max-width: 78rem;
+				padding-top: 3rem;
+			}
+
+			.research-intro {
+				text-align: center;
+				padding: 0 2rem 2.5rem;
+				max-width: 58rem;
+				margin: 0 auto;
+			}
+
+			.research-intro .eyebrow,
+			.article-card .date,
+			.featured-research .date {
+				color: var(--research-accent);
+				font-size: 0.75rem;
+				font-weight: 700;
+				letter-spacing: 0.14em;
+				text-transform: uppercase;
+			}
+
+			.research-intro h1 {
+				margin-bottom: 1rem;
+			}
+
+			.research-intro p {
+				color: var(--research-muted);
+				font-size: 1.05rem;
+				line-height: 1.8;
+			}
+
+			.featured-research,
+			.article-card {
+				background: var(--research-panel);
+				border: 1px solid var(--research-border);
+				box-shadow: 0 1.25rem 3rem rgba(0, 0, 0, 0.32);
+				overflow: hidden;
+			}
+
+			.featured-research {
+				margin: 0 2rem 3rem;
+				padding: 2.5rem;
+			}
+
+			.featured-research header {
+				text-align: center;
+				max-width: 58rem;
+				margin: 0 auto 1.75rem;
+			}
+
+			.featured-research h2 {
+				font-size: 2.3rem;
+				line-height: 1.2;
+				margin-top: 0.75rem;
+			}
+
+			.featured-research p {
+				color: var(--research-muted);
+				max-width: 60rem;
+				margin: 1.5rem auto;
+				line-height: 1.8;
+			}
+
+			.featured-research .image,
+			.article-card .image {
+				background: #06080b;
+				overflow: hidden;
+			}
+
+			.featured-research .image img,
+			.article-card .image img {
+				width: 100%;
+				transition: transform 0.35s ease, opacity 0.35s ease;
+			}
+
+			.featured-research:hover .image img,
+			.article-card:hover .image img {
+				transform: scale(1.025);
+				opacity: 0.94;
+			}
+
+			.research-grid {
+				display: grid;
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+				gap: 1.5rem;
+				padding: 0 2rem 3rem;
+			}
+
+			.article-card {
+				display: flex;
+				flex-direction: column;
+				height: 100%;
+				transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+			}
+
+			.article-card:hover {
+				transform: translateY(-4px);
+				border-color: rgba(200, 77, 92, 0.58);
+				box-shadow: 0 1.5rem 3.5rem rgba(0, 0, 0, 0.42);
+			}
+
+			.article-card .card-content {
+				display: flex;
+				flex: 1;
+				flex-direction: column;
+				padding: 1.75rem;
+			}
+
+			.article-card h2 {
+				font-size: 1.35rem;
+				line-height: 1.35;
+				margin: 0.65rem 0 1rem;
+			}
+
+			.article-card p {
+				color: var(--research-muted);
+				line-height: 1.75;
+				flex: 1;
+			}
+
+			.article-card .actions,
+			.featured-research .actions {
+				margin-bottom: 0;
+			}
+
+			.button,
+			button,
+			input[type="submit"],
+			input[type="reset"],
+			input[type="button"] {
+				box-shadow: inset 0 0 0 2px var(--research-text);
+				color: var(--research-text) !important;
+			}
+
+			.button:hover,
+			button:hover,
+			input[type="submit"]:hover,
+			input[type="reset"]:hover,
+			input[type="button"]:hover {
+				box-shadow: inset 0 0 0 2px var(--research-accent);
+				color: #ffffff !important;
+			}
+
+			#footer {
+				border-top: 1px solid var(--research-border);
+			}
+
+			#footer > section,
+			#footer .split.contact > section {
+				border-color: var(--research-border);
+			}
+
+			#footer .image img {
+				filter: saturate(0.8) contrast(1.05);
+			}
+
+			#copyright {
+				color: #767f89;
+			}
+
+			#copyright a {
+				color: #9ca5af;
+			}
+
+			@media screen and (max-width: 980px) {
+				.research-grid {
+					grid-template-columns: 1fr;
+				}
+
+				.featured-research h2 {
+					font-size: 1.9rem;
+				}
+			}
+
+			@media screen and (max-width: 736px) {
+				#main {
+					padding-top: 2rem;
+				}
+
+				.featured-research,
+				.research-grid {
+					margin-left: 1rem;
+					margin-right: 1rem;
+					padding-left: 0;
+					padding-right: 0;
+				}
+
+				.featured-research {
+					padding: 1.5rem;
+				}
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 
-		<!-- Wrapper -->
-			<div id="wrapper" class="fade-in">
+		<div id="wrapper" class="fade-in">
 
-				<!-- Intro -->
-					<div id="intro">
-						<h1>Agitlytics</h1>
-						<p>Reporting and Commentary by <a href="https://www.linkedin.com/in/aubrey-waddle-962634314" target="_blank" rel="noopener noreferrer">Aubrey Waddle</a></p>
-						<ul class="actions">
-							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
-						</ul>
-					</div>
-
-				<!-- Header -->
-					<header id="header">
-						<a href="elements.html" class="logo">Reporting and Commentary</a>
-
-					</header>
-
-				<!-- Nav -->
-					<nav id="nav">
-						<ul class="links">
-						<li><a href="index.html">Home</a></li>
-							<li><a href="DataProj.html">Data Projects</a></li>
-							<li class="active"><a href="elements.html">Commentary</a></li>
-							<li><a href="generic.html">About Me</a></li>
-						
-							
-						</ul>
-						<ul class="icons">
-							<li><a href="images\RESUME 2025Nov.pdf.pdf" target="_blank" rel="noopener noreferrer" class="cib-tableau"><span class="label">Résumé</span></a></li>
-							<li><a href="images\SNHU Diploma.pdf" target="_blank" rel="noopener noreferrer" class="cib-tableau"><span class="label">Diploma</span></a></li>
-							<li><a href="images\Transcript_AUBREYWADDLE FINAL.pdf" target="_blank" rel="noopener noreferrer" class="cib-tableau"><span class="label">Transcript</span></a></li>
-							<li><a href="https://public.tableau.com/app/profile/aubrey.waddle/vizzes" target="_blank" rel="noopener noreferrer" class="cib-tableau"><span class="label">Tableau Public</span></a></li>
-							<li><a href="https://www.linkedin.com/in/aubrey-waddle-962634314" target="_blank" rel="noopener noreferrer" class="icon brands alt fa-linkedin"><span class="label">linkedin</span></a></li>
-							<li><a href="https://github.com/Blamo2214" target="_blank" rel="noopener noreferrer" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-							<li><a href="https://www.facebook.com/aubrey.waddle/" target="_blank" rel="noopener noreferrer" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-							<li><a href="https://www.instagram.com/aubrey_waddle12/" target="_blank" rel="noopener noreferrer" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-						</ul>
-						</ul>
-					</nav>
-
-				<!-- Main -->
-					<div id="main">
-
-						<!-- Featured Post -->
-							<article class="post featured">
-								<header class="major">
-										<span class="date">Updated 4/17/2026</span>
-										<h2><a href="IsraelArmsEmbargo.html">Total Arms Embargo on Israel Would Make Israelis Safer<br />
-										</a></h2>
-									</header>
-									<a href="IsraelArmsEmbargo.html" class="image fit"><img src="images\LebanonStrike.png" alt="" /></a>
-									<p>Real security for Israelis, Palestinians, and neighboring populations alike will come not through endless weapons flows, but through accountability, political settlement, and an end to the cycle of provocation and retaliation.</p>
-									<ul class="actions special">
-										<li><a href="IsraelArmsEmbargo.html" class="button">Full Report</a></li>
-									</ul>
-								</article>
-						<!------------------------------------------------------------------------------------------------------------------------------>
-						<!-- Posts -->
-							<section class="posts">
-						
-							<article class="posts">
-								<header>
-										<span class="date">Updated 1/27/2026</span>
-										<h2><a href="DemCrit.html">Who the Democratic Party Is Really Losing — and Why Scolding the Left Won’t Fix It<br />
-										</a></h2>
-									</header>
-									<a href="DemCrit.html" class="image fit"><img src="images\DemCrit.png" alt="" /></a>
-									<p>The Democratic Party did not lose in 2024 because voters were “too far left.” It lost because party leadership ran to the right of its own base and then blamed that base for the fallout. Scolding disillusioned voters is not a strategy for winning elections — it is a strategy for shrinking the coalition. If Democrats want to defeat authoritarianism, they will have to follow the data and their voters, not their donors.</p>
-									<ul class="actions special">
-										<li><a href="DemCrit.html" class="button">Full Report</a></li>
-									</ul>
-								</article>
-								<article class="posts">
-								<header>
-										<span class="date">Updated 1/24/2026</span>
-										<h2><a href="Deregulation.html">Deregulation, Neoliberalism, and the Expanding Wealth Gap<br />
-										</a></h2>
-									</header>
-									<a href="Deregulation.html" class="image fit"><img src="images\Neoliberal-Revolution.jpg" alt="" /></a>
-									<p>From poisoned communities to unaffordable healthcare and vanishing homeownership, the costs of “free markets” are not theoretical—they are lived. 
-										This is not a policy accident; it is the predictable outcome of an economy designed to protect capital first and people last.
-										This report attempts to address a few arguments made in defense of neoliberalism. 
-										Most notably, the idea that it produces a rising tide that raises all boats and that criticisms of neoliberalism are born out of "zero-sum" thinking.</p>
-									<ul class="actions special">
-										<li><a href="Deregulation.html" class="button">Full Report</a></li>
-									</ul>
-								</article>
-
-						<!-- Posts -->
-							<section class="posts">
-								
-								<article>
-									<header>
-										<span class="date">Updated 1/13/2026</span>
-										<h2><a href="ICEFash.html">Blaming Immigrants Is a Fascist Misdirection<br />
-										</a></h2>
-									</header>
-									<a href="ICEFash.html" class="image fit"><img src="images\icefash.png" alt="" /></a>
-									<p>Blaming immigrants for economic hardship is not a policy failure—it is a political strategy. This essay traces how that strategy has been used historically by fascist regimes and how it is being deployed again to distract from the real sources of economic exploitation in the United States.</p>
-									<ul class="actions special">
-										<li><a href="ICEFash.html" class="button">Full Report</a></li>
-									</ul>
-								</article>
-								
-								<article>
-									<header>
-										<span class="date">Updated 1/1/2026</span>
-										<h2><a href="Venezuela.html">Venezuela Since the 1990s: Political Economy, State Power, and U.S. Intervention</a></h2>
-									</header>
-									<a href="Venezuela.html" class="image fit"><img src="images\Pic.webp" alt="" /></a>
-									<p>Venezuela is invoked as a morality tale more often than it is understood. Stripped of slogans and Cold War reflexes, its crisis is not the failure of an idea but the collision of oil, class power, and an international order that punishes deviation more harshly than misrule.</p>
-									<ul class="actions special">
-										<li><a href="Venezuela.html" class="button">Full Report</a></li>
-									</ul>
-								</article>
-								
-								<article>
-									<header>
-										<span class="date">Updated 12/15/2025</span>
-										<h2><a href="Inflation.html">The Inflationary Impact of Tariffs<br />
-										</a></h2>
-									</header>
-									<a href="Inflation.html" class="image fit"><img src="images\Tariffs.jpg" alt="" /></a>
-									<p>As long as corporations can raise prices at will and workers lack protection, tariffs cannot fix what’s broken. Instead, they amplify the very inequalities they claim to address.</p>
-									<ul class="actions special">
-										<li><a href="Inflation.html" class="button">Full Report</a></li>
-									</ul>
-								</article>
-
-								
-								<!--
-								<article>
-									<header>
-										<span class="date">2023</span>
-										<h2><a href="images\Pool Business Model.xlsx">Pool Business Profit Forcaster Excel Sheet<br />
-										</a></h2>
-									</header>
-									<a href="images\Pool Business Model.xlsx" class="image fit"><img src="images\Pool Business Model Pic.jpg" alt="" /></a>
-									<p>This is the model I built when planning my pool maintenance company.</p>
-									<ul class="actions special">
-										<li><a href="images\Pool Business Model.xlsx" class="button">Download</a></li>
-									</ul>
-								</article>
-							
-								<article>
-									<header>
-										<span class="date">2024</span>
-										<h2><a href="BusinessPlan.jpg">Startup Business Plan Template<br />
-										</a></h2>
-									</header>
-									<a href="BusinessPlan.jpg" class="image fit"><img src="images\BusinessPlan.jpg" alt="" /></a>
-									<p>This Excel sheet is a financial model for a business plan, detailing initial setup costs, recurring monthly expenses, and operational metrics. It includes calculations for rent, labor, and construction, providing a structured framework for budgeting and strategic planning in a commercial project.</p>
-									<ul class="actions special">
-										<li><a href="Playground Business Plan.xlsx" class="button">Download</a></li>
-									</ul>
-								</article>
-								
-									<article>
-									<header>
-										<span class="date"></span>
-										<h2><a href="images\stats meme.jpg">Work In Progress<br />
-										</a></h2>
-									</header>
-									<a href="images\stats meme.jpg" class="image fit"><img src="images\Work In Progress.jpg" alt="" /></a>
-									<p>Check Back Soon!</p>
-									<ul class="actions special">
-										<li><a href="images\stats meme.jpg" class="button">Full Story</a></li>
-									</ul>
-								</article>
-							</section>
-
-						<!-- Footer -->
-							<footer>
-								<!-- <div class="pagination">
-									<!--<a href="#" class="previous">Prev</a>
-									<a href="#" class="page active">1</a>
-									<a href="#" class="page">2</a>
-									<a href="#" class="page">3</a>
-									<span class="extra">&hellip;</span>
-									<a href="#" class="page">8</a>
-									<a href="#" class="page">9</a>
-									<a href="#" class="page">10</a>
-									<a href="#" class="next">Next</a> -->
-								</div>
-							</footer>
-
-					</div>
-
-				<!-- Footer -->
-					<footer id="footer">
-						<!-- <section>
-							<form method="post" action="#">
-								<div class="fields">
-									<div class="field">
-										<label for="name">Name</label>
-										<input type="text" name="name" id="name" />
-									</div>
-									<div class="field">
-										<label for="email">Email</label>
-										<input type="text" name="email" id="email" />
-									</div>
-									<div class="field">
-										<label for="message">Message</label>
-										<textarea name="message" id="message" rows="3"></textarea>
-									</div>
-								</div>
-								<ul class="actions">
-									<li><input type="submit" value="Send Message" /></li>
-								</ul>
-							</form>
-						</section> -->
-						<section class="posts">
-								<article>
-									<header>
-										<!-- <span class="date"></span>
-										<h2><a href="https://public.tableau.com/shared/YFXYJXN7D?:display_count=n&:origin=viz_share_link">Data Exploration of<br />
-										Covid Datasets in SQL</a></h2>  -->
-									</header>
-									<a href="#" class="image main"><img src="images\Headshot.png" alt="" /></a>
-									<p></p>
-									<ul class="actions special">
-										
-									</ul>
-								</article>
-						</section>
-						<section class="split contact">
-							<section class="alt">
-								<h3>Location</h3>
-								<p>Houston, TX<br />
-								</p>
-							</section>
-							<section>
-								<h3>Phone</h3>
-								<p><a href="#">(936)446-8053</a></p>
-							</section>
-							<section>
-								<h3>Email</h3>
-								<p><a href="#">aubreywaddle2@gmail.com</a></p>
-							</section>
-							<section>
-								<h3>Social</h3>
-								<ul class="icons alt">
-									<li><a href="https://www.linkedin.com/in/aubrey-waddle-962634314" class="icon brands alt fa-linkedin"><span class="label">linkedin</span></a></li>
-									<li><a href="https://www.facebook.com/aubrey.waddle/" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-									<li><a href="https://www.instagram.com/aubrey_waddle12/" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-									<li><a href="https://github.com/Blamo2214" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-								</ul>
-							</section>
-						</section>
-					</footer>
-
-				<!-- Copyright -->
-					<div id="copyright">
-						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
-					</div>
-
+			<div id="intro">
+				<h1>Agitlytics</h1>
+				<p>Reporting and Commentary by <a href="https://www.linkedin.com/in/aubrey-waddle-962634314" target="_blank" rel="noopener noreferrer">Aubrey Waddle</a></p>
+				<ul class="actions">
+					<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly" aria-label="Continue to research and commentary">Continue</a></li>
+				</ul>
 			</div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<header id="header">
+				<a href="elements.html" class="logo">Reporting and Commentary</a>
+			</header>
 
+			<nav id="nav">
+				<ul class="links">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="DataProj.html">Data Projects</a></li>
+					<li class="active"><a href="elements.html">Commentary</a></li>
+					<li><a href="generic.html">About Me</a></li>
+				</ul>
+				<ul class="icons">
+					<li><a href="images/RESUME 2025Nov.pdf.pdf" target="_blank" rel="noopener noreferrer" class="icon solid fa-file-pdf"><span class="label">Résumé</span></a></li>
+					<li><a href="images/SNHU Diploma.pdf" target="_blank" rel="noopener noreferrer" class="icon solid fa-graduation-cap"><span class="label">Diploma</span></a></li>
+					<li><a href="images/Transcript_AUBREYWADDLE FINAL.pdf" target="_blank" rel="noopener noreferrer" class="icon solid fa-file-alt"><span class="label">Transcript</span></a></li>
+					<li><a href="https://public.tableau.com/app/profile/aubrey.waddle/vizzes" target="_blank" rel="noopener noreferrer" class="icon solid fa-chart-bar"><span class="label">Tableau Public</span></a></li>
+					<li><a href="https://www.linkedin.com/in/aubrey-waddle-962634314" target="_blank" rel="noopener noreferrer" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+					<li><a href="https://github.com/Blamo2214" target="_blank" rel="noopener noreferrer" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+					<li><a href="https://www.facebook.com/aubrey.waddle/" target="_blank" rel="noopener noreferrer" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+					<li><a href="https://www.instagram.com/aubrey_waddle12/" target="_blank" rel="noopener noreferrer" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+				</ul>
+			</nav>
+
+			<div id="main">
+				<section class="research-intro">
+					<p class="eyebrow">Agitlytics Research Desk</p>
+					<h1>Reporting and Commentary</h1>
+					<p>Political analysis, economic commentary, and long-form reporting examining the systems, incentives, and material conditions that shape public life.</p>
+				</section>
+
+				<article class="featured-research">
+					<header>
+						<span class="date">Updated 4/17/2026</span>
+						<h2><a href="IsraelArmsEmbargo.html">Total Arms Embargo on Israel Would Make Israelis Safer</a></h2>
+					</header>
+					<a href="IsraelArmsEmbargo.html" class="image fit"><img src="images/LebanonStrike.png" alt="" /></a>
+					<p>Real security for Israelis, Palestinians, and neighboring populations alike will come not through endless weapons flows, but through accountability, political settlement, and an end to the cycle of provocation and retaliation.</p>
+					<ul class="actions special">
+						<li><a href="IsraelArmsEmbargo.html" class="button">Full Report</a></li>
+					</ul>
+				</article>
+
+				<section class="research-grid">
+					<article class="article-card">
+						<a href="DemCrit.html" class="image fit"><img src="images/DemCrit.png" alt="" /></a>
+						<div class="card-content">
+							<span class="date">Updated 1/27/2026</span>
+							<h2><a href="DemCrit.html">Who the Democratic Party Is Really Losing — and Why Scolding the Left Won’t Fix It</a></h2>
+							<p>The Democratic Party did not lose in 2024 because voters were “too far left.” It lost because party leadership ran to the right of its own base and then blamed that base for the fallout. Scolding disillusioned voters is not a strategy for winning elections — it is a strategy for shrinking the coalition. If Democrats want to defeat authoritarianism, they will have to follow the data and their voters, not their donors.</p>
+							<ul class="actions special"><li><a href="DemCrit.html" class="button">Full Report</a></li></ul>
+						</div>
+					</article>
+
+					<article class="article-card">
+						<a href="Deregulation.html" class="image fit"><img src="images/Neoliberal-Revolution.jpg" alt="" /></a>
+						<div class="card-content">
+							<span class="date">Updated 1/24/2026</span>
+							<h2><a href="Deregulation.html">Deregulation, Neoliberalism, and the Expanding Wealth Gap</a></h2>
+							<p>From poisoned communities to unaffordable healthcare and vanishing homeownership, the costs of “free markets” are not theoretical—they are lived. This is not a policy accident; it is the predictable outcome of an economy designed to protect capital first and people last. This report attempts to address a few arguments made in defense of neoliberalism. Most notably, the idea that it produces a rising tide that raises all boats and that criticisms of neoliberalism are born out of "zero-sum" thinking.</p>
+							<ul class="actions special"><li><a href="Deregulation.html" class="button">Full Report</a></li></ul>
+						</div>
+					</article>
+
+					<article class="article-card">
+						<a href="ICEFash.html" class="image fit"><img src="images/icefash.png" alt="" /></a>
+						<div class="card-content">
+							<span class="date">Updated 1/13/2026</span>
+							<h2><a href="ICEFash.html">Blaming Immigrants Is a Fascist Misdirection</a></h2>
+							<p>Blaming immigrants for economic hardship is not a policy failure—it is a political strategy. This essay traces how that strategy has been used historically by fascist regimes and how it is being deployed again to distract from the real sources of economic exploitation in the United States.</p>
+							<ul class="actions special"><li><a href="ICEFash.html" class="button">Full Report</a></li></ul>
+						</div>
+					</article>
+
+					<article class="article-card">
+						<a href="Venezuela.html" class="image fit"><img src="images/Pic.webp" alt="" /></a>
+						<div class="card-content">
+							<span class="date">Updated 1/1/2026</span>
+							<h2><a href="Venezuela.html">Venezuela Since the 1990s: Political Economy, State Power, and U.S. Intervention</a></h2>
+							<p>Venezuela is invoked as a morality tale more often than it is understood. Stripped of slogans and Cold War reflexes, its crisis is not the failure of an idea but the collision of oil, class power, and an international order that punishes deviation more harshly than misrule.</p>
+							<ul class="actions special"><li><a href="Venezuela.html" class="button">Full Report</a></li></ul>
+						</div>
+					</article>
+
+					<article class="article-card">
+						<a href="Inflation.html" class="image fit"><img src="images/Tariffs.jpg" alt="" /></a>
+						<div class="card-content">
+							<span class="date">Updated 12/15/2025</span>
+							<h2><a href="Inflation.html">The Inflationary Impact of Tariffs</a></h2>
+							<p>As long as corporations can raise prices at will and workers lack protection, tariffs cannot fix what’s broken. Instead, they amplify the very inequalities they claim to address.</p>
+							<ul class="actions special"><li><a href="Inflation.html" class="button">Full Report</a></li></ul>
+						</div>
+					</article>
+				</section>
+			</div>
+
+			<footer id="footer">
+				<section class="posts">
+					<article>
+						<a href="#" class="image main"><img src="images/Headshot.png" alt="" /></a>
+					</article>
+				</section>
+				<section class="split contact">
+					<section class="alt">
+						<h3>Location</h3>
+						<p>Houston, TX</p>
+					</section>
+					<section>
+						<h3>Phone</h3>
+						<p><a href="tel:+19364468053">(936)446-8053</a></p>
+					</section>
+					<section>
+						<h3>Email</h3>
+						<p><a href="mailto:aubreywaddle2@gmail.com">aubreywaddle2@gmail.com</a></p>
+					</section>
+					<section>
+						<h3>Social</h3>
+						<ul class="icons alt">
+							<li><a href="https://www.linkedin.com/in/aubrey-waddle-962634314" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://www.facebook.com/aubrey.waddle/" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="https://www.instagram.com/aubrey_waddle12/" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="https://github.com/Blamo2214" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</section>
+				</section>
+			</footer>
+
+			<div id="copyright">
+				<ul><li>&copy; Agitlytics</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+			</div>
+		</div>
+
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
 	</body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
