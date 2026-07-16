@@ -12,7 +12,6 @@
 <meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport"/>
 <link href="assets/css/main.css" rel="stylesheet"/>
 <noscript><link href="assets/css/noscript.css" rel="stylesheet"/></noscript>
-
 <style>
 			:root {
 				--research-bg: #07090d;
@@ -404,10 +403,314 @@
 				}
 			}
 		</style>
+
+<style>
+	/* ===== Agitlytics publication navigation ===== */
+	.publication-nav {
+		position: sticky;
+		top: 0;
+		z-index: 10000;
+		background: rgba(7, 9, 13, .9);
+		border-bottom: 1px solid rgba(255,255,255,.1);
+		-webkit-backdrop-filter: blur(16px);
+		backdrop-filter: blur(16px);
+	}
+
+	.publication-nav__inner {
+		max-width: 82rem;
+		min-height: 4.6rem;
+		margin: 0 auto;
+		padding: 0 2rem;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 2rem;
+	}
+
+	.publication-brand {
+		display: inline-flex;
+		align-items: center;
+		gap: .75rem;
+		color: #fff !important;
+		border: 0 !important;
+		font-family: inherit;
+		font-size: .82rem;
+		font-weight: 900;
+		letter-spacing: .22em;
+		text-decoration: none;
+		text-transform: uppercase;
+		white-space: nowrap;
+	}
+
+	.publication-brand::before {
+		content: "";
+		width: .62rem;
+		height: .62rem;
+		background: #d45a68;
+		border-radius: 50%;
+		box-shadow: 0 0 0 .35rem rgba(212,90,104,.12);
+	}
+
+	.publication-links {
+		display: flex;
+		align-items: center;
+		gap: 1.55rem;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.publication-links a {
+		color: #aeb6c0 !important;
+		border: 0 !important;
+		font-family: inherit;
+		font-size: .7rem;
+		font-weight: 800;
+		letter-spacing: .13em;
+		text-decoration: none;
+		text-transform: uppercase;
+		white-space: nowrap;
+		transition: color .2s ease;
+	}
+
+	.publication-links a:hover,
+	.publication-links a.is-active {
+		color: #fff !important;
+	}
+
+	.publication-links a.is-active {
+		position: relative;
+	}
+
+	.publication-links a.is-active::after {
+		content: "";
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: -.68rem;
+		height: 2px;
+		background: #d45a68;
+	}
+
+	.article-end {
+		width: min(64rem, calc(100% - 4rem));
+		margin: 0 auto 6rem;
+		padding: 3rem;
+		background:
+			linear-gradient(145deg, rgba(212,90,104,.08), transparent 36%),
+			#0f1319;
+		border: 1px solid rgba(255,255,255,.12);
+	}
+
+	.article-end__top {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 2rem;
+		padding-bottom: 2.1rem;
+		border-bottom: 1px solid rgba(255,255,255,.1);
+	}
+
+	.article-end__eyebrow {
+		margin: 0 0 .55rem;
+		color: #d45a68;
+		font-family: inherit;
+		font-size: .68rem;
+		font-weight: 900;
+		letter-spacing: .18em;
+		text-transform: uppercase;
+	}
+
+	.article-end h2 {
+		margin: 0 !important;
+		padding: 0 !important;
+		color: #fff !important;
+		font-size: clamp(1.45rem, 3vw, 2.2rem);
+		line-height: 1.08;
+	}
+
+	.article-end h2::before {
+		display: none !important;
+	}
+
+	.article-end__library {
+		flex: 0 0 auto;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 3.2rem;
+		padding: 0 1.3rem;
+		border: 1px solid rgba(255,255,255,.5) !important;
+		color: #fff !important;
+		font-family: inherit;
+		font-size: .68rem;
+		font-weight: 900;
+		letter-spacing: .13em;
+		text-decoration: none;
+		text-transform: uppercase;
+		transition: .2s ease;
+	}
+
+	.article-end__library:hover {
+		background: #d45a68;
+		border-color: #d45a68 !important;
+	}
+
+	.article-pager {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 1px;
+		margin-top: 1px;
+		background: rgba(255,255,255,.1);
+	}
+
+	.article-pager a {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		min-height: 10rem;
+		padding: 1.7rem;
+		background: #0b0f14;
+		border: 0 !important;
+		text-decoration: none;
+		transition: background .2s ease, transform .2s ease;
+	}
+
+	.article-pager a:hover {
+		background: #151a22;
+	}
+
+	.article-pager a:last-child {
+		text-align: right;
+	}
+
+	.article-pager__label {
+		margin-bottom: .7rem;
+		color: #7f8995;
+		font-family: inherit;
+		font-size: .62rem;
+		font-weight: 900;
+		letter-spacing: .17em;
+		text-transform: uppercase;
+	}
+
+	.article-pager__category {
+		margin-bottom: .38rem;
+		color: #d45a68;
+		font-family: inherit;
+		font-size: .64rem;
+		font-weight: 800;
+		letter-spacing: .12em;
+		text-transform: uppercase;
+	}
+
+	.article-pager__title {
+		color: #f3f5f7;
+		font-family: inherit;
+		font-size: 1rem;
+		font-weight: 800;
+		line-height: 1.35;
+	}
+
+	.article-topics {
+		display: flex;
+		flex-wrap: wrap;
+		gap: .65rem;
+		margin-top: 2rem;
+	}
+
+	.article-topics a {
+		display: inline-flex;
+		align-items: center;
+		min-height: 2.35rem;
+		padding: 0 .9rem;
+		background: rgba(255,255,255,.035);
+		border: 1px solid rgba(255,255,255,.11) !important;
+		color: #aeb6c0 !important;
+		font-family: inherit;
+		font-size: .62rem;
+		font-weight: 800;
+		letter-spacing: .11em;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+
+	.article-topics a:hover {
+		color: #fff !important;
+		border-color: #d45a68 !important;
+	}
+
+	@media screen and (max-width: 736px) {
+		.publication-nav__inner {
+			min-height: 4rem;
+			padding: 0 1rem;
+		}
+
+		.publication-brand {
+			font-size: .72rem;
+			letter-spacing: .16em;
+		}
+
+		.publication-links {
+			gap: .9rem;
+			overflow-x: auto;
+			scrollbar-width: none;
+		}
+
+		.publication-links::-webkit-scrollbar {
+			display: none;
+		}
+
+		.publication-links a {
+			font-size: .59rem;
+			letter-spacing: .09em;
+		}
+
+		.publication-links li:nth-child(2),
+		.publication-links li:nth-child(3) {
+			display: none;
+		}
+
+		.article-end {
+			width: calc(100% - 1.5rem);
+			margin-bottom: 3rem;
+			padding: 1.4rem;
+		}
+
+		.article-end__top {
+			align-items: flex-start;
+			flex-direction: column;
+		}
+
+		.article-end__library {
+			width: 100%;
+		}
+
+		.article-pager {
+			grid-template-columns: 1fr;
+		}
+
+		.article-pager a,
+		.article-pager a:last-child {
+			min-height: 8rem;
+			text-align: left;
+		}
+	}
+</style>
 </head>
 <body class="is-preload">
 <!-- Wrapper -->
-<div class="fade-in" id="wrapper">
+<nav aria-label="Primary navigation" class="publication-nav">
+<div class="publication-nav__inner">
+<a class="publication-brand" href="elements.html">Agitlytics Research</a>
+<ul class="publication-links">
+<li><a href="index.html">Portfolio</a></li>
+<li><a href="DataProj.html">Data Projects</a></li>
+<li><a href="generic.html">About</a></li>
+<li><a class="is-active" href="elements.html">Research Library</a></li>
+</ul>
+</div>
+</nav><div class="fade-in" id="wrapper">
 <!-- Intro -->
 <div id="intro">
 <h1>Agitlytics</h1>
@@ -417,11 +720,11 @@
 </ul>
 </div>
 <!-- Header -->
-<header id="header">
+<header id="header" style="display:none;">
 <a class="logo" href="elements.html">Research &amp; Commentary</a>
 </header>
 <!-- Nav -->
-<nav id="nav">
+<nav id="nav" style="display:none;">
 <ul class="links">
 <li><a href="index.html">Home</a></li>
 <li><a href="DataProj.html">Data Projects</a></li>
@@ -551,7 +854,30 @@ That contrast is not lost on the world.
 And until Americans confront the reality of their empire—rather than clinging to comforting myths—the cycle of intervention, collapse, and denial will continue.
 </p>
 </div></section>
+</div><aside aria-label="Continue reading" class="article-end">
+<div class="article-end__top">
+<div>
+<p class="article-end__eyebrow">Continue Exploring</p>
+<h2>More from the Agitlytics Research Desk</h2>
 </div>
+<a class="article-end__library" href="elements.html">Back to Research Library</a>
+</div>
+<div class="article-pager">
+<a aria-label="Previous article: Blaming Immigrants Is a Fascist Misdirection" href="ICEFash.html">
+<span class="article-pager__label">← Previous Analysis</span>
+<span class="article-pager__category">Political Analysis</span>
+<span class="article-pager__title">Blaming Immigrants Is a Fascist Misdirection</span>
+</a>
+<a aria-label="Next article: The Inflationary Impact of Tariffs" href="Inflation.html">
+<span class="article-pager__label">Next Analysis →</span>
+<span class="article-pager__category">Markets &amp; Economics</span>
+<span class="article-pager__title">The Inflationary Impact of Tariffs</span>
+</a>
+</div>
+<nav aria-label="Research topics" class="article-topics">
+<a href="elements.html">Political Economy</a><a href="elements.html">Foreign Policy</a><a href="elements.html">Elections</a><a href="elements.html">Markets &amp; Economics</a><a href="elements.html">Political Analysis</a>
+</nav>
+</aside>
 <!-- Footer -->
 <footer id="footer">
 <!-- <section>
