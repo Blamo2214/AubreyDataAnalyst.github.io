@@ -1,137 +1,485 @@
 <!DOCTYPE HTML>
+
 <!--
 	Massively by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<html>
-	<head>
-		<title>Agitlytics</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+<html lang="en">
+<head>
+<title>Agitlytics</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport"/>
+<link href="assets/css/main.css" rel="stylesheet"/>
+<noscript><link href="assets/css/noscript.css" rel="stylesheet"/></noscript>
 
-		<!-- Wrapper -->
-			<div id="wrapper" class="fade-in">
+<style>
+			:root {
+				--research-bg: #07090d;
+				--research-surface: #0f1319;
+				--research-surface-2: #151a22;
+				--research-text: #f3f5f7;
+				--research-muted: #aeb6c0;
+				--research-faint: #7f8995;
+				--research-border: rgba(255,255,255,.12);
+				--research-accent: #d45a68;
+				--research-accent-soft: rgba(212,90,104,.13);
+				--reading-width: 48rem;
+			}
 
-				<!-- Intro -->
-					<div id="intro">
-						<h1>Agitlytics</h1>
-						<p>Commentary by <a href="https://www.linkedin.com/in/aubrey-waddle-962634314"target="_blank" rel="noopener noreferrer">Aubrey Waddle</a></p>
-						<ul class="actions">
-							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
-						</ul>
-					</div>
+			* { box-sizing: border-box; }
 
-				<!-- Header -->
-					<header id="header">
-						<a href="ICEFash.html" class="logo">Report</a>
+			html { scroll-behavior: smooth; }
 
-					</header>
+			body {
+				background: var(--research-bg);
+				color: var(--research-text);
+			}
 
-				<!-- Nav -->
-					<nav id="nav">
-						<ul class="links">
-							<li><a href="index.html">Home</a></li>
-							<li><a href="DataProj.html">Data Projects</a></li>
-							<li><a href="elements.html">Commentary</a></li>
-							<li class="active"><a href="DemCrit.html">Embargo</a></li>
-              
-						
-							
-						</ul>
-						<ul class="icons">
-							<li><a href="images\RESUME 2025Nov.pdf.pdf" target="_blank" rel="noopener noreferrer" class="cib-tableau"><span class="label">Résumé</span></a></li>
-							<li><a href="images\SNHU Diploma.pdf" target="_blank" rel="noopener noreferrer" class="cib-tableau"><span class="label">Diploma</span></a></li>
-							<li><a href="images\Transcript_AUBREYWADDLE FINAL.pdf" target="_blank" rel="noopener noreferrer" class="cib-tableau"><span class="label">Transcript</span></a></li>
-							<li><a href="https://public.tableau.com/app/profile/aubrey.waddle/vizzes" target="_blank" rel="noopener noreferrer" class="cib-tableau"><span class="label">Tableau Public</span></a></li>
-							<li><a href="https://www.linkedin.com/in/aubrey-waddle-962634314" target="_blank" rel="noopener noreferrer" class="icon brands alt fa-linkedin"><span class="label">linkedin</span></a></li>
-							<li><a href="https://github.com/Blamo2214" target="_blank" rel="noopener noreferrer" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-							<li><a href="https://www.facebook.com/aubrey.waddle/" target="_blank" rel="noopener noreferrer" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-							<li><a href="https://www.instagram.com/aubrey_waddle12/" target="_blank" rel="noopener noreferrer" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-						</ul>
-					</nav>
+			#wrapper,
+			#wrapper.fade-in,
+			#main,
+			#footer {
+				background-color: var(--research-bg);
+			}
 
-				<!-- Main -->
-					<div id="main">
+			/* Article pages use a compact publication masthead rather than the
+			   full-screen landing intro used elsewhere in the template. */
+			#intro { display: none; }
 
-						<!-- Post -->
-							<section class="post">
-								<header class="major">
-									<span class="date"></span>
-									<h1>Total Arms Embargo on Israel Would Make Israelis Safer</h1>
-									<p>Commentary - Aubrey Waddle - 4/17/2026</p>
-								</header>
-								<div class="image main"><img src="images\LebanonStrike.png" alt="" /></div>
-							
+			#header {
+				min-height: 5rem;
+				background: rgba(7,9,13,.96);
+				border-bottom: 1px solid var(--research-border);
+			}
+
+			#header .logo {
+				border: 0;
+				color: var(--research-text) !important;
+				font-size: .82rem;
+				font-weight: 800;
+				letter-spacing: .2em;
+				padding: 0;
+				text-transform: uppercase;
+			}
+
+			#header .logo::before {
+				content: "Agitlytics  /  ";
+				color: var(--research-accent);
+			}
+
+			#nav {
+				background: rgba(15,19,25,.97);
+				border-bottom: 1px solid var(--research-border);
+			}
+
+			#nav a,
+			#nav .icon:before {
+				color: var(--research-muted) !important;
+			}
+
+			#nav ul.links li.active {
+				background: var(--research-accent-soft);
+			}
+
+			#nav ul.links li.active a,
+			#nav a:hover {
+				color: #fff !important;
+			}
+
+			#main {
+				max-width: 82rem;
+				padding: 0;
+				background: var(--research-bg);
+			}
+
+			#main > .post {
+				padding: 0;
+				background: transparent;
+			}
+
+			.article-hero {
+				position: relative;
+				padding: 5.25rem 5rem 3.5rem !important;
+				margin: 0 !important;
+				background:
+					radial-gradient(circle at 90% 10%, rgba(212,90,104,.14), transparent 28%),
+					linear-gradient(135deg, #0c1016, #080a0e);
+				border-bottom: 1px solid var(--research-border);
+				text-align: left !important;
+			}
+
+			.article-hero::before {
+				content: "Agitlytics Research Desk";
+				display: block;
+				margin-bottom: 1.35rem;
+				color: var(--research-accent);
+				font-size: .72rem;
+				font-weight: 800;
+				letter-spacing: .2em;
+				text-transform: uppercase;
+			}
+
+			.article-hero h1 {
+				max-width: 18ch;
+				margin: 0 0 1.4rem !important;
+				color: var(--research-text) !important;
+				font-size: clamp(2.55rem, 6vw, 5.3rem);
+				line-height: .98;
+				letter-spacing: -.015em;
+				text-align: left;
+			}
+
+			.article-hero p {
+				margin: 0 !important;
+				color: var(--research-muted) !important;
+				font-family: inherit;
+				font-size: .82rem;
+				font-style: normal;
+				font-weight: 700;
+				letter-spacing: .14em;
+				line-height: 1.5;
+				text-align: left;
+				text-transform: uppercase;
+			}
+
+			.article-hero .date:empty { display: none; }
+
+			.hero-image {
+				width: min(72rem, calc(100% - 5rem));
+				margin: -1px auto 0 !important;
+				background: var(--research-surface);
+				border: 1px solid var(--research-border);
+				border-top: 0;
+				overflow: hidden;
+			}
+
+			.hero-image img {
+				display: block;
+				width: 100%;
+				max-height: 42rem;
+				object-fit: cover;
+			}
+
+			.article-body {
+				width: min(var(--reading-width), calc(100% - 4rem));
+				margin: 0 auto;
+				padding: 4.5rem 0 6rem;
+				color: var(--research-text);
+			}
+
+			.article-body > h2:first-child:empty { display: none; }
+
+			.article-body h2,
+			.article-body h3,
+			.article-body h4 {
+				color: var(--research-text) !important;
+				text-align: left;
+			}
+
+			.article-body h2 {
+				position: relative;
+				margin: 4.5rem 0 1.4rem;
+				padding-top: 1.5rem;
+				font-size: clamp(1.55rem, 3vw, 2.25rem);
+				line-height: 1.15;
+				letter-spacing: -.005em;
+			}
+
+			.article-body h2::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 3.25rem;
+				height: 2px;
+				background: var(--research-accent);
+			}
+
+			.article-body h3 {
+				margin: 3rem 0 1rem;
+				font-size: 1.35rem;
+			}
+
+			.article-body p,
+			.article-body li,
+			.article-body blockquote {
+				color: #d9dee4 !important;
+				font-family: Georgia, "Times New Roman", serif;
+				font-size: 1.12rem;
+				line-height: 1.88;
+				text-align: left;
+			}
+
+			.article-body p {
+				margin: 0 0 1.55rem;
+			}
+
+			.article-body a {
+				color: #f08a96;
+				border-bottom-color: rgba(240,138,150,.45);
+			}
+
+			.article-body a:hover {
+				color: #fff !important;
+				border-bottom-color: var(--research-accent);
+			}
+
+			.article-body strong,
+			.article-body b {
+				color: #fff;
+			}
+
+			.article-body i,
+			.article-body em {
+				color: #eef1f4;
+			}
+
+			.article-body blockquote,
+			.article-body p:has(> i:only-child),
+			.article-body p:has(> em:only-child) {
+				margin: 2.25rem 0;
+				padding: 1.4rem 1.6rem;
+				background: var(--research-surface);
+				border-left: 3px solid var(--research-accent);
+			}
+
+			.article-body ul,
+			.article-body ol {
+				margin: 1.5rem 0 2rem;
+			}
+
+			.article-body .image,
+			.article-body .image.main,
+			.article-body .image.fit,
+			.article-body .image.left,
+			.article-body .image.right {
+				display: block;
+				float: none;
+				width: min(64rem, 100%);
+				max-width: none;
+				margin: 2.75rem auto;
+				padding: 0;
+				background: var(--research-surface);
+				border: 1px solid var(--research-border);
+				border-radius: 2px;
+				overflow: hidden;
+			}
+
+			.article-body .image img,
+			.article-body img {
+				display: block;
+				max-width: 100%;
+				height: auto;
+			}
+
+			.article-body table {
+				display: block;
+				width: 100%;
+				margin: 2rem 0;
+				overflow-x: auto;
+				background: var(--research-surface);
+				border: 1px solid var(--research-border);
+			}
+
+			.article-body table th,
+			.article-body table td {
+				color: var(--research-text);
+				border-color: var(--research-border);
+			}
+
+			.article-body .button,
+			.article-body button,
+			.article-body input[type="submit"],
+			.article-body input[type="reset"],
+			.article-body input[type="button"] {
+				background: transparent;
+				border-color: rgba(255,255,255,.65) !important;
+				box-shadow: inset 0 0 0 2px rgba(255,255,255,.65);
+				color: #fff !important;
+			}
+
+			.article-body .button:hover {
+				background: var(--research-accent-soft);
+				border-color: var(--research-accent) !important;
+				box-shadow: inset 0 0 0 2px var(--research-accent);
+			}
+
+			#footer {
+				background: #0d1117;
+				border-top: 1px solid var(--research-border);
+			}
+
+			#footer h3,
+			#footer p,
+			#footer a,
+			#copyright,
+			#copyright a {
+				color: var(--research-muted) !important;
+			}
+
+			#copyright {
+				background: var(--research-bg);
+			}
+
+			@media screen and (max-width: 980px) {
+				.article-hero {
+					padding: 4.25rem 3rem 3rem !important;
+				}
+
+				.hero-image {
+					width: calc(100% - 3rem);
+				}
+			}
+
+			@media screen and (max-width: 736px) {
+				#header {
+					min-height: 4rem;
+				}
+
+				#header .logo {
+					font-size: .68rem;
+					letter-spacing: .15em;
+				}
+
+				#header .logo::before {
+					content: "Agitlytics / ";
+				}
+
+				.article-hero {
+					padding: 3.2rem 1.4rem 2.4rem !important;
+				}
+
+				.article-hero::before {
+					margin-bottom: 1rem;
+					font-size: .62rem;
+				}
+
+				.article-hero h1 {
+					max-width: none;
+					font-size: clamp(2.15rem, 11vw, 3.35rem);
+					line-height: 1.02;
+					overflow-wrap: anywhere;
+				}
+
+				.article-hero p {
+					font-size: .68rem;
+					letter-spacing: .1em;
+				}
+
+				.hero-image {
+					width: 100%;
+					border-left: 0;
+					border-right: 0;
+				}
+
+				.hero-image img {
+					max-height: 25rem;
+				}
+
+				.article-body {
+					width: calc(100% - 2.5rem);
+					padding: 3rem 0 4.5rem;
+				}
+
+				.article-body p,
+				.article-body li,
+				.article-body blockquote {
+					font-size: 1.03rem;
+					line-height: 1.76;
+				}
+
+				.article-body h2 {
+					margin-top: 3.5rem;
+					font-size: 1.55rem;
+				}
+
+				.article-body .image,
+				.article-body .image.main,
+				.article-body .image.fit,
+				.article-body .image.left,
+				.article-body .image.right {
+					width: calc(100% + 1rem);
+					margin-left: -.5rem;
+				}
+			}
+		</style>
+</head>
+<body class="is-preload">
+<!-- Wrapper -->
+<div class="fade-in" id="wrapper">
+<!-- Intro -->
+<div id="intro">
+<h1>Agitlytics</h1>
+<p>Commentary by <a href="https://www.linkedin.com/in/aubrey-waddle-962634314" rel="noopener noreferrer" target="_blank">Aubrey Waddle</a></p>
+<ul class="actions">
+<li><a class="button icon solid solo fa-arrow-down scrolly" href="#header">Continue</a></li>
+</ul>
+</div>
+<!-- Header -->
+<header id="header">
+<a class="logo" href="elements.html">Research &amp; Commentary</a>
+</header>
+<!-- Nav -->
+<nav id="nav">
+<ul class="links">
+<li><a href="index.html">Home</a></li>
+<li><a href="DataProj.html">Data Projects</a></li>
+<li class="active"><a href="elements.html">Commentary</a></li>
+<li class="active"><a href="DemCrit.html">Embargo</a></li>
+</ul>
+<ul class="icons">
+<li><a class="cib-tableau" href="images/RESUME 2025Nov.pdf.pdf" rel="noopener noreferrer" target="_blank"><span class="label">Résumé</span></a></li>
+<li><a class="cib-tableau" href="images/SNHU Diploma.pdf" rel="noopener noreferrer" target="_blank"><span class="label">Diploma</span></a></li>
+<li><a class="cib-tableau" href="images/Transcript_AUBREYWADDLE FINAL.pdf" rel="noopener noreferrer" target="_blank"><span class="label">Transcript</span></a></li>
+<li><a class="cib-tableau" href="https://public.tableau.com/app/profile/aubrey.waddle/vizzes" rel="noopener noreferrer" target="_blank"><span class="label">Tableau Public</span></a></li>
+<li><a class="icon brands alt fa-linkedin" href="https://www.linkedin.com/in/aubrey-waddle-962634314" rel="noopener noreferrer" target="_blank"><span class="label">linkedin</span></a></li>
+<li><a class="icon brands fa-github" href="https://github.com/Blamo2214" rel="noopener noreferrer" target="_blank"><span class="label">GitHub</span></a></li>
+<li><a class="icon brands fa-facebook-f" href="https://www.facebook.com/aubrey.waddle/" rel="noopener noreferrer" target="_blank"><span class="label">Facebook</span></a></li>
+<li><a class="icon brands fa-instagram" href="https://www.instagram.com/aubrey_waddle12/" rel="noopener noreferrer" target="_blank"><span class="label">Instagram</span></a></li>
+</ul>
+</nav>
+<!-- Main -->
+<div id="main">
+<!-- Post -->
+<section class="post">
+<header class="major article-hero">
+<span class="date"></span>
+<h1>Total Arms Embargo on Israel Would Make Israelis Safer</h1>
+<p>Commentary - Aubrey Waddle - 4/17/2026</p>
+</header>
+<div class="image main hero-image"><img alt="" src="images/LebanonStrike.png"/></div><div class="article-body">
 <h2>Total Arms Embargo on Israel Would Make Israelis Safer</h2>
 <ul class="actions">
-   <li><a href="#conclusion" class="button primary scrolly">Skip to Conclusion</a></li>
+<li><a class="button primary scrolly" href="#conclusion">Skip to Conclusion</a></li>
 </ul>
-
 <p>Fundamentally, the reason I believe the U.S. should stop providing both offensive and defensive weapons to Israel, especially at this point, is rooted in a position I’ve held for about two and a half years, essentially since I became aware of the Israel–Palestine issue and its history.</p>
-
 <p>My position is this, allowing and funding Israel’s Iron Dome, and providing defensive support more broadly, enables Israel to act as aggressively as it does in the region. The aggression we see from groups like Hamas, Hezbollah, the Houthis, and even Iran is not random or happening in a vacuum. There is a long history behind it, and these attacks, rockets toward Tel Aviv for example, are responses, in one form or another, to Israeli actions.</p>
-
 <p>Whether we’re talking about violations of international law in the West Bank, settler violence being tolerated, the broader structural inequalities within Israel, or direct military actions against neighboring regions, the pattern is one of sustained aggression. This is also tied to the ideology of key leaders, figures like Bezalel Smotrich, Itamar Ben-Gvir, and Benjamin Netanyahu, along with the Likud party, who have openly supported expansionist ideas associated with “Greater Israel.”</p>
-
 <p>My argument is that this level of aggression is only sustainable because the consequences are limited. Defensive systems like the Iron Dome reduce the cost of escalation. If those protections weren’t in place, if the U.S. weren’t funding them, Israel would have to factor in much greater risk when acting aggressively.</p>
-
 <p>To make this clearer, consider a hypothetical. If, prior to September 1st, 1939, the United States had funded and built up the defensive capabilities of Nazi Germany, essentially giving it something like an “Iron Dome,” that would have lowered the perceived consequences of its expansionist ambitions. Nazi Germany already had an expansionist ideology, what matters is the calculation. They knew aggression would bring retaliation, but they believed they could withstand it.</p>
-
 <p>That’s the key point, aggressive states act when they believe they can absorb the consequences.</p>
-
 <p>In fact, the most dangerous force for German civilians ended up being the Nazi Party itself. If Germany had never been effectively rearmed, something the Treaty of Versailles attempted, though unsuccessfully enforced, it’s far less likely they would have attempted something like the invasion of Poland. Without the capability, the ideology alone wouldn’t have translated into action.</p>
-
 <p>That’s the parallel I’m drawing. Modern Zionist policy, particularly as shaped by the current leadership, reflects an expansionist and highly aggressive posture. Israel, despite being geographically small, would not be able to sustain that level of aggression without near-total protection from retaliation.</p>
-
 <p>It is also important to understand that the forces often cited as proof that Israel needs endless military backing did not arise in a vacuum. Hezbollah did not always exist. It emerged after Israel’s 1982 invasion of Lebanon. The Houthis did not simply appear out of nowhere; they emerged through the conditions created by war, intervention, and regional destabilization perpetrated by the west. Hamas did not arise in a vacuum either, it arose from the conditions of occupation, blockade, dispossession, and failed political settlement.</p>
-
 <p>The idea that these actors would simply seek to destroy Israel no matter what, and that their behavior has nothing to do with Israeli or Western aggression, is historically shallow. It treats violence as something innate to Arabs or Muslims rather than as something produced by material conditions, repression, war, and retaliation. This assumption is racism as a reflex in the same way looking at the Nat Turner Rebellion and saying that it proved enslaved Black people were simply violent is; that if they were not enslaved they would have risen up and killed everyone anyway. That is fundamentally false. Whatever violence occurred in that rebellion, and however difficult it is to stomach, what should be far harder to stomach are the realities of chattel slavery itself. The more one understands slavery, the more obvious it becomes why slave rebellions were so fierce and so brutal. Cause and effect matters.</p>
-
 <p>That is the same point being made here. Of course October 7th was violent. Look at the conditions Palestinians in Gaza were forced to live under for years, blockade, bombardment, confinement, deprivation, and recurring war. Of course anti-Israel rhetoric in groups like Hezbollah can become extreme after decades of invasion, bombardment, occupation, and regional conflict. Of course hostile reactions emerge when a state repeatedly projects force while presenting itself as untouchable.</p>
-
 <p>None of that is to morally justify every retaliatory act. It is to explain that violent reactions usually follow violent conditions. If one wants fewer violent actors, one must reduce the conditions that create them.</p>
-
 <p>History repeatedly shows this pattern. The Mujahideen in Afghanistan did not arise in a vacuum. Saddam Hussein and the path to the Gulf War did not arise in a vacuum. These situations were shaped by Western backing, regional manipulation, militarization, and great-power meddling. The same principle applies here.</p>
-
 <p>Moreover, if the goal is to reduce civilian deaths, which is ultimately what this comes down to, it’s important to recognize that the current system is already producing massive civilian harm. The expansionist ideology and the aggression of the Israeli state result in countless civilian deaths, whether in Gaza, through settler violence in the West Bank, through actions against Iran, or through attacks on Lebanon. There are civilians in Lebanon not just in danger but actively being killed, civilians in Iran being killed, etc.</p>
-
 <p>So the idea that removing funding for the Iron Dome would uniquely endanger Israeli civilians ignores the reality that civilians across the region are already in constant danger and are actively dying under the current arrangement. If the concern is civilian protection, the current system (unconditional funding of Israel's offensive and defensive capabilities) is already failing on that front in a massive way.</p>
-
 <p>I’m as concerned about those civilians as I am about Israeli civilians, which is exactly why removing, or even just threatening to remove, U.S. funding for both offensive and defensive systems changes the incentive structure. It forces Israeli leadership to stop acting as aggressors and agitators in the region. That reduces civilian deaths on both ends. First and foremost, it reduces the civilian casualties resulting from Israeli military actions in Gaza, the West Bank, Lebanon, Yemen, Iran, Syria, Iraq, and elsewhere. But it also makes Israeli civilians safer, because the incentive and justification for retaliatory attacks against Israel are reduced. If Israel is no longer acting as an aggressive or destabilizing force in the region, the cycle of retaliation begins to diminish.</p>
-
 <p>Additionally, it’s important to understand that the Iron Dome would not simply disappear overnight. While it is heavily funded by the U.S., Israel also funds it domestically and has the capacity to continue doing so, at least for some period of time. So this is not a situation where U.S. funding is cut and the system immediately shuts off. </p>
-
 <p>Instead, it creates a new calculation for Israeli leadership. They would recognize that U.S. support is no longer guaranteed, that their defensive capabilities have a limited runway if they continue at current levels of escalation. These are not irrational actors, they are highly calculated, even if aggressive psychopaths. Leaders within Likud, including Benjamin Netanyahu, would be forced to evaluate how long they can sustain their current posture without external backing.</p>
-
 <p>That means they would have to consider de-escalation, reducing regional conflict, and stepping back from continuous military engagement, because the ability to absorb retaliation would no longer be guaranteed. In other words, removing or threatening to remove that defensive backstop doesn’t create chaos, it forces restraint, because the consequences of aggression become real again.</p>
-
 <h2 id="conclusion">Conclusion</h2>
-
 <p>In conclusion, the central argument is not that Israeli civilians are undeserving of protection, but that true protection cannot be built on permanent aggression, occupation, and external military guarantees. Unconditional U.S. support, whether offensive or defensive, has helped create a system in which Israeli leadership can pursue violent and expansionist policies while avoiding the full consequences of those choices. That arrangement has produced devastation across the region and has not delivered lasting safety to Israelis themselves.</p>
-
 <p>If the genuine objective is to reduce civilian deaths and move toward stability, then the incentive structure must change. Conditioning, reducing, or ending military support would force restraint, encourage de-escalation, and make diplomacy more necessary than domination. Real security for Israelis, Palestinians, and neighboring populations alike will come not through endless weapons flows, but through accountability, political settlement, and an end to the cycle of provocation and retaliation.</p>
-
-
-
-
-
-
-
-
-
-
-							</section>
-
-					</div>
-
-				<!-- Footer -->
-					<footer id="footer">
-						<!-- <section>
+</div></section>
+</div>
+<!-- Footer -->
+<footer id="footer">
+<!-- <section>
 							<form method="post" action="#">
 								<div class="fields">
 									<div class="field">
@@ -152,61 +500,56 @@
 								</ul>
 							</form>
 						</section> -->
-						<section class="posts">
-								<article>
-									<header>
-										<!-- <span class="date"></span>
+<section class="posts">
+<article>
+<header>
+<!-- <span class="date"></span>
 										<h2><a href="https://public.tableau.com/shared/YFXYJXN7D?:display_count=n&:origin=viz_share_link">Data Exploration of<br />
 										Covid Datasets in SQL</a></h2>  -->
-									</header>
-									<a href="#" class="image main"><img src="images\Headshot.png" alt="" /></a>
-									<p></p>
-									<ul class="actions special">
-										
-									</ul>
-								</article>
-						</section>
-						<section class="split contact">
-							<section class="alt">
-								<h3>Location</h3>
-								<p>Houston, TX<br />
-								</p>
-							</section>
-							<section>
-								<h3>Phone</h3>
-								<p><a href="#">(936)446-8053</a></p>
-							</section>
-							<section>
-								<h3>Email</h3>
-								<p><a href="#">aubreywaddle2@gmail.com</a></p>
-							</section>
-							<section>
-								<h3>Social</h3>
-								<ul class="icons alt">
-									<li><a href="www.linkedin.com/in/aubrey-waddle-962634314" class="icon brands alt fa-linkedin"><span class="label">linkedin</span></a></li>
-									<li><a href="https://www.facebook.com/aubrey.waddle/" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-									<li><a href="https://www.instagram.com/aubrey_waddle12/" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-									<li><a href="https://github.com/Blamo2214" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-								</ul>
-							</section>
-						</section>
-					</footer>
-
-				<!-- Copyright -->
-					<div id="copyright">
-						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
-					</div>
-
-			</div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
+</header>
+<a class="image main" href="#"><img alt="" src="images/Headshot.png"/></a>
+<p></p>
+<ul class="actions special">
+</ul>
+</article>
+</section>
+<section class="split contact">
+<section class="alt">
+<h3>Location</h3>
+<p>Houston, TX<br/>
+</p>
+</section>
+<section>
+<h3>Phone</h3>
+<p><a href="#">(936)446-8053</a></p>
+</section>
+<section>
+<h3>Email</h3>
+<p><a href="#">aubreywaddle2@gmail.com</a></p>
+</section>
+<section>
+<h3>Social</h3>
+<ul class="icons alt">
+<li><a class="icon brands alt fa-linkedin" href="www.linkedin.com/in/aubrey-waddle-962634314"><span class="label">linkedin</span></a></li>
+<li><a class="icon brands alt fa-facebook-f" href="https://www.facebook.com/aubrey.waddle/"><span class="label">Facebook</span></a></li>
+<li><a class="icon brands alt fa-instagram" href="https://www.instagram.com/aubrey_waddle12/"><span class="label">Instagram</span></a></li>
+<li><a class="icon brands alt fa-github" href="https://github.com/Blamo2214"><span class="label">GitHub</span></a></li>
+</ul>
+</section>
+</section>
+</footer>
+<!-- Copyright -->
+<div id="copyright">
+<ul><li>© Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+</div>
+</div>
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
 </html>
