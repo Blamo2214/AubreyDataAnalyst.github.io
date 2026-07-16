@@ -1,179 +1,527 @@
 <!DOCTYPE HTML>
+
 <!--
 	Massively by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<html>
-	<head>
-		<title>Agitlytics</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+<html lang="en">
+<head>
+<title>Agitlytics</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport"/>
+<link href="assets/css/main.css" rel="stylesheet"/>
+<noscript><link href="assets/css/noscript.css" rel="stylesheet"/></noscript>
 
-		<!-- Wrapper -->
-			<div id="wrapper" class="fade-in">
+<style>
+			:root {
+				--research-bg: #07090d;
+				--research-surface: #0f1319;
+				--research-surface-2: #151a22;
+				--research-text: #f3f5f7;
+				--research-muted: #aeb6c0;
+				--research-faint: #7f8995;
+				--research-border: rgba(255,255,255,.12);
+				--research-accent: #d45a68;
+				--research-accent-soft: rgba(212,90,104,.13);
+				--reading-width: 48rem;
+			}
 
-				<!-- Intro -->
-					<div id="intro">
-						<h1>Agitlytics</h1>
-						<p>Commentary by <a href="https://www.linkedin.com/in/aubrey-waddle-962634314"target="_blank" rel="noopener noreferrer">Aubrey Waddle</a></p>
-						<ul class="actions">
-							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
-						</ul>
-					</div>
+			* { box-sizing: border-box; }
 
-				<!-- Header -->
-					<header id="header">
-						<a href="ICEFash.html" class="logo">Report</a>
+			html { scroll-behavior: smooth; }
 
-					</header>
+			body {
+				background: var(--research-bg);
+				color: var(--research-text);
+			}
 
-				<!-- Nav -->
-					<nav id="nav">
-						<ul class="links">
-							<li><a href="index.html">Home</a></li>
-							<li><a href="DataProj.html">Data Projects</a></li>
-							<li><a href="elements.html">Commentary</a></li>
-							<li class="active"><a href="DemCrit.html">Dem Critique</a></li>
-              
-						
-							
-						</ul>
-						<ul class="icons">
-							<li><a href="images\RESUME 2025Nov.pdf.pdf" target="_blank" rel="noopener noreferrer" class="cib-tableau"><span class="label">Résumé</span></a></li>
-							<li><a href="images\SNHU Diploma.pdf" target="_blank" rel="noopener noreferrer" class="cib-tableau"><span class="label">Diploma</span></a></li>
-							<li><a href="images\Transcript_AUBREYWADDLE FINAL.pdf" target="_blank" rel="noopener noreferrer" class="cib-tableau"><span class="label">Transcript</span></a></li>
-							<li><a href="https://public.tableau.com/app/profile/aubrey.waddle/vizzes" target="_blank" rel="noopener noreferrer" class="cib-tableau"><span class="label">Tableau Public</span></a></li>
-							<li><a href="https://www.linkedin.com/in/aubrey-waddle-962634314" target="_blank" rel="noopener noreferrer" class="icon brands alt fa-linkedin"><span class="label">linkedin</span></a></li>
-							<li><a href="https://github.com/Blamo2214" target="_blank" rel="noopener noreferrer" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-							<li><a href="https://www.facebook.com/aubrey.waddle/" target="_blank" rel="noopener noreferrer" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-							<li><a href="https://www.instagram.com/aubrey_waddle12/" target="_blank" rel="noopener noreferrer" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-						</ul>
-					</nav>
+			#wrapper,
+			#wrapper.fade-in,
+			#main,
+			#footer {
+				background-color: var(--research-bg);
+			}
 
-				<!-- Main -->
-					<div id="main">
+			/* Article pages use a compact publication masthead rather than the
+			   full-screen landing intro used elsewhere in the template. */
+			#intro { display: none; }
 
-						<!-- Post -->
-							<section class="post">
-								<header class="major">
-									<span class="date"></span>
-									<h1>Who the Democratic Party Is Really Losing — and Why Scolding the Left Won’t Fix It</h1>
-									<p>Commentary - Aubrey Waddle</p>
-								</header>
-								<div class="image main"><img src="images\DemCrit.png" alt="" /></div>
-							
+			#header {
+				min-height: 5rem;
+				background: rgba(7,9,13,.96);
+				border-bottom: 1px solid var(--research-border);
+			}
+
+			#header .logo {
+				border: 0;
+				color: var(--research-text) !important;
+				font-size: .82rem;
+				font-weight: 800;
+				letter-spacing: .2em;
+				padding: 0;
+				text-transform: uppercase;
+			}
+
+			#header .logo::before {
+				content: "Agitlytics  /  ";
+				color: var(--research-accent);
+			}
+
+			#nav {
+				background: rgba(15,19,25,.97);
+				border-bottom: 1px solid var(--research-border);
+			}
+
+			#nav a,
+			#nav .icon:before {
+				color: var(--research-muted) !important;
+			}
+
+			#nav ul.links li.active {
+				background: var(--research-accent-soft);
+			}
+
+			#nav ul.links li.active a,
+			#nav a:hover {
+				color: #fff !important;
+			}
+
+			#main {
+				max-width: 82rem;
+				padding: 0;
+				background: var(--research-bg);
+			}
+
+			#main > .post {
+				padding: 0;
+				background: transparent;
+			}
+
+			.article-hero {
+				position: relative;
+				padding: 5.25rem 5rem 3.5rem !important;
+				margin: 0 !important;
+				background:
+					radial-gradient(circle at 90% 10%, rgba(212,90,104,.14), transparent 28%),
+					linear-gradient(135deg, #0c1016, #080a0e);
+				border-bottom: 1px solid var(--research-border);
+				text-align: left !important;
+			}
+
+			.article-hero::before {
+				content: "Agitlytics Research Desk";
+				display: block;
+				margin-bottom: 1.35rem;
+				color: var(--research-accent);
+				font-size: .72rem;
+				font-weight: 800;
+				letter-spacing: .2em;
+				text-transform: uppercase;
+			}
+
+			.article-hero h1 {
+				max-width: 18ch;
+				margin: 0 0 1.4rem !important;
+				color: var(--research-text) !important;
+				font-size: clamp(2.55rem, 6vw, 5.3rem);
+				line-height: .98;
+				letter-spacing: -.015em;
+				text-align: left;
+			}
+
+			.article-hero p {
+				margin: 0 !important;
+				color: var(--research-muted) !important;
+				font-family: inherit;
+				font-size: .82rem;
+				font-style: normal;
+				font-weight: 700;
+				letter-spacing: .14em;
+				line-height: 1.5;
+				text-align: left;
+				text-transform: uppercase;
+			}
+
+			.article-hero .date:empty { display: none; }
+
+			.hero-image {
+				width: min(72rem, calc(100% - 5rem));
+				margin: -1px auto 0 !important;
+				background: var(--research-surface);
+				border: 1px solid var(--research-border);
+				border-top: 0;
+				overflow: hidden;
+			}
+
+			.hero-image img {
+				display: block;
+				width: 100%;
+				max-height: 42rem;
+				object-fit: cover;
+			}
+
+			.article-body {
+				width: min(var(--reading-width), calc(100% - 4rem));
+				margin: 0 auto;
+				padding: 4.5rem 0 6rem;
+				color: var(--research-text);
+			}
+
+			.article-body > h2:first-child:empty { display: none; }
+
+			.article-body h2,
+			.article-body h3,
+			.article-body h4 {
+				color: var(--research-text) !important;
+				text-align: left;
+			}
+
+			.article-body h2 {
+				position: relative;
+				margin: 4.5rem 0 1.4rem;
+				padding-top: 1.5rem;
+				font-size: clamp(1.55rem, 3vw, 2.25rem);
+				line-height: 1.15;
+				letter-spacing: -.005em;
+			}
+
+			.article-body h2::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 3.25rem;
+				height: 2px;
+				background: var(--research-accent);
+			}
+
+			.article-body h3 {
+				margin: 3rem 0 1rem;
+				font-size: 1.35rem;
+			}
+
+			.article-body p,
+			.article-body li,
+			.article-body blockquote {
+				color: #d9dee4 !important;
+				font-family: Georgia, "Times New Roman", serif;
+				font-size: 1.12rem;
+				line-height: 1.88;
+				text-align: left;
+			}
+
+			.article-body p {
+				margin: 0 0 1.55rem;
+			}
+
+			.article-body a {
+				color: #f08a96;
+				border-bottom-color: rgba(240,138,150,.45);
+			}
+
+			.article-body a:hover {
+				color: #fff !important;
+				border-bottom-color: var(--research-accent);
+			}
+
+			.article-body strong,
+			.article-body b {
+				color: #fff;
+			}
+
+			.article-body i,
+			.article-body em {
+				color: #eef1f4;
+			}
+
+			.article-body blockquote,
+			.article-body p:has(> i:only-child),
+			.article-body p:has(> em:only-child) {
+				margin: 2.25rem 0;
+				padding: 1.4rem 1.6rem;
+				background: var(--research-surface);
+				border-left: 3px solid var(--research-accent);
+			}
+
+			.article-body ul,
+			.article-body ol {
+				margin: 1.5rem 0 2rem;
+			}
+
+			.article-body .image,
+			.article-body .image.main,
+			.article-body .image.fit,
+			.article-body .image.left,
+			.article-body .image.right {
+				display: block;
+				float: none;
+				width: min(64rem, 100%);
+				max-width: none;
+				margin: 2.75rem auto;
+				padding: 0;
+				background: var(--research-surface);
+				border: 1px solid var(--research-border);
+				border-radius: 2px;
+				overflow: hidden;
+			}
+
+			.article-body .image img,
+			.article-body img {
+				display: block;
+				max-width: 100%;
+				height: auto;
+			}
+
+			.article-body table {
+				display: block;
+				width: 100%;
+				margin: 2rem 0;
+				overflow-x: auto;
+				background: var(--research-surface);
+				border: 1px solid var(--research-border);
+			}
+
+			.article-body table th,
+			.article-body table td {
+				color: var(--research-text);
+				border-color: var(--research-border);
+			}
+
+			.article-body .button,
+			.article-body button,
+			.article-body input[type="submit"],
+			.article-body input[type="reset"],
+			.article-body input[type="button"] {
+				background: transparent;
+				border-color: rgba(255,255,255,.65) !important;
+				box-shadow: inset 0 0 0 2px rgba(255,255,255,.65);
+				color: #fff !important;
+			}
+
+			.article-body .button:hover {
+				background: var(--research-accent-soft);
+				border-color: var(--research-accent) !important;
+				box-shadow: inset 0 0 0 2px var(--research-accent);
+			}
+
+			#footer {
+				background: #0d1117;
+				border-top: 1px solid var(--research-border);
+			}
+
+			#footer h3,
+			#footer p,
+			#footer a,
+			#copyright,
+			#copyright a {
+				color: var(--research-muted) !important;
+			}
+
+			#copyright {
+				background: var(--research-bg);
+			}
+
+			@media screen and (max-width: 980px) {
+				.article-hero {
+					padding: 4.25rem 3rem 3rem !important;
+				}
+
+				.hero-image {
+					width: calc(100% - 3rem);
+				}
+			}
+
+			@media screen and (max-width: 736px) {
+				#header {
+					min-height: 4rem;
+				}
+
+				#header .logo {
+					font-size: .68rem;
+					letter-spacing: .15em;
+				}
+
+				#header .logo::before {
+					content: "Agitlytics / ";
+				}
+
+				.article-hero {
+					padding: 3.2rem 1.4rem 2.4rem !important;
+				}
+
+				.article-hero::before {
+					margin-bottom: 1rem;
+					font-size: .62rem;
+				}
+
+				.article-hero h1 {
+					max-width: none;
+					font-size: clamp(2.15rem, 11vw, 3.35rem);
+					line-height: 1.02;
+					overflow-wrap: anywhere;
+				}
+
+				.article-hero p {
+					font-size: .68rem;
+					letter-spacing: .1em;
+				}
+
+				.hero-image {
+					width: 100%;
+					border-left: 0;
+					border-right: 0;
+				}
+
+				.hero-image img {
+					max-height: 25rem;
+				}
+
+				.article-body {
+					width: calc(100% - 2.5rem);
+					padding: 3rem 0 4.5rem;
+				}
+
+				.article-body p,
+				.article-body li,
+				.article-body blockquote {
+					font-size: 1.03rem;
+					line-height: 1.76;
+				}
+
+				.article-body h2 {
+					margin-top: 3.5rem;
+					font-size: 1.55rem;
+				}
+
+				.article-body .image,
+				.article-body .image.main,
+				.article-body .image.fit,
+				.article-body .image.left,
+				.article-body .image.right {
+					width: calc(100% + 1rem);
+					margin-left: -.5rem;
+				}
+			}
+		</style>
+</head>
+<body class="is-preload">
+<!-- Wrapper -->
+<div class="fade-in" id="wrapper">
+<!-- Intro -->
+<div id="intro">
+<h1>Agitlytics</h1>
+<p>Commentary by <a href="https://www.linkedin.com/in/aubrey-waddle-962634314" rel="noopener noreferrer" target="_blank">Aubrey Waddle</a></p>
+<ul class="actions">
+<li><a class="button icon solid solo fa-arrow-down scrolly" href="#header">Continue</a></li>
+</ul>
+</div>
+<!-- Header -->
+<header id="header">
+<a class="logo" href="elements.html">Research &amp; Commentary</a>
+</header>
+<!-- Nav -->
+<nav id="nav">
+<ul class="links">
+<li><a href="index.html">Home</a></li>
+<li><a href="DataProj.html">Data Projects</a></li>
+<li class="active"><a href="elements.html">Commentary</a></li>
+<li class="active"><a href="DemCrit.html">Dem Critique</a></li>
+</ul>
+<ul class="icons">
+<li><a class="cib-tableau" href="images/RESUME 2025Nov.pdf.pdf" rel="noopener noreferrer" target="_blank"><span class="label">Résumé</span></a></li>
+<li><a class="cib-tableau" href="images/SNHU Diploma.pdf" rel="noopener noreferrer" target="_blank"><span class="label">Diploma</span></a></li>
+<li><a class="cib-tableau" href="images/Transcript_AUBREYWADDLE FINAL.pdf" rel="noopener noreferrer" target="_blank"><span class="label">Transcript</span></a></li>
+<li><a class="cib-tableau" href="https://public.tableau.com/app/profile/aubrey.waddle/vizzes" rel="noopener noreferrer" target="_blank"><span class="label">Tableau Public</span></a></li>
+<li><a class="icon brands alt fa-linkedin" href="https://www.linkedin.com/in/aubrey-waddle-962634314" rel="noopener noreferrer" target="_blank"><span class="label">linkedin</span></a></li>
+<li><a class="icon brands fa-github" href="https://github.com/Blamo2214" rel="noopener noreferrer" target="_blank"><span class="label">GitHub</span></a></li>
+<li><a class="icon brands fa-facebook-f" href="https://www.facebook.com/aubrey.waddle/" rel="noopener noreferrer" target="_blank"><span class="label">Facebook</span></a></li>
+<li><a class="icon brands fa-instagram" href="https://www.instagram.com/aubrey_waddle12/" rel="noopener noreferrer" target="_blank"><span class="label">Instagram</span></a></li>
+</ul>
+</nav>
+<!-- Main -->
+<div id="main">
+<!-- Post -->
+<section class="post">
+<header class="major article-hero">
+<span class="date"></span>
+<h1>Who the Democratic Party Is Really Losing — and Why Scolding the Left Won’t Fix It</h1>
+<p>Commentary - Aubrey Waddle</p>
+</header>
+<div class="image main hero-image"><img alt="" src="images/DemCrit.png"/></div><div class="article-body">
 <h2></h2>
-
 <p>
 One of the strangest and most counterproductive dynamics inside the Democratic Party today is the fixation on blaming left-wing voters for the party’s 2024 loss. Nearly a year into a second Trump administration that has been, by any reasonable measure, a disaster, a segment of establishment and pro-establishment Democrats has focused much of its energy on anger toward leftists who either voted Green or stayed home.
 </p>
-
 <p>
 This narrative persists despite a basic empirical reality: even if every left-wing voter who supported the Green Party in 2024 had instead voted for Kamala Harris, she still would have lost the swing states. The election outcome would not have changed. Yet rather than grappling with why the party failed to mobilize and expand its base, some Democratic leaders and commentators have chosen to scold voters — as if shame, resentment, and moralizing are a viable long-term electoral strategy.
 </p>
-
 <p>
 This approach is not just politically ineffective; it is strategically incoherent. Telling voters, “We don’t need you, but also you’re responsible for our loss,” is not a recipe for coalition-building. It is a recipe for further alienation.
 </p>
-
 <p>
 I write this as someone who voted for Kamala Harris. I did so reluctantly. Like many on the left, I was deeply alienated by the Biden administration’s foreign policy — particularly its handling of Israel and Palestine. When Biden exited the race and Harris took over the ticket, there was an understandable surge of momentum. Biden was broadly unpopular, and Harris initially benefited from that contrast.
 </p>
-
 <p>
 But she quickly squandered that momentum. In debates and interviews, Harris stated — explicitly and repeatedly — that she would not change anything about the previous three to four years. That was not just a political misstep; it was an admission that she would fully inherit the policies that had already made the administration unpopular.
 </p>
-
 <p>
 This mattered on multiple fronts. It mattered on economic policy. It mattered on immigration. And it mattered profoundly on foreign policy — especially Gaza. Harris aligned herself entirely with the Biden administration’s handling of Israel and Palestine, signaling no meaningful shift in course even as Israel carried out what a growing share of Democratic voters now describe as a genocide in Gaza. She neither distanced herself from that policy nor offered even a symbolic break. In doing so, she crushed much of the enthusiasm that had briefly emerged.
 </p>
-
 <p>
 Despite this, most left-wing voters still chose the lesser of two evils. The idea that the left collectively “abandoned” the Democrats is a myth. What actually happened is that Democratic leadership ignored consistent, data-backed demands from its own base.
 </p>
-
 <p>
 Throughout 2023 and 2024, polling showed that Democratic voters were moving left — not right — on key issues. Support for Medicare for All remained strong. Student loan forgiveness polled extremely well. Democratic voters, especially younger ones, increasingly viewed Israel’s actions in Gaza as genocidal. On immigration, foreign policy, and economic messaging, the party’s base favored a more populist, working-class-oriented platform.
 </p>
-
 <p>
 Instead, the campaign leaned into a corporatist, moderate message that Democratic leadership believes is “electable.” But this version of moderation is not popular. It is popular with donors, consultants, and media elites. It is not popular with the median Democratic voter.
 </p>
-
 <p>
 The Democratic Party now faces a basic contradiction. It cannot simultaneously chase a narrow slice of suburban corporate moderates while expecting the left to fall in line no matter what. In a two-party system, the party that depends on left-wing voters cannot afford to run to the right of its own base and then blame that base for predictable disengagement.
 </p>
-
 <p>
 The dominant strategy from party elites appears to be: run another establishment figure — Gavin Newsom, Pete Buttigieg, or someone similar — and rely on anti-Trump fear to mobilize turnout. But this strategy has already failed multiple times. The policy platforms offered by these candidates are largely indistinguishable from Harris’s. The only difference is that they may not face the same sexism and racism Harris did — which she absolutely did face — but that does not change the fundamental problem: the platform itself polls poorly with left-leaning voters.
 </p>
-
 <p>
 Demographics make this problem worse over time, not better. Older Democratic voters — particularly Boomers and some Gen X voters — are more moderate. But they are also aging out of the electorate. Millennials, Gen Z, and eventually Gen Alpha are significantly more left-wing. Large portions of these cohorts now identify as independents, not because they are moving right, but because they have been alienated by a Democratic Party that is to their right on economics, healthcare, and foreign policy.
 </p>
-
 <p>
 These are not lost voters. They are disillusioned voters. They represent a massive, untapped base that could be mobilized if the party moved toward them instead of away from them.
 </p>
-
 <p>
 The alternative path is clear: run candidates whose policy platforms actually reflect the median Democratic voter — not donor preferences. Candidates like Alexandria Ocasio-Cortez, Katie Porter, Rashida Tlaib, or others with similar policy positions are far more aligned with where the base is moving. Left-populist economic messaging, Medicare for All, student debt relief, and a non-interventionist foreign policy are not fringe positions within the Democratic electorate. They are increasingly mainstream.
 </p>
-
 <p>
-On foreign policy in particular, the data is unmistakable. <a href="https://poll.qu.edu/poll-release?releaseid=3929" target="_blank" rel="noopener noreferrer">Polling now shows a majority — and a growing majority — of Democratic voters holding negative views of Israel’s actions in Gaza.</a>
- <a href="https://poll.qu.edu/poll-release?releaseid=3929" target="_blank" rel="noopener noreferrer" class="image left"><img src="images\DemPalData1.png" alt="" /></a> Younger voters are especially skeptical of pro-Israel narratives promoted by AIPAC, the ADL, Fox News, and legacy media. These institutions are not trusted sources for these cohorts. The idea that doubling down on unconditional support for Israel is a winning Democratic strategy is not supported by the data — and it is likely to become even more politically toxic over time.
+On foreign policy in particular, the data is unmistakable. <a href="https://poll.qu.edu/poll-release?releaseid=3929" rel="noopener noreferrer" target="_blank">Polling now shows a majority — and a growing majority — of Democratic voters holding negative views of Israel’s actions in Gaza.</a>
+<a class="image left" href="https://poll.qu.edu/poll-release?releaseid=3929" rel="noopener noreferrer" target="_blank"><img alt="" src="images/DemPalData1.png"/></a> Younger voters are especially skeptical of pro-Israel narratives promoted by AIPAC, the ADL, Fox News, and legacy media. These institutions are not trusted sources for these cohorts. The idea that doubling down on unconditional support for Israel is a winning Democratic strategy is not supported by the data — and it is likely to become even more politically toxic over time.
 </p>
-
 <p>
 Scolding left-wing voters will not change this reality. These voters are not disengaged because they are ignorant or childish. They are disengaged because their material interests and moral views are systematically ignored. No amount of cable-news moralizing will make them more enthusiastic about candidates who are to their right.
 </p>
-
 <p>
 What will work is pressuring Democratic leadership — Schumer, Jeffries, the broader party apparatus — to run candidates who actually represent the base.
 </p>
-
 <p>
 As Senate Democratic leadership has openly admitted, this strategy of trading working-class voters for suburban moderates has been deliberate. Chuck Schumer famously summarized this approach when he said: “For every blue-collar Democrat we lose in western Pennsylvania, we will pick up two moderate Republicans in the suburbs in Philadelphia.” This quote is emblematic of the failed strategy of the past three election cycles — two of which Democrats lost to one of the most extreme and incompetent GOP candidates in modern history.
 </p>
-
 <p>
 It reflects a worldview in which working-class voters are disposable, and suburban moderates are the primary prize. The results speak for themselves.
 </p>
-
 <p>
 If there is a counter-quote that captures the path forward, it is this: for every suburban DINO that the party loses, it can gain three or four Gen Z or Millennial voters who care deeply about economic justice and U.S. foreign policy. That is not idealism. That is arithmetic.
 </p>
-
 <p>
 If the Democratic Party is serious about defeating authoritarianism, it cannot do so by running “fascism-lite” candidates and hoping fear alone will carry the day. The data does not support that strategy. The electorate does not support that strategy. And the future of the party certainly does not support that strategy.
 </p>
-
 <p>
 The choice is not between purity and pragmatism. The choice is between following the data — and continuing to lose.
 </p>
-
-
-
-
-
-
-
-
-
-
-							</section>
-
-					</div>
-
-				<!-- Footer -->
-					<footer id="footer">
-						<!-- <section>
+</div></section>
+</div>
+<!-- Footer -->
+<footer id="footer">
+<!-- <section>
 							<form method="post" action="#">
 								<div class="fields">
 									<div class="field">
@@ -194,61 +542,56 @@ The choice is not between purity and pragmatism. The choice is between following
 								</ul>
 							</form>
 						</section> -->
-						<section class="posts">
-								<article>
-									<header>
-										<!-- <span class="date"></span>
+<section class="posts">
+<article>
+<header>
+<!-- <span class="date"></span>
 										<h2><a href="https://public.tableau.com/shared/YFXYJXN7D?:display_count=n&:origin=viz_share_link">Data Exploration of<br />
 										Covid Datasets in SQL</a></h2>  -->
-									</header>
-									<a href="#" class="image main"><img src="images\Headshot.png" alt="" /></a>
-									<p></p>
-									<ul class="actions special">
-										
-									</ul>
-								</article>
-						</section>
-						<section class="split contact">
-							<section class="alt">
-								<h3>Location</h3>
-								<p>Houston, TX<br />
-								</p>
-							</section>
-							<section>
-								<h3>Phone</h3>
-								<p><a href="#">(936)446-8053</a></p>
-							</section>
-							<section>
-								<h3>Email</h3>
-								<p><a href="#">aubreywaddle2@gmail.com</a></p>
-							</section>
-							<section>
-								<h3>Social</h3>
-								<ul class="icons alt">
-									<li><a href="www.linkedin.com/in/aubrey-waddle-962634314" class="icon brands alt fa-linkedin"><span class="label">linkedin</span></a></li>
-									<li><a href="https://www.facebook.com/aubrey.waddle/" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-									<li><a href="https://www.instagram.com/aubrey_waddle12/" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-									<li><a href="https://github.com/Blamo2214" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-								</ul>
-							</section>
-						</section>
-					</footer>
-
-				<!-- Copyright -->
-					<div id="copyright">
-						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
-					</div>
-
-			</div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
+</header>
+<a class="image main" href="#"><img alt="" src="images/Headshot.png"/></a>
+<p></p>
+<ul class="actions special">
+</ul>
+</article>
+</section>
+<section class="split contact">
+<section class="alt">
+<h3>Location</h3>
+<p>Houston, TX<br/>
+</p>
+</section>
+<section>
+<h3>Phone</h3>
+<p><a href="#">(936)446-8053</a></p>
+</section>
+<section>
+<h3>Email</h3>
+<p><a href="#">aubreywaddle2@gmail.com</a></p>
+</section>
+<section>
+<h3>Social</h3>
+<ul class="icons alt">
+<li><a class="icon brands alt fa-linkedin" href="www.linkedin.com/in/aubrey-waddle-962634314"><span class="label">linkedin</span></a></li>
+<li><a class="icon brands alt fa-facebook-f" href="https://www.facebook.com/aubrey.waddle/"><span class="label">Facebook</span></a></li>
+<li><a class="icon brands alt fa-instagram" href="https://www.instagram.com/aubrey_waddle12/"><span class="label">Instagram</span></a></li>
+<li><a class="icon brands alt fa-github" href="https://github.com/Blamo2214"><span class="label">GitHub</span></a></li>
+</ul>
+</section>
+</section>
+</footer>
+<!-- Copyright -->
+<div id="copyright">
+<ul><li>© Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+</div>
+</div>
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
 </html>
