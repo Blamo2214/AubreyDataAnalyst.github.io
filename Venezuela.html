@@ -1,130 +1,501 @@
 <!DOCTYPE HTML>
+
 <!--
 	Massively by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<html>
-	<head>
-		<title>Venezuela - Agitlytics</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+<html lang="en">
+<head>
+<title>Venezuela - Agitlytics</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport"/>
+<link href="assets/css/main.css" rel="stylesheet"/>
+<noscript><link href="assets/css/noscript.css" rel="stylesheet"/></noscript>
 
-		<!-- Wrapper -->
-			<div id="wrapper" class="fade-in">
+<style>
+			:root {
+				--research-bg: #07090d;
+				--research-surface: #0f1319;
+				--research-surface-2: #151a22;
+				--research-text: #f3f5f7;
+				--research-muted: #aeb6c0;
+				--research-faint: #7f8995;
+				--research-border: rgba(255,255,255,.12);
+				--research-accent: #d45a68;
+				--research-accent-soft: rgba(212,90,104,.13);
+				--reading-width: 48rem;
+			}
 
-				<!-- Intro -->
-					<div id="intro">
-						<h1>Agitlytics</h1>
-						<p>Commentary by <a href="https://www.linkedin.com/in/aubrey-waddle-962634314"target="_blank" rel="noopener noreferrer">Aubrey Waddle</a></p>
-						<ul class="actions">
-							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
-						</ul>
-					</div>
+			* { box-sizing: border-box; }
 
-				<!-- Header -->
-					<header id="header">
-						<a href="Venezuela.html" class="logo">Report</a>
+			html { scroll-behavior: smooth; }
 
-					</header>
+			body {
+				background: var(--research-bg);
+				color: var(--research-text);
+			}
 
-				<!-- Nav -->
-					<nav id="nav">
-						<ul class="links">
-							<li><a href="index.html">Home</a></li>
-							<li><a href="DataProj.html">Data Projects</a></li>
-							<li><a href="elements.html">Commentary</a></li>
-							<li class="active"><a href="Venezuela.html">Venezuela</a></li>
-						
-							
-						</ul>
-						<ul class="icons">
-							<li><a href="images\RESUME 2025Nov.pdf.pdf" target="_blank" rel="noopener noreferrer" class="cib-tableau"><span class="label">Résumé</span></a></li>
-							<li><a href="images\SNHU Diploma.pdf" target="_blank" rel="noopener noreferrer" class="cib-tableau"><span class="label">Diploma</span></a></li>
-							<li><a href="images\Transcript_AUBREYWADDLE FINAL.pdf" target="_blank" rel="noopener noreferrer" class="cib-tableau"><span class="label">Transcript</span></a></li>
-							<li><a href="https://public.tableau.com/app/profile/aubrey.waddle/vizzes" target="_blank" rel="noopener noreferrer" class="cib-tableau"><span class="label">Tableau Public</span></a></li>
-							<li><a href="https://www.linkedin.com/in/aubrey-waddle-962634314" target="_blank" rel="noopener noreferrer" class="icon brands alt fa-linkedin"><span class="label">linkedin</span></a></li>
-							<li><a href="https://github.com/Blamo2214" target="_blank" rel="noopener noreferrer" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-							<li><a href="https://www.facebook.com/aubrey.waddle/" target="_blank" rel="noopener noreferrer" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-							<li><a href="https://www.instagram.com/aubrey_waddle12/" target="_blank" rel="noopener noreferrer" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-						</ul>
-					</nav>
+			#wrapper,
+			#wrapper.fade-in,
+			#main,
+			#footer {
+				background-color: var(--research-bg);
+			}
 
-				<!-- Main -->
-					<div id="main">
+			/* Article pages use a compact publication masthead rather than the
+			   full-screen landing intro used elsewhere in the template. */
+			#intro { display: none; }
 
-						<!-- Post -->
-							<section class="post">
-								<header class="major">
-									<span class="date"></span>
-									<h1>Venezuela Since the 1990s: Political Economy, State Power, and U.S. Intervention</h1>
-									<p>A Stenography and Working Report - Aubrey Waddle</p>
-								</header>
-								<div class="image main"><img src="images\Pic.webp" alt="" /></div>
+			#header {
+				min-height: 5rem;
+				background: rgba(7,9,13,.96);
+				border-bottom: 1px solid var(--research-border);
+			}
 
-	<h2>Stenography</h2>							
+			#header .logo {
+				border: 0;
+				color: var(--research-text) !important;
+				font-size: .82rem;
+				font-weight: 800;
+				letter-spacing: .2em;
+				padding: 0;
+				text-transform: uppercase;
+			}
+
+			#header .logo::before {
+				content: "Agitlytics  /  ";
+				color: var(--research-accent);
+			}
+
+			#nav {
+				background: rgba(15,19,25,.97);
+				border-bottom: 1px solid var(--research-border);
+			}
+
+			#nav a,
+			#nav .icon:before {
+				color: var(--research-muted) !important;
+			}
+
+			#nav ul.links li.active {
+				background: var(--research-accent-soft);
+			}
+
+			#nav ul.links li.active a,
+			#nav a:hover {
+				color: #fff !important;
+			}
+
+			#main {
+				max-width: 82rem;
+				padding: 0;
+				background: var(--research-bg);
+			}
+
+			#main > .post {
+				padding: 0;
+				background: transparent;
+			}
+
+			.article-hero {
+				position: relative;
+				padding: 5.25rem 5rem 3.5rem !important;
+				margin: 0 !important;
+				background:
+					radial-gradient(circle at 90% 10%, rgba(212,90,104,.14), transparent 28%),
+					linear-gradient(135deg, #0c1016, #080a0e);
+				border-bottom: 1px solid var(--research-border);
+				text-align: left !important;
+			}
+
+			.article-hero::before {
+				content: "Agitlytics Research Desk";
+				display: block;
+				margin-bottom: 1.35rem;
+				color: var(--research-accent);
+				font-size: .72rem;
+				font-weight: 800;
+				letter-spacing: .2em;
+				text-transform: uppercase;
+			}
+
+			.article-hero h1 {
+				max-width: 18ch;
+				margin: 0 0 1.4rem !important;
+				color: var(--research-text) !important;
+				font-size: clamp(2.55rem, 6vw, 5.3rem);
+				line-height: .98;
+				letter-spacing: -.015em;
+				text-align: left;
+			}
+
+			.article-hero p {
+				margin: 0 !important;
+				color: var(--research-muted) !important;
+				font-family: inherit;
+				font-size: .82rem;
+				font-style: normal;
+				font-weight: 700;
+				letter-spacing: .14em;
+				line-height: 1.5;
+				text-align: left;
+				text-transform: uppercase;
+			}
+
+			.article-hero .date:empty { display: none; }
+
+			.hero-image {
+				width: min(72rem, calc(100% - 5rem));
+				margin: -1px auto 0 !important;
+				background: var(--research-surface);
+				border: 1px solid var(--research-border);
+				border-top: 0;
+				overflow: hidden;
+			}
+
+			.hero-image img {
+				display: block;
+				width: 100%;
+				max-height: 42rem;
+				object-fit: cover;
+			}
+
+			.article-body {
+				width: min(var(--reading-width), calc(100% - 4rem));
+				margin: 0 auto;
+				padding: 4.5rem 0 6rem;
+				color: var(--research-text);
+			}
+
+			.article-body > h2:first-child:empty { display: none; }
+
+			.article-body h2,
+			.article-body h3,
+			.article-body h4 {
+				color: var(--research-text) !important;
+				text-align: left;
+			}
+
+			.article-body h2 {
+				position: relative;
+				margin: 4.5rem 0 1.4rem;
+				padding-top: 1.5rem;
+				font-size: clamp(1.55rem, 3vw, 2.25rem);
+				line-height: 1.15;
+				letter-spacing: -.005em;
+			}
+
+			.article-body h2::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 3.25rem;
+				height: 2px;
+				background: var(--research-accent);
+			}
+
+			.article-body h3 {
+				margin: 3rem 0 1rem;
+				font-size: 1.35rem;
+			}
+
+			.article-body p,
+			.article-body li,
+			.article-body blockquote {
+				color: #d9dee4 !important;
+				font-family: Georgia, "Times New Roman", serif;
+				font-size: 1.12rem;
+				line-height: 1.88;
+				text-align: left;
+			}
+
+			.article-body p {
+				margin: 0 0 1.55rem;
+			}
+
+			.article-body a {
+				color: #f08a96;
+				border-bottom-color: rgba(240,138,150,.45);
+			}
+
+			.article-body a:hover {
+				color: #fff !important;
+				border-bottom-color: var(--research-accent);
+			}
+
+			.article-body strong,
+			.article-body b {
+				color: #fff;
+			}
+
+			.article-body i,
+			.article-body em {
+				color: #eef1f4;
+			}
+
+			.article-body blockquote,
+			.article-body p:has(> i:only-child),
+			.article-body p:has(> em:only-child) {
+				margin: 2.25rem 0;
+				padding: 1.4rem 1.6rem;
+				background: var(--research-surface);
+				border-left: 3px solid var(--research-accent);
+			}
+
+			.article-body ul,
+			.article-body ol {
+				margin: 1.5rem 0 2rem;
+			}
+
+			.article-body .image,
+			.article-body .image.main,
+			.article-body .image.fit,
+			.article-body .image.left,
+			.article-body .image.right {
+				display: block;
+				float: none;
+				width: min(64rem, 100%);
+				max-width: none;
+				margin: 2.75rem auto;
+				padding: 0;
+				background: var(--research-surface);
+				border: 1px solid var(--research-border);
+				border-radius: 2px;
+				overflow: hidden;
+			}
+
+			.article-body .image img,
+			.article-body img {
+				display: block;
+				max-width: 100%;
+				height: auto;
+			}
+
+			.article-body table {
+				display: block;
+				width: 100%;
+				margin: 2rem 0;
+				overflow-x: auto;
+				background: var(--research-surface);
+				border: 1px solid var(--research-border);
+			}
+
+			.article-body table th,
+			.article-body table td {
+				color: var(--research-text);
+				border-color: var(--research-border);
+			}
+
+			.article-body .button,
+			.article-body button,
+			.article-body input[type="submit"],
+			.article-body input[type="reset"],
+			.article-body input[type="button"] {
+				background: transparent;
+				border-color: rgba(255,255,255,.65) !important;
+				box-shadow: inset 0 0 0 2px rgba(255,255,255,.65);
+				color: #fff !important;
+			}
+
+			.article-body .button:hover {
+				background: var(--research-accent-soft);
+				border-color: var(--research-accent) !important;
+				box-shadow: inset 0 0 0 2px var(--research-accent);
+			}
+
+			#footer {
+				background: #0d1117;
+				border-top: 1px solid var(--research-border);
+			}
+
+			#footer h3,
+			#footer p,
+			#footer a,
+			#copyright,
+			#copyright a {
+				color: var(--research-muted) !important;
+			}
+
+			#copyright {
+				background: var(--research-bg);
+			}
+
+			@media screen and (max-width: 980px) {
+				.article-hero {
+					padding: 4.25rem 3rem 3rem !important;
+				}
+
+				.hero-image {
+					width: calc(100% - 3rem);
+				}
+			}
+
+			@media screen and (max-width: 736px) {
+				#header {
+					min-height: 4rem;
+				}
+
+				#header .logo {
+					font-size: .68rem;
+					letter-spacing: .15em;
+				}
+
+				#header .logo::before {
+					content: "Agitlytics / ";
+				}
+
+				.article-hero {
+					padding: 3.2rem 1.4rem 2.4rem !important;
+				}
+
+				.article-hero::before {
+					margin-bottom: 1rem;
+					font-size: .62rem;
+				}
+
+				.article-hero h1 {
+					max-width: none;
+					font-size: clamp(2.15rem, 11vw, 3.35rem);
+					line-height: 1.02;
+					overflow-wrap: anywhere;
+				}
+
+				.article-hero p {
+					font-size: .68rem;
+					letter-spacing: .1em;
+				}
+
+				.hero-image {
+					width: 100%;
+					border-left: 0;
+					border-right: 0;
+				}
+
+				.hero-image img {
+					max-height: 25rem;
+				}
+
+				.article-body {
+					width: calc(100% - 2.5rem);
+					padding: 3rem 0 4.5rem;
+				}
+
+				.article-body p,
+				.article-body li,
+				.article-body blockquote {
+					font-size: 1.03rem;
+					line-height: 1.76;
+				}
+
+				.article-body h2 {
+					margin-top: 3.5rem;
+					font-size: 1.55rem;
+				}
+
+				.article-body .image,
+				.article-body .image.main,
+				.article-body .image.fit,
+				.article-body .image.left,
+				.article-body .image.right {
+					width: calc(100% + 1rem);
+					margin-left: -.5rem;
+				}
+			}
+		</style>
+</head>
+<body class="is-preload">
+<!-- Wrapper -->
+<div class="fade-in" id="wrapper">
+<!-- Intro -->
+<div id="intro">
+<h1>Agitlytics</h1>
+<p>Commentary by <a href="https://www.linkedin.com/in/aubrey-waddle-962634314" rel="noopener noreferrer" target="_blank">Aubrey Waddle</a></p>
+<ul class="actions">
+<li><a class="button icon solid solo fa-arrow-down scrolly" href="#header">Continue</a></li>
+</ul>
+</div>
+<!-- Header -->
+<header id="header">
+<a class="logo" href="elements.html">Research &amp; Commentary</a>
+</header>
+<!-- Nav -->
+<nav id="nav">
+<ul class="links">
+<li><a href="index.html">Home</a></li>
+<li><a href="DataProj.html">Data Projects</a></li>
+<li class="active"><a href="elements.html">Commentary</a></li>
+<li class="active"><a href="Venezuela.html">Venezuela</a></li>
+</ul>
+<ul class="icons">
+<li><a class="cib-tableau" href="images/RESUME 2025Nov.pdf.pdf" rel="noopener noreferrer" target="_blank"><span class="label">Résumé</span></a></li>
+<li><a class="cib-tableau" href="images/SNHU Diploma.pdf" rel="noopener noreferrer" target="_blank"><span class="label">Diploma</span></a></li>
+<li><a class="cib-tableau" href="images/Transcript_AUBREYWADDLE FINAL.pdf" rel="noopener noreferrer" target="_blank"><span class="label">Transcript</span></a></li>
+<li><a class="cib-tableau" href="https://public.tableau.com/app/profile/aubrey.waddle/vizzes" rel="noopener noreferrer" target="_blank"><span class="label">Tableau Public</span></a></li>
+<li><a class="icon brands alt fa-linkedin" href="https://www.linkedin.com/in/aubrey-waddle-962634314" rel="noopener noreferrer" target="_blank"><span class="label">linkedin</span></a></li>
+<li><a class="icon brands fa-github" href="https://github.com/Blamo2214" rel="noopener noreferrer" target="_blank"><span class="label">GitHub</span></a></li>
+<li><a class="icon brands fa-facebook-f" href="https://www.facebook.com/aubrey.waddle/" rel="noopener noreferrer" target="_blank"><span class="label">Facebook</span></a></li>
+<li><a class="icon brands fa-instagram" href="https://www.instagram.com/aubrey_waddle12/" rel="noopener noreferrer" target="_blank"><span class="label">Instagram</span></a></li>
+</ul>
+</nav>
+<!-- Main -->
+<div id="main">
+<!-- Post -->
+<section class="post">
+<header class="major article-hero">
+<span class="date"></span>
+<h1>Venezuela Since the 1990s: Political Economy, State Power, and U.S. Intervention</h1>
+<p>A Stenography and Working Report - Aubrey Waddle</p>
+</header>
+<div class="image main hero-image"><img alt="" src="images/Pic.webp"/></div><div class="article-body">
+<h2>Stenography</h2>
 <h2>Venezuela Since the 1990s: Political Economy, State Power, and U.S. Intervention</h2>
-
 <p>
   The Venezuelan crisis of the twenty-first century does not emerge from a vacuum; it is the cumulative result of a collapsing pre-1998 political order, oil dependence, class conflict, state restructuring, and sustained external pressure—most notably from the United States.
 </p>
-
 <p>
   In the early 1990s, Venezuela’s Punto Fijo system—dominated by Acción Democrática (AD) and COPEI—entered terminal decline following the 1989 Caracazo uprising against IMF-backed austerity.[3] The second presidency of Rafael Caldera (1994–1999) responded to a banking collapse with partial neoliberal reforms under “Agenda Venezuela,” including privatization, deregulation, and fuel price hikes.[7] Politically, Caldera’s 1994 pardon of coup participants—most notably Hugo Chávez—opened the door for a populist rupture rather than a managed reform of the system.[2]
 </p>
-
 <p>
   Chávez’s 1998 election marked a class realignment. His early project focused on institutional refoundation: the 1999 Constitution expanded executive authority, redefined property rights, and formalized participatory mechanisms while weakening traditional elite veto points.[4] Oil policy became central. The 2001 Hydrocarbons Law increased state take and reduced multinational autonomy, triggering elite backlash.[9] The April 2002 coup attempt—briefly successful before mass mobilization and loyalist military units restored Chávez—was tacitly welcomed by U.S. officials, while U.S.-funded democracy-promotion programs channeled millions into opposition civil society before and after the coup.[5][11]
 </p>
-
 <p>
   Following the 2002–2003 PDVSA strike, Chávez consolidated state control over oil rents by purging management and redirecting revenues toward social “missions” targeting health, education, and food access.[13] These gains were real but structurally fragile, resting on high oil prices rather than diversified production. Currency and price controls introduced in 2003 attempted to manage capital flight and inflation but later entrenched import dependence and arbitrage opportunities.[6] U.S.–Venezuela relations hardened as Chávez aligned with Cuba, China, and Russia, framing Venezuelan policy in explicitly anti-imperialist terms.
 </p>
-
 <p>
   After Chávez’s death in 2013, Nicolás Maduro inherited an oil-rent model just as global prices collapsed. Economic contraction, inflation, and shortages accelerated, while political legitimacy eroded following narrow electoral victories and opposition gains in the 2015 National Assembly.[1] U.S. policy escalated from rhetorical opposition to coercive economic measures. Executive Order 13692 (2015) initiated a sanctions framework that expanded dramatically after 2017, targeting financial markets, state debt, and eventually oil exports.[12]
 </p>
-
 <p>
   The 2017 Constituent Assembly, convened by Maduro to bypass the opposition legislature, deepened authoritarian consolidation while further isolating Venezuela internationally.[8] In 2019, the U.S. recognized Juan Guaidó as interim president, transferring control of overseas assets and intensifying sanctions designed to force regime change.[10] Empirical studies link these sanctions to sharp declines in oil output and excess civilian mortality, compounding an already severe humanitarian crisis.[14]
 </p>
-
 <p>
   From 2020 onward, Maduro adopted limited market pragmatism—informal dollarization, reduced price controls, selective privatization—while maintaining political repression. The 2023 Barbados Agreement briefly prompted U.S. sanctions relief tied to electoral commitments, but reversals followed amid disputes over opposition participation.[15] By the mid-2020s, Venezuela remained locked in a cycle of negotiated relief and renewed punishment, with sovereignty constrained by external leverage and internal authoritarian drift.
 </p>
-
 <p>
   In sum, Venezuela’s trajectory since the 1990s reflects neither simple socialist failure nor singular imperial sabotage, but a dialectic: an oil-rent redistribution project colliding with class resistance, institutional over-centralization, and sustained U.S. intervention aimed at disciplining heterodox development. The result is not merely economic collapse, but the erosion of democratic capacity under conditions of permanent crisis.
 </p>
-
 <h2>References</h2>
-
 <ol>
-  <li>Corrales, Javier. 2020. <em>Fixing Democracy: Constituent Assemblies and Authoritarianism</em>. Oxford University Press.</li>
-  <li>Corrales, Javier, and Michael Penfold. 2011. <em>Dragon in the Tropics: Hugo Chávez and the Political Economy of Revolution in Venezuela</em>. Brookings Institution Press.</li>
-  <li>Ellner, Steve. 2008. <em>Rethinking Venezuelan Politics: Class, Conflict, and the Chávez Phenomenon</em>. Lynne Rienner.</li>
-  <li>Ellner, Steve. 2012. “The Distinguishing Features of Latin America’s New Left.” <em>Latin American Perspectives</em> 39 (1).</li>
-  <li>Golinger, Eva. 2006. <em>The Chávez Code: Cracking U.S. Intervention in Venezuela</em>. Olive Branch Press.</li>
-  <li>Hausmann, Ricardo, and Francisco Rodríguez, eds. 2014. <em>Venezuela Before Chávez</em>. Penn State University Press.</li>
-  <li>Hellinger, Daniel. 2004. “Political Overview: The Breakdown of Puntofijismo.” In <em>Venezuelan Politics in the Chávez Era</em>.</li>
-  <li>Human Rights Watch. 2018. <em>Crackdown on Dissent: Brutality, Torture, and Political Persecution in Venezuela</em>.</li>
-  <li>Mommer, Bernard. 2003. “Subversive Oil.” <em>Oxford Institute for Energy Studies</em>.</li>
-  <li>Smilde, David. 2020. “Sanctions and Venezuela’s Political Stalemate.” <em>Washington Office on Latin America</em>.</li>
-  <li>U.S. Government Accountability Office (GAO). 2006. <em>U.S. Democracy Assistance for Venezuela</em>.</li>
-  <li>U.S. Treasury Department. 2019. <em>Venezuela-Related Sanctions</em>.</li>
-  <li>Weisbrot, Mark, Luis Sandoval, and David Rosnick. 2009. <em>The Chávez Administration at 10 Years</em>. Center for Economic and Policy Research.</li>
-  <li>Weisbrot, Mark, and Jeffrey Sachs. 2019. <em>Economic Sanctions as Collective Punishment: The Case of Venezuela</em>. CEPR.</li>
-  <li>Reuters. 2024. “U.S. Reimposes Venezuela Oil Sanctions After Election Disputes.”</li>
+<li>Corrales, Javier. 2020. <em>Fixing Democracy: Constituent Assemblies and Authoritarianism</em>. Oxford University Press.</li>
+<li>Corrales, Javier, and Michael Penfold. 2011. <em>Dragon in the Tropics: Hugo Chávez and the Political Economy of Revolution in Venezuela</em>. Brookings Institution Press.</li>
+<li>Ellner, Steve. 2008. <em>Rethinking Venezuelan Politics: Class, Conflict, and the Chávez Phenomenon</em>. Lynne Rienner.</li>
+<li>Ellner, Steve. 2012. “The Distinguishing Features of Latin America’s New Left.” <em>Latin American Perspectives</em> 39 (1).</li>
+<li>Golinger, Eva. 2006. <em>The Chávez Code: Cracking U.S. Intervention in Venezuela</em>. Olive Branch Press.</li>
+<li>Hausmann, Ricardo, and Francisco Rodríguez, eds. 2014. <em>Venezuela Before Chávez</em>. Penn State University Press.</li>
+<li>Hellinger, Daniel. 2004. “Political Overview: The Breakdown of Puntofijismo.” In <em>Venezuelan Politics in the Chávez Era</em>.</li>
+<li>Human Rights Watch. 2018. <em>Crackdown on Dissent: Brutality, Torture, and Political Persecution in Venezuela</em>.</li>
+<li>Mommer, Bernard. 2003. “Subversive Oil.” <em>Oxford Institute for Energy Studies</em>.</li>
+<li>Smilde, David. 2020. “Sanctions and Venezuela’s Political Stalemate.” <em>Washington Office on Latin America</em>.</li>
+<li>U.S. Government Accountability Office (GAO). 2006. <em>U.S. Democracy Assistance for Venezuela</em>.</li>
+<li>U.S. Treasury Department. 2019. <em>Venezuela-Related Sanctions</em>.</li>
+<li>Weisbrot, Mark, Luis Sandoval, and David Rosnick. 2009. <em>The Chávez Administration at 10 Years</em>. Center for Economic and Policy Research.</li>
+<li>Weisbrot, Mark, and Jeffrey Sachs. 2019. <em>Economic Sanctions as Collective Punishment: The Case of Venezuela</em>. CEPR.</li>
+<li>Reuters. 2024. “U.S. Reimposes Venezuela Oil Sanctions After Election Disputes.”</li>
 </ol>
 <h2>Working Report and Opinion</h2>
 <h2>Venezuela, Sanctions, and the Myth of “Liberation”</h2>
-
 <p>"If you ever feel useless, remember it took 20 years, trillions of dollars and 4 US Presidents to replace the Taliban with the Taliban." - Norman Finkelstein</p>
-
 <p>
 This is not an argument about having perfect leaders. Nicolás Maduro is not perfect—no serious person claims he is. In the same way, acknowledging that Saddam Hussein opposed U.S. imperialism does not require pretending he was a good or just leader. Anti-imperialism is not an endorsement of authoritarianism; it is a recognition of power, history, and material consequences.
 </p>
@@ -137,7 +508,6 @@ Second, there is the role of the Venezuelan opposition—an opposition that is n
 <p>
 And the alternative is well documented.
 </p>
-
 <h2>The Pattern of Imperial Intervention</h2>
 <p>
 We have decades of precedent for what happens when the United States intervenes to remove governments it deems hostile. The result is either a hard coup, a soft coup, or the creation of a power vacuum—each of which reliably produces catastrophe. A Western-friendly regime is installed, or chaos is allowed to flourish, and the country is opened up for exploitation.
@@ -151,7 +521,6 @@ The same logic applies elsewhere. Iraq. Afghanistan. Guatemala. Each would be be
 <p>
 This is the uncomfortable reality behind the so-called “lesser of two evils” argument. Maduro is not great—but lifting sanctions and allowing Venezuela to determine its own political future is unquestionably better than regime change followed by mass suffering. Deposing a government and then immiserating the population is not a moral alternative.
 </p>
-
 <h2>Misunderstanding American Power</h2>
 <p>
 To understand this issue fully, one must first understand what the United States actually is. It is the largest empire in human history—not the most moral, not the most benevolent, but the most powerful. It is, quite simply, the Death Star of global politics.
@@ -165,7 +534,6 @@ Liberals often cling to the fantasy that U.S. interventions are about removing �
 <p>
 This is a profound contradiction. The living standards enjoyed in the United States are inseparable from imperial extraction. Wealth flows inward from Venezuela, Guatemala, Bolivia, Colombia, Libya, Iraq, Afghanistan, Yemen, and across Southeast Asia. Empire is not an accident—it is the foundation.
 </p>
-
 <h2>A Leftist Alternative</h2>
 <p>
 The leftist path forward is not isolationism, nor is it moral posturing. It is a fundamental restructuring of how the United States engages with the global South. Instead of coercion, coups, and sanctions, U.S. foreign policy should resemble something closer to a mutual development model—similar to China’s Belt and Road approach—centered on voluntary partnerships rather than domination.
@@ -182,17 +550,11 @@ That contrast is not lost on the world.
 <p>
 And until Americans confront the reality of their empire—rather than clinging to comforting myths—the cycle of intervention, collapse, and denial will continue.
 </p>
-
-
-					
-
-							</section>
-
-					</div>
-
-				<!-- Footer -->
-					<footer id="footer">
-						<!-- <section>
+</div></section>
+</div>
+<!-- Footer -->
+<footer id="footer">
+<!-- <section>
 							<form method="post" action="#">
 								<div class="fields">
 									<div class="field">
@@ -213,61 +575,56 @@ And until Americans confront the reality of their empire—rather than clinging 
 								</ul>
 							</form>
 						</section> -->
-						<section class="posts">
-								<article>
-									<header>
-										<!-- <span class="date"></span>
+<section class="posts">
+<article>
+<header>
+<!-- <span class="date"></span>
 										<h2><a href="https://public.tableau.com/shared/YFXYJXN7D?:display_count=n&:origin=viz_share_link">Data Exploration of<br />
 										Covid Datasets in SQL</a></h2>  -->
-									</header>
-									<a href="#" class="image main"><img src="images\Headshot.png" alt="" /></a>
-									<p></p>
-									<ul class="actions special">
-										
-									</ul>
-								</article>
-						</section>
-						<section class="split contact">
-							<section class="alt">
-								<h3>Location</h3>
-								<p>Houston, TX<br />
-								</p>
-							</section>
-							<section>
-								<h3>Phone</h3>
-								<p><a href="#">(936)446-8053</a></p>
-							</section>
-							<section>
-								<h3>Email</h3>
-								<p><a href="#">aubreywaddle2@gmail.com</a></p>
-							</section>
-							<section>
-								<h3>Social</h3>
-								<ul class="icons alt">
-									<li><a href="www.linkedin.com/in/aubrey-waddle-962634314" class="icon brands alt fa-linkedin"><span class="label">linkedin</span></a></li>
-									<li><a href="https://www.facebook.com/aubrey.waddle/" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-									<li><a href="https://www.instagram.com/aubrey_waddle12/" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-									<li><a href="https://github.com/Blamo2214" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-								</ul>
-							</section>
-						</section>
-					</footer>
-
-				<!-- Copyright -->
-					<div id="copyright">
-						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
-					</div>
-
-			</div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
+</header>
+<a class="image main" href="#"><img alt="" src="images/Headshot.png"/></a>
+<p></p>
+<ul class="actions special">
+</ul>
+</article>
+</section>
+<section class="split contact">
+<section class="alt">
+<h3>Location</h3>
+<p>Houston, TX<br/>
+</p>
+</section>
+<section>
+<h3>Phone</h3>
+<p><a href="#">(936)446-8053</a></p>
+</section>
+<section>
+<h3>Email</h3>
+<p><a href="#">aubreywaddle2@gmail.com</a></p>
+</section>
+<section>
+<h3>Social</h3>
+<ul class="icons alt">
+<li><a class="icon brands alt fa-linkedin" href="www.linkedin.com/in/aubrey-waddle-962634314"><span class="label">linkedin</span></a></li>
+<li><a class="icon brands alt fa-facebook-f" href="https://www.facebook.com/aubrey.waddle/"><span class="label">Facebook</span></a></li>
+<li><a class="icon brands alt fa-instagram" href="https://www.instagram.com/aubrey_waddle12/"><span class="label">Instagram</span></a></li>
+<li><a class="icon brands alt fa-github" href="https://github.com/Blamo2214"><span class="label">GitHub</span></a></li>
+</ul>
+</section>
+</section>
+</footer>
+<!-- Copyright -->
+<div id="copyright">
+<ul><li>© Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+</div>
+</div>
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
 </html>
