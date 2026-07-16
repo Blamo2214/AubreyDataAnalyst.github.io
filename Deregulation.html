@@ -1,202 +1,568 @@
 <!DOCTYPE HTML>
+
 <!--
 	Massively by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<html>
-	<head>
-		<title>Deregulation - Agitlytics</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+<html lang="en">
+<head>
+<title>Deregulation - Agitlytics</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport"/>
+<link href="assets/css/main.css" rel="stylesheet"/>
+<noscript><link href="assets/css/noscript.css" rel="stylesheet"/></noscript>
 
-		<!-- Wrapper -->
-			<div id="wrapper" class="fade-in">
+<style>
+			:root {
+				--research-bg: #07090d;
+				--research-surface: #0f1319;
+				--research-surface-2: #151a22;
+				--research-text: #f3f5f7;
+				--research-muted: #aeb6c0;
+				--research-faint: #7f8995;
+				--research-border: rgba(255,255,255,.12);
+				--research-accent: #d45a68;
+				--research-accent-soft: rgba(212,90,104,.13);
+				--reading-width: 48rem;
+			}
 
-				<!-- Intro -->
-					<div id="intro">
-						<h1>Agitlytics</h1>
-						<p>Commentary by <a href="https://www.linkedin.com/in/aubrey-waddle-962634314"target="_blank" rel="noopener noreferrer">Aubrey Waddle</a></p>
-						<ul class="actions">
-							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
-						</ul>
-					</div>
+			* { box-sizing: border-box; }
 
-				<!-- Header -->
-					<header id="header">
-						<a href="Deregulation.html" class="logo">Report</a>
+			html { scroll-behavior: smooth; }
 
-					</header>
+			body {
+				background: var(--research-bg);
+				color: var(--research-text);
+			}
 
-				<!-- Nav -->
-					<nav id="nav">
-						<ul class="links">
-							<li><a href="index.html">Home</a></li>
-							<li><a href="DataProj.html">Data Projects</a></li>
-							<li><a href="elements.html">Commentary</a></li>
-							<li class="active"><a href="Deregulation.html">Deregulation</a></li>
-						
-							
-						</ul>
-						<ul class="icons">
-							<li><a href="images\RESUME 2025Nov.pdf.pdf" target="_blank" rel="noopener noreferrer" class="cib-tableau"><span class="label">Résumé</span></a></li>
-							<li><a href="images\SNHU Diploma.pdf" target="_blank" rel="noopener noreferrer" class="cib-tableau"><span class="label">Diploma</span></a></li>
-							<li><a href="images\Transcript_AUBREYWADDLE FINAL.pdf" target="_blank" rel="noopener noreferrer" class="cib-tableau"><span class="label">Transcript</span></a></li>
-							<li><a href="https://public.tableau.com/app/profile/aubrey.waddle/vizzes" target="_blank" rel="noopener noreferrer" class="cib-tableau"><span class="label">Tableau Public</span></a></li>
-							<li><a href="https://www.linkedin.com/in/aubrey-waddle-962634314" target="_blank" rel="noopener noreferrer" class="icon brands alt fa-linkedin"><span class="label">linkedin</span></a></li>
-							<li><a href="https://github.com/Blamo2214" target="_blank" rel="noopener noreferrer" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-							<li><a href="https://www.facebook.com/aubrey.waddle/" target="_blank" rel="noopener noreferrer" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-							<li><a href="https://www.instagram.com/aubrey_waddle12/" target="_blank" rel="noopener noreferrer" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-						</ul>
-					</nav>
+			#wrapper,
+			#wrapper.fade-in,
+			#main,
+			#footer {
+				background-color: var(--research-bg);
+			}
 
-				<!-- Main -->
-					<div id="main">
+			/* Article pages use a compact publication masthead rather than the
+			   full-screen landing intro used elsewhere in the template. */
+			#intro { display: none; }
 
-						<!-- Post -->
-							<section class="post">
-								<header class="major">
-									<span class="date"></span>
-									<h1>Deregulation, Neoliberalism, and the Expanding Wealth Gap</h1>
-									<p>A Critical Analysis and Working Report - Aubrey Waddle</p>
-								</header>
-								<div class="image main"><img src="images\Neoliberal-Revolution.jpg" alt="" /></div>
-							
-                  <h2>Deregulation Isn’t “Freedom.” It’s a Transfer of Wealth to the Already Wealthy.</h2>
-                  <p>
+			#header {
+				min-height: 5rem;
+				background: rgba(7,9,13,.96);
+				border-bottom: 1px solid var(--research-border);
+			}
+
+			#header .logo {
+				border: 0;
+				color: var(--research-text) !important;
+				font-size: .82rem;
+				font-weight: 800;
+				letter-spacing: .2em;
+				padding: 0;
+				text-transform: uppercase;
+			}
+
+			#header .logo::before {
+				content: "Agitlytics  /  ";
+				color: var(--research-accent);
+			}
+
+			#nav {
+				background: rgba(15,19,25,.97);
+				border-bottom: 1px solid var(--research-border);
+			}
+
+			#nav a,
+			#nav .icon:before {
+				color: var(--research-muted) !important;
+			}
+
+			#nav ul.links li.active {
+				background: var(--research-accent-soft);
+			}
+
+			#nav ul.links li.active a,
+			#nav a:hover {
+				color: #fff !important;
+			}
+
+			#main {
+				max-width: 82rem;
+				padding: 0;
+				background: var(--research-bg);
+			}
+
+			#main > .post {
+				padding: 0;
+				background: transparent;
+			}
+
+			.article-hero {
+				position: relative;
+				padding: 5.25rem 5rem 3.5rem !important;
+				margin: 0 !important;
+				background:
+					radial-gradient(circle at 90% 10%, rgba(212,90,104,.14), transparent 28%),
+					linear-gradient(135deg, #0c1016, #080a0e);
+				border-bottom: 1px solid var(--research-border);
+				text-align: left !important;
+			}
+
+			.article-hero::before {
+				content: "Agitlytics Research Desk";
+				display: block;
+				margin-bottom: 1.35rem;
+				color: var(--research-accent);
+				font-size: .72rem;
+				font-weight: 800;
+				letter-spacing: .2em;
+				text-transform: uppercase;
+			}
+
+			.article-hero h1 {
+				max-width: 18ch;
+				margin: 0 0 1.4rem !important;
+				color: var(--research-text) !important;
+				font-size: clamp(2.55rem, 6vw, 5.3rem);
+				line-height: .98;
+				letter-spacing: -.015em;
+				text-align: left;
+			}
+
+			.article-hero p {
+				margin: 0 !important;
+				color: var(--research-muted) !important;
+				font-family: inherit;
+				font-size: .82rem;
+				font-style: normal;
+				font-weight: 700;
+				letter-spacing: .14em;
+				line-height: 1.5;
+				text-align: left;
+				text-transform: uppercase;
+			}
+
+			.article-hero .date:empty { display: none; }
+
+			.hero-image {
+				width: min(72rem, calc(100% - 5rem));
+				margin: -1px auto 0 !important;
+				background: var(--research-surface);
+				border: 1px solid var(--research-border);
+				border-top: 0;
+				overflow: hidden;
+			}
+
+			.hero-image img {
+				display: block;
+				width: 100%;
+				max-height: 42rem;
+				object-fit: cover;
+			}
+
+			.article-body {
+				width: min(var(--reading-width), calc(100% - 4rem));
+				margin: 0 auto;
+				padding: 4.5rem 0 6rem;
+				color: var(--research-text);
+			}
+
+			.article-body > h2:first-child:empty { display: none; }
+
+			.article-body h2,
+			.article-body h3,
+			.article-body h4 {
+				color: var(--research-text) !important;
+				text-align: left;
+			}
+
+			.article-body h2 {
+				position: relative;
+				margin: 4.5rem 0 1.4rem;
+				padding-top: 1.5rem;
+				font-size: clamp(1.55rem, 3vw, 2.25rem);
+				line-height: 1.15;
+				letter-spacing: -.005em;
+			}
+
+			.article-body h2::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 3.25rem;
+				height: 2px;
+				background: var(--research-accent);
+			}
+
+			.article-body h3 {
+				margin: 3rem 0 1rem;
+				font-size: 1.35rem;
+			}
+
+			.article-body p,
+			.article-body li,
+			.article-body blockquote {
+				color: #d9dee4 !important;
+				font-family: Georgia, "Times New Roman", serif;
+				font-size: 1.12rem;
+				line-height: 1.88;
+				text-align: left;
+			}
+
+			.article-body p {
+				margin: 0 0 1.55rem;
+			}
+
+			.article-body a {
+				color: #f08a96;
+				border-bottom-color: rgba(240,138,150,.45);
+			}
+
+			.article-body a:hover {
+				color: #fff !important;
+				border-bottom-color: var(--research-accent);
+			}
+
+			.article-body strong,
+			.article-body b {
+				color: #fff;
+			}
+
+			.article-body i,
+			.article-body em {
+				color: #eef1f4;
+			}
+
+			.article-body blockquote,
+			.article-body p:has(> i:only-child),
+			.article-body p:has(> em:only-child) {
+				margin: 2.25rem 0;
+				padding: 1.4rem 1.6rem;
+				background: var(--research-surface);
+				border-left: 3px solid var(--research-accent);
+			}
+
+			.article-body ul,
+			.article-body ol {
+				margin: 1.5rem 0 2rem;
+			}
+
+			.article-body .image,
+			.article-body .image.main,
+			.article-body .image.fit,
+			.article-body .image.left,
+			.article-body .image.right {
+				display: block;
+				float: none;
+				width: min(64rem, 100%);
+				max-width: none;
+				margin: 2.75rem auto;
+				padding: 0;
+				background: var(--research-surface);
+				border: 1px solid var(--research-border);
+				border-radius: 2px;
+				overflow: hidden;
+			}
+
+			.article-body .image img,
+			.article-body img {
+				display: block;
+				max-width: 100%;
+				height: auto;
+			}
+
+			.article-body table {
+				display: block;
+				width: 100%;
+				margin: 2rem 0;
+				overflow-x: auto;
+				background: var(--research-surface);
+				border: 1px solid var(--research-border);
+			}
+
+			.article-body table th,
+			.article-body table td {
+				color: var(--research-text);
+				border-color: var(--research-border);
+			}
+
+			.article-body .button,
+			.article-body button,
+			.article-body input[type="submit"],
+			.article-body input[type="reset"],
+			.article-body input[type="button"] {
+				background: transparent;
+				border-color: rgba(255,255,255,.65) !important;
+				box-shadow: inset 0 0 0 2px rgba(255,255,255,.65);
+				color: #fff !important;
+			}
+
+			.article-body .button:hover {
+				background: var(--research-accent-soft);
+				border-color: var(--research-accent) !important;
+				box-shadow: inset 0 0 0 2px var(--research-accent);
+			}
+
+			#footer {
+				background: #0d1117;
+				border-top: 1px solid var(--research-border);
+			}
+
+			#footer h3,
+			#footer p,
+			#footer a,
+			#copyright,
+			#copyright a {
+				color: var(--research-muted) !important;
+			}
+
+			#copyright {
+				background: var(--research-bg);
+			}
+
+			@media screen and (max-width: 980px) {
+				.article-hero {
+					padding: 4.25rem 3rem 3rem !important;
+				}
+
+				.hero-image {
+					width: calc(100% - 3rem);
+				}
+			}
+
+			@media screen and (max-width: 736px) {
+				#header {
+					min-height: 4rem;
+				}
+
+				#header .logo {
+					font-size: .68rem;
+					letter-spacing: .15em;
+				}
+
+				#header .logo::before {
+					content: "Agitlytics / ";
+				}
+
+				.article-hero {
+					padding: 3.2rem 1.4rem 2.4rem !important;
+				}
+
+				.article-hero::before {
+					margin-bottom: 1rem;
+					font-size: .62rem;
+				}
+
+				.article-hero h1 {
+					max-width: none;
+					font-size: clamp(2.15rem, 11vw, 3.35rem);
+					line-height: 1.02;
+					overflow-wrap: anywhere;
+				}
+
+				.article-hero p {
+					font-size: .68rem;
+					letter-spacing: .1em;
+				}
+
+				.hero-image {
+					width: 100%;
+					border-left: 0;
+					border-right: 0;
+				}
+
+				.hero-image img {
+					max-height: 25rem;
+				}
+
+				.article-body {
+					width: calc(100% - 2.5rem);
+					padding: 3rem 0 4.5rem;
+				}
+
+				.article-body p,
+				.article-body li,
+				.article-body blockquote {
+					font-size: 1.03rem;
+					line-height: 1.76;
+				}
+
+				.article-body h2 {
+					margin-top: 3.5rem;
+					font-size: 1.55rem;
+				}
+
+				.article-body .image,
+				.article-body .image.main,
+				.article-body .image.fit,
+				.article-body .image.left,
+				.article-body .image.right {
+					width: calc(100% + 1rem);
+					margin-left: -.5rem;
+				}
+			}
+		</style>
+</head>
+<body class="is-preload">
+<!-- Wrapper -->
+<div class="fade-in" id="wrapper">
+<!-- Intro -->
+<div id="intro">
+<h1>Agitlytics</h1>
+<p>Commentary by <a href="https://www.linkedin.com/in/aubrey-waddle-962634314" rel="noopener noreferrer" target="_blank">Aubrey Waddle</a></p>
+<ul class="actions">
+<li><a class="button icon solid solo fa-arrow-down scrolly" href="#header">Continue</a></li>
+</ul>
+</div>
+<!-- Header -->
+<header id="header">
+<a class="logo" href="elements.html">Research &amp; Commentary</a>
+</header>
+<!-- Nav -->
+<nav id="nav">
+<ul class="links">
+<li><a href="index.html">Home</a></li>
+<li><a href="DataProj.html">Data Projects</a></li>
+<li class="active"><a href="elements.html">Commentary</a></li>
+<li class="active"><a href="Deregulation.html">Deregulation</a></li>
+</ul>
+<ul class="icons">
+<li><a class="cib-tableau" href="images/RESUME 2025Nov.pdf.pdf" rel="noopener noreferrer" target="_blank"><span class="label">Résumé</span></a></li>
+<li><a class="cib-tableau" href="images/SNHU Diploma.pdf" rel="noopener noreferrer" target="_blank"><span class="label">Diploma</span></a></li>
+<li><a class="cib-tableau" href="images/Transcript_AUBREYWADDLE FINAL.pdf" rel="noopener noreferrer" target="_blank"><span class="label">Transcript</span></a></li>
+<li><a class="cib-tableau" href="https://public.tableau.com/app/profile/aubrey.waddle/vizzes" rel="noopener noreferrer" target="_blank"><span class="label">Tableau Public</span></a></li>
+<li><a class="icon brands alt fa-linkedin" href="https://www.linkedin.com/in/aubrey-waddle-962634314" rel="noopener noreferrer" target="_blank"><span class="label">linkedin</span></a></li>
+<li><a class="icon brands fa-github" href="https://github.com/Blamo2214" rel="noopener noreferrer" target="_blank"><span class="label">GitHub</span></a></li>
+<li><a class="icon brands fa-facebook-f" href="https://www.facebook.com/aubrey.waddle/" rel="noopener noreferrer" target="_blank"><span class="label">Facebook</span></a></li>
+<li><a class="icon brands fa-instagram" href="https://www.instagram.com/aubrey_waddle12/" rel="noopener noreferrer" target="_blank"><span class="label">Instagram</span></a></li>
+</ul>
+</nav>
+<!-- Main -->
+<div id="main">
+<!-- Post -->
+<section class="post">
+<header class="major article-hero">
+<span class="date"></span>
+<h1>Deregulation, Neoliberalism, and the Expanding Wealth Gap</h1>
+<p>A Critical Analysis and Working Report - Aubrey Waddle</p>
+</header>
+<div class="image main hero-image"><img alt="" src="images/Neoliberal-Revolution.jpg"/></div><div class="article-body">
+<h2>Deregulation Isn’t “Freedom.” It’s a Transfer of Wealth to the Already Wealthy.</h2>
+<p>
                   For decades, Americans have been sold a simple story: cut regulations, unleash markets,
                   and everyone prospers. Politicians from Ronald Reagan to Bill Clinton to today’s bipartisan
                   chorus of neoliberal cheerleaders have repeated this mantra so often that it’s taken on the
                   feel of common sense. After all, if the stock market rises, we’re told, the country must be
                   doing well.
                   </p>
-                  <p>
+<p>
                   But this story falls apart the moment you examine who actually benefits from deregulation—
                   and who pays the price.
                   </p>
-                  <p>
+<p>
                   If deregulation merely redistributed wealth upward, that would be bad enough. But it also
                   creates real harm for working-class people, who bear the consequences of weakened
                   oversight.
                   </p>
-                  <p>
+<p>
                   Consider the pharmaceutical industry. Regulatory gaps and aggressive lobbying helped fuel
                   the opioid crisis that devastated communities across the country. Companies cut corners,
                   flooded markets with addictive drugs, and reaped billions while families were torn apart.
                   </p>
-                  <p>
+<p>
                   Or look at fossil fuel companies. When environmental safeguards loosen, these industries
                   get cheaper waste management and higher profit margins—but at the cost of air quality,
                   water safety, and the health of working families living near extraction sites. Additionally, 
 				  studies show blue-collar workers face an increasing headwind as the effects of anthropogenic climate change worsen. 
-				<a href="https://onlinelibrary.wiley.com/doi/10.1002/ajim.23024" target="_blank" rel="noopener noreferrer"
-					>"U.S. construction workers are at a high risk of heat-related death, and this risk has increased with climate change over time."</a>
-                  </p>
-                  <p>
+				<a href="https://onlinelibrary.wiley.com/doi/10.1002/ajim.23024" rel="noopener noreferrer" target="_blank">"U.S. construction workers are at a high risk of heat-related death, and this risk has increased with climate change over time."</a>
+</p>
+<p>
                   And then there’s healthcare. Instead of following other developed nations toward universal
                   public healthcare, the U.S. embraced a public–private partnership model under the Affordable
                   Care Act—one designed to preserve insurance company profits rather than guarantee care.
                   Neoliberalism protects markets first and people second, if at all.
                   </p>
-                  <p>
+<p>
                   These aren’t abstract policy debates. They are real examples of how deregulation—sold as
                   efficiency—becomes exploitation.
                   </p>
-                  
-                  <h2>Regulations Aren’t Bureaucratic “Red Tape.” They’re Protections Written in Blood.</h2>
-                  <p>
+<h2>Regulations Aren’t Bureaucratic “Red Tape.” They’re Protections Written in Blood.</h2>
+<p>
                   There’s a reason labor laws, environmental standards, consumer protections, and workplace
                   safety rules exist. Every one of them is a response to harm. They are written because
                   someone was injured, poisoned, defrauded, or killed.
                   </p>
-                  <p>
+<p>
                   Remove them, and the same incentives that caused the harm in the first place return
                   stronger than ever. 
                   </p>
-                  <p>
+<p>
                   Under neoliberal deregulation, cutting costs becomes synonymous with cutting corners:
                   workers lose safety protections, communities deal with more pollution, consumers are
                   exposed to risk, unions weaken, wages stagnate, and bargaining power evaporates.
                   </p>
-                  <p>
+<p>
                   Meanwhile, profit margins widen—and the owners of those profits overwhelmingly belong
                   to the top 10 percent.
                   </p>
-                  <p>
+<p>
                   This is not a coincidence. It is the design.
                   </p>
-                  
-                  <h2>Neoliberal Deregulation Widens the Gap on Both Ends</h2>
-                  <p>
+<h2>Neoliberal Deregulation Widens the Gap on Both Ends</h2>
+<p>
                   Deregulation hurts working people directly by stripping away protections. But it also harms
                   them indirectly by enriching the capital-owning elite at their expense. Higher corporate profits don’t show up as higher wages. They show up as stock buybacks,
                   rising dividends, executive compensation packages, and inflated asset values.
                   </p>
-
-                  <p>
+<p>
                   These are mechanisms that overwhelmingly reward those who already own capital, not the
                   people whose labor produces the wealth in the first place. Meanwhile, the working class gets a harsher environment, lower wages, more insecurity,
                   and fewer avenues to fight back. The neoliberal promise of shared prosperity is a mirage—
                   One made possible only by ignoring who actually owns the nation’s wealth.
                   </p>
-
-                  <p>
+<p>
                   Neoliberalism didn’t fail to deliver broad prosperity. It delivered exactly what it was
                   structured to deliver: upward redistribution, as we will explore below. As long as political leaders on both sides of the aisle cling to the fantasy that freeing
                   corporations from oversight somehow benefits ordinary Americans, the wealth gap will
                   continue to widen. Deregulation doesn’t create freedom for society; it creates freedom for
                   corporations to extract more wealth from society.
                   </p>
-               
-                  <p>
+<p>
                   And until we recognize that, the richest Americans will keep getting richer—not because
                   they’re working harder or creating more value, but because the rules have been rewritten to
                   ensure that the gains flow overwhelmingly upward. The working class isn’t losing because of personal shortcomings or bad luck. It’s losing
                   because the system is designed for them to lose.
                   </p>
-					<h2>How Housing Fuels the Modern Wealth Gap</h2>			
-				  <p>
+<h2>How Housing Fuels the Modern Wealth Gap</h2>
+<p>
                   Today, the bottom half of Americans face disproportionately severe pressures from housing costs, healthcare expenses, student debt, and job insecurity—pressures that barely register for the ultra-wealthy. 
 	              Housing has become one of the central engines of modern wealth inequality, transforming shelter from a basic need into a primary vehicle for asset accumulation by those who already own.
 				  </p>
-								
-			      <p>
-								<a href="https://www.nar.realtor/newsroom/first-time-home-buyer-share-falls-to-historic-low-of-21-median-age-rises-to-40" target="_blank" rel="noopener noreferrer"
-                  >In 2025, the median first-time homebuyer was 40 years old.</a> The median homebuyer overall was 59. <a href="https://www.marketwatch.com/livecoverage/stock-market-today-dow-s-p-500-nasdaq-set-for-gains-ahead-of-busy-earnings-week/card/more-70-year-olds-bought-homes-last-year-than-did-people-under-35-deutsche-bank-IHBsIhVaP8IaiUtPCC9j?gaa_at=eafs&gaa_n=AWEtsqdlGD3TinWjxS9f6V-9HgHq7S8TdRrHxwZt4JdQHVUNFW3r8hJ12cigMD3qoEA%3D&gaa_ts=696efd17&gaa_sig=u3B0H9hobm4Vdoc9p5yFUiuIY8oU19CGyjcgvqYqx8w0cUsN1m3I04OZHfPLxNFg0VtjHaY-oqphPlb2L2V98w%3D%3D" target="_blank" rel="noopener noreferrer">In 2025, more homes were purchased by people over 70 than by those under 35</a>.
+<p>
+<a href="https://www.nar.realtor/newsroom/first-time-home-buyer-share-falls-to-historic-low-of-21-median-age-rises-to-40" rel="noopener noreferrer" target="_blank">In 2025, the median first-time homebuyer was 40 years old.</a> The median homebuyer overall was 59. <a href="https://www.marketwatch.com/livecoverage/stock-market-today-dow-s-p-500-nasdaq-set-for-gains-ahead-of-busy-earnings-week/card/more-70-year-olds-bought-homes-last-year-than-did-people-under-35-deutsche-bank-IHBsIhVaP8IaiUtPCC9j?gaa_at=eafs&amp;gaa_n=AWEtsqdlGD3TinWjxS9f6V-9HgHq7S8TdRrHxwZt4JdQHVUNFW3r8hJ12cigMD3qoEA%3D&amp;gaa_ts=696efd17&amp;gaa_sig=u3B0H9hobm4Vdoc9p5yFUiuIY8oU19CGyjcgvqYqx8w0cUsN1m3I04OZHfPLxNFg0VtjHaY-oqphPlb2L2V98w%3D%3D" rel="noopener noreferrer" target="_blank">In 2025, more homes were purchased by people over 70 than by those under 35</a>.
 				  All the while, the average age of new hires in 2025 was 42 years old. 
 				  </p>
-
-				<p>			
+<p>			
 				These are not cultural failures or 
 	            personal shortcomings; they are symptoms of an economy that systematically channels wealth upward while leaving basic needs increasingly unaffordable for the majority. As older and wealthier buyers consolidate property, rising prices and higher interest rates lock younger and working-class households out of ownership entirely. This dynamic turns rent into a permanent transfer of income upward, while home equity—one of the main sources of middle-class wealth—remains concentrated at the top.
 	            The result is a self-reinforcing cycle where those with property grow richer simply by holding it, while those without are priced out of building any comparable wealth at all.
                 </p>
-         
-								
-								
-								<h2>The Neoliberal “Zero-Sum” Straw Man—and Why It Misses the Point</h2>
-                  <p>
+<h2>The Neoliberal “Zero-Sum” Straw Man—and Why It Misses the Point</h2>
+<p>
                   Now, let's explore how neoliberalism's defense of the status quo also widens the wealth gap and why that's bad, actually. Let’s start with a number that should end the debate entirely: as of Q2 of 2025, the wealthiest 1 percent of
                   Americans own 49.9 percent of all corporate equities. The next 9 percent own 37.3 percent. The following 40 percent own a measly 11.7 percent.
-				  Half the country owns none at all, effectively. This is according to <a href="https://fred.stlouisfed.org/release/tables?rid=453&eid=813804#snid=813876" target="_blank" rel="noopener noreferrer">Federal Reserve Bank of St. Louis</a> data.
+				  Half the country owns none at all, effectively. This is according to <a href="https://fred.stlouisfed.org/release/tables?rid=453&amp;eid=813804#snid=813876" rel="noopener noreferrer" target="_blank">Federal Reserve Bank of St. Louis</a> data.
                   </p>
-					<a href="images\2025 Q2 Corp. Equities Distribution.png" target="_blank" rel="noopener noreferrer" class="image main"><img src="images\2025 Q2 Corp. Equities Distribution.png" alt="" /></a>
-								
-
-
+<a class="image main" href="images/2025 Q2 Corp. Equities Distribution.png" rel="noopener noreferrer" target="_blank"><img alt="" src="images/2025 Q2 Corp. Equities Distribution.png"/></a>
 <p>
 Defenders of neoliberalism often retreat to a familiar accusation whenever wealth inequality is raised: that critics are viewing the economy as a zero-sum game. According to this framing, any concern about the 
 	concentration of wealth must imply a belief that gains at the top necessarily require losses at the bottom—and since living standards have broadly improved over the last century, the critique is dismissed as ignorant or unserious.
 </p>
-
 <p>
 But this is a fundamental misrepresentation of the argument.
 </p>
-
 <p>
 Pointing out that nearly all corporate equity is owned by the top 10 percent, or that wealth concentration today rivals—and in some measures exceeds—that of the Gilded Age, is not a claim that society has failed to 
 	produce material progress. The person living in their car in the 1930s was certainly worse off than the person living in their car today, as free market innovations made heating and cooling standard in automobiles between then and now. 
@@ -204,50 +570,37 @@ Pointing out that nearly all corporate equity is owned by the top 10 percent, or
 	But those gains coexist with—and are increasingly overshadowed by—a structural imbalance in who bears the costs of modern life and who is insulated from them. 
 	Given the abundant wealth that exists today, why is <i>anyone</i> still having to resort to living in their car?
 </p>
-
 <p>
     Crucially, addressing this imbalance does not require sacrificing innovation, technology, or quality of life. Even dramatic reductions in the wealth of the ultra-rich would leave them extraordinarily 
 	wealthy, fully capable of driving consumption and investment. The difference is that redistributing a portion of that excess could materially reduce suffering at the bottom—expanding access to housing,
 	healthcare, education, and childcare without diminishing society’s productive capacity.
 </p>
-
 <p>
 Critics of neoliberalism are not arguing that progress must stop so equality can advance. They are arguing that progress should be shared, and that the existing distribution of wealth reveals where the resources
 	to solve persistent social problems already exist.
 </p>
-
 <p>
 The insistence that any further critique amounts to envy or endless dissatisfaction misunderstands the nature of systemic improvement. A society can achieve real gains and still recognize its remaining failures. 
 	Like public health officials refining a successful vaccine rollout, they don't then quite stop working because they've achived 90% immunity, they continue to work toward 100%. The pursuit of better outcomes does not negate past success; it builds on it.
 </p>
-
 <p>
 To frame this critique as zero-sum thinking is not an honest engagement. It is a rhetorical maneuver designed to shut down discussion about power, ownership, and whose lives are treated as expendable. 
 	And as long as that maneuver succeeds, the wealth gap will continue to widen—not by accident, but by design.
 </p>
-
-
-                  
-                  <h2>References</h2>
-                  <p>
-                 Dataset used can be downloaded <a href="images\Share of Corporate Equities and Mutual Fund Shares Held By Wealth Percentiles.xlsx">HERE</a>,<br />
-				 Data was obtained from the <a href="https://fred.stlouisfed.org/release/tables?rid=453&eid=813804#snid=813876" target="_blank" rel="noopener noreferrer">Federal Reserve Bank of St. Louis</a> website.
+<h2>References</h2>
+<p>
+                 Dataset used can be downloaded <a href="images/Share of Corporate Equities and Mutual Fund Shares Held By Wealth Percentiles.xlsx">HERE</a>,<br/>
+				 Data was obtained from the <a href="https://fred.stlouisfed.org/release/tables?rid=453&amp;eid=813804#snid=813876" rel="noopener noreferrer" target="_blank">Federal Reserve Bank of St. Louis</a> website.
                   </p>
-				  <p>
-			<a href="https://onlinelibrary.wiley.com/doi/10.1002/ajim.23024" target="_blank" rel="noopener noreferrer"
->[1] Dong, Xiuwen Sue et al. “Heat-related deaths among construction workers in the United States.” 
-				  American journal of industrial medicine vol. 62,12 (2019): 1047-1057. doi:10.1002/ajim.23024	  </a>  
-				  </p>
-
-					
-
-							</section>
-
-					</div>
-
-				<!-- Footer -->
-					<footer id="footer">
-						<!-- <section>
+<p>
+<a href="https://onlinelibrary.wiley.com/doi/10.1002/ajim.23024" rel="noopener noreferrer" target="_blank">[1] Dong, Xiuwen Sue et al. “Heat-related deaths among construction workers in the United States.” 
+				  American journal of industrial medicine vol. 62,12 (2019): 1047-1057. doi:10.1002/ajim.23024	  </a>
+</p>
+</div></section>
+</div>
+<!-- Footer -->
+<footer id="footer">
+<!-- <section>
 							<form method="post" action="#">
 								<div class="fields">
 									<div class="field">
@@ -268,61 +621,56 @@ To frame this critique as zero-sum thinking is not an honest engagement. It is a
 								</ul>
 							</form>
 						</section> -->
-						<section class="posts">
-								<article>
-									<header>
-										<!-- <span class="date"></span>
+<section class="posts">
+<article>
+<header>
+<!-- <span class="date"></span>
 										<h2><a href="https://public.tableau.com/shared/YFXYJXN7D?:display_count=n&:origin=viz_share_link">Data Exploration of<br />
 										Covid Datasets in SQL</a></h2>  -->
-									</header>
-									<a href="#" class="image main"><img src="images\Headshot.png" alt="" /></a>
-									<p></p>
-									<ul class="actions special">
-										
-									</ul>
-								</article>
-						</section>
-						<section class="split contact">
-							<section class="alt">
-								<h3>Location</h3>
-								<p>Houston, TX<br />
-								</p>
-							</section>
-							<section>
-								<h3>Phone</h3>
-								<p><a href="#">(936)446-8053</a></p>
-							</section>
-							<section>
-								<h3>Email</h3>
-								<p><a href="#">aubreywaddle2@gmail.com</a></p>
-							</section>
-							<section>
-								<h3>Social</h3>
-								<ul class="icons alt">
-									<li><a href="www.linkedin.com/in/aubrey-waddle-962634314" class="icon brands alt fa-linkedin"><span class="label">linkedin</span></a></li>
-									<li><a href="https://www.facebook.com/aubrey.waddle/" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-									<li><a href="https://www.instagram.com/aubrey_waddle12/" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-									<li><a href="https://github.com/Blamo2214" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-								</ul>
-							</section>
-						</section>
-					</footer>
-
-				<!-- Copyright -->
-					<div id="copyright">
-						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
-					</div>
-
-			</div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
+</header>
+<a class="image main" href="#"><img alt="" src="images/Headshot.png"/></a>
+<p></p>
+<ul class="actions special">
+</ul>
+</article>
+</section>
+<section class="split contact">
+<section class="alt">
+<h3>Location</h3>
+<p>Houston, TX<br/>
+</p>
+</section>
+<section>
+<h3>Phone</h3>
+<p><a href="#">(936)446-8053</a></p>
+</section>
+<section>
+<h3>Email</h3>
+<p><a href="#">aubreywaddle2@gmail.com</a></p>
+</section>
+<section>
+<h3>Social</h3>
+<ul class="icons alt">
+<li><a class="icon brands alt fa-linkedin" href="www.linkedin.com/in/aubrey-waddle-962634314"><span class="label">linkedin</span></a></li>
+<li><a class="icon brands alt fa-facebook-f" href="https://www.facebook.com/aubrey.waddle/"><span class="label">Facebook</span></a></li>
+<li><a class="icon brands alt fa-instagram" href="https://www.instagram.com/aubrey_waddle12/"><span class="label">Instagram</span></a></li>
+<li><a class="icon brands alt fa-github" href="https://github.com/Blamo2214"><span class="label">GitHub</span></a></li>
+</ul>
+</section>
+</section>
+</footer>
+<!-- Copyright -->
+<div id="copyright">
+<ul><li>© Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+</div>
+</div>
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
 </html>
