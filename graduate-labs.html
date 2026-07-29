@@ -18,6 +18,38 @@
 		.lab-list{margin:0;padding:0;list-style:none}.lab-list li+li{border-top:1px solid var(--border)}.lab-link{display:grid;grid-template-columns:auto 1fr auto;gap:1rem;align-items:center;padding:1.2rem 2rem;border:0!important;text-decoration:none;transition:background .18s ease,padding-left .18s ease}.lab-link:hover{padding-left:2.25rem;background:var(--panel)}.doc-icon{display:grid;place-items:center;width:2.35rem;height:2.7rem;color:var(--accent);border:2px solid currentColor;border-radius:.2rem;font-weight:900;font-size:.72rem}.lab-title{color:var(--ink);font-size:1rem;font-weight:800}.lab-meta{display:block;margin-top:.22rem;color:var(--muted);font-size:.72rem;font-weight:600}.download-label{color:var(--accent);font-size:.68rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
 		@media screen and (max-width:736px){.lab-shell{padding:2rem 1rem}.stats{grid-template-columns:1fr}.course-header{padding:1.7rem 1.4rem 1.5rem}.lab-link{grid-template-columns:auto 1fr;padding:1rem 1.2rem}.lab-link:hover{padding-left:1.35rem}.download-label{display:none}}
 	</style>
+
+<style>
+/* Readability fix for the laboratory overview section */
+#main {
+  background: #f3f6fa !important;
+}
+.lab-shell {
+  background: #f3f6fa !important;
+}
+.lab-intro {
+  padding: 2.5rem 2rem;
+  background: #ffffff;
+  border: 1px solid #dce2ea;
+  box-shadow: 0 .55rem 1.8rem rgba(22,32,51,.06);
+}
+.lab-intro .eyebrow {
+  color: #2f6feb !important;
+}
+.lab-intro h2 {
+  color: #162033 !important;
+  opacity: 1 !important;
+}
+.lab-intro p {
+  color: #556176 !important;
+  opacity: 1 !important;
+}
+@media screen and (max-width: 736px) {
+  .lab-intro {
+    padding: 1.75rem 1.25rem;
+  }
+}
+</style>
 </head>
 <body class="is-preload">
 <div id="wrapper" class="fade-in">
