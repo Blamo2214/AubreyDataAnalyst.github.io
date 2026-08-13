@@ -1,0 +1,453 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <title>Export Share: China vs. United States</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #111111;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+
+        button,
+        input {
+            font: inherit;
+        }
+
+        .visualization-layout {
+            display: grid;
+            grid-template-columns: 260px minmax(0, 1fr);
+            min-height: 100vh;
+        }
+
+        .country-panel {
+            padding: 20px;
+            border-right: 1px solid #444444;
+            background: #181818;
+            overflow-y: auto;
+        }
+
+        .country-panel h2 {
+            margin: 0 0 8px;
+            font-size: 19px;
+        }
+
+        .metric-description {
+            margin: 0 0 16px;
+            color: #c4c4c4;
+            font-size: 13px;
+            line-height: 1.45;
+        }
+
+        .country-actions {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 18px;
+        }
+
+        .country-actions button,
+        .continent-actions button {
+            padding: 6px 9px;
+            border: 1px solid #666666;
+            border-radius: 5px;
+            background: #2b2b2b;
+            color: #ffffff;
+            cursor: pointer;
+        }
+
+        .country-actions button:hover,
+        .continent-actions button:hover {
+            background: #3b3b3b;
+        }
+
+        .continent-group {
+            padding: 12px 0;
+            border-top: 1px solid #343434;
+        }
+
+        .continent-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            margin-bottom: 9px;
+        }
+
+        .continent-header h3 {
+            margin: 0;
+            font-size: 15px;
+        }
+
+        .continent-actions {
+            display: flex;
+            gap: 5px;
+        }
+
+        .continent-actions button {
+            padding: 3px 6px;
+            font-size: 11px;
+        }
+
+        .continent-countries {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .country-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .color-key {
+            display: grid;
+            gap: 7px;
+            padding: 12px 0 16px;
+            border-top: 1px solid #343434;
+        }
+
+        .color-key-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #d7d7d7;
+            font-size: 12px;
+        }
+
+        .color-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            flex: 0 0 auto;
+        }
+
+        .chart-container {
+            position: relative;
+            min-width: 0;
+            overflow: hidden;
+        }
+
+        #year-watermark {
+            position: absolute;
+            top: 55px;
+            right: 70px;
+
+            z-index: 2;
+
+            font-size: 190px;
+            font-weight: 500;
+            line-height: 1;
+
+            color: rgba(255, 255, 255, 0.08);
+
+            pointer-events: none;
+            user-select: none;
+        }
+
+        #trade-chart {
+            width: 100%;
+        }
+
+        @media (max-width: 800px) {
+            .visualization-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .country-panel {
+                border-right: 0;
+                border-bottom: 1px solid #444444;
+                max-height: 420px;
+            }
+
+            .continent-countries {
+                display: grid;
+                grid-template-columns:
+                    repeat(auto-fit, minmax(130px, 1fr));
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="visualization-layout">
+        <aside class="country-panel">
+            <h2>Select countries</h2>
+            <p class="metric-description">Share of total exports associated with each partner.</p>
+
+            <div class="country-actions">
+                <button id="select-all" type="button">
+                    Select all
+                </button>
+                <button id="clear-all" type="button">
+                    Clear all
+                </button>
+            </div>
+
+            <div class="color-key">
+                <div class="color-key-row">
+                    <span
+                        class="color-dot"
+                        style="background: #ef4444"
+                    ></span>
+                    <span>China is larger</span>
+                </div>
+                <div class="color-key-row">
+                    <span
+                        class="color-dot"
+                        style="background: #3b82f6"
+                    ></span>
+                    <span>United States is larger</span>
+                </div>
+            </div>
+
+            <div class="country-list">
+                
+            <section class="continent-group">
+                <div class="continent-header">
+                    <h3>Europe</h3>
+                    <div class="continent-actions">
+                        <button
+                            type="button"
+                            class="continent-select"
+                            data-continent-id="continent-0"
+                        >
+                            All
+                        </button>
+                        <button
+                            type="button"
+                            class="continent-clear"
+                            data-continent-id="continent-0"
+                        >
+                            None
+                        </button>
+                    </div>
+                </div>
+                <div class="continent-countries" id="continent-0">
+                    
+            <label class="country-option">
+                <input
+                    type="checkbox"
+                    class="country-checkbox"
+                    data-trace-index="0"
+                    data-continent-id="continent-0"
+                    checked
+                >
+                <span>Austria</span>
+            </label>
+            
+
+            <label class="country-option">
+                <input
+                    type="checkbox"
+                    class="country-checkbox"
+                    data-trace-index="1"
+                    data-continent-id="continent-0"
+                    checked
+                >
+                <span>Belgium</span>
+            </label>
+            
+
+            <label class="country-option">
+                <input
+                    type="checkbox"
+                    class="country-checkbox"
+                    data-trace-index="2"
+                    data-continent-id="continent-0"
+                    checked
+                >
+                <span>France</span>
+            </label>
+            
+                </div>
+            </section>
+            
+            </div>
+        </aside>
+
+        <main class="chart-container">
+            <div id="year-watermark">1988</div>
+            <div style="height:750px; width:1100px;">                        <script>window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.7.0.min.js" integrity="sha256-jvTGqxNp8AGWEcvNLVuKr+8j5dGe9Yw51LQkmDH+IYA=" crossorigin="anonymous"></script>                <div id="trade-chart" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script>                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("trade-chart")) {                    Plotly.newPlot(                        "trade-chart",                        [{"customdata":[[1988,"Europe",2.75]],"hovertemplate":"\u003cb\u003e%{fullData.name}\u003c\u002fb\u003e\u003cbr\u003e\u003cbr\u003eContinent: %{customdata[1]}\u003cbr\u003eYear: %{customdata[0]}\u003cbr\u003e\u003cbr\u003eChina: %{x:.2f}%\u003cbr\u003eUnited States: %{y:.2f}%\u003cbr\u003e\u003cbr\u003eU.S. minus China: %{customdata[2]:+.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#3b82f6","line":{"color":"#ffffff","width":1},"opacity":0.85,"size":14},"meta":{"continent":"Europe"},"mode":"markers+text","name":"Austria","showlegend":false,"text":["Austria"],"textfont":{"size":10},"textposition":"top center","x":[0.7268],"y":[3.4801],"type":"scatter"},{"customdata":[[1988,"Europe",4.64]],"hovertemplate":"\u003cb\u003e%{fullData.name}\u003c\u002fb\u003e\u003cbr\u003e\u003cbr\u003eContinent: %{customdata[1]}\u003cbr\u003eYear: %{customdata[0]}\u003cbr\u003e\u003cbr\u003eChina: %{x:.2f}%\u003cbr\u003eUnited States: %{y:.2f}%\u003cbr\u003e\u003cbr\u003eU.S. minus China: %{customdata[2]:+.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#3b82f6","line":{"color":"#ffffff","width":1},"opacity":0.85,"size":14},"meta":{"continent":"Europe"},"mode":"markers+text","name":"Belgium","showlegend":false,"text":["Belgium"],"textfont":{"size":10},"textposition":"top center","x":[0.5285],"y":[5.1715],"type":"scatter"},{"customdata":[[1988,"Europe",6.11]],"hovertemplate":"\u003cb\u003e%{fullData.name}\u003c\u002fb\u003e\u003cbr\u003e\u003cbr\u003eContinent: %{customdata[1]}\u003cbr\u003eYear: %{customdata[0]}\u003cbr\u003e\u003cbr\u003eChina: %{x:.2f}%\u003cbr\u003eUnited States: %{y:.2f}%\u003cbr\u003e\u003cbr\u003eU.S. minus China: %{customdata[2]:+.2f}%\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#3b82f6","line":{"color":"#ffffff","width":1},"opacity":0.85,"size":14},"meta":{"continent":"Europe"},"mode":"markers+text","name":"France","showlegend":false,"text":["France"],"textfont":{"size":10},"textposition":"top center","x":[0.9292],"y":[7.0392],"type":"scatter"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"rgb(17,17,17)","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#f2f5fa"},"error_y":{"color":"#f2f5fa"},"marker":{"line":{"color":"rgb(17,17,17)","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#A2B1C6","gridcolor":"#506784","linecolor":"#506784","minorgridcolor":"#506784","startlinecolor":"#A2B1C6"},"baxis":{"endlinecolor":"#A2B1C6","gridcolor":"#506784","linecolor":"#506784","minorgridcolor":"#506784","startlinecolor":"#A2B1C6"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"line":{"color":"#283442"}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"marker":{"line":{"color":"#283442"}},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#506784"},"line":{"color":"rgb(17,17,17)"}},"header":{"fill":{"color":"#2a3f5f"},"line":{"color":"rgb(17,17,17)"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#f2f5fa","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#f2f5fa"},"geo":{"bgcolor":"rgb(17,17,17)","lakecolor":"rgb(17,17,17)","landcolor":"rgb(17,17,17)","showlakes":true,"showland":true,"subunitcolor":"#506784"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"dark"},"paper_bgcolor":"rgb(17,17,17)","plot_bgcolor":"rgb(17,17,17)","polar":{"angularaxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""},"bgcolor":"rgb(17,17,17)","radialaxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"rgb(17,17,17)","gridcolor":"#506784","gridwidth":2,"linecolor":"#506784","showbackground":true,"ticks":"","zerolinecolor":"#C8D4E3"},"yaxis":{"backgroundcolor":"rgb(17,17,17)","gridcolor":"#506784","gridwidth":2,"linecolor":"#506784","showbackground":true,"ticks":"","zerolinecolor":"#C8D4E3"},"zaxis":{"backgroundcolor":"rgb(17,17,17)","gridcolor":"#506784","gridwidth":2,"linecolor":"#506784","showbackground":true,"ticks":"","zerolinecolor":"#C8D4E3"}},"shapedefaults":{"line":{"color":"#f2f5fa"}},"sliderdefaults":{"bgcolor":"#C8D4E3","bordercolor":"rgb(17,17,17)","borderwidth":1,"tickwidth":0},"ternary":{"aaxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""},"baxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""},"bgcolor":"rgb(17,17,17)","caxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""}},"title":{"x":0.05},"updatemenudefaults":{"bgcolor":"#506784","borderwidth":0},"xaxis":{"automargin":true,"gridcolor":"#283442","linecolor":"#506784","ticks":"","title":{"standoff":15},"zerolinecolor":"#283442","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#283442","linecolor":"#506784","ticks":"","title":{"standoff":15},"zerolinecolor":"#283442","zerolinewidth":2}}},"title":{"font":{"size":24},"text":"Export Share: China vs. United States","x":0.5,"xanchor":"center"},"xaxis":{"title":{"text":"China (%)"},"range":[0,5.330050000000001],"ticksuffix":"%","showgrid":true,"zeroline":true},"yaxis":{"title":{"text":"United States (%)"},"range":[0,9.729830000000002],"ticksuffix":"%","showgrid":true,"zeroline":true},"margin":{"l":90,"r":40,"t":90,"b":120},"width":1100,"height":750,"shapes":[{"layer":"below","line":{"color":"#888888","dash":"dash","width":1.5},"type":"line","x0":0,"x1":5.330050000000001,"y0":0,"y1":5.330050000000001}],"updatemenus":[{"buttons":[{"args":[null,{"fromcurrent":true,"mode":"immediate","frame":{"duration":600,"redraw":false},"transition":{"duration":300}}],"label":"Play","method":"animate"},{"args":[[null],{"mode":"immediate","frame":{"duration":0,"redraw":false},"transition":{"duration":0}}],"label":"Pause","method":"animate"}],"direction":"left","type":"buttons","x":0.1,"y":-0.12}],"sliders":[{"active":0,"currentvalue":{"prefix":"Year: "},"pad":{"t":40},"steps":[{"args":[["1988"],{"mode":"immediate","frame":{"duration":600,"redraw":false},"transition":{"duration":300}}],"label":"1988","method":"animate"},{"args":[["1989"],{"mode":"immediate","frame":{"duration":600,"redraw":false},"transition":{"duration":300}}],"label":"1989","method":"animate"},{"args":[["1990"],{"mode":"immediate","frame":{"duration":600,"redraw":false},"transition":{"duration":300}}],"label":"1990","method":"animate"},{"args":[["1991"],{"mode":"immediate","frame":{"duration":600,"redraw":false},"transition":{"duration":300}}],"label":"1991","method":"animate"},{"args":[["1992"],{"mode":"immediate","frame":{"duration":600,"redraw":false},"transition":{"duration":300}}],"label":"1992","method":"animate"},{"args":[["1993"],{"mode":"immediate","frame":{"duration":600,"redraw":false},"transition":{"duration":300}}],"label":"1993","method":"animate"},{"args":[["1994"],{"mode":"immediate","frame":{"duration":600,"redraw":false},"transition":{"duration":300}}],"label":"1994","method":"animate"},{"args":[["1995"],{"mode":"immediate","frame":{"duration":600,"redraw":false},"transition":{"duration":300}}],"label":"1995","method":"animate"},{"args":[["1996"],{"mode":"immediate","frame":{"duration":600,"redraw":false},"transition":{"duration":300}}],"label":"1996","method":"animate"},{"args":[["1997"],{"mode":"immediate","frame":{"duration":600,"redraw":false},"transition":{"duration":300}}],"label":"1997","method":"animate"},{"args":[["1998"],{"mode":"immediate","frame":{"duration":600,"redraw":false},"transition":{"duration":300}}],"label":"1998","method":"animate"},{"args":[["1999"],{"mode":"immediate","frame":{"duration":600,"redraw":false},"transition":{"duration":300}}],"label":"1999","method":"animate"},{"args":[["2000"],{"mode":"immediate","frame":{"duration":600,"redraw":false},"transition":{"duration":300}}],"label":"2000","method":"animate"},{"args":[["2001"],{"mode":"immediate","frame":{"duration":600,"redraw":false},"transition":{"duration":300}}],"label":"2001","method":"animate"},{"args":[["2002"],{"mode":"immediate","frame":{"duration":600,"redraw":false},"transition":{"duration":300}}],"label":"2002","method":"animate"},{"args":[["2003"],{"mode":"immediate","frame":{"duration":600,"redraw":false},"transition":{"duration":300}}],"label":"2003","method":"animate"},{"args":[["2004"],{"mode":"immediate","frame":{"duration":600,"redraw":false},"transition":{"duration":300}}],"label":"2004","method":"animate"},{"args":[["2005"],{"mode":"immediate","frame":{"duration":600,"redraw":false},"transition":{"duration":300}}],"label":"2005","method":"animate"},{"args":[["2006"],{"mode":"immediate","frame":{"duration":600,"redraw":false},"transition":{"duration":300}}],"label":"2006","method":"animate"},{"args":[["2007"],{"mode":"immediate","frame":{"duration":600,"redraw":false},"transition":{"duration":300}}],"label":"2007","method":"animate"},{"args":[["2008"],{"mode":"immediate","frame":{"duration":600,"redraw":false},"transition":{"duration":300}}],"label":"2008","method":"animate"},{"args":[["2009"],{"mode":"immediate","frame":{"duration":600,"redraw":false},"transition":{"duration":300}}],"label":"2009","method":"animate"},{"args":[["2010"],{"mode":"immediate","frame":{"duration":600,"redraw":false},"transition":{"duration":300}}],"label":"2010","method":"animate"},{"args":[["2011"],{"mode":"immediate","frame":{"duration":600,"redraw":false},"transition":{"duration":300}}],"label":"2011","method":"animate"},{"args":[["2012"],{"mode":"immediate","frame":{"duration":600,"redraw":false},"transition":{"duration":300}}],"label":"2012","method":"animate"},{"args":[["2013"],{"mode":"immediate","frame":{"duration":600,"redraw":false},"transition":{"duration":300}}],"label":"2013","method":"animate"},{"args":[["2014"],{"mode":"immediate","frame":{"duration":600,"redraw":false},"transition":{"duration":300}}],"label":"2014","method":"animate"},{"args":[["2015"],{"mode":"immediate","frame":{"duration":600,"redraw":false},"transition":{"duration":300}}],"label":"2015","method":"animate"},{"args":[["2016"],{"mode":"immediate","frame":{"duration":600,"redraw":false},"transition":{"duration":300}}],"label":"2016","method":"animate"},{"args":[["2017"],{"mode":"immediate","frame":{"duration":600,"redraw":false},"transition":{"duration":300}}],"label":"2017","method":"animate"},{"args":[["2018"],{"mode":"immediate","frame":{"duration":600,"redraw":false},"transition":{"duration":300}}],"label":"2018","method":"animate"},{"args":[["2019"],{"mode":"immediate","frame":{"duration":600,"redraw":false},"transition":{"duration":300}}],"label":"2019","method":"animate"},{"args":[["2020"],{"mode":"immediate","frame":{"duration":600,"redraw":false},"transition":{"duration":300}}],"label":"2020","method":"animate"},{"args":[["2021"],{"mode":"immediate","frame":{"duration":600,"redraw":false},"transition":{"duration":300}}],"label":"2021","method":"animate"},{"args":[["2022"],{"mode":"immediate","frame":{"duration":600,"redraw":false},"transition":{"duration":300}}],"label":"2022","method":"animate"},{"args":[["2023"],{"mode":"immediate","frame":{"duration":600,"redraw":false},"transition":{"duration":300}}],"label":"2023","method":"animate"}]}]},                        {"responsive": true, "displaylogo": false}                    ).then(function(){
+                            Plotly.addFrames('trade-chart', [{"data":[{"customdata":[[1988,"Europe",2.75]],"marker":{"color":"#3b82f6"},"text":["Austria"],"x":[0.7268],"y":[3.4801],"type":"scatter"},{"customdata":[[1988,"Europe",4.64]],"marker":{"color":"#3b82f6"},"text":["Belgium"],"x":[0.5285],"y":[5.1715],"type":"scatter"},{"customdata":[[1988,"Europe",6.11]],"marker":{"color":"#3b82f6"},"text":["France"],"x":[0.9292],"y":[7.0392],"type":"scatter"}],"name":"1988","traces":[0,1,2]},{"data":[{"customdata":[[1989,"Europe",2.75]],"marker":{"color":"#3b82f6"},"text":["Austria"],"x":[0.7268],"y":[3.4801],"type":"scatter"},{"customdata":[[1989,"Europe",4.64]],"marker":{"color":"#3b82f6"},"text":["Belgium"],"x":[0.5285],"y":[5.1715],"type":"scatter"},{"customdata":[[1989,"Europe",6.11]],"marker":{"color":"#3b82f6"},"text":["France"],"x":[0.9292],"y":[7.0392],"type":"scatter"}],"name":"1989","traces":[0,1,2]},{"data":[{"customdata":[[1990,"Europe",2.75]],"marker":{"color":"#3b82f6"},"text":["Austria"],"x":[0.7268],"y":[3.4801],"type":"scatter"},{"customdata":[[1990,"Europe",4.64]],"marker":{"color":"#3b82f6"},"text":["Belgium"],"x":[0.5285],"y":[5.1715],"type":"scatter"},{"customdata":[[1990,"Europe",6.11]],"marker":{"color":"#3b82f6"},"text":["France"],"x":[0.9292],"y":[7.0392],"type":"scatter"}],"name":"1990","traces":[0,1,2]},{"data":[{"customdata":[[1991,"Europe",2.75]],"marker":{"color":"#3b82f6"},"text":["Austria"],"x":[0.7268],"y":[3.4801],"type":"scatter"},{"customdata":[[1991,"Europe",4.64]],"marker":{"color":"#3b82f6"},"text":["Belgium"],"x":[0.5285],"y":[5.1715],"type":"scatter"},{"customdata":[[1991,"Europe",6.11]],"marker":{"color":"#3b82f6"},"text":["France"],"x":[0.9292],"y":[7.0392],"type":"scatter"}],"name":"1991","traces":[0,1,2]},{"data":[{"customdata":[[1992,"Europe",2.75]],"marker":{"color":"#3b82f6"},"text":["Austria"],"x":[0.7268],"y":[3.4801],"type":"scatter"},{"customdata":[[1992,"Europe",4.64]],"marker":{"color":"#3b82f6"},"text":["Belgium"],"x":[0.5285],"y":[5.1715],"type":"scatter"},{"customdata":[[1992,"Europe",6.11]],"marker":{"color":"#3b82f6"},"text":["France"],"x":[0.9292],"y":[7.0392],"type":"scatter"}],"name":"1992","traces":[0,1,2]},{"data":[{"customdata":[[1993,"Europe",2.75]],"marker":{"color":"#3b82f6"},"text":["Austria"],"x":[0.7268],"y":[3.4801],"type":"scatter"},{"customdata":[[1993,"Europe",4.64]],"marker":{"color":"#3b82f6"},"text":["Belgium"],"x":[0.5285],"y":[5.1715],"type":"scatter"},{"customdata":[[1993,"Europe",6.11]],"marker":{"color":"#3b82f6"},"text":["France"],"x":[0.9292],"y":[7.0392],"type":"scatter"}],"name":"1993","traces":[0,1,2]},{"data":[{"customdata":[[1994,"Europe",2.75]],"marker":{"color":"#3b82f6"},"text":["Austria"],"x":[0.7268],"y":[3.4801],"type":"scatter"},{"customdata":[[1994,"Europe",4.64]],"marker":{"color":"#3b82f6"},"text":["Belgium"],"x":[0.5285],"y":[5.1715],"type":"scatter"},{"customdata":[[1994,"Europe",6.11]],"marker":{"color":"#3b82f6"},"text":["France"],"x":[0.9292],"y":[7.0392],"type":"scatter"}],"name":"1994","traces":[0,1,2]},{"data":[{"customdata":[[1995,"Europe",2.03]],"marker":{"color":"#3b82f6"},"text":["Austria"],"x":[0.748],"y":[2.7765],"type":"scatter"},{"customdata":[[1995,"Europe",4.64]],"marker":{"color":"#3b82f6"},"text":["Belgium"],"x":[0.5285],"y":[5.1715],"type":"scatter"},{"customdata":[[1995,"Europe",4.97]],"marker":{"color":"#3b82f6"},"text":["France"],"x":[0.9295],"y":[5.9017],"type":"scatter"}],"name":"1995","traces":[0,1,2]},{"data":[{"customdata":[[1996,"Europe",2.44]],"marker":{"color":"#3b82f6"},"text":["Austria"],"x":[0.558],"y":[2.9938],"type":"scatter"},{"customdata":[[1996,"Europe",4.64]],"marker":{"color":"#3b82f6"},"text":["Belgium"],"x":[0.5285],"y":[5.1715],"type":"scatter"},{"customdata":[[1996,"Europe",5.24]],"marker":{"color":"#3b82f6"},"text":["France"],"x":[0.8533],"y":[6.0979],"type":"scatter"}],"name":"1996","traces":[0,1,2]},{"data":[{"customdata":[[1997,"Europe",3.0]],"marker":{"color":"#3b82f6"},"text":["Austria"],"x":[0.573],"y":[3.5778],"type":"scatter"},{"customdata":[[1997,"Europe",4.64]],"marker":{"color":"#3b82f6"},"text":["Belgium"],"x":[0.5285],"y":[5.1715],"type":"scatter"},{"customdata":[[1997,"Europe",5.3]],"marker":{"color":"#3b82f6"},"text":["France"],"x":[1.2075],"y":[6.5102],"type":"scatter"}],"name":"1997","traces":[0,1,2]},{"data":[{"customdata":[[1998,"Europe",3.32]],"marker":{"color":"#3b82f6"},"text":["Austria"],"x":[0.6414],"y":[3.9591],"type":"scatter"},{"customdata":[[1998,"Europe",4.64]],"marker":{"color":"#3b82f6"},"text":["Belgium"],"x":[0.5285],"y":[5.1715],"type":"scatter"},{"customdata":[[1998,"Europe",6.31]],"marker":{"color":"#3b82f6"},"text":["France"],"x":[1.1006],"y":[7.4104],"type":"scatter"}],"name":"1998","traces":[0,1,2]},{"data":[{"customdata":[[1999,"Europe",3.84]],"marker":{"color":"#3b82f6"},"text":["Austria"],"x":[0.6604],"y":[4.5048],"type":"scatter"},{"customdata":[[1999,"Europe",4.64]],"marker":{"color":"#3b82f6"},"text":["Belgium"],"x":[0.5285],"y":[5.1715],"type":"scatter"},{"customdata":[[1999,"Europe",6.68]],"marker":{"color":"#3b82f6"},"text":["France"],"x":[1.1025],"y":[7.7786],"type":"scatter"}],"name":"1999","traces":[0,1,2]},{"data":[{"customdata":[[2000,"Europe",4.34]],"marker":{"color":"#3b82f6"},"text":["Austria"],"x":[0.6997],"y":[5.0372],"type":"scatter"},{"customdata":[[2000,"Europe",5.18]],"marker":{"color":"#3b82f6"},"text":["Belgium"],"x":[0.6572],"y":[5.8336],"type":"scatter"},{"customdata":[[2000,"Europe",7.78]],"marker":{"color":"#3b82f6"},"text":["France"],"x":[1.0056],"y":[8.7819],"type":"scatter"}],"name":"2000","traces":[0,1,2]},{"data":[{"customdata":[[2001,"Europe",4.16]],"marker":{"color":"#3b82f6"},"text":["Austria"],"x":[1.1374],"y":[5.2969],"type":"scatter"},{"customdata":[[2001,"Europe",4.76]],"marker":{"color":"#3b82f6"},"text":["Belgium"],"x":[0.7958],"y":[5.553],"type":"scatter"},{"customdata":[[2001,"Europe",7.83]],"marker":{"color":"#3b82f6"},"text":["France"],"x":[1.0153],"y":[8.8453],"type":"scatter"}],"name":"2001","traces":[0,1,2]},{"data":[{"customdata":[[2002,"Europe",3.67]],"marker":{"color":"#3b82f6"},"text":["Austria"],"x":[1.5119],"y":[5.1805],"type":"scatter"},{"customdata":[[2002,"Europe",6.89]],"marker":{"color":"#3b82f6"},"text":["Belgium"],"x":[0.8795],"y":[7.769],"type":"scatter"},{"customdata":[[2002,"Europe",7.02]],"marker":{"color":"#3b82f6"},"text":["France"],"x":[1.0733],"y":[8.0901],"type":"scatter"}],"name":"2002","traces":[0,1,2]},{"data":[{"customdata":[[2003,"Europe",4.05]],"marker":{"color":"#3b82f6"},"text":["Austria"],"x":[1.1261],"y":[5.1797],"type":"scatter"},{"customdata":[[2003,"Europe",5.7]],"marker":{"color":"#3b82f6"},"text":["Belgium"],"x":[1.0065],"y":[6.7082],"type":"scatter"},{"customdata":[[2003,"Europe",5.5]],"marker":{"color":"#3b82f6"},"text":["France"],"x":[1.4483],"y":[6.9462],"type":"scatter"}],"name":"2003","traces":[0,1,2]},{"data":[{"customdata":[[2004,"Europe",4.71]],"marker":{"color":"#3b82f6"},"text":["Austria"],"x":[1.248],"y":[5.9602],"type":"scatter"},{"customdata":[[2004,"Europe",5.54]],"marker":{"color":"#3b82f6"},"text":["Belgium"],"x":[0.9549],"y":[6.4994],"type":"scatter"},{"customdata":[[2004,"Europe",5.35]],"marker":{"color":"#3b82f6"},"text":["France"],"x":[1.5888],"y":[6.94],"type":"scatter"}],"name":"2004","traces":[0,1,2]},{"data":[{"customdata":[[2005,"Europe",4.36]],"marker":{"color":"#3b82f6"},"text":["Austria"],"x":[1.2888],"y":[5.6487],"type":"scatter"},{"customdata":[[2005,"Europe",5.52]],"marker":{"color":"#3b82f6"},"text":["Belgium"],"x":[1.0026],"y":[6.526],"type":"scatter"},{"customdata":[[2005,"Europe",5.5]],"marker":{"color":"#3b82f6"},"text":["France"],"x":[1.6588],"y":[7.1631],"type":"scatter"}],"name":"2005","traces":[0,1,2]},{"data":[{"customdata":[[2006,"Europe",4.63]],"marker":{"color":"#3b82f6"},"text":["Austria"],"x":[1.1541],"y":[5.7861],"type":"scatter"},{"customdata":[[2006,"Europe",5.19]],"marker":{"color":"#3b82f6"},"text":["Belgium"],"x":[1.0036],"y":[6.1976],"type":"scatter"},{"customdata":[[2006,"Europe",4.8]],"marker":{"color":"#3b82f6"},"text":["France"],"x":[2.1187],"y":[6.9237],"type":"scatter"}],"name":"2006","traces":[0,1,2]},{"data":[{"customdata":[[2007,"Europe",3.62]],"marker":{"color":"#3b82f6"},"text":["Austria"],"x":[1.4381],"y":[5.0566],"type":"scatter"},{"customdata":[[2007,"Europe",4.7]],"marker":{"color":"#3b82f6"},"text":["Belgium"],"x":[1.0601],"y":[5.7602],"type":"scatter"},{"customdata":[[2007,"Europe",4.02]],"marker":{"color":"#3b82f6"},"text":["France"],"x":[2.3019],"y":[6.3174],"type":"scatter"}],"name":"2007","traces":[0,1,2]},{"data":[{"customdata":[[2008,"Europe",2.84]],"marker":{"color":"#3b82f6"},"text":["Austria"],"x":[1.5987],"y":[4.4399],"type":"scatter"},{"customdata":[[2008,"Europe",3.81]],"marker":{"color":"#3b82f6"},"text":["Belgium"],"x":[1.0705],"y":[4.8813],"type":"scatter"},{"customdata":[[2008,"Europe",3.67]],"marker":{"color":"#3b82f6"},"text":["France"],"x":[2.2347],"y":[5.9058],"type":"scatter"}],"name":"2008","traces":[0,1,2]},{"data":[{"customdata":[[2009,"Europe",2.15]],"marker":{"color":"#3b82f6"},"text":["Austria"],"x":[2.1347],"y":[4.2849],"type":"scatter"},{"customdata":[[2009,"Europe",3.74]],"marker":{"color":"#3b82f6"},"text":["Belgium"],"x":[1.6398],"y":[5.3803],"type":"scatter"},{"customdata":[[2009,"Europe",3.53]],"marker":{"color":"#3b82f6"},"text":["France"],"x":[2.3579],"y":[5.8923],"type":"scatter"}],"name":"2009","traces":[0,1,2]},{"data":[{"customdata":[[2010,"Europe",1.97]],"marker":{"color":"#3b82f6"},"text":["Austria"],"x":[2.5669],"y":[4.5336],"type":"scatter"},{"customdata":[[2010,"Europe",2.39]],"marker":{"color":"#3b82f6"},"text":["Belgium"],"x":[2.0486],"y":[4.4406],"type":"scatter"},{"customdata":[[2010,"Europe",2.87]],"marker":{"color":"#3b82f6"},"text":["France"],"x":[2.844],"y":[5.713],"type":"scatter"}],"name":"2010","traces":[0,1,2]},{"data":[{"customdata":[[2011,"Europe",2.74]],"marker":{"color":"#3b82f6"},"text":["Austria"],"x":[2.3957],"y":[5.1345],"type":"scatter"},{"customdata":[[2011,"Europe",1.96]],"marker":{"color":"#3b82f6"},"text":["Belgium"],"x":[2.3984],"y":[4.3556],"type":"scatter"},{"customdata":[[2011,"Europe",2.36]],"marker":{"color":"#3b82f6"},"text":["France"],"x":[3.2004],"y":[5.5576],"type":"scatter"}],"name":"2011","traces":[0,1,2]},{"data":[{"customdata":[[2012,"Europe",2.88]],"marker":{"color":"#3b82f6"},"text":["Austria"],"x":[2.4073],"y":[5.2839],"type":"scatter"},{"customdata":[[2012,"Europe",2.31]],"marker":{"color":"#3b82f6"},"text":["Belgium"],"x":[2.4297],"y":[4.7397],"type":"scatter"},{"customdata":[[2012,"Europe",2.64]],"marker":{"color":"#3b82f6"},"text":["France"],"x":[3.4708],"y":[6.1102],"type":"scatter"}],"name":"2012","traces":[0,1,2]},{"data":[{"customdata":[[2013,"Europe",2.89]],"marker":{"color":"#3b82f6"},"text":["Austria"],"x":[2.4691],"y":[5.3601],"type":"scatter"},{"customdata":[[2013,"Europe",1.95]],"marker":{"color":"#3b82f6"},"text":["Belgium"],"x":[2.3203],"y":[4.268],"type":"scatter"},{"customdata":[[2013,"Europe",2.85]],"marker":{"color":"#3b82f6"},"text":["France"],"x":[3.446],"y":[6.2968],"type":"scatter"}],"name":"2013","traces":[0,1,2]},{"data":[{"customdata":[[2014,"Europe",3.27]],"marker":{"color":"#3b82f6"},"text":["Austria"],"x":[2.5888],"y":[5.8602],"type":"scatter"},{"customdata":[[2014,"Europe",2.46]],"marker":{"color":"#3b82f6"},"text":["Belgium"],"x":[2.2961],"y":[4.7582],"type":"scatter"},{"customdata":[[2014,"Europe",2.63]],"marker":{"color":"#3b82f6"},"text":["France"],"x":[3.7888],"y":[6.4206],"type":"scatter"}],"name":"2014","traces":[0,1,2]},{"data":[{"customdata":[[2015,"Europe",4.17]],"marker":{"color":"#3b82f6"},"text":["Austria"],"x":[2.4665],"y":[6.6408],"type":"scatter"},{"customdata":[[2015,"Europe",3.82]],"marker":{"color":"#3b82f6"},"text":["Belgium"],"x":[1.977],"y":[5.8007],"type":"scatter"},{"customdata":[[2015,"Europe",3.3]],"marker":{"color":"#3b82f6"},"text":["France"],"x":[4.0308],"y":[7.3321],"type":"scatter"}],"name":"2015","traces":[0,1,2]},{"data":[{"customdata":[[2016,"Europe",4.0]],"marker":{"color":"#3b82f6"},"text":["Austria"],"x":[2.4687],"y":[6.464],"type":"scatter"},{"customdata":[[2016,"Europe",4.5]],"marker":{"color":"#3b82f6"},"text":["Belgium"],"x":[2.1609],"y":[6.6563],"type":"scatter"},{"customdata":[[2016,"Europe",3.77]],"marker":{"color":"#3b82f6"},"text":["France"],"x":[3.6217],"y":[7.3897],"type":"scatter"}],"name":"2016","traces":[0,1,2]},{"data":[{"customdata":[[2017,"Europe",4.06]],"marker":{"color":"#3b82f6"},"text":["Austria"],"x":[2.5451],"y":[6.6016],"type":"scatter"},{"customdata":[[2017,"Europe",3.23]],"marker":{"color":"#3b82f6"},"text":["Belgium"],"x":[2.4386],"y":[5.6663],"type":"scatter"},{"customdata":[[2017,"Europe",3.27]],"marker":{"color":"#3b82f6"},"text":["France"],"x":[4.0682],"y":[7.3395],"type":"scatter"}],"name":"2017","traces":[0,1,2]},{"data":[{"customdata":[[2018,"Europe",4.35]],"marker":{"color":"#3b82f6"},"text":["Austria"],"x":[2.6996],"y":[7.0546],"type":"scatter"},{"customdata":[[2018,"Europe",3.94]],"marker":{"color":"#3b82f6"},"text":["Belgium"],"x":[1.8874],"y":[5.8227],"type":"scatter"},{"customdata":[[2018,"Europe",3.64]],"marker":{"color":"#3b82f6"},"text":["France"],"x":[4.3301],"y":[7.9695],"type":"scatter"}],"name":"2018","traces":[0,1,2]},{"data":[{"customdata":[[2019,"Europe",3.72]],"marker":{"color":"#3b82f6"},"text":["Austria"],"x":[2.9038],"y":[6.6263],"type":"scatter"},{"customdata":[[2019,"Europe",5.57]],"marker":{"color":"#3b82f6"},"text":["Belgium"],"x":[1.9703],"y":[7.5375],"type":"scatter"},{"customdata":[[2019,"Europe",4.26]],"marker":{"color":"#3b82f6"},"text":["France"],"x":[4.2127],"y":[8.4682],"type":"scatter"}],"name":"2019","traces":[0,1,2]},{"data":[{"customdata":[[2020,"Europe",3.71]],"marker":{"color":"#3b82f6"},"text":["Austria"],"x":[2.7549],"y":[6.4618],"type":"scatter"},{"customdata":[[2020,"Europe",6.17]],"marker":{"color":"#3b82f6"},"text":["Belgium"],"x":[2.5456],"y":[8.7144],"type":"scatter"},{"customdata":[[2020,"Europe",3.52]],"marker":{"color":"#3b82f6"},"text":["France"],"x":[4.0855],"y":[7.6007],"type":"scatter"}],"name":"2020","traces":[0,1,2]},{"data":[{"customdata":[[2021,"Europe",3.62]],"marker":{"color":"#3b82f6"},"text":["Austria"],"x":[2.9277],"y":[6.5466],"type":"scatter"},{"customdata":[[2021,"Europe",5.07]],"marker":{"color":"#3b82f6"},"text":["Belgium"],"x":[1.8414],"y":[6.9084],"type":"scatter"},{"customdata":[[2021,"Europe",2.2]],"marker":{"color":"#3b82f6"},"text":["France"],"x":[4.8455],"y":[7.0425],"type":"scatter"}],"name":"2021","traces":[0,1,2]},{"data":[{"customdata":[[2022,"Europe",3.81]],"marker":{"color":"#3b82f6"},"text":["Austria"],"x":[2.7192],"y":[6.5266],"type":"scatter"},{"customdata":[[2022,"Europe",5.39]],"marker":{"color":"#3b82f6"},"text":["Belgium"],"x":[1.3632],"y":[6.7539],"type":"scatter"},{"customdata":[[2022,"Europe",3.9]],"marker":{"color":"#3b82f6"},"text":["France"],"x":[4.0381],"y":[7.9397],"type":"scatter"}],"name":"2022","traces":[0,1,2]},{"data":[{"customdata":[[2023,"Europe",4.67]],"marker":{"color":"#3b82f6"},"text":["Austria"],"x":[2.5371],"y":[7.2026],"type":"scatter"},{"customdata":[[2023,"Europe",5.32]],"marker":{"color":"#3b82f6"},"text":["Belgium"],"x":[1.7306],"y":[7.0499],"type":"scatter"},{"customdata":[[2023,"Europe",2.95]],"marker":{"color":"#3b82f6"},"text":["France"],"x":[4.1612],"y":[7.1136],"type":"scatter"}],"name":"2023","traces":[0,1,2]}]);
+                        }).then(function(){
+                            Plotly.animate('trade-chart', null);
+                        })                };            </script>        </div>
+        </main>
+    </div>
+
+    <script>
+        const chartId = "trade-chart";
+        const countries = ["Austria", "Belgium", "France"];
+        const countryRanges = {"Austria": {"x_max": 2.9277, "y_max": 7.2026}, "Belgium": {"x_max": 2.5456, "y_max": 8.7144}, "France": {"x_max": 4.8455, "y_max": 8.8453}};
+        const axisPadding = 1.1;
+
+        const chart = document.getElementById(chartId);
+        const yearWatermark = document.getElementById("year-watermark");
+
+        function updateYearWatermark(year) {
+            yearWatermark.textContent = String(year);
+        }
+
+        chart.on("plotly_sliderchange", (event) => {
+            if (event.step && event.step.label) {
+                updateYearWatermark(event.step.label);
+            }
+        });
+
+        chart.on("plotly_animatingframe", (event) => {
+            if (event && event.name) {
+                updateYearWatermark(event.name);
+            }
+        });
+
+        const checkboxes = document.querySelectorAll(
+            ".country-checkbox"
+        );
+
+        function setTraceVisibility(traceIndex, isVisible) {
+            Plotly.restyle(
+                chartId,
+                { visible: isVisible },
+                [traceIndex]
+            );
+        }
+
+        function getSelectedCountries() {
+            return Array.from(checkboxes)
+                .filter((checkbox) => checkbox.checked)
+                .map((checkbox) => {
+                    const traceIndex = Number(
+                        checkbox.dataset.traceIndex
+                    );
+                    return countries[traceIndex];
+                });
+        }
+
+        function updateAxisRanges() {
+            const selectedCountries = getSelectedCountries();
+
+            if (selectedCountries.length === 0) {
+                return;
+            }
+
+            const xMax = Math.max(
+                ...selectedCountries.map(
+                    (country) => countryRanges[country].x_max
+                )
+            );
+
+            const yMax = Math.max(
+                ...selectedCountries.map(
+                    (country) => countryRanges[country].y_max
+                )
+            );
+
+            const paddedXMax = xMax * axisPadding;
+            const paddedYMax = yMax * axisPadding;
+
+            const equalityMax = Math.min(
+                paddedXMax,
+                paddedYMax
+            );
+
+            Plotly.relayout(
+                chartId,
+                {
+                    "xaxis.autorange": false,
+                    "yaxis.autorange": false,
+
+                    "xaxis.range": [0, paddedXMax],
+                    "yaxis.range": [0, paddedYMax],
+
+                    "shapes[0].x0": 0,
+                    "shapes[0].y0": 0,
+                    "shapes[0].x1": equalityMax,
+                    "shapes[0].y1": equalityMax
+                }
+            );
+        }
+
+        function setCheckboxes(checkboxSet, isChecked) {
+            checkboxSet.forEach((checkbox) => {
+                checkbox.checked = isChecked;
+                setTraceVisibility(
+                    Number(checkbox.dataset.traceIndex),
+                    isChecked
+                );
+            });
+
+            if (isChecked) {
+                updateAxisRanges();
+            } else if (getSelectedCountries().length > 0) {
+                updateAxisRanges();
+            }
+        }
+
+        checkboxes.forEach((checkbox) => {
+            checkbox.addEventListener("change", () => {
+                setTraceVisibility(
+                    Number(checkbox.dataset.traceIndex),
+                    checkbox.checked
+                );
+                updateAxisRanges();
+            });
+        });
+
+        document
+            .getElementById("select-all")
+            .addEventListener("click", () => {
+                setCheckboxes(Array.from(checkboxes), true);
+            });
+
+        document
+            .getElementById("clear-all")
+            .addEventListener("click", () => {
+                setCheckboxes(Array.from(checkboxes), false);
+            });
+
+        document
+            .querySelectorAll(".continent-select")
+            .forEach((button) => {
+                button.addEventListener("click", () => {
+                    const continentId = button.dataset.continentId;
+                    const groupCheckboxes = Array.from(
+                        document.querySelectorAll(
+                            `.country-checkbox[data-continent-id="${continentId}"]`
+                        )
+                    );
+                    setCheckboxes(groupCheckboxes, true);
+                });
+            });
+
+        document
+            .querySelectorAll(".continent-clear")
+            .forEach((button) => {
+                button.addEventListener("click", () => {
+                    const continentId = button.dataset.continentId;
+                    const groupCheckboxes = Array.from(
+                        document.querySelectorAll(
+                            `.country-checkbox[data-continent-id="${continentId}"]`
+                        )
+                    );
+                    setCheckboxes(groupCheckboxes, false);
+                });
+            });
+    </script>
+</body>
+</html>
