@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>U.S.–China Trade Partner Analysis | Agilytics</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #0b0b0b;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+
+        .page-shell {
+            width: min(1500px, 96%);
+            margin: 0 auto;
+            padding: 40px 0 60px;
+        }
+
+        .project-header {
+            max-width: 900px;
+            margin-bottom: 30px;
+        }
+
+        .project-label {
+            margin: 0 0 10px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #a7a7a7;
+        }
+
+        .project-title {
+            margin: 0 0 16px;
+            font-size: clamp(32px, 5vw, 54px);
+            line-height: 1.05;
+        }
+
+        .project-description {
+            margin: 0;
+            color: #c9c9c9;
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+        .visualization-card {
+            width: 100%;
+            overflow: hidden;
+            border: 1px solid #2d2d2d;
+            border-radius: 14px;
+            background: #111111;
+            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.25);
+        }
+
+        .visualization-frame {
+            display: block;
+            width: 100%;
+            height: 900px;
+            border: 0;
+            background: #111111;
+        }
+
+        .project-notes {
+            max-width: 900px;
+            margin-top: 32px;
+        }
+
+        .project-notes h2 {
+            margin-bottom: 12px;
+            font-size: 24px;
+        }
+
+        .project-notes p {
+            color: #c9c9c9;
+            line-height: 1.65;
+        }
+
+        @media (max-width: 800px) {
+            .page-shell {
+                width: 100%;
+                padding: 24px 14px 40px;
+            }
+
+            .visualization-frame {
+                height: 1100px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="page-shell">
+
+        <header class="project-header">
+            <p class="project-label">
+                Interactive Trade Visualization
+            </p>
+
+            <h1 class="project-title">
+                U.S.–China Trade Partner Analysis
+            </h1>
+
+            <p class="project-description">
+                An animated comparison of how national trade relationships
+                with China and the United States have changed over time.
+                Select countries by continent, move through individual years,
+                or play the full time series to explore shifts in trade
+                orientation.
+            </p>
+        </header>
+
+        <section class="visualization-card">
+            <iframe
+                class="visualization-frame"
+                src="../assets/visualizations/trade/import-share/index.html"
+                title="U.S. and China import share comparison"
+                loading="lazy">
+            </iframe>
+        </section>
+
+        <section class="project-notes">
+            <h2>About the visualization</h2>
+
+            <p>
+                Each point represents a country. China is plotted on the
+                horizontal axis and the United States on the vertical axis.
+                Point color indicates which partner accounts for the larger
+                share of the selected trade metric. The dashed diagonal line
+                represents equal values between the two partners.
+            </p>
+
+            <p>
+                The visualization is generated from a reusable Python and
+                Plotly engine built to support multiple U.S.–China trade
+                metrics, including import share, export share, and future
+                measures added to the underlying dataset.
+            </p>
+        </section>
+
+    </main>
+</body>
+</html>
