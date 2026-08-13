@@ -265,6 +265,156 @@
 			#copyright { color: #767f89; }
 			#copyright a { color: #9ca5af; }
 
+/* ===== Interactive data tools ===== */
+
+.tools-section {
+	padding: 2.5rem 2rem 2.75rem;
+	background: #0b0e13;
+	border-bottom: 1px solid var(--research-border);
+}
+
+.tools-heading {
+	display: flex;
+	align-items: center;
+	gap: .8rem;
+	margin: 0 0 1.4rem;
+	color: var(--research-muted);
+	font-size: .68rem;
+	font-weight: 800;
+	letter-spacing: .18em;
+	text-transform: uppercase;
+}
+
+.tools-heading::before {
+	content: "";
+	width: 2rem;
+	height: 1px;
+	background: var(--research-accent);
+}
+
+.tools-grid {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 1rem;
+}
+
+.tool-card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	min-height: 15rem;
+	padding: 1.6rem;
+	background: var(--research-panel);
+	border: 1px solid var(--research-border);
+	color: var(--research-text) !important;
+	text-decoration: none;
+	overflow: hidden;
+	transition:
+		transform .25s ease,
+		border-color .25s ease,
+		background .25s ease,
+		box-shadow .25s ease;
+}
+
+.tool-card::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	background: var(--research-accent);
+	transform: scaleX(0);
+	transform-origin: left;
+	transition: transform .25s ease;
+}
+
+.tool-card:hover {
+	transform: translateY(-4px);
+	background: var(--research-panel-soft);
+	border-color: rgba(212,90,104,.55);
+	box-shadow: 0 1.25rem 2.5rem rgba(0,0,0,.35);
+}
+
+.tool-card:hover::before {
+	transform: scaleX(1);
+}
+
+.tool-card__type {
+	margin-bottom: 1rem;
+	color: var(--research-accent);
+	font-size: .58rem;
+	font-weight: 800;
+	letter-spacing: .15em;
+	text-transform: uppercase;
+}
+
+.tool-card h2 {
+	margin: 0 0 .85rem !important;
+	color: var(--research-text) !important;
+	font-size: 1.15rem !important;
+	line-height: 1.25 !important;
+	letter-spacing: .02em;
+}
+
+.tool-card p {
+	margin: 0 0 1.25rem !important;
+	color: var(--research-muted) !important;
+	font-size: .82rem;
+	line-height: 1.6;
+	text-align: left;
+}
+
+.tool-card__action {
+	margin-top: auto;
+	color: #fff;
+	font-size: .6rem;
+	font-weight: 800;
+	letter-spacing: .14em;
+	text-transform: uppercase;
+}
+
+.tool-card__action::after {
+	content: " →";
+	color: var(--research-accent);
+}
+
+.tool-card--coming {
+	opacity: .48;
+	cursor: default;
+}
+
+.tool-card--coming:hover {
+	transform: none;
+	border-color: var(--research-border);
+	background: var(--research-panel);
+	box-shadow: none;
+}
+
+.tool-card--coming:hover::before {
+	transform: scaleX(0);
+}
+
+@media screen and (max-width: 980px) {
+	.tools-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media screen and (max-width: 736px) {
+	.tools-section {
+		padding: 2rem 1rem;
+	}
+
+	.tools-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.tool-card {
+		min-height: 0;
+	}
+}
+			
 			@media screen and (max-width: 980px) {
 				.research-hero { grid-template-columns: 1fr; gap: 1.5rem; padding: 4.5rem 3rem 3.5rem; }
 				.research-hero::before { left: 3rem; }
@@ -385,13 +535,84 @@
 			</nav>
 
 			<div id="main">
-				<section class="research-hero">
-					<div>
-						<p class="eyebrow">Agitlytics Research Desk</p>
-						<h1>Reporting &amp; Commentary</h1>
-					</div>
-					<p class="hero-copy">Political analysis, economic commentary, and long-form reporting examining the systems, incentives, and material conditions that shape public life.</p>
-				</section>
+
+	<section class="tools-section">
+
+		<div class="tools-heading">
+			Interactive Data Tools
+		</div>
+
+		<div class="tools-grid">
+
+			<a href="projects/trade-partner-analysis.html" class="tool-card">
+				<span class="tool-card__type">U.S.–China Trade</span>
+
+				<h2>Import Share</h2>
+
+				<p>
+					Explore how countries' import dependence on China
+					and the United States has shifted over time.
+				</p>
+
+				<span class="tool-card__action">
+					Open Tool
+				</span>
+			</a>
+
+
+			<div class="tool-card tool-card--coming">
+				<span class="tool-card__type">U.S.–China Trade</span>
+
+				<h2>Export Share</h2>
+
+				<p>
+					Compare how countries' export relationships with
+					China and the United States have changed over time.
+				</p>
+
+				<span class="tool-card__action">
+					Coming Soon
+				</span>
+			</div>
+
+
+			<div class="tool-card tool-card--coming">
+				<span class="tool-card__type">Interactive Analysis</span>
+
+				<h2>Coming Soon</h2>
+
+				<p>
+					Additional interactive economic and political data
+					tools will be added here.
+				</p>
+
+				<span class="tool-card__action">
+					In Development
+				</span>
+			</div>
+
+
+			<div class="tool-card tool-card--coming">
+				<span class="tool-card__type">Interactive Analysis</span>
+
+				<h2>Coming Soon</h2>
+
+				<p>
+					Additional interactive economic and political data
+					tools will be added here.
+				</p>
+
+				<span class="tool-card__action">
+					In Development
+				</span>
+			</div>
+
+		</div>
+
+	</section>
+
+
+	<section class="research-hero">
 
 				<article class="featured-research">
 					<a href="IsraelArmsEmbargo.html" class="feature-image"><img src="images/LebanonStrike.png" alt="" /></a>
