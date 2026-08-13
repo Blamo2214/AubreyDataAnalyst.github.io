@@ -1,153 +1,507 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+	<title>U.S.–China Trade Partner Analysis - Agitlytics</title>
+	<meta charset="utf-8"/>
+	<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport"/>
+	<link href="assets/css/main.css" rel="stylesheet"/>
+	<noscript><link href="assets/css/noscript.css" rel="stylesheet"/></noscript>
 
-    <title>U.S.–China Trade Partner Analysis | Agilytics</title>
+	<style>
+		:root {
+			--research-bg: #07090d;
+			--research-surface: #0f1319;
+			--research-surface-2: #151a22;
+			--research-text: #f3f5f7;
+			--research-muted: #aeb6c0;
+			--research-faint: #7f8995;
+			--research-border: rgba(255,255,255,.12);
+			--research-accent: #d45a68;
+			--research-accent-soft: rgba(212,90,104,.13);
+			--reading-width: 54rem;
+		}
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+		* { box-sizing: border-box; }
+		html { scroll-behavior: smooth; }
 
-        body {
-            margin: 0;
-            background: #0b0b0b;
-            color: #ffffff;
-            font-family: Arial, sans-serif;
-        }
+		body {
+			background: var(--research-bg);
+			color: var(--research-text);
+		}
 
-        .page-shell {
-            width: min(1500px, 96%);
-            margin: 0 auto;
-            padding: 40px 0 60px;
-        }
+		#wrapper,
+		#wrapper.fade-in,
+		#main,
+		#footer {
+			background-color: var(--research-bg);
+		}
 
-        .project-header {
-            max-width: 900px;
-            margin-bottom: 30px;
-        }
+		#intro,
+		#header,
+		#nav {
+			display: none !important;
+		}
 
-        .project-label {
-            margin: 0 0 10px;
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: #a7a7a7;
-        }
+		.publication-nav {
+			position: sticky;
+			top: 0;
+			z-index: 10000;
+			background: rgba(7, 9, 13, .9);
+			border-bottom: 1px solid rgba(255,255,255,.1);
+			-webkit-backdrop-filter: blur(16px);
+			backdrop-filter: blur(16px);
+		}
 
-        .project-title {
-            margin: 0 0 16px;
-            font-size: clamp(32px, 5vw, 54px);
-            line-height: 1.05;
-        }
+		.publication-nav__inner {
+			max-width: 82rem;
+			min-height: 4.6rem;
+			margin: 0 auto;
+			padding: 0 2rem;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 2rem;
+		}
 
-        .project-description {
-            margin: 0;
-            color: #c9c9c9;
-            font-size: 17px;
-            line-height: 1.6;
-        }
+		.publication-brand {
+			display: inline-flex;
+			align-items: center;
+			gap: .75rem;
+			color: #fff !important;
+			border: 0 !important;
+			font-size: .82rem;
+			font-weight: 900;
+			letter-spacing: .22em;
+			text-decoration: none;
+			text-transform: uppercase;
+			white-space: nowrap;
+		}
 
-        .visualization-card {
-            width: 100%;
-            overflow: hidden;
-            border: 1px solid #2d2d2d;
-            border-radius: 14px;
-            background: #111111;
-            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.25);
-        }
+		.publication-brand::before {
+			content: "";
+			width: .62rem;
+			height: .62rem;
+			background: var(--research-accent);
+			border-radius: 50%;
+			box-shadow: 0 0 0 .35rem rgba(212,90,104,.12);
+		}
 
-        .visualization-frame {
-            display: block;
-            width: 100%;
-            height: 900px;
-            border: 0;
-            background: #111111;
-        }
+		.publication-links {
+			display: flex;
+			align-items: center;
+			gap: 1.55rem;
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
 
-        .project-notes {
-            max-width: 900px;
-            margin-top: 32px;
-        }
+		.publication-links a {
+			color: var(--research-muted) !important;
+			border: 0 !important;
+			font-size: .7rem;
+			font-weight: 800;
+			letter-spacing: .13em;
+			text-decoration: none;
+			text-transform: uppercase;
+			white-space: nowrap;
+			transition: color .2s ease;
+		}
 
-        .project-notes h2 {
-            margin-bottom: 12px;
-            font-size: 24px;
-        }
+		.publication-links a:hover,
+		.publication-links a.is-active {
+			color: #fff !important;
+		}
 
-        .project-notes p {
-            color: #c9c9c9;
-            line-height: 1.65;
-        }
+		.publication-links a.is-active {
+			position: relative;
+		}
 
-        @media (max-width: 800px) {
-            .page-shell {
-                width: 100%;
-                padding: 24px 14px 40px;
-            }
+		.publication-links a.is-active::after {
+			content: "";
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: -.68rem;
+			height: 2px;
+			background: var(--research-accent);
+		}
 
-            .visualization-frame {
-                height: 1100px;
-            }
-        }
-    </style>
+		#main {
+			max-width: none;
+			padding: 0;
+		}
+
+		.tool-hero {
+			padding: 5rem 5rem 3.25rem;
+			background:
+				radial-gradient(circle at 88% 12%, rgba(212,90,104,.14), transparent 30%),
+				linear-gradient(135deg, #0c1016, #080a0e);
+			border-bottom: 1px solid var(--research-border);
+		}
+
+		.tool-hero__inner {
+			width: min(82rem, 100%);
+			margin: 0 auto;
+		}
+
+		.tool-hero__eyebrow {
+			margin: 0 0 1.2rem;
+			color: var(--research-accent);
+			font-size: .72rem;
+			font-weight: 900;
+			letter-spacing: .2em;
+			text-transform: uppercase;
+		}
+
+		.tool-hero h1 {
+			max-width: 18ch;
+			margin: 0 0 1.25rem;
+			color: var(--research-text) !important;
+			font-size: clamp(2.65rem, 6vw, 5.25rem);
+			line-height: .98;
+			letter-spacing: -.02em;
+			text-align: left;
+		}
+
+		.tool-hero__dek {
+			max-width: 56rem;
+			margin: 0;
+			color: var(--research-muted) !important;
+			font-size: 1rem;
+			line-height: 1.7;
+			text-align: left;
+		}
+
+		.tool-meta {
+			display: flex;
+			flex-wrap: wrap;
+			gap: .65rem;
+			margin-top: 1.7rem;
+		}
+
+		.tool-meta span {
+			display: inline-flex;
+			align-items: center;
+			min-height: 2.2rem;
+			padding: 0 .85rem;
+			background: rgba(255,255,255,.035);
+			border: 1px solid var(--research-border);
+			color: var(--research-muted);
+			font-size: .62rem;
+			font-weight: 800;
+			letter-spacing: .11em;
+			text-transform: uppercase;
+		}
+
+		.tool-shell {
+			width: min(96rem, calc(100% - 3rem));
+			margin: 2rem auto 0;
+		}
+
+		.tool-frame-wrap {
+			overflow: hidden;
+			background: #111;
+			border: 1px solid var(--research-border);
+			box-shadow: 0 18px 50px rgba(0,0,0,.3);
+		}
+
+		.tool-frame {
+			display: block;
+			width: 100%;
+			height: 940px;
+			border: 0;
+			background: #111;
+		}
+
+		.tool-copy {
+			width: min(var(--reading-width), calc(100% - 3rem));
+			margin: 0 auto;
+			padding: 4rem 0 5rem;
+		}
+
+		.tool-copy h2 {
+			position: relative;
+			margin: 3.5rem 0 1.35rem;
+			padding-top: 1.4rem;
+			color: var(--research-text) !important;
+			font-size: clamp(1.5rem, 3vw, 2.2rem);
+			line-height: 1.15;
+			text-align: left;
+		}
+
+		.tool-copy h2::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 3.25rem;
+			height: 2px;
+			background: var(--research-accent);
+		}
+
+		.tool-copy p,
+		.tool-copy li {
+			color: #d9dee4 !important;
+			font-family: Georgia, "Times New Roman", serif;
+			font-size: 1.08rem;
+			line-height: 1.8;
+			text-align: left;
+		}
+
+		.tool-copy p {
+			margin: 0 0 1.5rem;
+		}
+
+		.tool-actions {
+			display: flex;
+			flex-wrap: wrap;
+			gap: .8rem;
+			margin-top: 1.7rem;
+		}
+
+		.tool-actions a {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			min-height: 3rem;
+			padding: 0 1.1rem;
+			border: 1px solid rgba(255,255,255,.45) !important;
+			color: #fff !important;
+			font-size: .66rem;
+			font-weight: 900;
+			letter-spacing: .12em;
+			text-decoration: none;
+			text-transform: uppercase;
+		}
+
+		.tool-actions a:hover {
+			background: var(--research-accent);
+			border-color: var(--research-accent) !important;
+		}
+
+		#footer {
+			background: #0d1117;
+			border-top: 1px solid var(--research-border);
+		}
+
+		#footer h3,
+		#footer p,
+		#footer a,
+		#copyright,
+		#copyright a {
+			color: var(--research-muted) !important;
+		}
+
+		#copyright {
+			background: var(--research-bg);
+		}
+
+		@media screen and (max-width: 980px) {
+			.tool-hero {
+				padding: 4rem 3rem 2.8rem;
+			}
+
+			.tool-frame {
+				height: 1020px;
+			}
+		}
+
+		@media screen and (max-width: 736px) {
+			.publication-nav__inner {
+				min-height: 4rem;
+				padding: 0 1rem;
+			}
+
+			.publication-brand {
+				font-size: .72rem;
+				letter-spacing: .16em;
+			}
+
+			.publication-links {
+				gap: .9rem;
+				overflow-x: auto;
+				scrollbar-width: none;
+			}
+
+			.publication-links::-webkit-scrollbar {
+				display: none;
+			}
+
+			.publication-links a {
+				font-size: .59rem;
+				letter-spacing: .09em;
+			}
+
+			.publication-links li:nth-child(2),
+			.publication-links li:nth-child(3) {
+				display: none;
+			}
+
+			.tool-hero {
+				padding: 3.1rem 1.35rem 2.25rem;
+			}
+
+			.tool-hero h1 {
+				max-width: none;
+				font-size: clamp(2.15rem, 11vw, 3.4rem);
+			}
+
+			.tool-shell {
+				width: 100%;
+				margin-top: 0;
+			}
+
+			.tool-frame-wrap {
+				border-left: 0;
+				border-right: 0;
+			}
+
+			.tool-frame {
+				height: 1180px;
+			}
+
+			.tool-copy {
+				width: calc(100% - 2.5rem);
+				padding: 3rem 0 4rem;
+			}
+		}
+	</style>
 </head>
 
-<body>
-    <main class="page-shell">
+<body class="is-preload">
 
-        <header class="project-header">
-            <p class="project-label">
-                Interactive Trade Visualization
-            </p>
+	<nav aria-label="Primary navigation" class="publication-nav">
+		<div class="publication-nav__inner">
+			<a class="publication-brand" href="elements.html">Agitlytics Research</a>
+			<ul class="publication-links">
+				<li><a href="index.html">Portfolio</a></li>
+				<li><a class="is-active" href="DataProj.html">Data Projects</a></li>
+				<li><a href="generic.html">About</a></li>
+				<li><a href="elements.html">Research Library</a></li>
+			</ul>
+		</div>
+	</nav>
 
-            <h1 class="project-title">
-                U.S.–China Trade Partner Analysis
-            </h1>
+	<div class="fade-in" id="wrapper">
+		<div id="main">
 
-            <p class="project-description">
-                An animated comparison of how national trade relationships
-                with China and the United States have changed over time.
-                Select countries by continent, move through individual years,
-                or play the full time series to explore shifts in trade
-                orientation.
-            </p>
-        </header>
+			<section class="tool-hero">
+				<div class="tool-hero__inner">
+					<p class="tool-hero__eyebrow">Interactive Data Tool</p>
+					<h1>U.S.–China Trade Partner Analysis</h1>
+					<p class="tool-hero__dek">
+						Explore how national trade relationships with China and the United States have shifted over time.
+						Filter countries by continent, move through individual years, or play the full time series to compare
+						each country's relative trade orientation.
+					</p>
 
-        <section class="visualization-card">
-            <iframe
-                class="visualization-frame"
-                src="../assets/visualizations/trade/import-share/index.html"
-                title="U.S. and China import share comparison"
-                loading="lazy">
-            </iframe>
-        </section>
+					<div class="tool-meta" aria-label="Project technologies">
+						<span>Python</span>
+						<span>Pandas</span>
+						<span>Plotly</span>
+						<span>Excel</span>
+						<span>Interactive HTML</span>
+					</div>
+				</div>
+			</section>
 
-        <section class="project-notes">
-            <h2>About the visualization</h2>
+			<section class="tool-shell" aria-label="Interactive visualization">
+				<div class="tool-frame-wrap">
+					<iframe
+						class="tool-frame"
+						src="assets/visualizations/trade/import-share/index.html"
+						title="Animated U.S. and China import-share comparison"
+						loading="eager">
+					</iframe>
+				</div>
+			</section>
 
-            <p>
-                Each point represents a country. China is plotted on the
-                horizontal axis and the United States on the vertical axis.
-                Point color indicates which partner accounts for the larger
-                share of the selected trade metric. The dashed diagonal line
-                represents equal values between the two partners.
-            </p>
+			<section class="tool-copy">
+				<h2>How to Read the Visualization</h2>
+				<p>
+					Each point represents one country. China is plotted on the horizontal axis and the United States on the
+					vertical axis. A point above the dashed diagonal has a larger value for the United States, while a point
+					below the line has a larger value for China. Point color reinforces the same comparison.
+				</p>
 
-            <p>
-                The visualization is generated from a reusable Python and
-                Plotly engine built to support multiple U.S.–China trade
-                metrics, including import share, export share, and future
-                measures added to the underlying dataset.
-            </p>
-        </section>
+				<p>
+					Use the year slider or Play button to follow changes through time. Countries can be included or excluded
+					individually or by continent, and the chart automatically rescales around the countries currently selected.
+				</p>
 
-    </main>
+				<h2>About the Project</h2>
+				<p>
+					This visualization is generated by a reusable Python-based trade visualization engine. The underlying data
+					is stored in a tidy master dataset with separate metric and country metadata, allowing additional U.S.–China
+					trade measures to be added without rewriting the visualization logic.
+				</p>
+
+				<p>
+					The current engine supports multiple metrics, including import share and export share, with each enabled
+					metric exported as its own standalone interactive HTML visualization for deployment on Agitlytics.
+				</p>
+
+				<div class="tool-actions">
+					<a href="assets/visualizations/trade/import-share/index.html" target="_blank" rel="noopener noreferrer">
+						Open Full Screen
+					</a>
+					<a href="DataProj.html">
+						Back to Data Projects
+					</a>
+				</div>
+			</section>
+
+		</div>
+
+		<footer id="footer">
+			<section class="posts">
+				<article>
+					<header></header>
+					<a class="image main" href="#"><img alt="" src="images/Headshot.png"/></a>
+					<p></p>
+					<ul class="actions special"></ul>
+				</article>
+			</section>
+
+			<section class="split contact">
+				<section class="alt">
+					<h3>Location</h3>
+					<p>Houston, TX<br/></p>
+				</section>
+				<section>
+					<h3>Phone</h3>
+					<p><a href="#">(936)446-8053</a></p>
+				</section>
+				<section>
+					<h3>Email</h3>
+					<p><a href="#">aubreywaddle2@gmail.com</a></p>
+				</section>
+				<section>
+					<h3>Social</h3>
+					<ul class="icons alt">
+						<li><a class="icon brands alt fa-linkedin" href="https://www.linkedin.com/in/aubrey-waddle-962634314"><span class="label">linkedin</span></a></li>
+						<li><a class="icon brands alt fa-facebook-f" href="https://www.facebook.com/aubrey.waddle/"><span class="label">Facebook</span></a></li>
+						<li><a class="icon brands alt fa-instagram" href="https://www.instagram.com/aubrey_waddle12/"><span class="label">Instagram</span></a></li>
+						<li><a class="icon brands alt fa-github" href="https://github.com/Blamo2214"><span class="label">GitHub</span></a></li>
+					</ul>
+				</section>
+			</section>
+		</footer>
+
+		<div id="copyright">
+			<ul>
+				<li>© Agitlytics</li>
+				<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
 </body>
 </html>
