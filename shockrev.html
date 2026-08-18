@@ -1,0 +1,428 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>Book Review | Agitlytics</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+	<style>
+		:root {
+			--bg: #080b10;
+			--surface: #0d1117;
+			--surface-2: #11161e;
+			--text: #f3f4f6;
+			--body: #d7dce2;
+			--muted: #9da5b0;
+			--border: rgba(255,255,255,.12);
+			--accent: #d45262;
+		}
+
+		html { scroll-behavior: smooth; }
+
+		body, #wrapper, #main {
+			background: var(--bg);
+			color: var(--text);
+		}
+
+		#main {
+			max-width: 100%;
+			padding: 0;
+		}
+
+		#header {
+			background: #080b10;
+		}
+
+		#nav {
+			background: rgba(15,19,25,.96);
+			border-bottom: 1px solid var(--border);
+		}
+
+		.review-page {
+			max-width: 82rem;
+			margin: 0 auto;
+			padding: 5rem 2rem 7rem;
+		}
+
+		.back-link {
+			display: inline-flex;
+			align-items: center;
+			gap: .6rem;
+			margin-bottom: 3rem;
+			color: var(--muted) !important;
+			border: 0 !important;
+			font-size: .68rem;
+			font-weight: 900;
+			letter-spacing: .13em;
+			text-decoration: none;
+			text-transform: uppercase;
+		}
+
+		.back-link::before {
+			content: "←";
+			color: var(--accent);
+			font-size: 1rem;
+		}
+
+		.back-link:hover {
+			color: #fff !important;
+		}
+
+		.book-header {
+			display: grid;
+			grid-template-columns: minmax(15rem, 20rem) minmax(0, 1fr);
+			gap: 4rem;
+			align-items: center;
+			max-width: 67rem;
+			margin: 0 auto 5rem;
+			padding-bottom: 4rem;
+			border-bottom: 1px solid var(--border);
+		}
+
+		.book-cover-wrap {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			min-height: 28rem;
+			padding: 2rem;
+			background: var(--surface);
+			border: 1px solid var(--border);
+		}
+
+		.book-cover-wrap img {
+			display: block;
+			width: auto;
+			max-width: 100%;
+			max-height: 25rem;
+			object-fit: contain;
+			box-shadow: 0 1.25rem 2.5rem rgba(0,0,0,.5);
+		}
+
+		.book-cover-placeholder {
+			display: grid;
+			place-items: center;
+			width: 12rem;
+			aspect-ratio: 2 / 3;
+			padding: 1.5rem;
+			background: #171c24;
+			border: 1px solid rgba(255,255,255,.1);
+			color: #626b77;
+			font-size: .65rem;
+			font-weight: 900;
+			letter-spacing: .14em;
+			text-align: center;
+			text-transform: uppercase;
+		}
+
+		.book-meta .eyebrow {
+			margin: 0 0 1.2rem;
+			color: var(--accent);
+			font-size: .7rem;
+			font-weight: 900;
+			letter-spacing: .18em;
+			text-transform: uppercase;
+		}
+
+		.book-meta h1 {
+			margin: 0 0 .9rem;
+			color: #fff;
+			font-size: clamp(2.6rem, 6vw, 5.3rem);
+			line-height: .98;
+			letter-spacing: -.025em;
+		}
+
+		.book-meta .author {
+			margin: 0;
+			color: var(--muted);
+			font-family: Georgia, "Times New Roman", serif;
+			font-size: 1.15rem;
+			font-style: italic;
+		}
+
+		.review-content {
+			width: min(48rem, 100%);
+			margin: 0 auto;
+		}
+
+		.review-label {
+			display: flex;
+			align-items: center;
+			gap: 1rem;
+			margin-bottom: 2.5rem;
+			color: #fff;
+			font-size: .73rem;
+			font-weight: 900;
+			letter-spacing: .18em;
+			text-transform: uppercase;
+		}
+
+		.review-label::before {
+			content: "";
+			width: 3rem;
+			height: 1px;
+			background: var(--accent);
+		}
+
+		/* Paste your review HTML inside .review-body */
+		.review-body {
+			color: var(--body);
+		}
+
+		.review-body p,
+		.review-body li {
+			color: var(--body) !important;
+			font-family: Georgia, "Times New Roman", serif;
+			font-size: 1.12rem;
+			line-height: 1.9;
+			text-align: left;
+		}
+
+		.review-body p {
+			margin: 0 0 1.6rem;
+		}
+
+		.review-body h2 {
+			position: relative;
+			margin: 4.25rem 0 1.4rem;
+			padding-top: 1.4rem;
+			color: #fff !important;
+			font-size: clamp(1.55rem, 3vw, 2.15rem);
+			line-height: 1.18;
+			text-align: left;
+		}
+
+		.review-body h2::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 3rem;
+			height: 2px;
+			background: var(--accent);
+		}
+
+		.review-body h3 {
+			margin: 3rem 0 1rem;
+			color: #fff !important;
+			font-size: 1.3rem;
+			text-align: left;
+		}
+
+		.review-body strong {
+			color: #fff;
+		}
+
+		.review-body a {
+			color: #ef8995;
+			border-bottom-color: rgba(239,137,149,.45);
+		}
+
+		.review-body a:hover {
+			color: #fff !important;
+			border-bottom-color: var(--accent);
+		}
+
+		.review-body blockquote {
+			margin: 2.4rem 0;
+			padding: 1.4rem 1.6rem;
+			background: var(--surface);
+			border-left: 3px solid var(--accent);
+			color: #e5e8ec;
+			font-family: Georgia, "Times New Roman", serif;
+			font-size: 1.08rem;
+			line-height: 1.8;
+		}
+
+		.review-body img {
+			display: block;
+			max-width: 100%;
+			height: auto;
+			margin: 2.5rem auto;
+			border: 1px solid var(--border);
+		}
+
+		.review-footer {
+			width: min(48rem, 100%);
+			margin: 5rem auto 0;
+			padding-top: 2rem;
+			border-top: 1px solid var(--border);
+		}
+
+		.review-footer a {
+			display: inline-flex;
+			align-items: center;
+			gap: .55rem;
+			color: #fff !important;
+			border: 0 !important;
+			font-size: .68rem;
+			font-weight: 900;
+			letter-spacing: .13em;
+			text-decoration: none;
+			text-transform: uppercase;
+		}
+
+		.review-footer a::before {
+			content: "←";
+			color: var(--accent);
+		}
+
+		@media screen and (max-width: 736px) {
+			.review-page {
+				padding: 3rem 1.25rem 4.5rem;
+			}
+
+			.back-link {
+				margin-bottom: 2rem;
+			}
+
+			.book-header {
+				grid-template-columns: 1fr;
+				gap: 2.2rem;
+				margin-bottom: 3.5rem;
+				padding-bottom: 3rem;
+			}
+
+			.book-cover-wrap {
+				width: min(20rem, 100%);
+				min-height: 24rem;
+				margin: 0 auto;
+			}
+
+			.book-cover-wrap img {
+				max-height: 21rem;
+			}
+
+			.book-meta {
+				text-align: center;
+			}
+
+			.book-meta h1 {
+				font-size: clamp(2.4rem, 12vw, 3.7rem);
+			}
+
+			.review-label {
+				margin-bottom: 2rem;
+			}
+
+			.review-body p,
+			.review-body li {
+				font-size: 1.03rem;
+				line-height: 1.78;
+			}
+
+			.review-body h2 {
+				margin-top: 3.4rem;
+			}
+		}
+	</style>
+</head>
+
+<body class="is-preload">
+<div id="wrapper">
+
+	<header id="header">
+		<a href="index.html" class="logo">Agitlytics</a>
+	</header>
+
+	<nav id="nav">
+		<ul class="links">
+			<li><a href="index.html">Home</a></li>
+			<li><a href="DataProj.html">Data Projects</a></li>
+			<li><a href="graduate-labs.html">Lab Work</a></li>
+			<li><a href="generic.html">About</a></li>
+			<li><a href="elements.html">Research</a></li>
+			<li class="active"><a href="book-reviews.html">Books</a></li>
+		</ul>
+	</nav>
+
+	<main id="main">
+		<article class="review-page">
+
+			<a class="back-link" href="book-reviews.html">Back to Book Reviews</a>
+
+			<header class="book-header">
+
+				<div class="book-cover-wrap">
+					<
+					TO USE A REAL COVER:
+					Delete the placeholder div below and replace it with:
+
+					<img src="images/shock.png" alt="Book title cover" />
+				</div>
+
+				<div class="book-meta">
+					<p class="eyebrow">Book Review / Critique</p>
+
+					<!-- CHANGE THESE FOR EACH BOOK -->
+					<h1>The Shock Doctrine: The Rise of Disaster Capitalism</h1>
+					<p class="author">Naomi Klein</p>
+				</div>
+
+			</header>
+
+			<section class="review-content">
+				<p class="review-label">Review & Critique</p>
+
+				<!-- =========================================================
+				     PASTE YOUR REVIEW HTML BELOW THIS LINE
+				     ========================================================= -->
+				<div class="review-body">
+
+					<p>
+				This book is outstanding. I loved it. It’s a great critique of capitalism broadly, but obviously much more specifically focused on Milton Friedman, the Chicago School, and the neoliberal economic theory that became increasingly dominant during the latter half of the 20th century.
+
+Klein does a fantastic job tying together a handful of historical examples in extraordinary detail through what often feels like investigative journalism, especially when she gets to the Iraq War. Since the book was published in 2007, there are sections where she is actually in Iraq or interviewing people who were in Baghdad and the Green Zone. On the research side alone, it’s fascinating.
+
+She traces this aggressive privatization and Chicago School economics back through its deployment in South America during the 1960s and 70s, particularly Chile after the overthrow of Allende and Milton Friedman’s relationship with the Pinochet regime. She then follows many of the same ideas—and, remarkably, some of the same people—through subsequent American administrations and ultimately into Iraq. By the time she gets to Donald Rumsfeld, Paul Bremer, and the invasion and occupation of Iraq, she makes extremely clear just how profoundly the entire project functioned as a hyper-privatized neoliberal imperial venture. It was McDonald’s, Raytheon, Blackwater-style capitalism attached directly to an invasion and occupation. I already understood some of this going into the book, but Klein opened my eyes to just how extensive it actually was.
+
+Another of her strongest examples is the Bush administration’s response to Hurricane Katrina. I was ten years old when Katrina happened, and I think the way it was generally explained to people my age was basically, “Yeah, the Bush administration really mishandled that.” But, lo and behold, it was much worse than simple incompetence. Klein documents the extraordinary level of privatization that followed the disaster and argues that what occurred wasn’t merely the result of some dolts in government or Bush being an idiot. It became an active transfer of resources and functions from the public sector into the private sector, and she lays out that process in detail.
+
+The most depressing part of reading The Shock Doctrine in 2026 is realizing that it was published almost twenty years ago. You might hope that the Bush administration represented the final bastion of the Milton Friedman and Friedrich Hayek neoliberal vision—that after seeing its failures, we would have learned something.
+
+We obviously didn’t.
+
+The privatization of the public sector continued in various forms under Obama, accelerated enormously during Donald Trump’s first administration, and has become even more aggressive during his second. Reading Klein today, Donald Rumsfeld would practically blush at the scale of what is now being attempted with the public sector and its transfer into the hands of wealthy private interests.
+
+That’s what makes the book simultaneously outstanding and profoundly depressing. Klein was documenting something in 2007 that could have served as a warning. Instead, nearly twenty years later, rather than abandoning that economic project after seeing its consequences, we elected people willing to lean into it even more brutishly.
+					</p>
+
+					<!-- Example section heading:
+					<h2>Section Heading</h2>
+
+					<p>Your review text...</p>
+					-->
+
+				</div>
+				<!-- =========================================================
+				     END REVIEW HTML
+				     ========================================================= -->
+
+			</section>
+
+			<footer class="review-footer">
+				<a href="book-reviews.html">Back to Book Reviews & Critiques</a>
+			</footer>
+
+		</article>
+	</main>
+
+	<div id="copyright">
+		<ul>
+			<li>&copy; Agitlytics</li>
+			<li>Book Reviews & Critiques</li>
+		</ul>
+	</div>
+
+</div>
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
