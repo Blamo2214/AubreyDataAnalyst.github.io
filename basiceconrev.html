@@ -273,7 +273,64 @@
 			content: "←";
 			color: var(--accent);
 		}
-
+			.chapter-index {
+				margin: 0 auto 4rem;
+				padding: 1.75rem 2rem;
+				background: var(--surface);
+				border: 1px solid var(--border);
+			}
+			
+			.chapter-index h2 {
+				margin: 0 0 1.25rem !important;
+				padding: 0 !important;
+				color: #fff !important;
+				font-size: 1rem !important;
+				letter-spacing: .14em;
+				text-transform: uppercase;
+			}
+			
+			.chapter-index h2::before {
+				display: none !important;
+			}
+			
+			.chapter-index ul {
+				display: flex;
+				flex-wrap: wrap;
+				gap: .75rem;
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			
+			.chapter-index li {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.chapter-index a {
+				display: inline-block;
+				padding: .65rem 1rem;
+				background: var(--surface-2);
+				border: 1px solid var(--border);
+				color: #ef8995 !important;
+				font-family: inherit;
+				font-size: .75rem;
+				font-weight: 900;
+				letter-spacing: .08em;
+				text-decoration: none;
+				text-transform: uppercase;
+			}
+			
+			.chapter-index a:hover {
+				background: rgba(212, 82, 98, .12);
+				border-color: var(--accent);
+				color: #fff !important;
+			}
+			
+			/* Prevent anchored chapter headings from landing underneath a sticky nav */
+			.review-body h1[id] {
+				scroll-margin-top: 6rem;
+			}
 		@media screen and (max-width: 736px) {
 			.review-page {
 				padding: 3rem 1.25rem 4.5rem;
@@ -375,12 +432,31 @@
 				<div class="review-body">
 
 					<p>
-					<h1>Chapter 1</h1>
+					<!-- ========================= -->
+<!-- CHAPTER INDEX -->
+<!-- ========================= -->
+
+<nav class="chapter-index" aria-label="Chapter index">
+	<h2>Chapter Index</h2>
+	<ul>
+		<li><a href="#chapter-1">Chapter 1</a></li>
+		<li><a href="#chapter-2">Chapter 2</a></li>
+		<li><a href="#chapter-3">Chapter 3</a></li>
+		<li><a href="#chapter-4">Chapter 4</a></li>
+	</ul>
+</nav>
+
+
+<!-- ========================= -->
+<!-- CHAPTER 1 -->
+<!-- ========================= -->
+
+<h1 id="chapter-1">Chapter 1</h1>
 
 <h2>Pages 17–18</h2>
 
 <blockquote>
-  <p>“Economics is not just about dealing with the existing output of goods and services as consumers. It is also, and more fundamentally, about producing that output from scarce resources in the first place—turning inputs into output. In other words, economics studies the consequences of decisions that are made about the use of land, labor, capital and other resources that go into producing the volume of output which determines a country’s standard of living. Those decisions and their consequences can be more important than the resources themselves, for there are poor countries with rich natural resources and countries like Japan and Switzerland with relatively few natural resources but high standards of living. The values of natural resources per capita in Uruguay and Venezuela are several times what they are in Japan and Switzerland, but real income per capita in Japan and Switzerland is more than double that of Uruguay and several times that of Venezuela.”</p>
+	<p>“Economics is not just about dealing with the existing output of goods and services as consumers. It is also, and more fundamentally, about producing that output from scarce resources in the first place—turning inputs into output. In other words, economics studies the consequences of decisions that are made about the use of land, labor, capital and other resources that go into producing the volume of output which determines a country’s standard of living. Those decisions and their consequences can be more important than the resources themselves, for there are poor countries with rich natural resources and countries like Japan and Switzerland with relatively few natural resources but high standards of living. The values of natural resources per capita in Uruguay and Venezuela are several times what they are in Japan and Switzerland, but real income per capita in Japan and Switzerland is more than double that of Uruguay and several times that of Venezuela.”</p>
 </blockquote>
 
 <h3>Critique</h3>
@@ -392,12 +468,16 @@
 <p>So yes, decisions matter—but those decisions aren't made in a vacuum. They are constrained and shaped by history, geography, existing institutions, <a href="https://www.oerproject.com/OER-Materials/OER-Media/HTML-Articles/AP-World-History/Unit6/Economic-Imperialism-in-Latin-America" target="_blank" rel="noopener noreferrer">colonial relationships, international markets, and geopolitical power</a>. Sowell repeatedly reduces enormously complicated differences between countries to the economic decisions they made while leaving much of the <strong>global geopolitical superstructure within which those decisions were made</strong> almost entirely unanalyzed.</p>
 
 
-<h1>Chapter 2</h1>
+<!-- ========================= -->
+<!-- CHAPTER 2 -->
+<!-- ========================= -->
+
+<h1 id="chapter-2">Chapter 2</h1>
 
 <h2>Pages 46–47</h2>
 
 <blockquote>
-  <p>“Different economic systems deal with this underlying reality in different ways and with different degrees of efficiency, but the underlying reality exists independently of whatever particular kind of economic system happens to exist in a given society. Once we recognize that, we can then compare how economic systems which use prices to force people to share scarce resources among themselves differ in efficiency from economic systems which determine such things by having kings, politicians, or bureaucrats issue orders saying who can get how much of what.”</p>
+	<p>“Different economic systems deal with this underlying reality in different ways and with different degrees of efficiency, but the underlying reality exists independently of whatever particular kind of economic system happens to exist in a given society. Once we recognize that, we can then compare how economic systems which use prices to force people to share scarce resources among themselves differ in efficiency from economic systems which determine such things by having kings, politicians, or bureaucrats issue orders saying who can get how much of what.”</p>
 </blockquote>
 
 <h3>Critique</h3>
@@ -408,7 +488,7 @@
 <h2>Pages 50–51</h2>
 
 <blockquote>
-  <p>“When many African colonies achieved national independence in the 1960s, a famous bet was made between the president of Ghana and the president of the neighboring Ivory Coast as to which country would be more prosperous in the years ahead. At that time, Ghana was not only more prosperous than the Ivory Coast, it had more natural resources, so the bet might have seemed reckless on the part of the president of the Ivory Coast. However, he knew that Ghana was committed to a government-run economy and the Ivory Coast to a freer market. By 1982, the Ivory Coast had so surpassed Ghana economically that the poorest 20 percent of its people had a higher real income per capita than most of the people in Ghana. This could not be attributed to any superiority of the country or its people. In fact, in later years, when the government of the Ivory Coast eventually succumbed to the temptation to control more of their country’s economy, while Ghana finally learned from its mistakes and began to loosen government controls on the market, these two countries’ roles reversed—and now Ghana’s economy began to grow, while that of the Ivory Coast declined.”</p>
+	<p>“When many African colonies achieved national independence in the 1960s, a famous bet was made between the president of Ghana and the president of the neighboring Ivory Coast as to which country would be more prosperous in the years ahead. At that time, Ghana was not only more prosperous than the Ivory Coast, it had more natural resources, so the bet might have seemed reckless on the part of the president of the Ivory Coast. However, he knew that Ghana was committed to a government-run economy and the Ivory Coast to a freer market. By 1982, the Ivory Coast had so surpassed Ghana economically that the poorest 20 percent of its people had a higher real income per capita than most of the people in Ghana. This could not be attributed to any superiority of the country or its people. In fact, in later years, when the government of the Ivory Coast eventually succumbed to the temptation to control more of their country’s economy, while Ghana finally learned from its mistakes and began to loosen government controls on the market, these two countries’ roles reversed—and now Ghana’s economy began to grow, while that of the Ivory Coast declined.”</p>
 </blockquote>
 
 <h3>Critique</h3>
@@ -427,37 +507,61 @@
 <h2>Pages 52–53</h2>
 
 <blockquote>
-  <p>“In China, the transition to a market economy began earlier, in the 1980s. Government controls were at first relaxed on an experimental basis in particular economic sectors and in particular geographic regions earlier than in others. This led to stunning economic contrasts within the same country, as well as rapid economic growth overall. Back in 1978, less than 10 percent of China’s agricultural output was sold in open markets, instead of being turned over to the government for distribution. But, by 1990, 80 percent was sold directly in the market. The net result was more food and a greater variety of food available to city dwellers in China, and a rise in farmers’ income by more than 50 percent within a few years. In contrast to China’s severe economic problems when there was heavy-handed government control under Mao, who died in 1976, the subsequent freeing up of prices in the marketplace led to an astonishing economic growth rate of 9 percent per year between 1978 and 1995.”</p>
+	<p>“In China, the transition to a market economy began earlier, in the 1980s. Government controls were at first relaxed on an experimental basis in particular economic sectors and in particular geographic regions earlier than in others. This led to stunning economic contrasts within the same country, as well as rapid economic growth overall. Back in 1978, less than 10 percent of China’s agricultural output was sold in open markets, instead of being turned over to the government for distribution. But, by 1990, 80 percent was sold directly in the market. The net result was more food and a greater variety of food available to city dwellers in China, and a rise in farmers’ income by more than 50 percent within a few years. In contrast to China’s severe economic problems when there was heavy-handed government control under Mao, who died in 1976, the subsequent freeing up of prices in the marketplace led to an astonishing economic growth rate of 9 percent per year between 1978 and 1995.”</p>
 </blockquote>
 
 <h3>Critique</h3>
 
-<p><em>In progress.</em></p>
+<p>Sowell is correct that China experienced extraordinary economic growth after Mao's death and the <a href="https://www.idcpc.org.cn/english2023/TRS_TEST/202311/t20231106_162768.html" target="_blank" rel="noopener noreferrer">market reforms that began under Deng Xiaoping</a>. Where his framing becomes misleading is in treating this primarily as a demonstration that China <strong>“freed up” its markets and subsequently prospered</strong>, without adequately explaining the ideological or institutional character of the reforms themselves.</p>
+
+<p>The period Sowell is describing was shaped by <a href="https://newlearningonline.com/new-learning/chapter-4/neoliberalism-more-recent-times/deng-xiaoping-socialism-with-chinese-characteristics" target="_blank" rel="noopener noreferrer"><strong>Deng Xiaoping Thought</strong>, which was not an abandonment of communism in favor of free-market capitalism</a>. Deng remained a communist leading a Communist Party-controlled state. His approach was pragmatic: markets could be used where they were useful for developing China's productive forces and integrating China into a global economy increasingly organized around capitalist markets, while the state retained substantial control over the direction of economic development. This eventually became associated with the concept of <strong>“socialism with Chinese characteristics.”</strong> In that sense, Deng's reforms were almost the opposite of the free-market absolutism Sowell appears to favor: markets were treated as <strong>tools available to a socialist state rather than ends in themselves</strong>.</p>
+
+<p>It's therefore notable that Sowell discusses China's transformation from 1978 onward without even mentioning Deng Xiaoping. Including Deng complicates the simple narrative of <strong>Maoist government control → market liberalization → prosperity</strong>, because China did not suddenly become a neoliberal capitalist economy in 1978. It <a href="https://socialistchina.org/2024/08/26/xi-deng-xiaoping-was-a-great-marxist-strategist-diplomat-and-long-tested-communist-fighter/" target="_blank" rel="noopener noreferrer">remained governed by the Communist Party under a Marxist framework</a>, but adopted a substantially different theory about the role markets could play in developing the productive forces. I would personally argue that Deng's approach represented a more viable path toward China's stated communist objectives than Mao's, even though Deng's China was itself built upon the state and society produced by the Mao era.</p>
+
+<p>The historical comparison also needs context. Comparing Mao's China with China after 1978 means comparing an extraordinarily volatile period—including the aftermath of <a href="https://www.britannica.com/event/Chinese-Civil-War" target="_blank" rel="noopener noreferrer">revolution and civil war</a>, the <a href="https://www.ebsco.com/research-starters/history/maos-great-leap-forward-brings-chaos-china" target="_blank" rel="noopener noreferrer">Great Leap Forward</a>, the <a href="https://www.vaia.com/en-us/explanations/anthropology/east-asian-studies/cultural-revolution/" target="_blank" rel="noopener noreferrer">Cultural Revolution</a>, and enormous political and social upheaval—with a later period in which much of that destabilization had already passed. Obviously, Mao's disastrous policies themselves contributed to that instability, but China's subsequent growth cannot simply be isolated from these dramatically different historical circumstances.</p>
+
+<p>So the interesting lesson from China's post-1978 growth isn't merely that <strong>China introduced markets and markets worked</strong>. It is that a Communist Party-led state operating under <strong>Deng Xiaoping Thought deliberately incorporated market mechanisms into a broader state-directed development strategy</strong>. That is a much more complicated—and much more interesting—economic transformation than Sowell's framing allows.</p>
 
 
-<h1>Chapter 3</h1>
+<!-- ========================= -->
+<!-- CHAPTER 3 -->
+<!-- ========================= -->
 
-<h3>Critique</h3>
+<h1 id="chapter-3">Chapter 3</h1>
 
-<p>As I finish Chapter 3, something I’ve noticed—really going back into Chapter 2 as well—is that Sowell’s reasoning seems to follow a recurring pattern. As a free-market absolutist, which he never explicitly says he is but then spends much of the book effectively defending, his argument seems to be that if we can logically identify a negative externality or unintended consequence that might result from a policy interfering with the market, then we no longer need to conduct any meaningful cost-benefit analysis. We can simply throw the policy out altogether.</p>
+<h3>Broader Critique</h3>
 
-<p>Normally, the existence of negative externalities would be the beginning of the analysis, not the end of it. We understand that policies are going to have trade-offs and unintended consequences. The question is whether those consequences can be mitigated or offset, or whether the benefits of the policy outweigh them. We might determine that a policy causes problems A, B, and C, but solves problems X, Y, and Z to a significantly greater degree. We then net those effects out and ask whether the policy actually makes the situation better overall. That is the point of a cost-benefit analysis.</p>
+<p>Throughout Chapter 3, Sowell goes through the incentives created by <strong>price controls and rent controls</strong>, using various examples to demonstrate their unintended consequences. And this is actually a point in the book where what he's describing is, technically speaking, largely true. These incentives are real, and his examples are generally much closer to actually demonstrating the point he's trying to make. This is different from examples like his comparison of Ghana and the Ivory Coast, or his broader comparisons between Global North and Global South countries, where so much historical and geopolitical context is missing that the comparisons become inadequate to support the conclusions he's drawing from them. Where Sowell and I diverge is in what conclusions we draw from that reality.</p>
 
-<p>Sowell, however, seems to repeatedly skip that step. He identifies a market-interference policy—price controls, rent controls, anti-price-gouging laws, etc.—then identifies some negative incentive or unintended consequence produced by that policy and treats this as sufficient reason to reject the intervention altogether. There is remarkably little consideration of whether the policy also produces benefits, whether those benefits outweigh its costs, whether the negative effects could be addressed through complementary policies, or whether a differently designed intervention could accomplish the same objective more effectively.</p>
+<p>Something I've noticed throughout Chapter 3—really going back into Chapter 2 as well—is that Sowell's reasoning seems to follow a recurring pattern. As a free-market absolutist, which he never explicitly says he is but spends much of the book effectively defending, he identifies a negative externality or unintended consequence that might result from a policy interfering with the market and then seems to treat that as though the analysis is basically finished. Sowell never really formally presents his solution, but the implication throughout the chapter, and the book broadly so far, is fairly obvious: <strong>this is why you shouldn't interfere with the free market.</strong></p>
 
-<p>The final section of Chapter 3 is essentially an extended argument for why price gouging is actually beneficial, supported by a handful of made-up but realistic scenarios illustrating how higher prices can ration scarce resources. Again, though, the underlying reasoning remains the same: identify problems created by interfering with market prices and then treat those problems as an argument for simply allowing the market to operate freely, even under catastrophic circumstances.</p>
+<p>But identifying a negative consequence created by one particular intervention does not establish that the alternative should be an unregulated market. It establishes that <strong>this particular policy, designed in this particular way, has particular trade-offs</strong>. Normally, the existence of negative externalities would be the beginning of the analysis, not the end of it. We understand that policies are going to have trade-offs and unintended consequences. The question is whether those consequences can be mitigated or offset, whether complementary policies can address them, and, most importantly, whether the benefits of the policy outweigh its costs. A policy might cause problems A, B, and C while solving problems X, Y, and Z to a significantly greater degree. We then net those effects out and ask whether the policy makes the situation better overall. That's the point of a cost-benefit analysis.</p>
 
-<p>That ultimately strikes me as the easiest, most anti-analytical and unimaginative policy position available. Rather than comparing competing systems and interventions—including all of their respective costs and benefits—the default answer becomes: just let the free market do its thing.</p>
+<p>Sowell, however, repeatedly seems to skip that step. He identifies a market-interference policy—price controls, rent controls, anti-price-gouging laws, etc.—then identifies some negative incentive or unintended consequence produced by it and treats that as sufficient reason to reject the intervention. There is remarkably little consideration of whether the policy also produces benefits, whether those benefits outweigh its costs, whether its negative effects could be addressed through additional policy, or whether a differently designed intervention could accomplish the same objective more effectively.</p>
+
+<p>This also ignores the fact that there are successful examples globally of societies addressing housing through entirely different combinations of policy. <strong>Public and social housing policies exist</strong>, with <a href="https://www.iurc.eu/wp-content/uploads/2025/02/BEST.PRATICE.-VIENNA%C2%B4S-HOUSING-POLICY.pdf" target="_blank" rel="noopener noreferrer">Vienna</a> being an obvious case study worth examining. China provides another very different example: despite <a href="https://www.lincolninst.edu/es/publications/articles/affordable-housing-china/" target="_blank" rel="noopener noreferrer">important differences in what “ownership” means within the Chinese system</a>, its <a href="https://worldpopulationreview.com/country-rankings/home-ownership-by-country" target="_blank" rel="noopener noreferrer">reported homeownership rate is around 90 percent, compared with roughly two-thirds in the United States</a>. These systems obviously aren't identical, nor are they necessarily models that should simply be copied wholesale. The point is that there are alternative institutional arrangements for addressing housing beyond the binary choice between <strong>blanket rent controls and simply letting the market determine everything</strong>.</p>
+
+<p>This also creates tension with Sowell's broader claim that these principles of “basic economics” apply across different societies and throughout history because every society must confront scarcity. Scarcity obviously exists regardless of the economic system, but the <strong>institutions through which scarce resources are allocated are not universal</strong>. <a href="https://www.jewishagency.org/what-exactly-is-a-kibbutz/" target="_blank" rel="noopener noreferrer">Israeli kibbutzim</a> provide one relatively modern example of communal organization, while various Indigenous and pre-capitalist societies historically organized land, shelter, and other resources through arrangements much closer to communal ownership, or what has sometimes been described as <a href="https://polsci.institute/modern-political-philosophy/primitive-communism-earliest-stage-human-society/" target="_blank" rel="noopener noreferrer">primitive communism or primitive collectivism</a>. Under a different property structure, a community that needs additional shelter can collectively construct additional housing without that process necessarily requiring a mortgage, landlord, rent payment, or privately owned housing market. As a hat tip to conservatives, many of these earlier societies quite literally <strong>lived within their means</strong>.</p>
+
+<p>Toward the end of Chapter 3, Sowell also turns to the political <strong>demonization of landlords</strong>. One of his responses is that landlords don't necessarily make extraordinary amounts of money and that many American landlords are relatively small “mom-and-pop” operations. Again, that may be true, but I don't see how it meaningfully addresses the argument. The criticism of landlordism doesn't depend on every individual landlord being extraordinarily wealthy or personally malicious. <a href="https://www.dictionary.com/browse/non-sequitur" target="_blank" rel="noopener noreferrer">The profitability of the landlord is largely a non sequitur</a>. The more fundamental question concerns the <strong>economic relationship and power structure created when one person owns capital that another person requires for something as fundamental as shelter and charges that person for access to it</strong>.</p>
+
+<p>Nor is criticism of landlordism some modern invention produced by politicians convincing economically illiterate people to hate their landlords. In fact, two of the most foundational figures in classical economics offered substantial criticisms of landlords and economic rent, <a href="https://www.goodreads.com/quotes/6536394-as-soon-as-the-land-of-any-country-has-all" target="_blank" rel="noopener noreferrer"><strong>Adam Smith</strong></a> and <a href="https://www.azquotes.com/quote/858592" target="_blank" rel="noopener noreferrer"><strong>John Stuart Mill</strong></a>. Whatever one ultimately thinks of those criticisms, the institution of landlordism has been debated within economics itself for centuries.</p>
+
+<p>The final section of Chapter 3 makes the broader problem particularly clear. It is essentially an extended argument for why <strong>price gouging is actually beneficial</strong>, supported by a handful of made-up but realistic scenarios illustrating how higher prices can ration scarce resources. Treating <strong>“this intervention creates unintended consequences”</strong> as though it naturally leads to <strong>“therefore, leave the market alone”</strong> remains an extraordinarily basic—and, more importantly, unimaginative—argument.</p>
 
 
-<h1>Chapter 4</h1>
+<!-- ========================= -->
+<!-- CHAPTER 4 -->
+<!-- ========================= -->
+
+<h1 id="chapter-4">Chapter 4</h1>
 
 <h2>Page 129</h2>
 
 <blockquote>
-  <p>“Just as primitive peoples tended to attribute such things as the swaying of trees in the wind to some intentional action by an invisible spirit, rather than to such systemic causes as variations in atmospheric pressure, so there is a tendency toward intentional explanations of systemic events in the economy, when people are unaware of basic economic principles.</p>
+	<p>“Just as primitive peoples tended to attribute such things as the swaying of trees in the wind to some intentional action by an invisible spirit, rather than to such systemic causes as variations in atmospheric pressure, so there is a tendency toward intentional explanations of systemic events in the economy, when people are unaware of basic economic principles.</p>
 
-  <p>…For example, while rising prices are likely to reflect changes in supply and demand, people ignorant of economics may attribute price rises to ‘greed.’ People shocked by the high prices charged in stores in low-income neighborhoods have often been quick to blame greed or exploitation on the part of the people who run such businesses.”</p>
+	<p>…For example, while rising prices are likely to reflect changes in supply and demand, people ignorant of economics may attribute price rises to ‘greed.’ People shocked by the high prices charged in stores in low-income neighborhoods have often been quick to blame greed or exploitation on the part of the people who run such businesses.”</p>
 </blockquote>
 
 <h3>Critique</h3>
@@ -480,7 +584,7 @@
 <h2>Page 130</h2>
 
 <blockquote>
-  <p>“The painful fact that poor people end up paying more than affluent people for many goods and services has a very plain—and systemic—explanation: It often costs more to deliver goods and services in low-income neighborhoods. Higher insurance costs and higher costs for various security precautions, due to higher rates of crime and vandalism, are just some of the systemic reasons that get ignored by those seeking an explanation in terms of personal intentions.”</p>
+	<p>“The painful fact that poor people end up paying more than affluent people for many goods and services has a very plain—and systemic—explanation: It often costs more to deliver goods and services in low-income neighborhoods. Higher insurance costs and higher costs for various security precautions, due to higher rates of crime and vandalism, are just some of the systemic reasons that get ignored by those seeking an explanation in terms of personal intentions.”</p>
 </blockquote>
 
 <h3>Critique</h3>
@@ -495,7 +599,7 @@
 <h2>Page 147</h2>
 
 <blockquote>
-  <p>“This can mean waiting in long lines at stores, as was common in the Soviet economy, or being put on a waiting list for surgery, as patients often are in countries where government-provided medical care is either free or heavily subsidized. Luck and corruption are other substitutes for price rationing. Whoever happens to be in a store when a new shipment of some product in short supply arrives can get the first opportunity to buy it, while people who happen to learn about it much later can find the coveted product all gone by the time they get there. In other cases, personal or political favoritism or bribery takes the place of luck in gaining preferential access, or formal rationing systems may replace favoritism with some one-size-fits-all policy administered by government agencies.”</p>
+	<p>“This can mean waiting in long lines at stores, as was common in the Soviet economy, or being put on a waiting list for surgery, as patients often are in countries where government-provided medical care is either free or heavily subsidized. Luck and corruption are other substitutes for price rationing. Whoever happens to be in a store when a new shipment of some product in short supply arrives can get the first opportunity to buy it, while people who happen to learn about it much later can find the coveted product all gone by the time they get there. In other cases, personal or political favoritism or bribery takes the place of luck in gaining preferential access, or formal rationing systems may replace favoritism with some one-size-fits-all policy administered by government agencies.”</p>
 </blockquote>
 
 <h3>Critique</h3>
@@ -512,9 +616,9 @@
 <h2>Pages 150–151</h2>
 
 <blockquote>
-  <p>“But they are unlikely even to pose the question whether the incremental benefit exceeds the incremental costs. There are no incentives for them to look at things that way. Nor are the media likely to. A New York Times article, for example, argued that there were few, if any, ‘useless’ regulations as if that was the relevant criterion. But neither individuals nor businesses are willing or able to pay for everything that is not useless, when they are spending their own money. No doubt there are reasons, or at least rationales, for the many government regulations imposed on businesses in Italy, for example, but the real question is whether their costs exceed their benefits:</p>
+	<p>“But they are unlikely even to pose the question whether the incremental benefit exceeds the incremental costs. There are no incentives for them to look at things that way. Nor are the media likely to. A New York Times article, for example, argued that there were few, if any, ‘useless’ regulations as if that was the relevant criterion. But neither individuals nor businesses are willing or able to pay for everything that is not useless, when they are spending their own money. No doubt there are reasons, or at least rationales, for the many government regulations imposed on businesses in Italy, for example, but the real question is whether their costs exceed their benefits:</p>
 
-  <p>Imagine you’re an ambitious Italian entrepreneur, trying to make a go of a new business. You know you will have to pay at least two-thirds of your employees’ social security costs. You also know you’re going to run into problems once you hire your 16th employee, since that will trigger provisions making it either impossible or very expensive to dismiss a staffer. But there’s so much more. Once you hire employee 11, you must submit an annual self-assessment to the national authorities outlining every possible health and safety hazard to which your employees might be subject. These include stress that is work-related or caused by age, gender and racial differences. You must also note all precautionary and individual measures to prevent risks, procedures to carry them out, the names of employees in charge of safety, as well as the physician whose presence is required for the assessment. . . . By the time your firm hires its 51st worker, 7% of the payroll must be handicapped in some way. . . Once you hire your 101st employee, you must submit a report every two years on the gender dynamics within the company. This must include a tabulation of the men and women employed in each production unit, their functions and level within the company, details of compensation and benefits, and dates and reasons for recruitments, promotions and transfers, as well as the estimated revenue impact.”</p>
+	<p>Imagine you’re an ambitious Italian entrepreneur, trying to make a go of a new business. You know you will have to pay at least two-thirds of your employees’ social security costs. You also know you’re going to run into problems once you hire your 16th employee, since that will trigger provisions making it either impossible or very expensive to dismiss a staffer. But there’s so much more. Once you hire employee 11, you must submit an annual self-assessment to the national authorities outlining every possible health and safety hazard to which your employees might be subject. These include stress that is work-related or caused by age, gender and racial differences. You must also note all precautionary and individual measures to prevent risks, procedures to carry them out, the names of employees in charge of safety, as well as the physician whose presence is required for the assessment. . . . By the time your firm hires its 51st worker, 7% of the payroll must be handicapped in some way. . . Once you hire your 101st employee, you must submit a report every two years on the gender dynamics within the company. This must include a tabulation of the men and women employed in each production unit, their functions and level within the company, details of compensation and benefits, and dates and reasons for recruitments, promotions and transfers, as well as the estimated revenue impact.”</p>
 </blockquote>
 
 <h3>Critique</h3>
@@ -531,7 +635,7 @@
 <h2>Page 155</h2>
 
 <blockquote>
-  <p>“However much economic efficiency would be promoted by letting resource prices be unchanged by taxes or subsidies, from a political standpoint politicians win votes by doing special favors for special interests or putting special taxes on whomever or whatever might be unpopular at the moment. The free market may work best when there is a level playing field, but politicians win more votes by tilting the playing field to favor particular groups. Often this process is rationalized politically in terms of a need to help the less fortunate but, once the power and the practice are established, they provide the means of subsidizing all sorts of groups who are not the least bit unfortunate. For example, the Wall Street Journal reported: A chunk of the federal taxes and fees paid by airline passengers are awarded to small airports used mainly by private pilots and globe-trotting corporate executives.”</p>
+	<p>“However much economic efficiency would be promoted by letting resource prices be unchanged by taxes or subsidies, from a political standpoint politicians win votes by doing special favors for special interests or putting special taxes on whomever or whatever might be unpopular at the moment. The free market may work best when there is a level playing field, but politicians win more votes by tilting the playing field to favor particular groups. Often this process is rationalized politically in terms of a need to help the less fortunate but, once the power and the practice are established, they provide the means of subsidizing all sorts of groups who are not the least bit unfortunate. For example, the Wall Street Journal reported: A chunk of the federal taxes and fees paid by airline passengers are awarded to small airports used mainly by private pilots and globe-trotting corporate executives.”</p>
 </blockquote>
 
 <h3>Critique</h3>
@@ -545,11 +649,13 @@
 <p>This becomes particularly important when Sowell talks about <strong>“special interests.”</strong> Although he acknowledges that subsidies can ultimately benefit groups such as corporate executives, his framing still focuses heavily on the political process beginning with policies ostensibly intended to help ordinary or less-fortunate people and then expanding to benefit other groups. But some of the largest beneficiaries of government intervention are <strong>corporations themselves</strong>. <a href="https://www.cato.org/policy-analysis/corporate-welfare-federal-budget-0" target="_blank" rel="noopener noreferrer">Corporate welfare, oil and gas subsidies, other energy subsidies, government contracts, tax incentives, and enormous public benefits provided to companies such as Tesla or Walmart are also government interventions benefiting special interests</a>. In these cases, public policy can effectively subsidize private profit margins, disproportionately benefiting corporate executives and <a href="https://usafacts.org/articles/what-percentage-of-americans-own-stock/" target="_blank" rel="noopener noreferrer">a shareholder class heavily concentrated among the wealthiest Americans</a>.</p>
 
 <p>
-  <a href="https://usafacts.org/articles/what-percentage-of-americans-own-stock/" target="_blank" rel="noopener noreferrer">
-    <img src="images/distrib.png"
-         alt="Distribution of stock ownership in the United States"
-         style="max-width: 100%; height: auto;">
-  </a>
+	<a href="https://usafacts.org/articles/what-percentage-of-americans-own-stock/" target="_blank" rel="noopener noreferrer">
+		<img
+			src="images/distrib.png"
+			alt="Distribution of stock ownership in the United States"
+			style="max-width: 100%; height: auto;"
+		>
+	</a>
 </p>
 
 <p>There is also an obvious potential conflict when politicians themselves own and trade financial assets affected by the policies they create. Whatever individual examples I eventually use—whether <a href="https://finance.yahoo.com/markets/stocks/articles/nancy-pelosi-caught-heat-59m-100000850.html" target="_blank" rel="noopener noreferrer"><strong>Nancy Pelosi</strong></a>, <a href="https://www.businessinsider.com/the-investing-strategy-behind-president-trumps-21-000-trades-2026-8" target="_blank" rel="noopener noreferrer"><strong>Donald Trump</strong></a>, <strong>Dan Crenshaw</strong>, or others—the broader point is that politicians can have direct or indirect material relationships with the same corporate interests affected by government policy. The incentive analysis therefore cannot stop at <em>“what policy will make voters happy?”</em></p>
