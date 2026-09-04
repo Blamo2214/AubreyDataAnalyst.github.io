@@ -1,0 +1,68 @@
+name: Update Oil Market Prices
+
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: "15 * * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  update-prices:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Fetch latest oil prices
+        env:
+          OILPRICE_API_KEY: ${{ secrets.OILPRICE_API_KEY }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import urllib.request
+
+          url = (
+              "https://api.oilpriceapi.com/v1/prices/latest"
+              "?by_code=WTI_USD,BRENT_CRUDE_USD"
+          )
+
+          request = urllib.request.Request(
+              url,
+              headers={
+                  "Authorization": f"Token {os.environ['OILPRICE_API_KEY']}",
+                  "Accept": "application/json",
+                  "User-Agent": "Agitlytics-Oil-Market-Monitor"
+              }
+          )
+
+          with urllib.request.urlopen(request) as response:
+              payload = json.load(response)
+
+          print(json.dumps(payload, indent=2))
+
+          os.makedirs("data", exist_ok=True)
+
+          with open("data/oilpriceapi-raw.json", "w") as f:
+              json.dump(payload, f, indent=2)
+
+          print("Saved raw API response.")
+          PY
+
+      - name: Commit updated oil prices
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add data/oilpriceapi-raw.json
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Update oil market prices"
+            git push
+          fi
