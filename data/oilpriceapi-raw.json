@@ -1,0 +1,92 @@
+{
+  "status": "success",
+  "data": {
+    "prices": [
+      {
+        "price": 92.07,
+        "formatted": "$92.07",
+        "currency": "USD",
+        "code": "WTI_USD",
+        "created_at": "2026-09-04T04:31:12.128Z",
+        "updated_at": "2026-09-04T04:31:12.128Z",
+        "type": "spot_price",
+        "unit": "barrel",
+        "source": "market_reporting",
+        "data_status": "delayed",
+        "freshness": {
+          "status": "delayed",
+          "age_seconds": 2646,
+          "expected_max_age_seconds": 1800,
+          "circuit_breaker_open": false
+        },
+        "changes": {
+          "24h": {
+            "amount": 1.27,
+            "percent": 1.4,
+            "previous_price": 90.8,
+            "previous_timestamp": "2026-09-03T04:19:30Z",
+            "measured_at": "2026-09-04T04:31:12Z",
+            "span_hours": 24.2
+          }
+        },
+        "as_of": "2026-09-04T04:31:12.128Z",
+        "collected_at": "2026-09-04T04:31:12.128Z",
+        "synthetic": false,
+        "stale": false,
+        "age_days": 0
+      },
+      {
+        "price": 95.62,
+        "formatted": "$95.62",
+        "currency": "USD",
+        "code": "BRENT_CRUDE_USD",
+        "created_at": "2026-09-04T05:11:36.276Z",
+        "updated_at": "2026-09-04T05:11:36.276Z",
+        "type": "spot_price",
+        "unit": "barrel",
+        "source": "market_reporting",
+        "data_status": "current",
+        "freshness": {
+          "status": "current",
+          "age_seconds": 222,
+          "expected_max_age_seconds": 3600,
+          "circuit_breaker_open": false
+        },
+        "changes": {
+          "24h": {
+            "amount": 0.6,
+            "percent": 0.63,
+            "previous_price": 95.02,
+            "previous_timestamp": "2026-09-03T05:11:30Z",
+            "measured_at": "2026-09-04T05:11:36Z",
+            "span_hours": 24.0
+          }
+        },
+        "as_of": "2026-09-04T05:00:39.000Z",
+        "collected_at": "2026-09-04T05:11:36.276Z",
+        "synthetic": false,
+        "stale": false,
+        "age_days": 0,
+        "benchmark": {
+          "id": "ice_brent_front_month",
+          "name": "ICE Brent Crude front-month futures",
+          "instrument_type": "front_month_futures",
+          "quote_type": "indicative_last_price",
+          "unit": "USD_per_barrel",
+          "contract_month": "2026-11",
+          "roll_method": "explicit_contract_curve",
+          "observed_at": "2026-09-04T05:00:39.000Z",
+          "observation_time_basis": "upstream_market",
+          "collected_at": "2026-09-04T05:11:36.276Z",
+          "source_tier": "contract_curve_fallback"
+        }
+      }
+    ],
+    "missing": [],
+    "metadata": {
+      "request_id": "2c4f1ba03b8abf26",
+      "timestamp": "2026-09-04T05:15:18Z",
+      "version": "v1"
+    }
+  }
+}
