@@ -11,57 +11,219 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --bg: #090d12;
+            --panel: #111821;
+            --panel-border: #25303c;
+            --text: #f2f3f5;
+            --muted: #9ba8b7;
+            --subtle: #718092;
+            --accent: #d94b5b;
+            --positive: #5fd38d;
+            --negative: #ff7a7a;
+        }
+
         body {
             margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: #0b0f14;
-            color: #f5f7fa;
+            background: var(--bg);
+            color: var(--text);
+            font-family: Georgia, "Times New Roman", serif;
         }
+
+        /* =========================================================
+           NAVIGATION
+        ========================================================= */
+
+        .site-nav {
+            height: 88px;
+            border-bottom: 1px solid rgba(255,255,255,0.10);
+            background: #070a0e;
+        }
+
+        .nav-inner {
+            width: min(1490px, 90%);
+            height: 100%;
+            margin: 0 auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            color: #f5f5f5;
+            text-decoration: none;
+
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .brand-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 0 6px rgba(217,75,91,0.12);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 34px;
+        }
+
+        .nav-links a {
+            color: #aeb4bd;
+            text-decoration: none;
+            text-transform: uppercase;
+
+            font-size: 0.76rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+
+            padding: 34px 0 12px;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        .nav-links a.active {
+            color: #fff;
+            border-bottom-color: var(--accent);
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+            border-bottom: 1px solid rgba(255,255,255,0.10);
+
+            background:
+                radial-gradient(
+                    circle at 88% 20%,
+                    rgba(103, 30, 45, 0.22),
+                    transparent 34%
+                ),
+                linear-gradient(
+                    110deg,
+                    #0a0f15 0%,
+                    #0a0e13 58%,
+                    #130d12 100%
+                );
+        }
+
+        .hero-inner {
+            width: min(1490px, 90%);
+            margin: 0 auto;
+            padding: 88px 0 60px;
+        }
+
+        .eyebrow {
+            display: block;
+            margin-bottom: 24px;
+
+            color: var(--accent);
+
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            margin: 0;
+
+            max-width: 1000px;
+
+            font-size: clamp(3.4rem, 6vw, 6rem);
+            line-height: 0.98;
+            letter-spacing: -0.035em;
+        }
+
+        .hero-description {
+            max-width: 1000px;
+            margin: 28px 0 0;
+
+            color: #c3cad3;
+
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .tag-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 32px;
+        }
+
+        .tag {
+            padding: 11px 16px;
+
+            border: 1px solid rgba(255,255,255,0.16);
+            background: rgba(255,255,255,0.025);
+
+            color: #d1d6dd;
+
+            font-size: 0.69rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+
+        /* =========================================================
+           MAIN CONTENT
+        ========================================================= */
 
         .page-container {
-            width: min(1200px, 92%);
+            width: min(1490px, 90%);
             margin: 0 auto;
-            padding: 50px 0 80px;
-        }
-
-        .page-header {
-            margin-bottom: 40px;
-        }
-
-        .page-header h1 {
-            margin: 0 0 10px;
-            font-size: clamp(2.2rem, 5vw, 4rem);
-        }
-
-        .page-header p {
-            margin: 0;
-            max-width: 760px;
-            color: #aeb7c2;
-            font-size: 1.05rem;
-            line-height: 1.6;
+            padding: 65px 0 100px;
         }
 
         .section {
-            margin-top: 50px;
+            margin-bottom: 70px;
         }
 
         .section-header {
-            margin-bottom: 18px;
+            margin-bottom: 24px;
         }
 
         .section-label {
             display: block;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
+
+            color: var(--accent);
+
             font-size: 0.72rem;
             font-weight: 700;
-            letter-spacing: 0.14em;
-            color: #7f8b99;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
         }
 
         .section-header h2 {
             margin: 0;
-            font-size: 1.6rem;
+
+            font-size: 2rem;
+            letter-spacing: -0.02em;
         }
+
+
+        /* =========================================================
+           MARKET CARDS
+        ========================================================= */
 
         .market-grid {
             display: grid;
@@ -70,60 +232,86 @@
         }
 
         .market-card {
-            background: #111821;
-            border: 1px solid #25303c;
-            border-radius: 14px;
-            padding: 22px;
+            background: var(--panel);
+            border: 1px solid var(--panel-border);
+            border-radius: 4px;
+            padding: 26px;
         }
 
         .market-card h3 {
-            margin: 0 0 4px;
-            font-size: 1.1rem;
+            margin: 0 0 5px;
+            font-size: 1.15rem;
         }
 
         .market-subtitle {
-            margin: 0 0 18px;
-            color: #83909d;
-            font-size: 0.82rem;
+            margin: 0 0 24px;
+
+            color: #8494a7;
+
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.78rem;
         }
 
         .market-price {
             margin: 0;
-            font-size: 2.25rem;
+
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 2.4rem;
             font-weight: 700;
-            letter-spacing: -0.03em;
+            letter-spacing: -0.04em;
         }
 
         .market-unit {
-            margin-left: 5px;
-            font-size: 0.85rem;
-            color: #83909d;
+            margin-left: 6px;
+
+            color: #8494a7;
+
+            font-size: 0.75rem;
             font-weight: 400;
         }
 
         .market-change {
-            margin-top: 8px;
-            font-size: 0.95rem;
+            margin-top: 10px;
+
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.88rem;
             font-weight: 700;
         }
 
         .positive {
-            color: #5fd38d;
+            color: var(--positive);
         }
 
         .negative {
-            color: #ff7a7a;
+            color: var(--negative);
         }
 
         .neutral {
-            color: #aeb7c2;
+            color: #b4bdc7;
         }
 
         .market-updated {
-            margin-top: 18px;
-            font-size: 0.72rem;
-            color: #687481;
+            margin-top: 22px;
+
+            color: #68788b;
+
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.69rem;
         }
+
+        .data-note {
+            margin-top: 14px;
+
+            color: #738294;
+
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.72rem;
+        }
+
+
+        /* =========================================================
+           PHYSICAL MARKET CARDS
+        ========================================================= */
 
         .placeholder-grid {
             display: grid;
@@ -132,77 +320,196 @@
         }
 
         .placeholder-card {
-            min-height: 170px;
-            background: #111821;
-            border: 1px solid #25303c;
-            border-radius: 14px;
-            padding: 22px;
+            min-height: 190px;
+
+            background: var(--panel);
+            border: 1px solid var(--panel-border);
+            border-radius: 4px;
+
+            padding: 26px;
         }
 
         .placeholder-card h3 {
-            margin-top: 0;
+            margin: 0 0 18px;
+            font-size: 1.15rem;
         }
 
         .placeholder-card p {
-            color: #98a4b1;
-            line-height: 1.5;
+            margin: 0;
+
+            color: #9aa8b8;
+
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.94rem;
+            line-height: 1.6;
         }
 
         .coming-soon {
             display: inline-block;
-            margin-top: 10px;
-            font-size: 0.72rem;
+            margin-top: 22px;
+
+            color: var(--accent);
+
+            font-size: 0.68rem;
             font-weight: 700;
-            letter-spacing: 0.1em;
-            color: #6da8ff;
+            letter-spacing: 0.13em;
         }
 
-        .data-note {
-            margin-top: 16px;
-            color: #778390;
-            font-size: 0.75rem;
-        }
+
+        /* =========================================================
+           MOBILE
+        ========================================================= */
 
         @media (max-width: 900px) {
-            .market-grid {
-                grid-template-columns: 1fr;
+
+            .nav-links {
+                display: none;
             }
 
+            .hero-inner {
+                padding: 65px 0 50px;
+            }
+
+            .hero h1 {
+                font-size: clamp(3rem, 12vw, 5rem);
+            }
+
+            .market-grid,
             .placeholder-grid {
                 grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .site-nav {
+                height: 70px;
+            }
+
+            .brand {
+                font-size: 0.78rem;
+            }
+
+            .hero-description {
+                font-size: 0.95rem;
+            }
+
+            .page-container {
+                padding-top: 45px;
             }
         }
     </style>
 </head>
 
+
 <body>
+
+
+    <!-- =========================================================
+         NAVIGATION
+    ========================================================== -->
+
+    <nav class="site-nav">
+
+        <div class="nav-inner">
+
+            <a class="brand" href="../index.html">
+                <span class="brand-dot"></span>
+                Agitlytics Research
+            </a>
+
+            <div class="nav-links">
+
+                <a href="../index.html">
+                    Portfolio
+                </a>
+
+                <a href="../projects.html" class="active">
+                    Data Projects
+                </a>
+
+                <a href="../about.html">
+                    About
+                </a>
+
+                <a href="../research.html">
+                    Research Library
+                </a>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================================================
+         HERO
+    ========================================================== -->
+
+    <header class="hero">
+
+        <div class="hero-inner">
+
+            <span class="eyebrow">
+                Interactive Market Tool
+            </span>
+
+            <h1>
+                Oil Market Monitor
+            </h1>
+
+            <p class="hero-description">
+                Track crude oil benchmarks, inventory levels,
+                strategic reserves, refining activity, and global
+                petroleum market conditions through automatically
+                updated market data and interactive analysis.
+            </p>
+
+            <div class="tag-row">
+
+                <span class="tag">Python</span>
+                <span class="tag">EIA</span>
+                <span class="tag">OilPriceAPI</span>
+                <span class="tag">GitHub Actions</span>
+                <span class="tag">Interactive HTML</span>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================================
+         MAIN CONTENT
+    ========================================================== -->
 
     <main class="page-container">
 
-        <!-- PAGE HEADER -->
-        <header class="page-header">
-            <h1>Oil Market Monitor</h1>
 
-            <p>
-                Tracking crude oil prices, inventories, production,
-                strategic reserves, refining activity, and global
-                petroleum market conditions.
-            </p>
-        </header>
-
-
-        <!-- LIVE MARKET PRICES -->
+        <!-- MARKET PRICES -->
         <section class="section">
 
             <div class="section-header">
-                <span class="section-label">MARKET PRICES</span>
-                <h2>Crude Oil Benchmarks</h2>
+
+                <span class="section-label">
+                    Market Prices
+                </span>
+
+                <h2>
+                    Crude Oil Benchmarks
+                </h2>
+
             </div>
+
 
             <div class="market-grid">
 
+
                 <!-- WTI -->
                 <div class="market-card">
+
                     <h3>WTI Crude</h3>
 
                     <p class="market-subtitle">
@@ -210,8 +517,15 @@
                     </p>
 
                     <p class="market-price">
-                        <span id="wti-price">--.--</span>
-                        <span class="market-unit">USD / bbl</span>
+
+                        <span id="wti-price">
+                            --.--
+                        </span>
+
+                        <span class="market-unit">
+                            USD / bbl
+                        </span>
+
                     </p>
 
                     <div
@@ -225,11 +539,13 @@
                         class="market-updated">
                         Updated: --
                     </div>
+
                 </div>
 
 
                 <!-- BRENT -->
                 <div class="market-card">
+
                     <h3>Brent Crude</h3>
 
                     <p class="market-subtitle">
@@ -237,8 +553,15 @@
                     </p>
 
                     <p class="market-price">
-                        <span id="brent-price">--.--</span>
-                        <span class="market-unit">USD / bbl</span>
+
+                        <span id="brent-price">
+                            --.--
+                        </span>
+
+                        <span class="market-unit">
+                            USD / bbl
+                        </span>
+
                     </p>
 
                     <div
@@ -252,20 +575,31 @@
                         class="market-updated">
                         Updated: --
                     </div>
+
                 </div>
 
 
-                <!-- SPREAD -->
+                <!-- BRENT-WTI SPREAD -->
                 <div class="market-card">
-                    <h3>Brent–WTI Spread</h3>
+
+                    <h3>
+                        Brent–WTI Spread
+                    </h3>
 
                     <p class="market-subtitle">
                         Brent Premium Over WTI
                     </p>
 
                     <p class="market-price">
-                        <span id="spread-price">--.--</span>
-                        <span class="market-unit">USD / bbl</span>
+
+                        <span id="spread-price">
+                            --.--
+                        </span>
+
+                        <span class="market-unit">
+                            USD / bbl
+                        </span>
+
                     </p>
 
                     <div
@@ -279,9 +613,11 @@
                         class="market-updated">
                         Updated: --
                     </div>
+
                 </div>
 
             </div>
+
 
             <div class="data-note">
                 Benchmark pricing supplied by OilPriceAPI.
@@ -291,18 +627,31 @@
         </section>
 
 
-        <!-- FUTURE DATA SECTIONS -->
+
+        <!-- PHYSICAL MARKET -->
         <section class="section">
 
             <div class="section-header">
-                <span class="section-label">PHYSICAL MARKET</span>
-                <h2>Oil Market Data</h2>
+
+                <span class="section-label">
+                    Physical Market
+                </span>
+
+                <h2>
+                    Oil Market Data
+                </h2>
+
             </div>
+
 
             <div class="placeholder-grid">
 
+
                 <div class="placeholder-card">
-                    <h3>U.S. Inventories</h3>
+
+                    <h3>
+                        U.S. Inventories
+                    </h3>
 
                     <p>
                         Weekly crude stocks, Cushing inventories,
@@ -312,11 +661,15 @@
                     <span class="coming-soon">
                         COMING NEXT
                     </span>
+
                 </div>
 
 
                 <div class="placeholder-card">
-                    <h3>Global Inventories</h3>
+
+                    <h3>
+                        Global Inventories
+                    </h3>
 
                     <p>
                         Major national commercial inventories,
@@ -326,11 +679,15 @@
                     <span class="coming-soon">
                         COMING SOON
                     </span>
+
                 </div>
 
 
                 <div class="placeholder-card">
-                    <h3>Market Structure</h3>
+
+                    <h3>
+                        Market Structure
+                    </h3>
 
                     <p>
                         Brent-WTI spreads, futures curves,
@@ -340,6 +697,7 @@
                     <span class="coming-soon">
                         COMING SOON
                     </span>
+
                 </div>
 
             </div>
@@ -349,23 +707,39 @@
     </main>
 
 
+    <!-- =========================================================
+         OIL PRICE DATA
+    ========================================================== -->
+
     <script>
+
         async function loadOilPrices() {
+
             try {
-                const response = await fetch('../data/oil-market-prices.json');
+
+                const response =
+                    await fetch('../data/oil-market-prices.json');
 
                 if (!response.ok) {
-                    throw new Error('Could not load oil price data.');
+                    throw new Error(
+                        'Could not load oil price data.'
+                    );
                 }
 
                 const data = await response.json();
 
-                const wti = data.WTI_USD;
-                const brent = data.BRENT_CRUDE_USD;
+                const wti =
+                    data.WTI_USD;
+
+                const brent =
+                    data.BRENT_CRUDE_USD;
 
                 if (!wti || !brent) {
-                    throw new Error('WTI or Brent price missing from JSON.');
+                    throw new Error(
+                        'WTI or Brent price missing from JSON.'
+                    );
                 }
+
 
                 updateMarketCard(
                     'wti',
@@ -375,6 +749,7 @@
                     wti.timestamp
                 );
 
+
                 updateMarketCard(
                     'brent',
                     brent.price,
@@ -383,28 +758,49 @@
                     brent.timestamp
                 );
 
-                const spread = brent.price - wti.price;
 
-                document.getElementById('spread-price').textContent =
+                const spread =
+                    brent.price - wti.price;
+
+
+                document
+                    .getElementById('spread-price')
+                    .textContent =
                     spread.toFixed(2);
 
+
                 const latestTimestamp =
-                    brent.timestamp || wti.timestamp;
+                    brent.timestamp ||
+                    wti.timestamp;
 
-                document.getElementById('spread-updated').textContent =
-                    'Updated: ' + formatTimestamp(latestTimestamp);
 
-            } catch (error) {
+                document
+                    .getElementById('spread-updated')
+                    .textContent =
+                    'Updated: ' +
+                    formatTimestamp(latestTimestamp);
+
+            }
+
+            catch (error) {
+
                 console.error(error);
 
-                document.getElementById('wti-change').textContent =
+                document
+                    .getElementById('wti-change')
+                    .textContent =
                     'Price unavailable';
 
-                document.getElementById('brent-change').textContent =
+                document
+                    .getElementById('brent-change')
+                    .textContent =
                     'Price unavailable';
 
-                document.getElementById('spread-change').textContent =
+                document
+                    .getElementById('spread-change')
+                    .textContent =
                     'Spread unavailable';
+
             }
         }
 
@@ -416,28 +812,52 @@
             percentChange,
             timestamp
         ) {
-            document.getElementById(prefix + '-price').textContent =
+
+            document
+                .getElementById(prefix + '-price')
+                .textContent =
                 Number(price).toFixed(2);
 
-            const changeElement =
-                document.getElementById(prefix + '-change');
 
-            const numericChange = Number(change);
-            const numericPercent = Number(percentChange);
+            const changeElement =
+                document.getElementById(
+                    prefix + '-change'
+                );
+
+
+            const numericChange =
+                Number(change);
+
+            const numericPercent =
+                Number(percentChange);
+
 
             let sign = '';
 
+
             if (numericChange > 0) {
+
                 sign = '+';
+
                 changeElement.className =
                     'market-change positive';
-            } else if (numericChange < 0) {
+
+            }
+
+            else if (numericChange < 0) {
+
                 changeElement.className =
                     'market-change negative';
-            } else {
+
+            }
+
+            else {
+
                 changeElement.className =
                     'market-change neutral';
+
             }
+
 
             changeElement.textContent =
                 sign +
@@ -447,30 +867,42 @@
                 numericPercent.toFixed(2) +
                 '%)';
 
-            document.getElementById(prefix + '-updated').textContent =
-                'Updated: ' + formatTimestamp(timestamp);
+
+            document
+                .getElementById(prefix + '-updated')
+                .textContent =
+                'Updated: ' +
+                formatTimestamp(timestamp);
         }
 
 
         function formatTimestamp(timestamp) {
+
             if (!timestamp) {
                 return '--';
             }
 
-            const date = new Date(timestamp);
+            const date =
+                new Date(timestamp);
 
-            return date.toLocaleString('en-US', {
-                month: 'short',
-                day: 'numeric',
-                year: 'numeric',
-                hour: 'numeric',
-                minute: '2-digit'
-            });
+
+            return date.toLocaleString(
+                'en-US',
+                {
+                    month: 'short',
+                    day: 'numeric',
+                    year: 'numeric',
+                    hour: 'numeric',
+                    minute: '2-digit'
+                }
+            );
         }
 
 
         loadOilPrices();
+
     </script>
+
 
 </body>
 </html>
