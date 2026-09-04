@@ -4,6 +4,7 @@ on:
   workflow_dispatch:
 
   schedule:
+    # Runs once every hour
     - cron: "15 * * * *"
 
 permissions:
@@ -17,7 +18,7 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Fetch latest oil prices
+      - name: Fetch and process oil prices
         env:
           OILPRICE_API_KEY: ${{ secrets.OILPRICE_API_KEY }}
         run: |
@@ -43,14 +44,36 @@ jobs:
           with urllib.request.urlopen(request) as response:
               payload = json.load(response)
 
-          print(json.dumps(payload, indent=2))
+          prices = payload["data"]["prices"]
+
+          output = {}
+
+          for item in prices:
+              code = item["code"]
+
+              change_24h = item.get("changes", {}).get("24h", {})
+
+              output[code] = {
+                  "price": item["price"],
+                  "change": change_24h.get("amount", 0),
+                  "change_percent": change_24h.get("percent", 0),
+                  "timestamp": item.get("as_of"),
+                  "data_status": item.get("data_status"),
+                  "type": item.get("type"),
+                  "source": item.get("source")
+              }
+
+              # Preserve benchmark metadata when available
+              if "benchmark" in item:
+                  output[code]["benchmark"] = item["benchmark"]
 
           os.makedirs("data", exist_ok=True)
 
-          with open("data/oilpriceapi-raw.json", "w") as f:
-              json.dump(payload, f, indent=2)
+          with open("data/oil-market-prices.json", "w") as f:
+              json.dump(output, f, indent=2)
 
-          print("Saved raw API response.")
+          print("Oil market prices updated successfully.")
+          print(json.dumps(output, indent=2))
           PY
 
       - name: Commit updated oil prices
@@ -58,10 +81,10 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add data/oilpriceapi-raw.json
+          git add data/oil-market-prices.json
 
           if git diff --cached --quiet; then
-            echo "No changes to commit."
+            echo "No price changes to commit."
           else
             git commit -m "Update oil market prices"
             git push
