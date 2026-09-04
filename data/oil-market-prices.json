@@ -1,18 +1,18 @@
 {
   "WTI_USD": {
-    "price": 89.13,
-    "change": -3.04,
-    "change_percent": -3.3,
-    "timestamp": "2026-09-04T14:07:31.013Z",
+    "price": 91.1,
+    "change": -0.45,
+    "change_percent": -0.49,
+    "timestamp": "2026-09-04T18:19:07.476Z",
     "data_status": "current",
     "type": "spot_price",
     "source": "market_reporting"
   },
   "BRENT_CRUDE_USD": {
-    "price": 93.89,
-    "change": -2.61,
-    "change_percent": -2.7,
-    "timestamp": "2026-09-04T14:06:05.000Z",
+    "price": 95.76,
+    "change": 0.53,
+    "change_percent": 0.56,
+    "timestamp": "2026-09-04T18:10:52.000Z",
     "data_status": "current",
     "type": "spot_price",
     "source": "market_reporting",
@@ -24,9 +24,9 @@
       "unit": "USD_per_barrel",
       "contract_month": "2026-11",
       "roll_method": "explicit_contract_curve",
-      "observed_at": "2026-09-04T14:06:05.000Z",
+      "observed_at": "2026-09-04T18:10:52.000Z",
       "observation_time_basis": "upstream_market",
-      "collected_at": "2026-09-04T14:16:19.552Z",
+      "collected_at": "2026-09-04T18:21:20.072Z",
       "source_tier": "contract_curve_fallback"
     }
   }
