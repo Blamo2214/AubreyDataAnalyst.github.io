@@ -65,7 +65,7 @@
 
         .market-grid {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 18px;
         }
 
@@ -73,7 +73,7 @@
             background: #111821;
             border: 1px solid #25303c;
             border-radius: 14px;
-            padding: 20px;
+            padding: 22px;
         }
 
         .market-card h3 {
@@ -81,10 +81,48 @@
             font-size: 1.1rem;
         }
 
-        .market-card p {
-            margin: 0 0 16px;
+        .market-subtitle {
+            margin: 0 0 18px;
             color: #83909d;
             font-size: 0.82rem;
+        }
+
+        .market-price {
+            margin: 0;
+            font-size: 2.25rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+        }
+
+        .market-unit {
+            margin-left: 5px;
+            font-size: 0.85rem;
+            color: #83909d;
+            font-weight: 400;
+        }
+
+        .market-change {
+            margin-top: 8px;
+            font-size: 0.95rem;
+            font-weight: 700;
+        }
+
+        .positive {
+            color: #5fd38d;
+        }
+
+        .negative {
+            color: #ff7a7a;
+        }
+
+        .neutral {
+            color: #aeb7c2;
+        }
+
+        .market-updated {
+            margin-top: 18px;
+            font-size: 0.72rem;
+            color: #687481;
         }
 
         .placeholder-grid {
@@ -125,8 +163,11 @@
             font-size: 0.75rem;
         }
 
-        @media (max-width: 800px) {
-            .market-grid,
+        @media (max-width: 900px) {
+            .market-grid {
+                grid-template-columns: 1fr;
+            }
+
             .placeholder-grid {
                 grid-template-columns: 1fr;
             }
@@ -154,7 +195,7 @@
         <section class="section">
 
             <div class="section-header">
-                <span class="section-label">LIVE MARKETS</span>
+                <span class="section-label">MARKET PRICES</span>
                 <h2>Crude Oil Benchmarks</h2>
             </div>
 
@@ -162,41 +203,89 @@
 
                 <!-- WTI -->
                 <div class="market-card">
-
                     <h3>WTI Crude</h3>
 
-                    <p>
-                        NYMEX Continuous Front-Month Futures
+                    <p class="market-subtitle">
+                        West Texas Intermediate
                     </p>
 
-                    <tv-single-ticker
-                        symbol="NYMEX:CL1!"
-                        hide-market-status="false">
-                    </tv-single-ticker>
+                    <p class="market-price">
+                        <span id="wti-price">--.--</span>
+                        <span class="market-unit">USD / bbl</span>
+                    </p>
 
+                    <div
+                        id="wti-change"
+                        class="market-change neutral">
+                        Loading...
+                    </div>
+
+                    <div
+                        id="wti-updated"
+                        class="market-updated">
+                        Updated: --
+                    </div>
                 </div>
 
 
                 <!-- BRENT -->
                 <div class="market-card">
-
                     <h3>Brent Crude</h3>
 
-                    <p>
-                        ICE Continuous Front-Month Futures
+                    <p class="market-subtitle">
+                        Global Crude Benchmark
                     </p>
 
-                    <tv-single-ticker
-                        symbol="ICEEUR:BRN1!"
-                        hide-market-status="false">
-                    </tv-single-ticker>
+                    <p class="market-price">
+                        <span id="brent-price">--.--</span>
+                        <span class="market-unit">USD / bbl</span>
+                    </p>
 
+                    <div
+                        id="brent-change"
+                        class="market-change neutral">
+                        Loading...
+                    </div>
+
+                    <div
+                        id="brent-updated"
+                        class="market-updated">
+                        Updated: --
+                    </div>
+                </div>
+
+
+                <!-- SPREAD -->
+                <div class="market-card">
+                    <h3>Brent–WTI Spread</h3>
+
+                    <p class="market-subtitle">
+                        Brent Premium Over WTI
+                    </p>
+
+                    <p class="market-price">
+                        <span id="spread-price">--.--</span>
+                        <span class="market-unit">USD / bbl</span>
+                    </p>
+
+                    <div
+                        id="spread-change"
+                        class="market-change neutral">
+                        Calculated from current benchmark prices
+                    </div>
+
+                    <div
+                        id="spread-updated"
+                        class="market-updated">
+                        Updated: --
+                    </div>
                 </div>
 
             </div>
 
             <div class="data-note">
-                Market pricing provided by TradingView.
+                Benchmark pricing supplied by OilPriceAPI.
+                Prices may be delayed depending on source availability.
             </div>
 
         </section>
@@ -260,10 +349,127 @@
     </main>
 
 
-    <!-- TradingView Widget -->
-    <script
-        type="module"
-        src="https://widgets.tradingview-widget.com/w/en/tv-single-ticker.js">
+    <script>
+        async function loadOilPrices() {
+            try {
+                const response = await fetch('../data/oil-market-prices.json');
+
+                if (!response.ok) {
+                    throw new Error('Could not load oil price data.');
+                }
+
+                const data = await response.json();
+
+                const wti = data.WTI_USD;
+                const brent = data.BRENT_CRUDE_USD;
+
+                if (!wti || !brent) {
+                    throw new Error('WTI or Brent price missing from JSON.');
+                }
+
+                updateMarketCard(
+                    'wti',
+                    wti.price,
+                    wti.change,
+                    wti.change_percent,
+                    wti.timestamp
+                );
+
+                updateMarketCard(
+                    'brent',
+                    brent.price,
+                    brent.change,
+                    brent.change_percent,
+                    brent.timestamp
+                );
+
+                const spread = brent.price - wti.price;
+
+                document.getElementById('spread-price').textContent =
+                    spread.toFixed(2);
+
+                const latestTimestamp =
+                    brent.timestamp || wti.timestamp;
+
+                document.getElementById('spread-updated').textContent =
+                    'Updated: ' + formatTimestamp(latestTimestamp);
+
+            } catch (error) {
+                console.error(error);
+
+                document.getElementById('wti-change').textContent =
+                    'Price unavailable';
+
+                document.getElementById('brent-change').textContent =
+                    'Price unavailable';
+
+                document.getElementById('spread-change').textContent =
+                    'Spread unavailable';
+            }
+        }
+
+
+        function updateMarketCard(
+            prefix,
+            price,
+            change,
+            percentChange,
+            timestamp
+        ) {
+            document.getElementById(prefix + '-price').textContent =
+                Number(price).toFixed(2);
+
+            const changeElement =
+                document.getElementById(prefix + '-change');
+
+            const numericChange = Number(change);
+            const numericPercent = Number(percentChange);
+
+            let sign = '';
+
+            if (numericChange > 0) {
+                sign = '+';
+                changeElement.className =
+                    'market-change positive';
+            } else if (numericChange < 0) {
+                changeElement.className =
+                    'market-change negative';
+            } else {
+                changeElement.className =
+                    'market-change neutral';
+            }
+
+            changeElement.textContent =
+                sign +
+                numericChange.toFixed(2) +
+                ' (' +
+                sign +
+                numericPercent.toFixed(2) +
+                '%)';
+
+            document.getElementById(prefix + '-updated').textContent =
+                'Updated: ' + formatTimestamp(timestamp);
+        }
+
+
+        function formatTimestamp(timestamp) {
+            if (!timestamp) {
+                return '--';
+            }
+
+            const date = new Date(timestamp);
+
+            return date.toLocaleString('en-US', {
+                month: 'short',
+                day: 'numeric',
+                year: 'numeric',
+                hour: 'numeric',
+                minute: '2-digit'
+            });
+        }
+
+
+        loadOilPrices();
     </script>
 
 </body>
