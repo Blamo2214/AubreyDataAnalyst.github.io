@@ -732,28 +732,6 @@
                     brent.timestamp
                 );
 
-
-                const spread =
-                    brent.price - wti.price;
-
-
-                document
-                    .getElementById('spread-price')
-                    .textContent =
-                    spread.toFixed(2);
-
-
-                const latestTimestamp =
-                    brent.timestamp ||
-                    wti.timestamp;
-
-
-                document
-                    .getElementById('spread-updated')
-                    .textContent =
-                    'Updated: ' +
-                    formatTimestamp(latestTimestamp);
-
             }
 
             catch (error) {
@@ -769,11 +747,6 @@
                     .getElementById('brent-change')
                     .textContent =
                     'Price unavailable';
-
-                document
-                    .getElementById('spread-change')
-                    .textContent =
-                    'Spread unavailable';
 
             }
         }
