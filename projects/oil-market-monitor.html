@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -378,6 +378,80 @@
 
 
         /* =========================================================
+           INVENTORY HISTORY CHART
+        ========================================================= */
+
+        .inventory-chart-panel {
+            margin-top: 22px;
+            background: var(--panel);
+            border: 1px solid var(--panel-border);
+            border-radius: 4px;
+            padding: 26px;
+        }
+
+        .inventory-chart-toolbar {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 24px;
+            margin-bottom: 22px;
+        }
+
+        .inventory-chart-title h3 {
+            margin: 0 0 6px;
+            font-size: 1.2rem;
+        }
+
+        .inventory-chart-title p {
+            margin: 0;
+            color: #8494a7;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.78rem;
+            line-height: 1.5;
+        }
+
+        .inventory-chart-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .inventory-chart-controls label {
+            color: #8f9cac;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .inventory-chart-controls select {
+            min-width: 210px;
+            padding: 10px 34px 10px 12px;
+            border: 1px solid #33404d;
+            border-radius: 3px;
+            background: #0c1219;
+            color: #e7ebef;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.8rem;
+            outline: none;
+        }
+
+        .inventory-chart-wrap {
+            position: relative;
+            height: 430px;
+        }
+
+        .chart-footnote {
+            margin-top: 15px;
+            color: #667587;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.7rem;
+            line-height: 1.5;
+        }
+
+        /* =========================================================
            PHYSICAL MARKET CARDS
         ========================================================= */
 
@@ -449,13 +523,23 @@
                 grid-template-columns: 1fr;
             }
 
-            .inventory-header-row {
+            .inventory-header-row,
+            .inventory-chart-toolbar {
                 align-items: flex-start;
                 flex-direction: column;
             }
 
             .inventory-report-date {
                 text-align: left;
+            }
+
+            .inventory-chart-controls,
+            .inventory-chart-controls select {
+                width: 100%;
+            }
+
+            .inventory-chart-wrap {
+                height: 360px;
             }
         }
 
@@ -478,6 +562,8 @@
             }
         }
     </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 </head>
 
 
@@ -828,6 +914,66 @@
                 Changes are calculated against the prior reported week.
             </div>
 
+
+            <div class="inventory-chart-panel">
+
+                <div class="inventory-chart-toolbar">
+
+                    <div class="inventory-chart-title">
+
+                        <h3>
+                            Seasonal Inventory Position
+                        </h3>
+
+                        <p>
+                            Current year versus the prior five-year seasonal range and average.
+                        </p>
+
+                    </div>
+
+
+                    <div class="inventory-chart-controls">
+
+                        <label for="inventory-series-select">
+                            Series
+                        </label>
+
+                        <select id="inventory-series-select">
+
+                            <option value="commercial_crude">
+                                Commercial Crude
+                            </option>
+
+                            <option value="cushing">
+                                Cushing
+                            </option>
+
+                            <option value="spr">
+                                Strategic Petroleum Reserve
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div class="inventory-chart-wrap">
+
+                    <canvas id="inventory-history-chart"></canvas>
+
+                </div>
+
+
+                <div class="chart-footnote">
+                    The shaded band shows the minimum-to-maximum range for the five full
+                    calendar years preceding the current year. The dashed line is the
+                    five-year weekly average. Weekly observations are aligned by ISO week.
+                </div>
+
+            </div>
+
         </section>
 
 
@@ -1058,6 +1204,10 @@
 
 
 
+        let eiaInventoryData = null;
+        let inventoryHistoryChart = null;
+
+
         async function loadEIAInventories() {
 
             try {
@@ -1072,6 +1222,7 @@
                 }
 
                 const data = await response.json();
+                eiaInventoryData = data;
 
                 const series = data.series || {};
 
@@ -1095,6 +1246,12 @@
                     .textContent =
                     'Latest EIA report: ' +
                     formatEIAWeek(data.latest_date);
+
+                renderInventorySeasonalChart(
+                    document
+                        .getElementById('inventory-series-select')
+                        .value
+                );
 
             }
 
@@ -1246,6 +1403,391 @@
             );
 
         }
+
+
+        function getISOWeek(dateString) {
+
+            const date =
+                new Date(dateString + 'T00:00:00Z');
+
+            const temp =
+                new Date(Date.UTC(
+                    date.getUTCFullYear(),
+                    date.getUTCMonth(),
+                    date.getUTCDate()
+                ));
+
+            const day =
+                temp.getUTCDay() || 7;
+
+            temp.setUTCDate(
+                temp.getUTCDate() + 4 - day
+            );
+
+            const yearStart =
+                new Date(Date.UTC(
+                    temp.getUTCFullYear(),
+                    0,
+                    1
+                ));
+
+            return Math.ceil(
+                (
+                    (
+                        temp - yearStart
+                    ) / 86400000 + 1
+                ) / 7
+            );
+
+        }
+
+
+        function buildSeasonalSeries(observations) {
+
+            if (!Array.isArray(observations)) {
+                return null;
+            }
+
+            const latest =
+                observations[observations.length - 1];
+
+            const currentYear =
+                new Date(
+                    latest.date + 'T00:00:00Z'
+                ).getUTCFullYear();
+
+            const historyYears = [
+                currentYear - 5,
+                currentYear - 4,
+                currentYear - 3,
+                currentYear - 2,
+                currentYear - 1
+            ];
+
+            const byYearWeek = {};
+
+            observations.forEach(item => {
+
+                const date =
+                    new Date(
+                        item.date + 'T00:00:00Z'
+                    );
+
+                const year =
+                    date.getUTCFullYear();
+
+                const week =
+                    getISOWeek(item.date);
+
+                if (!byYearWeek[year]) {
+                    byYearWeek[year] = {};
+                }
+
+                byYearWeek[year][week] =
+                    Number(item.value);
+
+            });
+
+
+            const labels = [];
+            const current = [];
+            const avg = [];
+            const min = [];
+            const max = [];
+
+            for (let week = 1; week <= 53; week++) {
+
+                labels.push('Week ' + week);
+
+                const historyValues =
+                    historyYears
+                        .map(year =>
+                            byYearWeek[year]?.[week]
+                        )
+                        .filter(value =>
+                            Number.isFinite(value)
+                        );
+
+                const currentValue =
+                    byYearWeek[currentYear]?.[week];
+
+                current.push(
+                    Number.isFinite(currentValue)
+                        ? currentValue
+                        : null
+                );
+
+                if (historyValues.length > 0) {
+
+                    min.push(
+                        Math.min(...historyValues)
+                    );
+
+                    max.push(
+                        Math.max(...historyValues)
+                    );
+
+                    avg.push(
+                        historyValues.reduce(
+                            (sum, value) =>
+                                sum + value,
+                            0
+                        ) /
+                        historyValues.length
+                    );
+
+                }
+
+                else {
+
+                    min.push(null);
+                    max.push(null);
+                    avg.push(null);
+
+                }
+
+            }
+
+
+            return {
+                labels,
+                current,
+                avg,
+                min,
+                max,
+                currentYear,
+                historyYears
+            };
+
+        }
+
+
+        function renderInventorySeasonalChart(seriesKey) {
+
+            if (
+                !eiaInventoryData ||
+                !eiaInventoryData.series ||
+                !eiaInventoryData.series[seriesKey]
+            ) {
+                return;
+            }
+
+            const seriesObject =
+                eiaInventoryData.series[seriesKey];
+
+            const seasonal =
+                buildSeasonalSeries(
+                    seriesObject.data
+                );
+
+            if (!seasonal) {
+                return;
+            }
+
+            const canvas =
+                document.getElementById(
+                    'inventory-history-chart'
+                );
+
+            const ctx =
+                canvas.getContext('2d');
+
+
+            if (inventoryHistoryChart) {
+                inventoryHistoryChart.destroy();
+            }
+
+
+            inventoryHistoryChart =
+                new Chart(
+                    ctx,
+                    {
+                        type: 'line',
+
+                        data: {
+                            labels: seasonal.labels,
+
+                            datasets: [
+
+                                {
+                                    label:
+                                        '5-Year Maximum',
+                                    data:
+                                        seasonal.max,
+                                    borderWidth: 0,
+                                    pointRadius: 0,
+                                    tension: 0.25,
+                                    fill: false
+                                },
+
+                                {
+                                    label:
+                                        '5-Year Range',
+                                    data:
+                                        seasonal.min,
+                                    borderWidth: 0,
+                                    pointRadius: 0,
+                                    tension: 0.25,
+                                    fill: '-1',
+                                    backgroundColor:
+                                        'rgba(140, 153, 168, 0.14)'
+                                },
+
+                                {
+                                    label:
+                                        '5-Year Average',
+                                    data:
+                                        seasonal.avg,
+                                    borderColor:
+                                        '#94a3b8',
+                                    borderDash:
+                                        [7, 6],
+                                    borderWidth:
+                                        2,
+                                    pointRadius:
+                                        0,
+                                    tension:
+                                        0.25
+                                },
+
+                                {
+                                    label:
+                                        seasonal.currentYear,
+                                    data:
+                                        seasonal.current,
+                                    borderColor:
+                                        '#d94b5b',
+                                    backgroundColor:
+                                        '#d94b5b',
+                                    borderWidth:
+                                        3,
+                                    pointRadius:
+                                        2,
+                                    pointHoverRadius:
+                                        5,
+                                    spanGaps:
+                                        false,
+                                    tension:
+                                        0.25
+                                }
+
+                            ]
+                        },
+
+                        options: {
+
+                            responsive: true,
+                            maintainAspectRatio: false,
+
+                            interaction: {
+                                mode: 'index',
+                                intersect: false
+                            },
+
+                            plugins: {
+
+                                legend: {
+                                    labels: {
+                                        color:
+                                            '#aeb8c5',
+                                        usePointStyle:
+                                            true,
+                                        boxWidth:
+                                            8,
+                                        filter: function(item) {
+                                            return (
+                                                item.text !==
+                                                '5-Year Maximum'
+                                            );
+                                        }
+                                    }
+                                },
+
+                                tooltip: {
+                                    callbacks: {
+                                        label: function(context) {
+
+                                            if (
+                                                context.raw === null
+                                            ) {
+                                                return null;
+                                            }
+
+                                            return (
+                                                context.dataset.label +
+                                                ': ' +
+                                                Number(
+                                                    context.raw
+                                                ).toFixed(3) +
+                                                'M bbl'
+                                            );
+                                        }
+                                    }
+                                }
+
+                            },
+
+                            scales: {
+
+                                x: {
+                                    grid: {
+                                        color:
+                                            'rgba(255,255,255,0.045)'
+                                    },
+                                    ticks: {
+                                        color:
+                                            '#6f7d8d',
+                                        maxTicksLimit:
+                                            13
+                                    }
+                                },
+
+                                y: {
+                                    grid: {
+                                        color:
+                                            'rgba(255,255,255,0.055)'
+                                    },
+                                    ticks: {
+                                        color:
+                                            '#7f8d9d',
+                                        callback: function(value) {
+                                            return value + 'M';
+                                        }
+                                    },
+                                    title: {
+                                        display:
+                                            true,
+                                        text:
+                                            'Million barrels',
+                                        color:
+                                            '#718092'
+                                    }
+                                }
+
+                            }
+
+                        }
+
+                    }
+                );
+
+        }
+
+
+        document
+            .getElementById(
+                'inventory-series-select'
+            )
+            .addEventListener(
+                'change',
+                function(event) {
+
+                    renderInventorySeasonalChart(
+                        event.target.value
+                    );
+
+                }
+            );
 
 
         loadOilPrices();
