@@ -1,0 +1,295 @@
+{
+  "warnings": [
+    {
+      "warning": "incomplete return",
+      "description": "The API can only return 5000 rows in JSON format.  Please consider constraining your request with facet, start, or end, or using offset to paginate results."
+    }
+  ],
+  "response": {
+    "total": "269709",
+    "dateFormat": "YYYY-MM-DD",
+    "frequency": "weekly",
+    "data": [
+      {
+        "period": "2026-08-28",
+        "duoarea": "NUS",
+        "area-name": "U.S.",
+        "product": "EPOBG",
+        "product-name": "Gasoline Blending Components",
+        "process": "SAE",
+        "process-name": "Ending Stocks",
+        "series": "WBCSTUS1",
+        "series-description": "U.S. Ending Stocks of Gasoline Blending Components (Thousand Barrels)",
+        "value": "190355",
+        "units": "MBBL"
+      },
+      {
+        "period": "2026-08-28",
+        "duoarea": "R10",
+        "area-name": "PADD 1",
+        "product": "EPOBG",
+        "product-name": "Gasoline Blending Components",
+        "process": "SAE",
+        "process-name": "Ending Stocks",
+        "series": "WBCST_R10_1",
+        "series-description": "East Coast (PADD 1) Ending Stocks of Gasoline Blending Components (Thousand Barrels)",
+        "value": "49012",
+        "units": "MBBL"
+      },
+      {
+        "period": "2026-08-28",
+        "duoarea": "R1Z",
+        "area-name": "PADD 1C",
+        "product": "EPDXL0",
+        "product-name": "Distillate Fuel Oil, 0 to 15 ppm Sulfur",
+        "process": "SAE",
+        "process-name": "Ending Stocks",
+        "series": "WD0ST_R1Z_1",
+        "series-description": "Lower Atlantic (PADD 1C) Ending Stocks of Distillate Fuel Oil, 0 to 15 ppm Sulfur (Thousand Barrels)",
+        "value": "6289",
+        "units": "MBBL"
+      },
+      {
+        "period": "2026-08-28",
+        "duoarea": "R1Y",
+        "area-name": "PADD 1B",
+        "product": "EPDXL0",
+        "product-name": "Distillate Fuel Oil, 0 to 15 ppm Sulfur",
+        "process": "SAE",
+        "process-name": "Ending Stocks",
+        "series": "WD0ST_R1Y_1",
+        "series-description": "Central Atlantic (PADD 1B) Ending Stocks of Distillate Fuel Oil, 0 to 15 ppm Sulfur (Thousand Barrels)",
+        "value": "9896",
+        "units": "MBBL"
+      },
+      {
+        "period": "2026-08-28",
+        "duoarea": "R1X",
+        "area-name": "PADD 1A",
+        "product": "EPDXL0",
+        "product-name": "Distillate Fuel Oil, 0 to 15 ppm Sulfur",
+        "process": "SAE",
+        "process-name": "Ending Stocks",
+        "series": "WD0ST_R1X_1",
+        "series-description": "New England (PADD 1A ) Ending Stocks of Distillate Fuel Oil, 0 to 15 ppm Sulfur (Thousand Barrels)",
+        "value": "2247",
+        "units": "MBBL"
+      },
+      {
+        "period": "2026-08-28",
+        "duoarea": "R10",
+        "area-name": "PADD 1",
+        "product": "EPDXL0",
+        "product-name": "Distillate Fuel Oil, 0 to 15 ppm Sulfur",
+        "process": "SAE",
+        "process-name": "Ending Stocks",
+        "series": "WD0ST_R10_1",
+        "series-description": "East Coast (PADD 1) Ending Stocks of Distillate Fuel Oil, 0 to 15 ppm Sulfur (Thousand Barrels)",
+        "value": "18432",
+        "units": "MBBL"
+      },
+      {
+        "period": "2026-08-28",
+        "duoarea": "NUS",
+        "area-name": "U.S.",
+        "product": "EPDXL0",
+        "product-name": "Distillate Fuel Oil, 0 to 15 ppm Sulfur",
+        "process": "SAE",
+        "process-name": "Ending Stocks",
+        "series": "WD0ST_NUS_1",
+        "series-description": "U.S. Ending Stocks of Distillate Fuel Oil, 0 to 15 ppm Sulfur (Thousand Barrels)",
+        "value": "94181",
+        "units": "MBBL"
+      },
+      {
+        "period": "2026-08-28",
+        "duoarea": "NUS",
+        "area-name": "U.S.",
+        "product": "EPC0",
+        "product-name": "Crude Oil",
+        "process": "SAS",
+        "process-name": "Ending Stocks SPR",
+        "series": "WCSSTUS1",
+        "series-description": "U.S. Ending Stocks of Crude Oil in SPR (Thousand Barrels)",
+        "value": "286604",
+        "units": "MBBL"
+      },
+      {
+        "period": "2026-08-28",
+        "duoarea": "NUS",
+        "area-name": "U.S.",
+        "product": "EPC0",
+        "product-name": "Crude Oil",
+        "process": "SAE",
+        "process-name": "Ending Stocks",
+        "series": "WCRSTUS1",
+        "series-description": "U.S. Ending Stocks of Crude Oil (Thousand Barrels)",
+        "value": "711064",
+        "units": "MBBL"
+      },
+      {
+        "period": "2026-08-28",
+        "duoarea": "NUS",
+        "area-name": "U.S.",
+        "product": "EPC0",
+        "product-name": "Crude Oil",
+        "process": "SAX",
+        "process-name": "Ending Stocks Excluding SPR",
+        "series": "WCESTUS1",
+        "series-description": "U.S. Ending Stocks excluding SPR of Crude Oil (Thousand Barrels)",
+        "value": "424460",
+        "units": "MBBL"
+      },
+      {
+        "period": "2026-08-28",
+        "duoarea": "R50",
+        "area-name": "PADD 5",
+        "product": "EPC0",
+        "product-name": "Crude Oil",
+        "process": "SAX",
+        "process-name": "Ending Stocks Excluding SPR",
+        "series": "WCESTP51",
+        "series-description": "West Coast (PADD 5) Ending Stocks excluding SPR of Crude Oil (Thousand Barrels)",
+        "value": "47667",
+        "units": "MBBL"
+      },
+      {
+        "period": "2026-08-28",
+        "duoarea": "R40",
+        "area-name": "PADD 4",
+        "product": "EPC0",
+        "product-name": "Crude Oil",
+        "process": "SAX",
+        "process-name": "Ending Stocks Excluding SPR",
+        "series": "WCESTP41",
+        "series-description": "Rocky Mountain (PADD 4) Ending Stocks excluding SPR of Crude Oil (Thousand Barrels)",
+        "value": "22714",
+        "units": "MBBL"
+      },
+      {
+        "period": "2026-08-28",
+        "duoarea": "R30",
+        "area-name": "PADD 3",
+        "product": "EPC0",
+        "product-name": "Crude Oil",
+        "process": "SAX",
+        "process-name": "Ending Stocks Excluding SPR",
+        "series": "WCESTP31",
+        "series-description": "Gulf Coast (PADD 3) Ending Stocks excluding SPR of Crude Oil (Thousand Barrels)",
+        "value": "245061",
+        "units": "MBBL"
+      },
+      {
+        "period": "2026-08-28",
+        "duoarea": "R20",
+        "area-name": "PADD 2",
+        "product": "EPC0",
+        "product-name": "Crude Oil",
+        "process": "SAX",
+        "process-name": "Ending Stocks Excluding SPR",
+        "series": "WCESTP21",
+        "series-description": "Midwest (PADD 2) Ending Stocks excluding SPR of Crude Oil (Thousand Barrels)",
+        "value": "100484",
+        "units": "MBBL"
+      },
+      {
+        "period": "2026-08-28",
+        "duoarea": "R10",
+        "area-name": "PADD 1",
+        "product": "EPC0",
+        "product-name": "Crude Oil",
+        "process": "SAX",
+        "process-name": "Ending Stocks Excluding SPR",
+        "series": "WCESTP11",
+        "series-description": "East Coast (PADD 1) Ending Stocks excluding SPR of Crude Oil (Thousand Barrels)",
+        "value": "8534",
+        "units": "MBBL"
+      },
+      {
+        "period": "2026-08-28",
+        "duoarea": "R50",
+        "area-name": "PADD 5",
+        "product": "EPOBG",
+        "product-name": "Gasoline Blending Components",
+        "process": "SAE",
+        "process-name": "Ending Stocks",
+        "series": "WBCST_R50_1",
+        "series-description": "West Coast (PADD 5) Ending Stocks of Gasoline Blending Components (Thousand Barrels)",
+        "value": "25814",
+        "units": "MBBL"
+      },
+      {
+        "period": "2026-08-28",
+        "duoarea": "R40",
+        "area-name": "PADD 4",
+        "product": "EPOBG",
+        "product-name": "Gasoline Blending Components",
+        "process": "SAE",
+        "process-name": "Ending Stocks",
+        "series": "WBCST_R40_1",
+        "series-description": "Rocky Mountain (PADD 4) Ending Stocks of Gasoline Blending Components (Thousand Barrels)",
+        "value": "5693",
+        "units": "MBBL"
+      },
+      {
+        "period": "2026-08-28",
+        "duoarea": "R30",
+        "area-name": "PADD 3",
+        "product": "EPOBG",
+        "product-name": "Gasoline Blending Components",
+        "process": "SAE",
+        "process-name": "Ending Stocks",
+        "series": "WBCST_R30_1",
+        "series-description": "Gulf Coast (PADD 3) Ending Stocks of Gasoline Blending Components (Thousand Barrels)",
+        "value": "70944",
+        "units": "MBBL"
+      },
+      {
+        "period": "2026-08-28",
+        "duoarea": "R20",
+        "area-name": "PADD 2",
+        "product": "EPOBG",
+        "product-name": "Gasoline Blending Components",
+        "process": "SAE",
+        "process-name": "Ending Stocks",
+        "series": "WBCST_R20_1",
+        "series-description": "Midwest (PADD 2) Ending Stocks of Gasoline Blending Components (Thousand Barrels)",
+        "value": "38892",
+        "units": "MBBL"
+      },
+      {
+        "period": "2026-08-28",
+        "duoarea": "R20",
+        "area-name": "PADD 2",
+        "product": "EPDXL0",
+        "product-name": "Distillate Fuel Oil, 0 to 15 ppm Sulfur",
+        "process": "SAE",
+        "process-name": "Ending Stocks",
+        "series": "WD0ST_R20_1",
+        "series-description": "Midwest (PADD 2) Ending Stocks of Distillate Fuel Oil, 0 to 15 ppm Sulfur (Thousand Barrels)",
+        "value": "27944",
+        "units": "MBBL"
+      }
+    ]
+  },
+  "request": {
+    "command": "/v2/petroleum/stoc/wstk/data/",
+    "params": {
+      "api_key": "tLqanuEY2W8CqPseQDA6Jn9aRjApgbSgiRZoGwNy",
+      "frequency": "weekly",
+      "data": [
+        "value"
+      ],
+      "sort": [
+        {
+          "column": "period",
+          "direction": "desc"
+        }
+      ],
+      "offset": "0",
+      "length": "20"
+    }
+  },
+  "apiVersion": "2.1.13",
+  "ExcelAddInVersion": "2.1.0"
+}
