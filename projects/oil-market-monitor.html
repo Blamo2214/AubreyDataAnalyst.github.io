@@ -969,7 +969,8 @@
                 <div class="chart-footnote">
                     The shaded band shows the minimum-to-maximum range for the five full
                     calendar years preceding the current year. The dashed line is the
-                    five-year weekly average. Weekly observations are aligned by ISO week.
+                    five-year weekly average. Weekly observations are aligned by ISO week;
+                    week 53 is omitted because it does not occur every year.
                 </div>
 
             </div>
@@ -1405,7 +1406,7 @@
         }
 
 
-        function getISOWeek(dateString) {
+        function getISOYearWeek(dateString) {
 
             const date =
                 new Date(dateString + 'T00:00:00Z');
@@ -1424,20 +1425,29 @@
                 temp.getUTCDate() + 4 - day
             );
 
+            const isoYear =
+                temp.getUTCFullYear();
+
             const yearStart =
                 new Date(Date.UTC(
-                    temp.getUTCFullYear(),
+                    isoYear,
                     0,
                     1
                 ));
 
-            return Math.ceil(
-                (
+            const isoWeek =
+                Math.ceil(
                     (
-                        temp - yearStart
-                    ) / 86400000 + 1
-                ) / 7
-            );
+                        (
+                            temp - yearStart
+                        ) / 86400000 + 1
+                    ) / 7
+                );
+
+            return {
+                year: isoYear,
+                week: isoWeek
+            };
 
         }
 
@@ -1473,11 +1483,14 @@
                         item.date + 'T00:00:00Z'
                     );
 
+                const iso =
+                    getISOYearWeek(item.date);
+
                 const year =
-                    date.getUTCFullYear();
+                    iso.year;
 
                 const week =
-                    getISOWeek(item.date);
+                    iso.week;
 
                 if (!byYearWeek[year]) {
                     byYearWeek[year] = {};
@@ -1495,7 +1508,7 @@
             const min = [];
             const max = [];
 
-            for (let week = 1; week <= 53; week++) {
+            for (let week = 1; week <= 52; week++) {
 
                 labels.push('Week ' + week);
 
