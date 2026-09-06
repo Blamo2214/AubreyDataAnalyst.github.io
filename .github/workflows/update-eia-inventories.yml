@@ -34,8 +34,9 @@ jobs:
               "petroleum/stoc/wstk/data/"
           )
 
+
           # -------------------------------------------------------
-          # Helper function
+          # FETCH ONE WEEKLY EIA SERIES
           # -------------------------------------------------------
 
           def fetch_series(facets):
@@ -51,6 +52,7 @@ jobs:
               }
 
               for facet_name, facet_value in facets.items():
+
                   params[
                       f"facets[{facet_name}][]"
                   ] = facet_value
@@ -70,20 +72,32 @@ jobs:
                   }
               )
 
-              with urllib.request.urlopen(request) as response:
+              with urllib.request.urlopen(
+                  request
+              ) as response:
+
                   payload = json.load(response)
 
-              rows = payload["response"]["data"]
-
-              return rows
+              return payload["response"]["data"]
 
 
           # -------------------------------------------------------
-          # U.S. COMMERCIAL CRUDE EXCLUDING SPR
+          # COMMERCIAL CRUDE EXCLUDING SPR
           # -------------------------------------------------------
 
           commercial_rows = fetch_series({
               "duoarea": "NUS",
+              "product": "EPC0",
+              "process": "SAX"
+          })
+
+
+          # -------------------------------------------------------
+          # CUSHING
+          # -------------------------------------------------------
+
+          cushing_rows = fetch_series({
+              "duoarea": "YCUOK",
               "product": "EPC0",
               "process": "SAX"
           })
@@ -101,18 +115,29 @@ jobs:
 
 
           # -------------------------------------------------------
-          # CUSHING, OKLAHOMA
+          # TOTAL MOTOR GASOLINE
           # -------------------------------------------------------
 
-          cushing_rows = fetch_series({
-              "duoarea": "YCUOK",
-              "product": "EPC0",
-              "process": "SAX"
+          gasoline_rows = fetch_series({
+              "duoarea": "NUS",
+              "product": "EPM0",
+              "process": "SAE"
           })
 
 
           # -------------------------------------------------------
-          # Convert EIA thousand barrels -> million barrels
+          # DISTILLATE FUEL OIL
+          # -------------------------------------------------------
+
+          distillate_rows = fetch_series({
+              "duoarea": "NUS",
+              "product": "EPD0",
+              "process": "SAE"
+          })
+
+
+          # -------------------------------------------------------
+          # THOUSAND BARRELS -> MILLION BARRELS
           # -------------------------------------------------------
 
           def clean_series(rows):
@@ -143,13 +168,29 @@ jobs:
               return cleaned
 
 
-          commercial = clean_series(commercial_rows)
-          cushing = clean_series(cushing_rows)
-          spr = clean_series(spr_rows)
+          commercial = clean_series(
+              commercial_rows
+          )
+
+          cushing = clean_series(
+              cushing_rows
+          )
+
+          spr = clean_series(
+              spr_rows
+          )
+
+          gasoline = clean_series(
+              gasoline_rows
+          )
+
+          distillates = clean_series(
+              distillate_rows
+          )
 
 
           # -------------------------------------------------------
-          # Build output
+          # LATEST REPORT DATE
           # -------------------------------------------------------
 
           all_dates = []
@@ -157,12 +198,17 @@ jobs:
           for series in [
               commercial,
               cushing,
-              spr
+              spr,
+              gasoline,
+              distillates
           ]:
+
               if series:
+
                   all_dates.append(
                       series[-1]["date"]
                   )
+
 
           latest_date = (
               max(all_dates)
@@ -171,43 +217,89 @@ jobs:
           )
 
 
+          # -------------------------------------------------------
+          # BUILD OUTPUT
+          # -------------------------------------------------------
+
           output = {
 
-              "source": (
-                  "U.S. Energy Information "
-                  "Administration"
-              ),
+              "source":
+                  "U.S. Energy Information Administration",
 
-              "frequency": "weekly",
+              "frequency":
+                  "weekly",
 
-              "unit": "million barrels",
+              "unit":
+                  "million barrels",
 
-              "latest_date": latest_date,
+              "latest_date":
+                  latest_date,
 
               "series": {
 
+
                   "commercial_crude": {
+
                       "name":
                           "U.S. Commercial Crude Oil",
+
                       "description":
                           "Ending Stocks Excluding SPR",
-                      "data": commercial
+
+                      "data":
+                          commercial
                   },
+
 
                   "cushing": {
+
                       "name":
                           "Cushing, Oklahoma Crude Oil",
+
                       "description":
                           "Commercial Crude Stocks",
-                      "data": cushing
+
+                      "data":
+                          cushing
                   },
 
+
                   "spr": {
+
                       "name":
                           "Strategic Petroleum Reserve",
+
                       "description":
                           "U.S. Crude Oil in SPR",
-                      "data": spr
+
+                      "data":
+                          spr
+                  },
+
+
+                  "gasoline": {
+
+                      "name":
+                          "Total Motor Gasoline",
+
+                      "description":
+                          "U.S. Ending Stocks",
+
+                      "data":
+                          gasoline
+                  },
+
+
+                  "distillates": {
+
+                      "name":
+                          "Distillate Fuel Oil",
+
+                      "description":
+                          "U.S. Ending Stocks",
+
+                      "data":
+                          distillates
                   }
 
               }
@@ -216,7 +308,7 @@ jobs:
 
 
           # -------------------------------------------------------
-          # Save JSON
+          # SAVE JSON
           # -------------------------------------------------------
 
           os.makedirs(
@@ -242,46 +334,54 @@ jobs:
 
 
           # -------------------------------------------------------
-          # Print diagnostics
+          # SAFE DIAGNOSTICS
           # -------------------------------------------------------
 
-          print(
-              "Commercial crude rows:",
-              len(commercial)
-          )
+          series_list = [
+              (
+                  "Commercial crude",
+                  commercial
+              ),
+              (
+                  "Cushing",
+                  cushing
+              ),
+              (
+                  "SPR",
+                  spr
+              ),
+              (
+                  "Gasoline",
+                  gasoline
+              ),
+              (
+                  "Distillates",
+                  distillates
+              )
+          ]
+
+
+          for name, series in series_list:
+
+              print(
+                  name,
+                  "rows:",
+                  len(series)
+              )
+
+              if series:
+
+                  print(
+                      name,
+                      "latest:",
+                      series[-1]
+                  )
+
 
           print(
-              "Cushing rows:",
-              len(cushing)
-          )
-
-          print(
-              "SPR rows:",
-              len(spr)
-          )
-
-          print(
-              "Latest date:",
+              "Latest report date:",
               latest_date
           )
-
-          if commercial:
-              print(
-                  "Latest commercial crude:",
-                  commercial[-1]
-              )
-
-          if cushing:
-              print(
-                  "Latest Cushing:",
-                  cushing[-1]
-              )
-
-          if spr:
-              print(
-                  "Latest SPR:",
-                  spr[-1]
-              )
 
           PY
 
