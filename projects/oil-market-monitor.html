@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -310,6 +310,74 @@
 
 
         /* =========================================================
+           EIA INVENTORY CARDS
+        ========================================================= */
+
+        .inventory-header-row {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+
+        .inventory-header-row .section-header {
+            margin-bottom: 0;
+        }
+
+        .inventory-report-date {
+            color: #7d8c9d;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.76rem;
+            text-align: right;
+        }
+
+        .inventory-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .inventory-card {
+            background: var(--panel);
+            border: 1px solid var(--panel-border);
+            border-radius: 4px;
+            padding: 26px;
+        }
+
+        .inventory-card h3 {
+            margin: 0 0 5px;
+            font-size: 1.15rem;
+        }
+
+        .inventory-value {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 2.4rem;
+            font-weight: 700;
+            letter-spacing: -0.04em;
+        }
+
+        .inventory-change {
+            margin-top: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.88rem;
+            font-weight: 700;
+        }
+
+        .inventory-updated {
+            margin-top: 22px;
+            color: #68788b;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.69rem;
+        }
+
+        .placeholder-grid.two-column {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+
+        /* =========================================================
            PHYSICAL MARKET CARDS
         ========================================================= */
 
@@ -375,8 +443,19 @@
             }
 
             .market-grid,
-            .placeholder-grid {
+            .inventory-grid,
+            .placeholder-grid,
+            .placeholder-grid.two-column {
                 grid-template-columns: 1fr;
+            }
+
+            .inventory-header-row {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .inventory-report-date {
+                text-align: left;
             }
         }
 
@@ -576,21 +655,24 @@
                 </div>
 
 
-                 <h3>Additional Benchmark</h3>
+                <!-- FUTURE BENCHMARK -->
+                <div class="market-card future-benchmark">
 
-    <p class="market-subtitle">
-        Additional crude benchmark planned
-    </p>
+                    <h3>Additional Benchmark</h3>
 
-    <p class="market-price">
-        <span>—</span>
-    </p>
+                    <p class="market-subtitle">
+                        Additional crude benchmark planned
+                    </p>
 
-    <div class="market-change neutral">
-        Coming Soon
-    </div>
+                    <p class="market-price">
+                        <span>—</span>
+                    </p>
 
-</div>
+                    <div class="market-change neutral">
+                        Coming Soon
+                    </div>
+
+                </div>
 
 
             <div class="data-note">
@@ -602,41 +684,170 @@
 
 
 
-        <!-- PHYSICAL MARKET -->
+        <!-- U.S. PETROLEUM INVENTORIES -->
+        <section class="section">
+
+            <div class="inventory-header-row">
+
+                <div class="section-header">
+
+                    <span class="section-label">
+                        Physical Market
+                    </span>
+
+                    <h2>
+                        U.S. Petroleum Inventories
+                    </h2>
+
+                </div>
+
+                <div
+                    id="inventory-report-date"
+                    class="inventory-report-date">
+                    Latest EIA report: Loading...
+                </div>
+
+            </div>
+
+
+            <div class="inventory-grid">
+
+
+                <!-- COMMERCIAL CRUDE -->
+                <div class="inventory-card">
+
+                    <h3>Commercial Crude</h3>
+
+                    <p class="market-subtitle">
+                        U.S. stocks excluding SPR
+                    </p>
+
+                    <p class="inventory-value">
+
+                        <span id="commercial-crude-value">
+                            ---.---
+                        </span>
+
+                        <span class="market-unit">
+                            million bbl
+                        </span>
+
+                    </p>
+
+                    <div
+                        id="commercial-crude-change"
+                        class="inventory-change neutral">
+                        Loading...
+                    </div>
+
+                    <div
+                        id="commercial-crude-updated"
+                        class="inventory-updated">
+                        Week ending: --
+                    </div>
+
+                </div>
+
+
+                <!-- CUSHING -->
+                <div class="inventory-card">
+
+                    <h3>Cushing</h3>
+
+                    <p class="market-subtitle">
+                        Cushing, Oklahoma crude stocks
+                    </p>
+
+                    <p class="inventory-value">
+
+                        <span id="cushing-value">
+                            --.---
+                        </span>
+
+                        <span class="market-unit">
+                            million bbl
+                        </span>
+
+                    </p>
+
+                    <div
+                        id="cushing-change"
+                        class="inventory-change neutral">
+                        Loading...
+                    </div>
+
+                    <div
+                        id="cushing-updated"
+                        class="inventory-updated">
+                        Week ending: --
+                    </div>
+
+                </div>
+
+
+                <!-- SPR -->
+                <div class="inventory-card">
+
+                    <h3>Strategic Petroleum Reserve</h3>
+
+                    <p class="market-subtitle">
+                        U.S. crude oil held in SPR
+                    </p>
+
+                    <p class="inventory-value">
+
+                        <span id="spr-value">
+                            ---.---
+                        </span>
+
+                        <span class="market-unit">
+                            million bbl
+                        </span>
+
+                    </p>
+
+                    <div
+                        id="spr-change"
+                        class="inventory-change neutral">
+                        Loading...
+                    </div>
+
+                    <div
+                        id="spr-updated"
+                        class="inventory-updated">
+                        Week ending: --
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="data-note">
+                Weekly inventory data supplied by the U.S. Energy Information Administration.
+                Changes are calculated against the prior reported week.
+            </div>
+
+        </section>
+
+
+        <!-- ADDITIONAL PHYSICAL MARKET DATA -->
         <section class="section">
 
             <div class="section-header">
 
                 <span class="section-label">
-                    Physical Market
+                    Coming Next
                 </span>
 
                 <h2>
-                    Oil Market Data
+                    Additional Oil Market Data
                 </h2>
 
             </div>
 
 
-            <div class="placeholder-grid">
-
-
-                <div class="placeholder-card">
-
-                    <h3>
-                        U.S. Inventories
-                    </h3>
-
-                    <p>
-                        Weekly crude stocks, Cushing inventories,
-                        gasoline, distillates, and five-year comparisons.
-                    </p>
-
-                    <span class="coming-soon">
-                        COMING NEXT
-                    </span>
-
-                </div>
+            <div class="placeholder-grid two-column">
 
 
                 <div class="placeholder-card">
@@ -664,8 +875,8 @@
                     </h3>
 
                     <p>
-                        Brent-WTI spreads, futures curves,
-                        contango, backwardation, and refining indicators.
+                        Futures curves, contango, backwardation,
+                        benchmark relationships, and refining indicators.
                     </p>
 
                     <span class="coming-soon">
@@ -846,7 +1057,199 @@
         }
 
 
+
+        async function loadEIAInventories() {
+
+            try {
+
+                const response =
+                    await fetch('../data/eia-oil-inventories.json');
+
+                if (!response.ok) {
+                    throw new Error(
+                        'Could not load EIA inventory data.'
+                    );
+                }
+
+                const data = await response.json();
+
+                const series = data.series || {};
+
+                updateInventoryCard(
+                    'commercial-crude',
+                    series.commercial_crude?.data
+                );
+
+                updateInventoryCard(
+                    'cushing',
+                    series.cushing?.data
+                );
+
+                updateInventoryCard(
+                    'spr',
+                    series.spr?.data
+                );
+
+                document
+                    .getElementById('inventory-report-date')
+                    .textContent =
+                    'Latest EIA report: ' +
+                    formatEIAWeek(data.latest_date);
+
+            }
+
+            catch (error) {
+
+                console.error(error);
+
+                document
+                    .getElementById('inventory-report-date')
+                    .textContent =
+                    'Latest EIA report: unavailable';
+
+                [
+                    'commercial-crude',
+                    'cushing',
+                    'spr'
+                ].forEach(prefix => {
+
+                    const changeElement =
+                        document.getElementById(
+                            prefix + '-change'
+                        );
+
+                    if (changeElement) {
+                        changeElement.textContent =
+                            'Inventory data unavailable';
+                        changeElement.className =
+                            'inventory-change neutral';
+                    }
+
+                });
+
+            }
+
+        }
+
+
+        function updateInventoryCard(prefix, observations) {
+
+            if (
+                !Array.isArray(observations) ||
+                observations.length < 2
+            ) {
+                throw new Error(
+                    'Not enough EIA observations for ' + prefix
+                );
+            }
+
+            const latest =
+                observations[observations.length - 1];
+
+            const previous =
+                observations[observations.length - 2];
+
+            const latestValue =
+                Number(latest.value);
+
+            const previousValue =
+                Number(previous.value);
+
+            const change =
+                latestValue - previousValue;
+
+            const percentChange =
+                previousValue !== 0
+                    ? (change / previousValue) * 100
+                    : 0;
+
+
+            document
+                .getElementById(prefix + '-value')
+                .textContent =
+                latestValue.toFixed(3);
+
+
+            const changeElement =
+                document.getElementById(
+                    prefix + '-change'
+                );
+
+
+            let arrow = '';
+            let sign = '';
+
+            if (change > 0) {
+
+                arrow = '▲ ';
+                sign = '+';
+
+                changeElement.className =
+                    'inventory-change positive';
+
+            }
+
+            else if (change < 0) {
+
+                arrow = '▼ ';
+
+                changeElement.className =
+                    'inventory-change negative';
+
+            }
+
+            else {
+
+                arrow = '— ';
+
+                changeElement.className =
+                    'inventory-change neutral';
+
+            }
+
+
+            changeElement.textContent =
+                arrow +
+                sign +
+                change.toFixed(3) +
+                'M (' +
+                sign +
+                percentChange.toFixed(2) +
+                '%) vs prior week';
+
+
+            document
+                .getElementById(prefix + '-updated')
+                .textContent =
+                'Week ending: ' +
+                formatEIAWeek(latest.date);
+
+        }
+
+
+        function formatEIAWeek(dateString) {
+
+            if (!dateString) {
+                return '--';
+            }
+
+            const date =
+                new Date(dateString + 'T00:00:00');
+
+            return date.toLocaleDateString(
+                'en-US',
+                {
+                    month: 'short',
+                    day: 'numeric',
+                    year: 'numeric'
+                }
+            );
+
+        }
+
+
         loadOilPrices();
+        loadEIAInventories();
 
     </script>
 
