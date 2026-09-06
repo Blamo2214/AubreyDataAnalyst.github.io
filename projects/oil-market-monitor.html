@@ -426,6 +426,34 @@
             letter-spacing: 0.08em;
         }
 
+        .range-controls {
+            display: flex;
+            gap: 6px;
+        }
+
+        .range-button {
+            padding: 9px 12px;
+            border: 1px solid #33404d;
+            border-radius: 3px;
+            background: #0c1219;
+            color: #8f9cac;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .range-button:hover {
+            color: #fff;
+            border-color: #526171;
+        }
+
+        .range-button.active {
+            color: #fff;
+            border-color: var(--accent);
+            background: rgba(217,75,91,0.10);
+        }
+
         .inventory-chart-controls select {
             min-width: 210px;
             padding: 10px 34px 10px 12px;
@@ -536,6 +564,14 @@
             .inventory-chart-controls,
             .inventory-chart-controls select {
                 width: 100%;
+            }
+
+            .range-controls {
+                width: 100%;
+            }
+
+            .range-button {
+                flex: 1;
             }
 
             .inventory-chart-wrap {
@@ -954,6 +990,13 @@
 
                         </select>
 
+                        <div class="range-controls" aria-label="Chart range">
+                            <button type="button" class="range-button active" data-range="1Y">1Y</button>
+                            <button type="button" class="range-button" data-range="5Y">5Y</button>
+                            <button type="button" class="range-button" data-range="10Y">10Y</button>
+                            <button type="button" class="range-button" data-range="MAX">MAX</button>
+                        </div>
+
                     </div>
 
                 </div>
@@ -1207,6 +1250,7 @@
 
         let eiaInventoryData = null;
         let inventoryHistoryChart = null;
+        let inventoryChartRange = '1Y';
 
 
         async function loadEIAInventories() {
@@ -1248,7 +1292,7 @@
                     'Latest EIA report: ' +
                     formatEIAWeek(data.latest_date);
 
-                renderInventorySeasonalChart(
+                renderInventoryChart(
                     document
                         .getElementById('inventory-series-select')
                         .value
@@ -1575,6 +1619,18 @@
         }
 
 
+        function renderInventoryChart(seriesKey) {
+
+            if (inventoryChartRange === '1Y') {
+                renderInventorySeasonalChart(seriesKey);
+            }
+            else {
+                renderInventoryHistoricalChart(seriesKey, inventoryChartRange);
+            }
+
+        }
+
+
         function renderInventorySeasonalChart(seriesKey) {
 
             if (
@@ -1587,6 +1643,15 @@
 
             const seriesObject =
                 eiaInventoryData.series[seriesKey];
+
+            document.querySelector('.inventory-chart-title h3').textContent =
+                'Seasonal Inventory Position';
+
+            document.querySelector('.inventory-chart-title p').textContent =
+                'Current year versus the prior five-year seasonal range and average.';
+
+            document.querySelector('.chart-footnote').textContent =
+                'The shaded band shows the minimum-to-maximum range for the five full calendar years preceding the current year. The dashed line is the five-year weekly average. Weekly observations are aligned by ISO week; week 53 is omitted because it does not occur every year.';
 
             const seasonal =
                 buildSeasonalSeries(
@@ -1787,6 +1852,142 @@
         }
 
 
+        function renderInventoryHistoricalChart(seriesKey, range) {
+
+            if (!eiaInventoryData?.series?.[seriesKey]) {
+                return;
+            }
+
+            const seriesObject = eiaInventoryData.series[seriesKey];
+            const observations = seriesObject.data || [];
+
+            if (!observations.length) {
+                return;
+            }
+
+            const latestDate =
+                new Date(observations[observations.length - 1].date + 'T00:00:00Z');
+
+            let startDate = null;
+
+            if (range === '5Y' || range === '10Y') {
+                startDate = new Date(latestDate);
+                startDate.setUTCFullYear(
+                    startDate.getUTCFullYear() - (range === '5Y' ? 5 : 10)
+                );
+            }
+
+            const filtered = observations.filter(item => {
+                if (!startDate) return true;
+                return new Date(item.date + 'T00:00:00Z') >= startDate;
+            });
+
+            document.querySelector('.inventory-chart-title h3').textContent =
+                seriesObject.name + ' History';
+
+            document.querySelector('.inventory-chart-title p').textContent =
+                range === 'MAX'
+                    ? 'Complete available weekly history.'
+                    : range + ' of weekly EIA inventory observations.';
+
+            document.querySelector('.chart-footnote').textContent =
+                'Weekly inventory observations from the U.S. Energy Information Administration. Values are shown in million barrels.';
+
+            const canvas = document.getElementById('inventory-history-chart');
+            const ctx = canvas.getContext('2d');
+
+            if (inventoryHistoryChart) {
+                inventoryHistoryChart.destroy();
+            }
+
+            inventoryHistoryChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: filtered.map(item => item.date),
+                    datasets: [{
+                        label: seriesObject.name,
+                        data: filtered.map(item => Number(item.value)),
+                        borderColor: '#d94b5b',
+                        backgroundColor: '#d94b5b',
+                        borderWidth: 2.5,
+                        pointRadius: 0,
+                        pointHoverRadius: 5,
+                        tension: 0.15
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: {
+                        mode: 'index',
+                        intersect: false
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                title: function(items) {
+                                    if (!items.length) return '';
+                                    return formatEIAWeek(items[0].label);
+                                },
+                                label: function(context) {
+                                    return Number(context.raw).toFixed(3) + 'M bbl';
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: {
+                                color: 'rgba(255,255,255,0.045)'
+                            },
+                            ticks: {
+                                color: '#6f7d8d',
+                                maxTicksLimit: range === 'MAX' ? 10 : 12,
+                                callback: function(value) {
+                                    const label = this.getLabelForValue(value);
+                                    const date = new Date(label + 'T00:00:00Z');
+
+                                    if (range === '5Y') {
+                                        return date.toLocaleDateString(
+                                            'en-US',
+                                            {
+                                                month: 'short',
+                                                year: '2-digit',
+                                                timeZone: 'UTC'
+                                            }
+                                        );
+                                    }
+
+                                    return date.getUTCFullYear();
+                                }
+                            }
+                        },
+                        y: {
+                            grid: {
+                                color: 'rgba(255,255,255,0.055)'
+                            },
+                            ticks: {
+                                color: '#7f8d9d',
+                                callback: function(value) {
+                                    return value + 'M';
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: 'Million barrels',
+                                color: '#718092'
+                            }
+                        }
+                    }
+                }
+            });
+
+        }
+
+
         document
             .getElementById(
                 'inventory-series-select'
@@ -1795,12 +1996,35 @@
                 'change',
                 function(event) {
 
-                    renderInventorySeasonalChart(
+                    renderInventoryChart(
                         event.target.value
                     );
 
                 }
             );
+
+
+        document
+            .querySelectorAll('.range-button')
+            .forEach(button => {
+
+                button.addEventListener('click', function() {
+
+                    inventoryChartRange = this.dataset.range;
+
+                    document
+                        .querySelectorAll('.range-button')
+                        .forEach(item => item.classList.remove('active'));
+
+                    this.classList.add('active');
+
+                    renderInventoryChart(
+                        document.getElementById('inventory-series-select').value
+                    );
+
+                });
+
+            });
 
 
         loadOilPrices();
