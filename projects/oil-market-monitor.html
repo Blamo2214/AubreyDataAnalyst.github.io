@@ -486,6 +486,136 @@
         }
 
         /* =========================================================
+           SUPPLY & DEMAND
+        ========================================================= */
+
+        .supply-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .supply-card {
+            background: var(--panel);
+            border: 1px solid var(--panel-border);
+            border-radius: 4px;
+            padding: 26px;
+        }
+
+        .supply-card h3 {
+            margin: 0 0 5px;
+            font-size: 1.15rem;
+        }
+
+        .supply-value {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 2.4rem;
+            font-weight: 700;
+            letter-spacing: -0.04em;
+        }
+
+        .supply-change {
+            margin-top: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.88rem;
+            font-weight: 700;
+        }
+
+        .supply-updated {
+            margin-top: 22px;
+            color: #68788b;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.69rem;
+        }
+
+        .supply-chart-panel {
+            margin-top: 22px;
+            background: var(--panel);
+            border: 1px solid var(--panel-border);
+            border-radius: 4px;
+            padding: 26px;
+        }
+
+        .supply-chart-toolbar {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 24px;
+            margin-bottom: 22px;
+        }
+
+        .supply-chart-title h3 {
+            margin: 0 0 6px;
+            font-size: 1.2rem;
+        }
+
+        .supply-chart-title p {
+            margin: 0;
+            color: #8494a7;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.78rem;
+            line-height: 1.5;
+        }
+
+        .supply-chart-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .supply-chart-controls label {
+            color: #8f9cac;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .supply-chart-controls select {
+            min-width: 225px;
+            padding: 10px 34px 10px 12px;
+            border: 1px solid #33404d;
+            border-radius: 3px;
+            background: #0c1219;
+            color: #e7ebef;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.8rem;
+            outline: none;
+        }
+
+        .supply-chart-wrap {
+            position: relative;
+            height: 430px;
+        }
+
+        .supply-range-button {
+            padding: 9px 12px;
+            border: 1px solid #33404d;
+            border-radius: 3px;
+            background: #0c1219;
+            color: #8f9cac;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .supply-range-button:hover {
+            color: #fff;
+            border-color: #526171;
+        }
+
+        .supply-range-button.active {
+            color: #fff;
+            border-color: var(--accent);
+            background: rgba(217,75,91,0.10);
+        }
+
+
+        /* =========================================================
            PHYSICAL MARKET CARDS
         ========================================================= */
 
@@ -552,13 +682,15 @@
 
             .market-grid,
             .inventory-grid,
+            .supply-grid,
             .placeholder-grid,
             .placeholder-grid.two-column {
                 grid-template-columns: 1fr;
             }
 
             .inventory-header-row,
-            .inventory-chart-toolbar {
+            .inventory-chart-toolbar,
+            .supply-chart-toolbar {
                 align-items: flex-start;
                 flex-direction: column;
             }
@@ -568,7 +700,9 @@
             }
 
             .inventory-chart-controls,
-            .inventory-chart-controls select {
+            .inventory-chart-controls select,
+            .supply-chart-controls,
+            .supply-chart-controls select {
                 width: 100%;
             }
 
@@ -580,7 +714,8 @@
                 flex: 1;
             }
 
-            .inventory-chart-wrap {
+            .inventory-chart-wrap,
+            .supply-chart-wrap {
                 height: 360px;
             }
         }
@@ -1107,6 +1242,290 @@
         </section>
 
 
+        <!-- U.S. SUPPLY & DEMAND -->
+        <section class="section">
+
+            <div class="inventory-header-row">
+
+                <div class="section-header">
+
+                    <span class="section-label">
+                        Supply & Demand
+                    </span>
+
+                    <h2>
+                        U.S. Petroleum Balance
+                    </h2>
+
+                </div>
+
+                <div
+                    id="supply-report-date"
+                    class="inventory-report-date">
+                    Latest EIA report: Loading...
+                </div>
+
+            </div>
+
+
+            <div class="supply-grid">
+
+
+                <div class="supply-card">
+
+                    <h3>Crude Production</h3>
+
+                    <p class="market-subtitle">
+                        U.S. field production
+                    </p>
+
+                    <p class="supply-value">
+                        <span id="crude-production-value">--.---</span>
+                        <span class="market-unit">million b/d</span>
+                    </p>
+
+                    <div
+                        id="crude-production-change"
+                        class="supply-change neutral">
+                        Loading...
+                    </div>
+
+                    <div
+                        id="crude-production-updated"
+                        class="supply-updated">
+                        Week ending: --
+                    </div>
+
+                </div>
+
+
+                <div class="supply-card">
+
+                    <h3>Refinery Utilization</h3>
+
+                    <p class="market-subtitle">
+                        U.S. operable capacity utilization
+                    </p>
+
+                    <p class="supply-value">
+                        <span id="refinery-utilization-value">--.-</span>
+                        <span class="market-unit">%</span>
+                    </p>
+
+                    <div
+                        id="refinery-utilization-change"
+                        class="supply-change neutral">
+                        Loading...
+                    </div>
+
+                    <div
+                        id="refinery-utilization-updated"
+                        class="supply-updated">
+                        Week ending: --
+                    </div>
+
+                </div>
+
+
+                <div class="supply-card">
+
+                    <h3>Refinery Crude Inputs</h3>
+
+                    <p class="market-subtitle">
+                        Crude oil input to refineries
+                    </p>
+
+                    <p class="supply-value">
+                        <span id="refinery-crude-inputs-value">--.---</span>
+                        <span class="market-unit">million b/d</span>
+                    </p>
+
+                    <div
+                        id="refinery-crude-inputs-change"
+                        class="supply-change neutral">
+                        Loading...
+                    </div>
+
+                    <div
+                        id="refinery-crude-inputs-updated"
+                        class="supply-updated">
+                        Week ending: --
+                    </div>
+
+                </div>
+
+
+                <div class="supply-card">
+
+                    <h3>Crude Imports</h3>
+
+                    <p class="market-subtitle">
+                        U.S. crude oil imports
+                    </p>
+
+                    <p class="supply-value">
+                        <span id="crude-imports-value">--.---</span>
+                        <span class="market-unit">million b/d</span>
+                    </p>
+
+                    <div
+                        id="crude-imports-change"
+                        class="supply-change neutral">
+                        Loading...
+                    </div>
+
+                    <div
+                        id="crude-imports-updated"
+                        class="supply-updated">
+                        Week ending: --
+                    </div>
+
+                </div>
+
+
+                <div class="supply-card">
+
+                    <h3>Crude Exports</h3>
+
+                    <p class="market-subtitle">
+                        U.S. crude oil exports
+                    </p>
+
+                    <p class="supply-value">
+                        <span id="crude-exports-value">--.---</span>
+                        <span class="market-unit">million b/d</span>
+                    </p>
+
+                    <div
+                        id="crude-exports-change"
+                        class="supply-change neutral">
+                        Loading...
+                    </div>
+
+                    <div
+                        id="crude-exports-updated"
+                        class="supply-updated">
+                        Week ending: --
+                    </div>
+
+                </div>
+
+
+                <div class="supply-card">
+
+                    <h3>Products Supplied</h3>
+
+                    <p class="market-subtitle">
+                        Total petroleum products supplied
+                    </p>
+
+                    <p class="supply-value">
+                        <span id="product-supplied-value">--.---</span>
+                        <span class="market-unit">million b/d</span>
+                    </p>
+
+                    <div
+                        id="product-supplied-change"
+                        class="supply-change neutral">
+                        Loading...
+                    </div>
+
+                    <div
+                        id="product-supplied-updated"
+                        class="supply-updated">
+                        Week ending: --
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="data-note">
+                Weekly U.S. petroleum supply and demand data supplied by the
+                U.S. Energy Information Administration. Changes are calculated
+                against the prior reported week.
+            </div>
+
+
+            <div class="supply-chart-panel">
+
+                <div class="supply-chart-toolbar">
+
+                    <div class="supply-chart-title">
+
+                        <h3>
+                            U.S. Crude Oil Production History
+                        </h3>
+
+                        <p>
+                            Weekly EIA supply and demand observations.
+                        </p>
+
+                    </div>
+
+
+                    <div class="supply-chart-controls">
+
+                        <label for="supply-series-select">
+                            Series
+                        </label>
+
+                        <select id="supply-series-select">
+
+                            <option value="crude_production">
+                                Crude Production
+                            </option>
+
+                            <option value="refinery_utilization">
+                                Refinery Utilization
+                            </option>
+
+                            <option value="refinery_crude_inputs">
+                                Refinery Crude Inputs
+                            </option>
+
+                            <option value="crude_imports">
+                                Crude Imports
+                            </option>
+
+                            <option value="crude_exports">
+                                Crude Exports
+                            </option>
+
+                            <option value="product_supplied">
+                                Products Supplied
+                            </option>
+
+                        </select>
+
+                        <div class="range-controls" aria-label="Supply chart range">
+                            <button type="button" class="supply-range-button active" data-supply-range="1Y">1Y</button>
+                            <button type="button" class="supply-range-button" data-supply-range="5Y">5Y</button>
+                            <button type="button" class="supply-range-button" data-supply-range="10Y">10Y</button>
+                            <button type="button" class="supply-range-button" data-supply-range="MAX">MAX</button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="supply-chart-wrap">
+                    <canvas id="supply-history-chart"></canvas>
+                </div>
+
+
+                <div id="supply-chart-footnote" class="chart-footnote">
+                    Weekly observations from the U.S. Energy Information Administration.
+                </div>
+
+            </div>
+
+        </section>
+
+
         <!-- ADDITIONAL PHYSICAL MARKET DATA -->
         <section class="section">
 
@@ -1337,6 +1756,10 @@
         let eiaInventoryData = null;
         let inventoryHistoryChart = null;
         let inventoryChartRange = '1Y';
+
+        let eiaSupplyDemandData = null;
+        let supplyHistoryChart = null;
+        let supplyChartRange = '1Y';
 
 
         /*
@@ -2135,6 +2558,610 @@
         }
 
 
+
+        async function loadEIASupplyDemand() {
+
+            try {
+
+                const response =
+                    await fetch('../data/eia-oil-supply-demand.json');
+
+                if (!response.ok) {
+                    throw new Error(
+                        'Could not load EIA supply and demand data.'
+                    );
+                }
+
+                const data = await response.json();
+                eiaSupplyDemandData = data;
+
+                const series = data.series || {};
+
+                updateSupplyCard(
+                    'crude-production',
+                    series.crude_production?.data,
+                    'million barrels per day'
+                );
+
+                updateSupplyCard(
+                    'refinery-utilization',
+                    series.refinery_utilization?.data,
+                    'percent'
+                );
+
+                updateSupplyCard(
+                    'refinery-crude-inputs',
+                    series.refinery_crude_inputs?.data,
+                    'million barrels per day'
+                );
+
+                updateSupplyCard(
+                    'crude-imports',
+                    series.crude_imports?.data,
+                    'million barrels per day'
+                );
+
+                updateSupplyCard(
+                    'crude-exports',
+                    series.crude_exports?.data,
+                    'million barrels per day'
+                );
+
+                updateSupplyCard(
+                    'product-supplied',
+                    series.product_supplied?.data,
+                    'million barrels per day'
+                );
+
+                document
+                    .getElementById('supply-report-date')
+                    .textContent =
+                    'Latest EIA report: ' +
+                    formatEIAWeek(data.latest_date);
+
+                renderSupplyChart(
+                    document
+                        .getElementById('supply-series-select')
+                        .value
+                );
+
+            }
+
+            catch (error) {
+
+                console.error(error);
+
+                document
+                    .getElementById('supply-report-date')
+                    .textContent =
+                    'Latest EIA report: unavailable';
+
+                [
+                    'crude-production',
+                    'refinery-utilization',
+                    'refinery-crude-inputs',
+                    'crude-imports',
+                    'crude-exports',
+                    'product-supplied'
+                ].forEach(prefix => {
+
+                    const changeElement =
+                        document.getElementById(
+                            prefix + '-change'
+                        );
+
+                    if (changeElement) {
+                        changeElement.textContent =
+                            'Supply and demand data unavailable';
+                        changeElement.className =
+                            'supply-change neutral';
+                    }
+
+                });
+
+            }
+
+        }
+
+
+        function updateSupplyCard(prefix, observations, unit) {
+
+            if (
+                !Array.isArray(observations) ||
+                observations.length < 2
+            ) {
+                throw new Error(
+                    'Not enough EIA observations for ' + prefix
+                );
+            }
+
+            const latest =
+                observations[observations.length - 1];
+
+            const previous =
+                observations[observations.length - 2];
+
+            const latestValue =
+                Number(latest.value);
+
+            const previousValue =
+                Number(previous.value);
+
+            const change =
+                latestValue - previousValue;
+
+            const percentChange =
+                previousValue !== 0
+                    ? (change / previousValue) * 100
+                    : 0;
+
+            const decimals =
+                unit === 'percent'
+                    ? 1
+                    : 3;
+
+            document
+                .getElementById(prefix + '-value')
+                .textContent =
+                latestValue.toFixed(decimals);
+
+            const changeElement =
+                document.getElementById(
+                    prefix + '-change'
+                );
+
+            let arrow = '';
+            let sign = '';
+
+            if (change > 0) {
+                arrow = '▲ ';
+                sign = '+';
+                changeElement.className =
+                    'supply-change positive';
+            }
+
+            else if (change < 0) {
+                arrow = '▼ ';
+                changeElement.className =
+                    'supply-change negative';
+            }
+
+            else {
+                arrow = '— ';
+                changeElement.className =
+                    'supply-change neutral';
+            }
+
+            const changeSuffix =
+                unit === 'percent'
+                    ? ' pts'
+                    : 'M b/d';
+
+            changeElement.textContent =
+                arrow +
+                sign +
+                change.toFixed(decimals) +
+                changeSuffix +
+                ' (' +
+                sign +
+                percentChange.toFixed(2) +
+                '%) vs prior week';
+
+            document
+                .getElementById(prefix + '-updated')
+                .textContent =
+                'Week ending: ' +
+                formatEIAWeek(latest.date);
+
+        }
+
+
+        function renderSupplyChart(seriesKey) {
+
+            if (!eiaSupplyDemandData?.series?.[seriesKey]) {
+                return;
+            }
+
+            const seriesObject =
+                eiaSupplyDemandData.series[seriesKey];
+
+            const observations =
+                seriesObject.data || [];
+
+            if (!observations.length) {
+                return;
+            }
+
+            const latestDate =
+                new Date(
+                    observations[observations.length - 1].date +
+                    'T00:00:00Z'
+                );
+
+            let startDate =
+                new Date(latestDate);
+
+            if (supplyChartRange === '1Y') {
+                startDate.setUTCFullYear(
+                    startDate.getUTCFullYear() - 1
+                );
+            }
+
+            else if (supplyChartRange === '5Y') {
+                startDate.setUTCFullYear(
+                    startDate.getUTCFullYear() - 5
+                );
+            }
+
+            else if (supplyChartRange === '10Y') {
+                startDate.setUTCFullYear(
+                    startDate.getUTCFullYear() - 10
+                );
+            }
+
+            else {
+                startDate = null;
+            }
+
+            const filtered =
+                observations.filter(item => {
+
+                    if (!startDate) {
+                        return true;
+                    }
+
+                    return (
+                        new Date(
+                            item.date + 'T00:00:00Z'
+                        ) >= startDate
+                    );
+
+                });
+
+            const unit =
+                seriesObject.unit || '';
+
+            const isPercent =
+                unit === 'percent';
+
+            const title =
+                seriesObject.name + ' History';
+
+            document
+                .querySelector('.supply-chart-title h3')
+                .textContent =
+                title;
+
+            document
+                .querySelector('.supply-chart-title p')
+                .textContent =
+                supplyChartRange === 'MAX'
+                    ? 'Complete available weekly history.'
+                    : supplyChartRange +
+                      ' of weekly EIA observations.';
+
+            document
+                .getElementById('supply-chart-footnote')
+                .textContent =
+                'Weekly observations from the U.S. Energy Information Administration. ' +
+                (
+                    isPercent
+                        ? 'Values are shown as percent of operable refinery capacity.'
+                        : 'Values are shown in million barrels per day.'
+                );
+
+            const canvas =
+                document.getElementById(
+                    'supply-history-chart'
+                );
+
+            const ctx =
+                canvas.getContext('2d');
+
+            if (supplyHistoryChart) {
+                supplyHistoryChart.destroy();
+            }
+
+            supplyHistoryChart =
+                new Chart(
+                    ctx,
+                    {
+                        type: 'line',
+
+                        data: {
+                            labels:
+                                filtered.map(
+                                    item => item.date
+                                ),
+
+                            datasets: [
+                                {
+                                    label:
+                                        seriesObject.name,
+
+                                    data:
+                                        filtered.map(
+                                            item =>
+                                                Number(item.value)
+                                        ),
+
+                                    borderColor:
+                                        '#d94b5b',
+
+                                    backgroundColor:
+                                        '#d94b5b',
+
+                                    borderWidth:
+                                        2.5,
+
+                                    pointRadius:
+                                        0,
+
+                                    pointHoverRadius:
+                                        5,
+
+                                    tension:
+                                        0.15
+                                }
+                            ]
+                        },
+
+                        options: {
+
+                            responsive:
+                                true,
+
+                            maintainAspectRatio:
+                                false,
+
+                            interaction: {
+                                mode:
+                                    'index',
+                                intersect:
+                                    false
+                            },
+
+                            plugins: {
+
+                                legend: {
+                                    display:
+                                        false
+                                },
+
+                                tooltip: {
+
+                                    callbacks: {
+
+                                        title:
+                                            function(items) {
+
+                                                if (!items.length) {
+                                                    return '';
+                                                }
+
+                                                return formatEIAWeek(
+                                                    items[0].label
+                                                );
+                                            },
+
+                                        label:
+                                            function(context) {
+
+                                                const value =
+                                                    Number(
+                                                        context.raw
+                                                    );
+
+                                                return (
+                                                    value.toFixed(
+                                                        isPercent
+                                                            ? 1
+                                                            : 3
+                                                    ) +
+                                                    (
+                                                        isPercent
+                                                            ? '%'
+                                                            : 'M b/d'
+                                                    )
+                                                );
+                                            }
+
+                                    }
+
+                                }
+
+                            },
+
+                            scales: {
+
+                                x: {
+
+                                    grid: {
+                                        color:
+                                            'rgba(255,255,255,0.045)'
+                                    },
+
+                                    ticks: {
+
+                                        color:
+                                            '#6f7d8d',
+
+                                        maxTicksLimit:
+                                            supplyChartRange === 'MAX'
+                                                ? 10
+                                                : 12,
+
+                                        callback:
+                                            function(value) {
+
+                                                const label =
+                                                    this.getLabelForValue(
+                                                        value
+                                                    );
+
+                                                const date =
+                                                    new Date(
+                                                        label +
+                                                        'T00:00:00Z'
+                                                    );
+
+                                                if (
+                                                    supplyChartRange === '1Y'
+                                                ) {
+
+                                                    return date
+                                                        .toLocaleDateString(
+                                                            'en-US',
+                                                            {
+                                                                month:
+                                                                    'short',
+                                                                timeZone:
+                                                                    'UTC'
+                                                            }
+                                                        );
+
+                                                }
+
+                                                if (
+                                                    supplyChartRange === '5Y'
+                                                ) {
+
+                                                    return date
+                                                        .toLocaleDateString(
+                                                            'en-US',
+                                                            {
+                                                                month:
+                                                                    'short',
+                                                                year:
+                                                                    '2-digit',
+                                                                timeZone:
+                                                                    'UTC'
+                                                            }
+                                                        );
+
+                                                }
+
+                                                return date
+                                                    .getUTCFullYear();
+
+                                            }
+
+                                    }
+
+                                },
+
+                                y: {
+
+                                    grid: {
+                                        color:
+                                            'rgba(255,255,255,0.055)'
+                                    },
+
+                                    ticks: {
+
+                                        color:
+                                            '#7f8d9d',
+
+                                        callback:
+                                            function(value) {
+
+                                                return (
+                                                    value +
+                                                    (
+                                                        isPercent
+                                                            ? '%'
+                                                            : 'M'
+                                                    )
+                                                );
+                                            }
+
+                                    },
+
+                                    title: {
+
+                                        display:
+                                            true,
+
+                                        text:
+                                            isPercent
+                                                ? 'Percent'
+                                                : 'Million barrels per day',
+
+                                        color:
+                                            '#718092'
+
+                                    }
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+                );
+
+        }
+
+
+        document
+            .getElementById(
+                'supply-series-select'
+            )
+            .addEventListener(
+                'change',
+                function(event) {
+
+                    renderSupplyChart(
+                        event.target.value
+                    );
+
+                }
+            );
+
+
+        document
+            .querySelectorAll(
+                '.supply-range-button'
+            )
+            .forEach(button => {
+
+                button.addEventListener(
+                    'click',
+                    function() {
+
+                        supplyChartRange =
+                            this.dataset.supplyRange;
+
+                        document
+                            .querySelectorAll(
+                                '.supply-range-button'
+                            )
+                            .forEach(
+                                item =>
+                                    item.classList.remove(
+                                        'active'
+                                    )
+                            );
+
+                        this.classList.add(
+                            'active'
+                        );
+
+                        renderSupplyChart(
+                            document
+                                .getElementById(
+                                    'supply-series-select'
+                                )
+                                .value
+                        );
+
+                    }
+                );
+
+            });
+
+
         document
             .getElementById(
                 'inventory-series-select'
@@ -2176,6 +3203,7 @@
 
         loadOilPrices();
         loadEIAInventories();
+        loadEIASupplyDemand();
 
     </script>
 
