@@ -1,0 +1,3487 @@
+{
+  "source": "JODI Oil World Database",
+  "dataset": "Extended Primary",
+  "generated_at": "2026-09-07T02:41:06.031571+00:00",
+  "country": {
+    "code": "KZ",
+    "name": "Kazakhstan"
+  },
+  "series": {
+    "crude_production": {
+      "name": "Crude Oil Production",
+      "flow_code": "INDPROD",
+      "unit": "million barrels per day",
+      "latest_reported_month": "2026-05",
+      "latest_value": 1.8254,
+      "observations": [
+        {
+          "date": "2002-01",
+          "value": 0.7879,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2002-02",
+          "value": 0.7832,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2002-03",
+          "value": 0.8065,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2002-04",
+          "value": 0.8239,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2002-05",
+          "value": 0.7799,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2002-06",
+          "value": 0.8161,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2002-07",
+          "value": 0.8607,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2002-08",
+          "value": 0.8727,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2002-09",
+          "value": 0.8872,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2002-10",
+          "value": 0.8932,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2002-11",
+          "value": 0.9008,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2002-12",
+          "value": 0.8802,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2003-01",
+          "value": 0.8842,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2003-02",
+          "value": 0.895,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2003-03",
+          "value": 0.8882,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2003-04",
+          "value": 0.8933,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2003-05",
+          "value": 0.9078,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2003-06",
+          "value": 0.9247,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2003-07",
+          "value": 0.8725,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2003-08",
+          "value": 0.8532,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2003-09",
+          "value": 0.9086,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2003-10",
+          "value": 0.9551,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2003-11",
+          "value": 0.9743,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2003-12",
+          "value": 0.9817,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2004-01",
+          "value": 0.9488,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2004-02",
+          "value": 0.9782,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2004-03",
+          "value": 0.977,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2004-04",
+          "value": 0.9926,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2004-05",
+          "value": 0.9744,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2004-06",
+          "value": 1.0164,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2004-07",
+          "value": 0.9843,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2004-08",
+          "value": 1.0439,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2004-09",
+          "value": 1.059,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2004-10",
+          "value": 1.051,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2004-11",
+          "value": 1.0417,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2004-12",
+          "value": 1.0394,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2005-01",
+          "value": 1.0375,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2005-02",
+          "value": 1.0465,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2005-03",
+          "value": 1.0533,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2005-04",
+          "value": 1.0512,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2005-05",
+          "value": 0.9356,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2005-06",
+          "value": 0.984,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2005-07",
+          "value": 0.9537,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2005-08",
+          "value": 0.9985,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2005-12",
+          "value": 1.1096,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2006-01",
+          "value": 1.0241,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2006-02",
+          "value": 0.9899,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2006-03",
+          "value": 1.0359,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2006-04",
+          "value": 1.0865,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2006-05",
+          "value": 1.2222,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2006-06",
+          "value": 1.1731,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2006-07",
+          "value": 1.1162,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2006-08",
+          "value": 1.0903,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2006-09",
+          "value": 1.1349,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2006-10",
+          "value": 1.1249,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2006-11",
+          "value": 1.1081,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2006-12",
+          "value": 1.1581,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2007-01",
+          "value": 1.0667,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2007-02",
+          "value": 1.0877,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2007-03",
+          "value": 0.9848,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2007-04",
+          "value": 1.1429,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2007-05",
+          "value": 1.0733,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2007-06",
+          "value": 1.0368,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2007-07",
+          "value": 1.0971,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2007-08",
+          "value": 1.108,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2007-09",
+          "value": 1.1269,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2007-10",
+          "value": 1.1383,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2007-11",
+          "value": 1.2157,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2007-12",
+          "value": 1.1423,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2008-01",
+          "value": 1.1546,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2008-02",
+          "value": 1.1519,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2008-03",
+          "value": 1.2109,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2008-04",
+          "value": 1.1807,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2008-05",
+          "value": 1.1708,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2008-06",
+          "value": 1.1819,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2008-07",
+          "value": 1.0809,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2008-08",
+          "value": 1.0623,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2008-09",
+          "value": 1.206,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2008-10",
+          "value": 1.0291,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2008-11",
+          "value": 1.1712,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2008-12",
+          "value": 1.2276,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2009-01",
+          "value": 1.2586,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2009-02",
+          "value": 1.2576,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2009-03",
+          "value": 1.2141,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2009-04",
+          "value": 1.264,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2009-05",
+          "value": 1.1977,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2009-06",
+          "value": 1.3244,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2009-07",
+          "value": 1.3632,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2009-08",
+          "value": 1.2829,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2009-09",
+          "value": 1.3251,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2009-10",
+          "value": 1.3715,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2009-11",
+          "value": 1.3571,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2009-12",
+          "value": 1.3618,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2013-01",
+          "value": 1.3986,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2013-02",
+          "value": 1.4269,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2013-03",
+          "value": 1.4281,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2013-04",
+          "value": 1.4249,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2013-05",
+          "value": 1.3518,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2013-06",
+          "value": 1.3806,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2013-07",
+          "value": 1.4243,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2013-08",
+          "value": 1.2983,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2013-09",
+          "value": 1.3843,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2013-10",
+          "value": 1.4478,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2013-12",
+          "value": 1.4196,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2014-01",
+          "value": 1.4084,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2014-02",
+          "value": 1.3795,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2014-03",
+          "value": 1.3879,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2014-04",
+          "value": 1.4025,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2014-05",
+          "value": 1.3166,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2014-06",
+          "value": 1.2551,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2014-07",
+          "value": 1.3801,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2014-08",
+          "value": 1.3901,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2014-09",
+          "value": 1.3426,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2014-10",
+          "value": 1.309,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2014-11",
+          "value": 1.4531,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2014-12",
+          "value": 1.4331,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2015-01",
+          "value": 1.3677,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2015-02",
+          "value": 1.4171,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2015-03",
+          "value": 1.3974,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2015-04",
+          "value": 1.3681,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2015-05",
+          "value": 1.3891,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2015-06",
+          "value": 1.3175,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2015-07",
+          "value": 1.3444,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2015-08",
+          "value": 1.2691,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2015-09",
+          "value": 1.2642,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2015-10",
+          "value": 1.2367,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2015-11",
+          "value": 1.376,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2015-12",
+          "value": 1.3756,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2016-01",
+          "value": 1.3582,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2016-02",
+          "value": 1.3574,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2016-03",
+          "value": 1.3487,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2016-04",
+          "value": 1.33,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2016-05",
+          "value": 1.3147,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2016-06",
+          "value": 1.303,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2016-07",
+          "value": 1.3078,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2016-08",
+          "value": 1.0173,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2016-09",
+          "value": 1.2527,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2016-10",
+          "value": 1.3894,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2016-11",
+          "value": 1.4317,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2016-12",
+          "value": 1.4388,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2017-01",
+          "value": 1.4158,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2017-02",
+          "value": 1.4506,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2017-03",
+          "value": 1.484,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2017-04",
+          "value": 1.4703,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2017-05",
+          "value": 1.4229,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2017-06",
+          "value": 1.4742,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2017-07",
+          "value": 1.4809,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2017-08",
+          "value": 1.4048,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2017-09",
+          "value": 1.4961,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2017-10",
+          "value": 1.4459,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2017-11",
+          "value": 1.546,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2017-12",
+          "value": 1.5372,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2018-01",
+          "value": 1.5358,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2018-02",
+          "value": 1.5803,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2018-03",
+          "value": 1.5651,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2018-04",
+          "value": 1.5607,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2018-05",
+          "value": 1.6131,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2018-06",
+          "value": 1.558,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2018-07",
+          "value": 1.585,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2018-08",
+          "value": 1.4119,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2018-09",
+          "value": 1.5961,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2018-10",
+          "value": 1.4866,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2018-11",
+          "value": 1.6573,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2018-12",
+          "value": 1.6316,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2019-01",
+          "value": 1.6461,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2019-02",
+          "value": 1.6485,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2019-03",
+          "value": 1.5786,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2019-04",
+          "value": 1.3566,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2019-05",
+          "value": 1.4001,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2019-06",
+          "value": 1.6551,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2019-07",
+          "value": 1.6449,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2019-08",
+          "value": 1.5382,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2019-09",
+          "value": 1.6573,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2019-10",
+          "value": 1.6732,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2019-11",
+          "value": 1.6197,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2019-12",
+          "value": 1.6345,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2020-01",
+          "value": 1.6297,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2020-02",
+          "value": 1.6626,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2020-03",
+          "value": 1.6366,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2020-04",
+          "value": 1.6413,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2020-05",
+          "value": 1.4481,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2020-06",
+          "value": 1.3128,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2020-07",
+          "value": 1.3271,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2020-08",
+          "value": 1.3623,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2020-09",
+          "value": 1.3664,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2020-10",
+          "value": 1.4146,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2020-11",
+          "value": 1.4204,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2020-12",
+          "value": 1.4274,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2021-01",
+          "value": 1.3977,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2021-02",
+          "value": 1.513,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2021-03",
+          "value": 1.4864,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2021-04",
+          "value": 1.4937,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2021-05",
+          "value": 1.479,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2021-06",
+          "value": 1.476,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2021-07",
+          "value": 1.4904,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2021-08",
+          "value": 1.2693,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2021-09",
+          "value": 1.3969,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2021-10",
+          "value": 1.6093,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2021-11",
+          "value": 1.6253,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2021-12",
+          "value": 1.633,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2022-01",
+          "value": 1.5962,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2022-02",
+          "value": 1.6193,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2022-03",
+          "value": 1.57,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2022-04",
+          "value": 1.4413,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2022-05",
+          "value": 1.5491,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2022-06",
+          "value": 1.203,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2022-07",
+          "value": 1.3865,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2022-08",
+          "value": 1.2058,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2022-09",
+          "value": 1.3249,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2022-10",
+          "value": 1.411,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2022-11",
+          "value": 1.6312,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2022-12",
+          "value": 1.6373,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2023-01",
+          "value": 1.6404,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2023-02",
+          "value": 1.5985,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2023-03",
+          "value": 1.6005,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2023-04",
+          "value": 1.6165,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2023-05",
+          "value": 1.5622,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2023-06",
+          "value": 1.5632,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2023-07",
+          "value": 1.4871,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2023-08",
+          "value": 1.4364,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2023-09",
+          "value": 1.5809,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2023-10",
+          "value": 1.5998,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2023-11",
+          "value": 1.5408,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2023-12",
+          "value": 1.5853,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2024-01",
+          "value": 1.5886,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2024-02",
+          "value": 1.5797,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2024-03",
+          "value": 1.5841,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2024-04",
+          "value": 1.5556,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2024-05",
+          "value": 1.4652,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2024-06",
+          "value": 1.5526,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2024-07",
+          "value": 1.5572,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2024-08",
+          "value": 1.4593,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2024-09",
+          "value": 1.6089,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2024-10",
+          "value": 1.294,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2024-11",
+          "value": 1.4514,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2024-12",
+          "value": 1.4305,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2025-01",
+          "value": 1.5615,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2025-02",
+          "value": 1.8022,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2025-03",
+          "value": 1.8446,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2025-04",
+          "value": 1.785,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2025-05",
+          "value": 1.7148,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2025-06",
+          "value": 1.843,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2025-07",
+          "value": 1.8023,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2025-08",
+          "value": 1.8477,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2025-09",
+          "value": 1.8506,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2025-10",
+          "value": 1.6471,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2025-11",
+          "value": 1.702,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2025-12",
+          "value": 1.5974,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2026-01",
+          "value": 1.0494,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2026-02",
+          "value": 1.5277,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2026-03",
+          "value": 1.5886,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2026-04",
+          "value": 1.8739,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2026-05",
+          "value": 1.8254,
+          "assessment_code": "3"
+        }
+      ]
+    },
+    "crude_imports": {
+      "name": "Crude Oil Imports",
+      "flow_code": "TOTIMPSB",
+      "unit": "million barrels per day",
+      "latest_reported_month": "2026-05",
+      "latest_value": 0.0,
+      "observations": [
+        {
+          "date": "2002-01",
+          "value": 0.0615,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2002-02",
+          "value": 0.0589,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2002-03",
+          "value": 0.0624,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2002-04",
+          "value": 0.0275,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2002-05",
+          "value": 0.0551,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2002-06",
+          "value": 0.0389,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2002-07",
+          "value": 0.0659,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2002-08",
+          "value": 0.0002,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2002-09",
+          "value": 0.0584,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2002-10",
+          "value": 0.0292,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2002-11",
+          "value": 0.101,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2002-12",
+          "value": 0.0739,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2003-01",
+          "value": 0.0791,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2003-03",
+          "value": 0.1133,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2003-04",
+          "value": 0.0462,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2003-05",
+          "value": 0.0777,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2003-06",
+          "value": 0.0608,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2003-07",
+          "value": 0.0306,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2003-08",
+          "value": 0.1159,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2003-10",
+          "value": 0.0742,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2003-11",
+          "value": 0.073,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2003-12",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2004-01",
+          "value": 0.9488,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2004-02",
+          "value": 0.9782,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2004-04",
+          "value": 0.0638,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2004-05",
+          "value": 0.0509,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2004-06",
+          "value": 1.0164,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2004-07",
+          "value": 0.0502,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2004-08",
+          "value": 1.0439,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2004-09",
+          "value": 0.0243,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2004-10",
+          "value": 0.0471,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2004-11",
+          "value": 0.1032,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2004-12",
+          "value": 0.065,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2005-01",
+          "value": 0.0589,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2005-02",
+          "value": 0.091,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2005-03",
+          "value": 0.0718,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2005-05",
+          "value": 0.121,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2005-06",
+          "value": 0.1874,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2005-07",
+          "value": 0.045,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2005-08",
+          "value": 0.0073,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2005-09",
+          "value": 0.1256,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2005-10",
+          "value": 0.0937,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2005-11",
+          "value": 1.0738,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2006-01",
+          "value": 0.1849,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2006-02",
+          "value": 0.0034,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2006-03",
+          "value": 0.0692,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2006-04",
+          "value": 0.0835,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2006-05",
+          "value": 0.8148,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2006-06",
+          "value": 0.0411,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2006-07",
+          "value": 0.1128,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2006-08",
+          "value": 0.0754,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2006-09",
+          "value": 0.0711,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2006-10",
+          "value": 0.2494,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2006-11",
+          "value": 0.0672,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2006-12",
+          "value": 0.2237,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2007-01",
+          "value": 0.1905,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2007-02",
+          "value": 0.1218,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2007-03",
+          "value": 0.1752,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2007-04",
+          "value": 0.0304,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2007-05",
+          "value": 0.1528,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2007-06",
+          "value": 0.1823,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2007-07",
+          "value": 0.1448,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2007-08",
+          "value": 0.0803,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2007-09",
+          "value": 0.1523,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2007-10",
+          "value": 0.3221,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2007-11",
+          "value": 0.1572,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2007-12",
+          "value": 0.1436,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2008-01",
+          "value": 0.1246,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2008-02",
+          "value": 0.1395,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2008-03",
+          "value": 0.2206,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2008-04",
+          "value": 0.1438,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2008-05",
+          "value": 0.1476,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2008-06",
+          "value": 0.1669,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2008-07",
+          "value": 0.1225,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2008-08",
+          "value": 0.1161,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2008-09",
+          "value": 0.156,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2008-10",
+          "value": 0.0643,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2008-11",
+          "value": 0.2572,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2008-12",
+          "value": 0.1436,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2009-01",
+          "value": 0.0856,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2009-02",
+          "value": 0.2272,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2009-03",
+          "value": 0.0911,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2009-04",
+          "value": 0.1535,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2009-05",
+          "value": 0.122,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2009-06",
+          "value": 0.0934,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2009-07",
+          "value": 0.0768,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2009-08",
+          "value": 0.0585,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2009-09",
+          "value": 0.1752,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2009-10",
+          "value": 0.1391,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2009-11",
+          "value": 0.0703,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2009-12",
+          "value": 0.1926,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2014-02",
+          "value": 0.0268,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2014-03",
+          "value": 0.004,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2014-04",
+          "value": 0.0093,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2014-05",
+          "value": 0.0059,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2016-01",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2016-02",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2016-03",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2016-04",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2016-05",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2016-06",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2016-07",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2016-08",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2016-09",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2016-10",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2016-11",
+          "value": 0.0002,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2016-12",
+          "value": 0.0012,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2017-01",
+          "value": 0.0021,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2017-02",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2017-03",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2017-04",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2017-05",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2017-06",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2017-07",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2017-08",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2017-09",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2017-10",
+          "value": 0.0012,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2017-11",
+          "value": 0.0025,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2017-12",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2018-01",
+          "value": 0.001,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2018-02",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2018-03",
+          "value": 0.0014,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2018-04",
+          "value": 0.0005,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2018-05",
+          "value": 0.001,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2018-06",
+          "value": 0.0007,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2018-07",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2018-08",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2018-09",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2018-10",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2018-11",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2018-12",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2019-01",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2019-02",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2019-03",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2019-04",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2019-05",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2019-06",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2019-07",
+          "value": 0.0007,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2019-08",
+          "value": 0.0012,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2019-09",
+          "value": 0.0012,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2019-10",
+          "value": 0.0014,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2019-11",
+          "value": 0.0017,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2019-12",
+          "value": 0.0024,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2020-01",
+          "value": 0.0012,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2020-02",
+          "value": 0.002,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2020-03",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2020-04",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2020-05",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2020-06",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2020-07",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2020-09",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2020-10",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2020-11",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2020-12",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2021-01",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2021-02",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2021-04",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2021-05",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2021-06",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2022-03",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2022-08",
+          "value": 0.0002,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2022-09",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2022-10",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2022-11",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2022-12",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2023-01",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2023-02",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2023-03",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2023-04",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2023-05",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2023-06",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2023-07",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2023-08",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2023-09",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2023-10",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2023-11",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2023-12",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2024-01",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2024-02",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2024-03",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2024-04",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2024-05",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2024-06",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2024-07",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2024-08",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2024-09",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2024-10",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2024-11",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2024-12",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2025-01",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2025-02",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2025-03",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2025-04",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2025-05",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2025-06",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2025-07",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2025-08",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2025-09",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2025-10",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2025-11",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2025-12",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2026-01",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2026-02",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2026-03",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2026-04",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2026-05",
+          "value": 0.0,
+          "assessment_code": "3"
+        }
+      ]
+    },
+    "crude_exports": {
+      "name": "Crude Oil Exports",
+      "flow_code": "TOTEXPSB",
+      "unit": "million barrels per day",
+      "latest_reported_month": "2026-05",
+      "latest_value": 1.0632,
+      "observations": [
+        {
+          "date": "2002-01",
+          "value": 0.5955,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2002-02",
+          "value": 0.663,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2002-03",
+          "value": 0.6784,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2002-04",
+          "value": 0.6022,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2002-05",
+          "value": 1.0114,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2002-06",
+          "value": 0.7008,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2002-07",
+          "value": 0.8397,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2002-08",
+          "value": 0.555,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2002-09",
+          "value": 0.5502,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2002-10",
+          "value": 0.4674,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2002-11",
+          "value": 0.8286,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2002-12",
+          "value": 0.6874,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2003-01",
+          "value": 0.678,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2003-02",
+          "value": 0.9965,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2003-03",
+          "value": 0.6652,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2003-04",
+          "value": 0.4555,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2003-05",
+          "value": 0.6968,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2003-06",
+          "value": 1.0385,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2003-07",
+          "value": 0.7653,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2003-08",
+          "value": 0.7102,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2003-09",
+          "value": 0.0895,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2003-10",
+          "value": 0.8176,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2003-11",
+          "value": 0.5692,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2003-12",
+          "value": 0.88,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2004-01",
+          "value": 0.1644,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2004-02",
+          "value": 0.078,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2004-03",
+          "value": 0.8452,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2004-04",
+          "value": 1.1186,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2004-05",
+          "value": 0.7453,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2004-06",
+          "value": 0.0788,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2004-07",
+          "value": 0.888,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2004-08",
+          "value": 0.0535,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2004-09",
+          "value": 1.4257,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2004-10",
+          "value": 0.6907,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2004-11",
+          "value": 1.1629,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2004-12",
+          "value": 1.067,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2005-01",
+          "value": 0.9287,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2005-02",
+          "value": 1.095,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2005-03",
+          "value": 1.0098,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2005-05",
+          "value": 1.1529,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2005-06",
+          "value": 0.9054,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2005-07",
+          "value": 1.0046,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2005-08",
+          "value": 0.8864,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2005-09",
+          "value": 1.0862,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2005-10",
+          "value": 0.7924,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2005-12",
+          "value": 1.062,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2006-01",
+          "value": 0.8979,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2006-02",
+          "value": 0.9508,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2006-03",
+          "value": 1.0842,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2006-04",
+          "value": 1.259,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2006-05",
+          "value": 2.7811,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2006-06",
+          "value": 1.1921,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2006-07",
+          "value": 1.051,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2006-08",
+          "value": 0.9591,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2006-09",
+          "value": 1.3739,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2006-10",
+          "value": 1.0573,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2006-11",
+          "value": 1.0052,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2006-12",
+          "value": 1.1421,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2007-01",
+          "value": 1.1897,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2007-02",
+          "value": 1.12,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2007-03",
+          "value": 1.4586,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2007-04",
+          "value": 1.0697,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2007-05",
+          "value": 1.3896,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2007-06",
+          "value": 1.369,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2007-07",
+          "value": 1.0891,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2007-08",
+          "value": 1.1367,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2007-09",
+          "value": 1.1974,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2007-10",
+          "value": 1.1569,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2007-11",
+          "value": 1.2035,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2007-12",
+          "value": 1.2007,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2008-01",
+          "value": 1.1579,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2008-02",
+          "value": 1.2561,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2008-03",
+          "value": 1.1744,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2008-04",
+          "value": 1.2228,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2008-05",
+          "value": 1.2459,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2008-06",
+          "value": 1.342,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2008-07",
+          "value": 1.1661,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2008-08",
+          "value": 1.2952,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2008-09",
+          "value": 1.0592,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2008-10",
+          "value": 1.1744,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2008-11",
+          "value": 1.2079,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2008-12",
+          "value": 1.2311,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2009-01",
+          "value": 1.0601,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2009-02",
+          "value": 1.644,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2009-03",
+          "value": 1.3021,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2009-04",
+          "value": 1.3838,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2009-05",
+          "value": 1.3967,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2009-06",
+          "value": 1.3128,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2009-07",
+          "value": 1.3235,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2009-08",
+          "value": 1.3965,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2009-09",
+          "value": 1.3374,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2009-10",
+          "value": 1.2248,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2009-11",
+          "value": 1.2684,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2009-12",
+          "value": 1.6713,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2014-02",
+          "value": 1.2811,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2014-03",
+          "value": 1.3226,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2014-04",
+          "value": 1.3942,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2014-05",
+          "value": 1.3335,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2016-01",
+          "value": 1.1821,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2016-02",
+          "value": 1.4506,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2016-03",
+          "value": 1.2344,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2016-04",
+          "value": 1.3748,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2016-05",
+          "value": 1.2569,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2016-06",
+          "value": 1.1679,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2016-07",
+          "value": 1.2015,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2016-08",
+          "value": 1.0375,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2016-09",
+          "value": 1.3114,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2016-10",
+          "value": 0.8416,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2016-11",
+          "value": 1.3011,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2016-12",
+          "value": 1.3953,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2017-01",
+          "value": 1.1878,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2017-02",
+          "value": 1.4466,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2017-03",
+          "value": 1.2251,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2017-04",
+          "value": 1.3202,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2017-05",
+          "value": 1.3744,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2017-06",
+          "value": 1.4644,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2017-07",
+          "value": 1.3235,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2017-08",
+          "value": 1.1854,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2017-09",
+          "value": 1.6359,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2017-10",
+          "value": 1.218,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2017-11",
+          "value": 1.4244,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2017-12",
+          "value": 1.6449,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2018-01",
+          "value": 1.1621,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2018-02",
+          "value": 1.4353,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2018-03",
+          "value": 1.44,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2018-04",
+          "value": 1.3689,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2018-05",
+          "value": 1.3247,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2018-06",
+          "value": 1.6958,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2018-07",
+          "value": 1.4498,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2018-08",
+          "value": 1.3266,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2018-09",
+          "value": 1.5494,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2018-10",
+          "value": 1.3982,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2018-11",
+          "value": 1.0989,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2018-12",
+          "value": 1.5643,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2019-01",
+          "value": 1.5284,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2019-02",
+          "value": 1.5556,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2019-03",
+          "value": 0.8654,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2019-04",
+          "value": 1.6113,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2019-05",
+          "value": 1.4081,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2019-06",
+          "value": 1.487,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2019-07",
+          "value": 1.0354,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2019-08",
+          "value": 1.2422,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2019-09",
+          "value": 1.673,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2019-10",
+          "value": 1.542,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2019-11",
+          "value": 1.4828,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2019-12",
+          "value": 1.5023,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2020-01",
+          "value": 1.3256,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2020-02",
+          "value": 1.6308,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2020-03",
+          "value": 1.4764,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2020-04",
+          "value": 1.5187,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2020-05",
+          "value": 1.4379,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2020-06",
+          "value": 1.6595,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2020-07",
+          "value": 1.4761,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2020-08",
+          "value": 1.4942,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2020-09",
+          "value": 1.2566,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2020-10",
+          "value": 1.2529,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2020-11",
+          "value": 1.3131,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2020-12",
+          "value": 1.1602,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2021-01",
+          "value": 1.2263,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2021-02",
+          "value": 1.3853,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2021-03",
+          "value": 1.3542,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2021-04",
+          "value": 1.3755,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2021-05",
+          "value": 1.2232,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2021-06",
+          "value": 1.503,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2021-07",
+          "value": 1.2795,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2021-08",
+          "value": 1.3953,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2021-09",
+          "value": 1.3684,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2021-10",
+          "value": 1.323,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2021-11",
+          "value": 1.1799,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2021-12",
+          "value": 1.2638,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2022-01",
+          "value": 1.3734,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2022-02",
+          "value": 1.5398,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2022-03",
+          "value": 1.527,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2022-04",
+          "value": 1.5531,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2022-05",
+          "value": 1.3711,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2022-06",
+          "value": 1.4806,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2022-07",
+          "value": 1.1117,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2022-08",
+          "value": 1.2401,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2022-09",
+          "value": 1.1266,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2022-10",
+          "value": 1.1645,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2022-11",
+          "value": 1.1861,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2022-12",
+          "value": 1.1081,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2023-01",
+          "value": 1.0789,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2023-02",
+          "value": 1.4895,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2023-03",
+          "value": 1.5082,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2023-04",
+          "value": 1.6961,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2023-05",
+          "value": 1.2496,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2023-06",
+          "value": 1.4055,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2023-07",
+          "value": 1.5943,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2023-08",
+          "value": 1.5106,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2023-09",
+          "value": 1.4433,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2023-10",
+          "value": 1.5042,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2023-11",
+          "value": 1.2517,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2023-12",
+          "value": 1.3627,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2024-01",
+          "value": 1.3295,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2024-02",
+          "value": 1.5566,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2024-03",
+          "value": 1.4547,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2024-04",
+          "value": 1.574,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2024-05",
+          "value": 1.4443,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2024-06",
+          "value": 1.3996,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2024-07",
+          "value": 1.4043,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2024-08",
+          "value": 1.3627,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2024-09",
+          "value": 1.4846,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2024-10",
+          "value": 1.3297,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2024-11",
+          "value": 1.2124,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2024-12",
+          "value": 1.5558,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2025-01",
+          "value": 1.1495,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2025-02",
+          "value": 1.4379,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2025-03",
+          "value": 1.1923,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2025-04",
+          "value": 1.444,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2025-05",
+          "value": 1.6537,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2025-06",
+          "value": 1.7506,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2025-07",
+          "value": 1.6292,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2025-08",
+          "value": 1.5016,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2025-09",
+          "value": 1.8206,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2025-10",
+          "value": 1.5558,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2025-11",
+          "value": 1.6076,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2025-12",
+          "value": 1.6342,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2026-01",
+          "value": 1.5154,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2026-02",
+          "value": 1.4719,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2026-03",
+          "value": 1.072,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2026-04",
+          "value": 1.078,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2026-05",
+          "value": 1.0632,
+          "assessment_code": "3"
+        }
+      ]
+    },
+    "closing_stocks": {
+      "name": "Closing Crude Oil Stocks",
+      "flow_code": "CLOSTLV",
+      "unit": "million barrels",
+      "latest_reported_month": "2014-03",
+      "latest_value": 18.7567,
+      "observations": [
+        {
+          "date": "2004-01",
+          "value": 33.2369,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2004-02",
+          "value": 21.1116,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2004-06",
+          "value": 22.8563,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2004-08",
+          "value": 28.7839,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2014-02",
+          "value": 18.7861,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2014-03",
+          "value": 18.7567,
+          "assessment_code": "3"
+        }
+      ]
+    }
+  }
+}
