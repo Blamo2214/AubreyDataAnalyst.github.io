@@ -193,94 +193,87 @@ jobs:
 
           def download_year(year):
 
-              url = BASE_URL.format(
-                  year=year
-              )
-
-              print()
-              print(
-                  f"Downloading JODI {year}..."
-              )
-
-
-              last_error = None
-
-
-              for attempt in range(1, 4):
-
-                  try:
-
-                      response = requests.get(
-                          url,
-                          timeout=90
-                      )
-
-                      response.raise_for_status()
-
-
-                      # Basic validation so we don't accidentally
-                      # process an HTML error page as a CSV.
-
-                      content_type = (
-                          response.headers
-                          .get(
-                              "content-type",
-                              ""
-                          )
-                          .lower()
-                      )
-
-
-                      text_start = (
-                          response.text[:200]
-                          .lower()
-                      )
-
-
-                      if (
-                          "<html" in text_start
-                          or
-                          "<!doctype html"
-                          in text_start
-                      ):
-
-                          raise RuntimeError(
-                              "JODI returned HTML "
-                              "instead of CSV."
-                          )
-
-
-                      print(
-                          f"Downloaded {year}: "
-                          f"{len(response.content):,} bytes"
-                      )
-
-
-                      return response.content
-
-
-                  except Exception as error:
-
-                      last_error = error
-
-                      print(
-                          f"Attempt {attempt} "
-                          f"failed for {year}: "
-                          f"{error}"
-                      )
-
-
-                      if attempt < 3:
-                          time.sleep(
-                              attempt * 3
-                          )
-
-
-              raise RuntimeError(
-                  f"Could not download "
-                  f"JODI data for {year}: "
-                  f"{last_error}"
-              )
+            urls = [
+                (
+                    "https://www.jodidata.org/"
+                    "_resources/files/downloads/"
+                    "oil-data/annual-csv/primary/"
+                    f"primaryyear{year}.csv"
+                ),
+                (
+                    "https://www.jodidata.org/"
+                    "_resources/files/downloads/"
+                    "oil-data/annual-csv/primary/"
+                    f"{year}.csv"
+                ),
+            ]
+        
+            print()
+            print(
+                f"Downloading JODI {year}..."
+            )
+        
+            last_error = None
+        
+            for url in urls:
+        
+                for attempt in range(1, 4):
+        
+                    try:
+        
+                        print(
+                            f"Trying: {url}"
+                        )
+        
+                        response = requests.get(
+                            url,
+                            timeout=90
+                        )
+        
+                        response.raise_for_status()
+        
+                        text_start = (
+                            response.text[:200]
+                            .lower()
+                        )
+        
+                        if (
+                            "<html" in text_start
+                            or
+                            "<!doctype html"
+                            in text_start
+                        ):
+                            raise RuntimeError(
+                                "JODI returned HTML "
+                                "instead of CSV."
+                            )
+        
+                        print(
+                            f"Downloaded {year}: "
+                            f"{len(response.content):,} bytes"
+                        )
+        
+                        return response.content
+        
+                    except Exception as error:
+        
+                        last_error = error
+        
+                        print(
+                            f"Attempt {attempt} failed "
+                            f"for {url}: {error}"
+                        )
+        
+                        if attempt < 3:
+                            time.sleep(
+                                attempt * 3
+                            )
+        
+            raise RuntimeError(
+                f"Could not download "
+                f"JODI data for {year}: "
+                f"{last_error}"
+            )
 
 
           # ---------------------------------------------------------
