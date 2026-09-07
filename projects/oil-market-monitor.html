@@ -1812,8 +1812,13 @@
 
             try {
 
-                const response =
-                    await fetch('../data/oil-market-prices.json');
+               const response =
+                    await fetch(
+                        '../data/oil-market-prices.json?t=' + Date.now(),
+                        {
+                            cache: 'no-store'
+                        }
+                    );
 
                 if (!response.ok) {
                     throw new Error(
