@@ -339,6 +339,9 @@
         }
 
         @media (max-width: 900px) {
+
+            .movers-grid { grid-template-columns:1fr; }
+            .mover-row { grid-template-columns:28px minmax(0,1fr) auto; padding:14px 12px; gap:9px; }
             .inventory-grid {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             }
@@ -1245,6 +1248,37 @@
             text-align: center;
         }
 
+
+
+
+        /* =========================================================
+           GLOBAL YOY MOVERS
+        ========================================================= */
+
+        .movers-toolbar { display:flex; gap:8px; flex-wrap:wrap; margin:18px 0 22px; }
+        .movers-tab { padding:9px 12px; border:1px solid #33404d; border-radius:3px; background:#0c1219; color:#8f9cac; font-family:Arial,Helvetica,sans-serif; font-size:.7rem; font-weight:700; cursor:pointer; }
+        .movers-tab:hover { color:#fff; border-color:#526171; }
+        .movers-tab.active { color:#fff; border-color:var(--accent); background:rgba(217,75,91,.10); }
+        .movers-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+        .movers-column { border:1px solid rgba(255,255,255,.08); border-radius:4px; background:rgba(255,255,255,.018); overflow:hidden; }
+        .movers-column-header { padding:14px 16px; border-bottom:1px solid rgba(255,255,255,.08); }
+        .movers-column-header h4 { margin:0; font-size:.86rem; letter-spacing:.08em; text-transform:uppercase; }
+        .movers-column.gainers .movers-column-header h4 { color:#5fd38d; }
+        .movers-column.losers .movers-column-header h4 { color:#ff7a7a; }
+        .movers-rank-list { display:grid; }
+        .mover-row { width:100%; display:grid; grid-template-columns:34px minmax(0,1fr) auto; align-items:center; gap:12px; padding:15px 16px; border:0; border-bottom:1px solid rgba(255,255,255,.055); background:transparent; color:inherit; text-align:left; cursor:pointer; font:inherit; }
+        .mover-row:last-child { border-bottom:0; }
+        .mover-row:hover { background:rgba(255,255,255,.035); }
+        .mover-rank { color:#596879; font-family:Arial,Helvetica,sans-serif; font-size:.74rem; font-weight:700; }
+        .mover-country { min-width:0; }
+        .mover-country-name { display:block; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color:#e7ebef; font-family:Arial,Helvetica,sans-serif; font-size:.84rem; font-weight:700; }
+        .mover-country-meta { display:block; margin-top:3px; color:#66778a; font-family:Arial,Helvetica,sans-serif; font-size:.66rem; }
+        .mover-values { text-align:right; font-family:Arial,Helvetica,sans-serif; }
+        .mover-primary { display:block; font-size:.94rem; font-weight:700; }
+        .mover-primary.positive { color:#5fd38d; }
+        .mover-primary.negative { color:#ff7a7a; }
+        .mover-secondary { display:block; margin-top:3px; color:#8795a5; font-size:.67rem; }
+        .movers-method-note { margin-top:14px; color:#718092; font-family:Arial,Helvetica,sans-serif; font-size:.68rem; line-height:1.55; }
 
         /* =========================================================
            MOBILE
@@ -2372,6 +2406,29 @@
                     </div>
                 </div>
 
+                <div class="analytics-panel full-width custom-visual-watermark">
+                    <div class="analytics-panel-header">
+                        <div>
+                            <h3>Global YoY Movers</h3>
+                            <p>Three largest gainers and losers across each JODI crude-market series.</p>
+                        </div>
+                        <div id="global-movers-status" class="analytics-status">Loading...</div>
+                    </div>
+                    <div id="global-movers-tabs" class="movers-toolbar" aria-label="Global year-over-year mover series">
+                        <button type="button" class="movers-tab active" data-series="crude_production">Production</button>
+                        <button type="button" class="movers-tab" data-series="crude_imports">Imports</button>
+                        <button type="button" class="movers-tab" data-series="crude_exports">Exports</button>
+                        <button type="button" class="movers-tab" data-series="refinery_intake">Refinery Intake</button>
+                        <button type="button" class="movers-tab" data-series="closing_stocks">Closing Stocks</button>
+                    </div>
+                    <div id="global-yoy-movers" class="movers-grid">
+                        <div class="suite-loading">Loading global year-over-year movers...</div>
+                    </div>
+                    <div class="movers-method-note">
+                        Flow series are ranked by percentage change and show the absolute change beneath it. Closing stocks are ranked by absolute million-barrel change and show the percentage change beneath it. Comparisons require the exact same month one year earlier and exclude materially stale or near-zero-base observations.
+                    </div>
+                </div>
+
             </div>
 
         </section>
@@ -2797,6 +2854,8 @@
         let supplyChartRange = '1Y';
 
         let jodiSummaryData = null;
+        let jodiMoversData = null;
+        let activeJodiMoversSeries = 'crude_production';
         let jodiCountryData = null;
         let jodiHistoryChart = null;
         let jodiChartRange = '5Y';
@@ -5445,6 +5504,75 @@
             }
         }
 
+        function formatMoverAbsolute(value, unit) {
+            const number = Number(value);
+            if (!Number.isFinite(number)) return '--';
+            const sign = number > 0 ? '+' : '';
+            return unit === 'million barrels'
+                ? `${sign}${number.toFixed(3)}M bbl`
+                : `${sign}${number.toFixed(3)}M b/d`;
+        }
+
+        function renderGlobalYoYMovers(seriesKey = activeJodiMoversSeries) {
+            const container = document.getElementById('global-yoy-movers');
+            const status = document.getElementById('global-movers-status');
+            if (!container) return;
+            const seriesObject = jodiMoversData?.series?.[seriesKey];
+            if (!seriesObject) {
+                container.innerHTML = '<div class="suite-loading">Mover data unavailable for this series.</div>';
+                if (status) status.textContent = 'Unavailable';
+                return;
+            }
+            activeJodiMoversSeries = seriesKey;
+            document.querySelectorAll('.movers-tab').forEach(button => {
+                button.classList.toggle('active', button.dataset.series === seriesKey);
+            });
+            const rankByAbsolute = seriesObject.rank_by === 'absolute';
+            const buildColumn = (items, type) => {
+                const isGain = type === 'gainers';
+                const heading = isGain ? 'Top 3 Gainers' : 'Top 3 Losers';
+                const rows = (items || []).map((item, index) => {
+                    const pct = Number(item.percent_change);
+                    const abs = Number(item.absolute_change);
+                    const primary = rankByAbsolute
+                        ? formatMoverAbsolute(abs, seriesObject.unit)
+                        : `${pct > 0 ? '+' : ''}${pct.toFixed(1)}%`;
+                    const secondary = rankByAbsolute
+                        ? `${pct > 0 ? '+' : ''}${pct.toFixed(1)}% YoY`
+                        : `${formatMoverAbsolute(abs, seriesObject.unit)} YoY`;
+                    const freshness = Number(item.stale_months) > 0
+                        ? `${formatJODIMonth(item.latest_month)} · ${item.stale_months} mo. lag`
+                        : formatJODIMonth(item.latest_month);
+                    return `<button type="button" class="mover-row" data-country-code="${item.code}" aria-label="Open ${item.name} JODI profile">
+                        <span class="mover-rank">${index + 1}</span>
+                        <span class="mover-country"><span class="mover-country-name">${item.name}</span><span class="mover-country-meta">${freshness}</span></span>
+                        <span class="mover-values"><span class="mover-primary ${isGain ? 'positive' : 'negative'}">${primary}</span><span class="mover-secondary">${secondary}</span></span>
+                    </button>`;
+                }).join('');
+                return `<div class="movers-column ${type}"><div class="movers-column-header"><h4>${heading}</h4></div><div class="movers-rank-list">${rows || '<div class="suite-loading">No eligible observations.</div>'}</div></div>`;
+            };
+            container.innerHTML = buildColumn(seriesObject.gainers, 'gainers') + buildColumn(seriesObject.losers, 'losers');
+            container.querySelectorAll('.mover-row').forEach(row => {
+                row.addEventListener('click', () => selectGlobalCountryFromVisual(row.dataset.countryCode));
+            });
+            if (status) status.textContent = `${seriesObject.eligible_country_count} eligible countries · ${formatJODIMonth(jodiMoversData.latest_global_reported_month)}`;
+        }
+
+        async function loadJODIMovers() {
+            const container = document.getElementById('global-yoy-movers');
+            const status = document.getElementById('global-movers-status');
+            try {
+                const response = await fetch('../data/jodi/movers.json?t=' + Date.now(), { cache: 'no-store' });
+                if (!response.ok) throw new Error('Could not load JODI mover data.');
+                jodiMoversData = await response.json();
+                renderGlobalYoYMovers(activeJodiMoversSeries);
+            } catch (error) {
+                console.error(error);
+                if (container) container.innerHTML = '<div class="suite-loading">Global YoY mover data unavailable.</div>';
+                if (status) status.textContent = 'Unavailable';
+            }
+        }
+
         function renderGlobalVisualSuite() {
             if (!jodiSummaryData) {
                 return;
@@ -5459,7 +5587,6 @@
             renderGlobalProductionLeaderboard();
             renderGlobalTradeBalance();
             renderGlobalProductionMap();
-            renderGlobalStockHeatmap();
         }
 
 
@@ -5516,6 +5643,7 @@
                     );
 
                 renderGlobalVisualSuite();
+                await loadJODIMovers();
 
                 await loadJODICountry(defaultCountry);
             }
@@ -5948,6 +6076,12 @@
 
             });
 
+
+        document.querySelectorAll('.movers-tab').forEach(button => {
+            button.addEventListener('click', function() {
+                renderGlobalYoYMovers(this.dataset.series);
+            });
+        });
 
         loadOilPrices();
         loadEIAInventories();
