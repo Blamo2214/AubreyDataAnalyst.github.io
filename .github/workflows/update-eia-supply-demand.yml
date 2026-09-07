@@ -1,0 +1,306 @@
+name: Update EIA Supply and Demand
+
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: "35 15 * * 3"
+
+permissions:
+  contents: write
+
+jobs:
+  update-supply-demand:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Fetch EIA supply and demand data
+        env:
+          EIA_API_KEY: ${{ secrets.EIA_API_KEY }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import urllib.request
+
+
+          API_KEY = os.environ["EIA_API_KEY"]
+
+
+          # -------------------------------------------------------
+          # WEEKLY EIA SERIES
+          # -------------------------------------------------------
+
+          SERIES = {
+
+              "crude_production": {
+                  "series_id": "WCRFPUS2",
+                  "name": "U.S. Crude Oil Production",
+                  "unit": "million barrels per day"
+              },
+
+              "refinery_utilization": {
+                  "series_id": "WPULEUS3",
+                  "name": "Refinery Utilization",
+                  "unit": "percent"
+              },
+
+              "refinery_crude_inputs": {
+                  "series_id": "WCRRIUS2",
+                  "name": "Crude Oil Refinery Inputs",
+                  "unit": "million barrels per day"
+              },
+
+              "crude_imports": {
+                  "series_id": "WCRIMUS2",
+                  "name": "Crude Oil Imports",
+                  "unit": "million barrels per day"
+              },
+
+              "crude_exports": {
+                  "series_id": "WCREXUS2",
+                  "name": "Crude Oil Exports",
+                  "unit": "million barrels per day"
+              },
+
+              "product_supplied": {
+                  "series_id": "WRPUPUS2",
+                  "name": "Total Petroleum Products Supplied",
+                  "unit": "million barrels per day"
+              }
+          }
+
+
+          # -------------------------------------------------------
+          # FETCH ONE SERIES
+          # -------------------------------------------------------
+
+          def fetch_series(series_id):
+
+              url = (
+                  "https://api.eia.gov/v2/seriesid/"
+                  f"{series_id}"
+                  f"?api_key={API_KEY}"
+              )
+
+              request = urllib.request.Request(
+                  url,
+                  headers={
+                      "Accept": "application/json",
+                      "User-Agent":
+                          "Agitlytics-Oil-Market-Monitor"
+                  }
+              )
+
+              with urllib.request.urlopen(
+                  request
+              ) as response:
+
+                  payload = json.load(response)
+
+              return payload
+
+
+          # -------------------------------------------------------
+          # CLEAN API RESPONSE
+          # -------------------------------------------------------
+
+          def clean_payload(payload, unit):
+
+              rows = (
+                  payload
+                  .get("response", {})
+                  .get("data", [])
+              )
+
+              cleaned = []
+
+              for row in rows:
+
+                  period = row.get("period")
+                  value = row.get("value")
+
+                  if (
+                      not period or
+                      value in (
+                          None,
+                          "",
+                          "NA",
+                          "W",
+                          "--",
+                          "-"
+                      )
+                  ):
+                      continue
+
+                  try:
+                      value = float(value)
+                  except (TypeError, ValueError):
+                      continue
+
+
+                  # Most weekly flow data arrive as
+                  # thousand barrels per day.
+                  # Convert to million barrels/day.
+
+                  if unit == "million barrels per day":
+                      value = value / 1000
+
+
+                  cleaned.append({
+                      "date": period,
+                      "value": round(value, 3)
+                  })
+
+
+              cleaned.sort(
+                  key=lambda x: x["date"]
+              )
+
+              return cleaned
+
+
+          # -------------------------------------------------------
+          # DOWNLOAD ALL SERIES
+          # -------------------------------------------------------
+
+          output_series = {}
+
+
+          for key, config in SERIES.items():
+
+              payload = fetch_series(
+                  config["series_id"]
+              )
+
+              cleaned = clean_payload(
+                  payload,
+                  config["unit"]
+              )
+
+              output_series[key] = {
+
+                  "name":
+                      config["name"],
+
+                  "series_id":
+                      config["series_id"],
+
+                  "unit":
+                      config["unit"],
+
+                  "data":
+                      cleaned
+              }
+
+
+              print(
+                  config["name"],
+                  "rows:",
+                  len(cleaned)
+              )
+
+              if cleaned:
+
+                  print(
+                      "Latest:",
+                      cleaned[-1]
+                  )
+
+
+          # -------------------------------------------------------
+          # FIND LATEST REPORT DATE
+          # -------------------------------------------------------
+
+          dates = []
+
+          for series in output_series.values():
+
+              if series["data"]:
+
+                  dates.append(
+                      series["data"][-1]["date"]
+                  )
+
+
+          latest_date = (
+              max(dates)
+              if dates
+              else None
+          )
+
+
+          # -------------------------------------------------------
+          # BUILD OUTPUT JSON
+          # -------------------------------------------------------
+
+          output = {
+
+              "source":
+                  "U.S. Energy Information Administration",
+
+              "frequency":
+                  "weekly",
+
+              "latest_date":
+                  latest_date,
+
+              "series":
+                  output_series
+          }
+
+
+          # -------------------------------------------------------
+          # SAVE
+          # -------------------------------------------------------
+
+          os.makedirs(
+              "data",
+              exist_ok=True
+          )
+
+          path = (
+              "data/eia-oil-supply-demand.json"
+          )
+
+          with open(
+              path,
+              "w",
+              encoding="utf-8"
+          ) as f:
+
+              json.dump(
+                  output,
+                  f,
+                  indent=2
+              )
+
+
+          print(
+              "Supply and demand data updated."
+          )
+
+          print(
+              "Latest report date:",
+              latest_date
+          )
+
+          PY
+
+
+      - name: Commit updated EIA supply and demand data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add data/eia-oil-supply-demand.json
+
+          if git diff --cached --quiet; then
+            echo "No supply and demand changes to commit."
+          else
+            git commit -m "Update EIA oil supply and demand"
+            git push
+          fi
