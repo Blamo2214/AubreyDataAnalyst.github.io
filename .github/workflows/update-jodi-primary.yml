@@ -1,0 +1,213 @@
+name: Update JODI Primary Oil Data
+
+on:
+  workflow_dispatch:
+
+  schedule:
+    # Run on the 21st of each month at 15:45 UTC.
+    # JODI normally publishes around the 20th.
+    - cron: "45 15 21 * *"
+
+
+permissions:
+  contents: write
+
+
+jobs:
+
+  update-jodi-primary:
+
+    runs-on: ubuntu-latest
+
+
+    steps:
+
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests pandas
+
+
+      - name: Download and inspect JODI primary data
+        run: |
+          python <<'PY'
+
+          import json
+          from pathlib import Path
+
+          import pandas as pd
+          import requests
+
+
+          URL = (
+              "https://www.jodidata.org/"
+              "_resources/files/downloads/"
+              "oil-data/annual-csv/primary/"
+              "primaryyear2026.csv"
+          )
+
+
+          RAW_CSV = Path(
+              "data/jodi-primary-raw.csv"
+          )
+
+
+          SUMMARY_JSON = Path(
+              "data/jodi-primary-summary.json"
+          )
+
+
+          RAW_CSV.parent.mkdir(
+              parents=True,
+              exist_ok=True
+          )
+
+
+          print("Downloading JODI Primary CSV...")
+
+
+          response = requests.get(
+              URL,
+              timeout=60
+          )
+
+          response.raise_for_status()
+
+
+          RAW_CSV.write_bytes(
+              response.content
+          )
+
+
+          print(
+              f"Saved raw CSV to {RAW_CSV}"
+          )
+
+
+          df = pd.read_csv(
+              RAW_CSV
+          )
+
+
+          print()
+          print("Rows:", len(df))
+          print("Columns:", len(df.columns))
+
+          print()
+          print("Column names:")
+
+          for column in df.columns:
+              print(" -", column)
+
+
+          print()
+          print("First 5 rows:")
+
+          print(
+              df.head().to_string()
+          )
+
+
+          summary = {
+
+              "source":
+                  "JODI Oil World Database",
+
+              "dataset":
+                  "Extended Primary",
+
+              "source_url":
+                  URL,
+
+              "rows":
+                  int(len(df)),
+
+              "columns":
+                  [
+                      str(column)
+                      for column
+                      in df.columns
+                  ],
+
+              "sample":
+                  df.head(
+                      10
+                  ).fillna(
+                      ""
+                  ).to_dict(
+                      orient="records"
+                  )
+
+          }
+
+
+          with SUMMARY_JSON.open(
+              "w",
+              encoding="utf-8"
+          ) as file:
+
+              json.dump(
+                  summary,
+                  file,
+                  indent=2,
+                  default=str
+              )
+
+              file.write("\n")
+
+
+          print()
+          print(
+              f"Saved summary to "
+              f"{SUMMARY_JSON}"
+          )
+
+          PY
+
+
+      - name: Commit updated JODI data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add \
+            data/jodi-primary-raw.csv \
+            data/jodi-primary-summary.json
+
+          if git diff --cached --quiet; then
+            echo "No JODI changes to commit."
+            exit 0
+          fi
+
+          git commit -m "Update JODI primary oil data"
+
+          for attempt in 1 2 3; do
+
+            echo "Push attempt $attempt"
+
+            git pull --rebase origin main
+
+            if git push origin main; then
+              echo "JODI data successfully updated."
+              exit 0
+            fi
+
+            echo "Remote changed during push. Retrying..."
+            sleep 5
+
+          done
+
+          echo "Failed to push JODI update after 3 attempts."
+          exit 1
