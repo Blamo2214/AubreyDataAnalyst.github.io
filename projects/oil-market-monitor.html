@@ -616,6 +616,92 @@
 
 
         /* =========================================================
+           DEMAND INDICATORS
+        ========================================================= */
+
+        .demand-indicator-wrap {
+            margin-top: 28px;
+        }
+
+        .demand-indicator-header {
+            margin-bottom: 16px;
+        }
+
+        .demand-indicator-header h3 {
+            margin: 0 0 5px;
+            font-size: 1.25rem;
+        }
+
+        .demand-indicator-header p {
+            margin: 0;
+            color: #8494a7;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.78rem;
+            line-height: 1.5;
+        }
+
+        .demand-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .demand-card {
+            background: var(--panel);
+            border: 1px solid var(--panel-border);
+            border-radius: 4px;
+            padding: 26px;
+        }
+
+        .demand-card h4 {
+            margin: 0 0 5px;
+            font-size: 1.15rem;
+        }
+
+        .demand-primary {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 2.4rem;
+            font-weight: 700;
+            letter-spacing: -0.04em;
+        }
+
+        .demand-metrics {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .demand-metric {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding-top: 12px;
+        }
+
+        .demand-metric-label {
+            display: block;
+            margin-bottom: 6px;
+            color: #728195;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.64rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .demand-metric-value {
+            color: #d8dee6;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .demand-card .supply-updated {
+            margin-top: 18px;
+        }
+
+
+        /* =========================================================
            PHYSICAL MARKET CARDS
         ========================================================= */
 
@@ -683,6 +769,7 @@
             .market-grid,
             .inventory-grid,
             .supply-grid,
+            .demand-grid,
             .placeholder-grid,
             .placeholder-grid.two-column {
                 grid-template-columns: 1fr;
@@ -717,6 +804,10 @@
             .inventory-chart-wrap,
             .supply-chart-wrap {
                 height: 360px;
+            }
+
+            .demand-metrics {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
         }
 
@@ -1449,6 +1540,122 @@
             </div>
 
 
+            <div class="demand-indicator-wrap">
+
+                <div class="demand-indicator-header">
+
+                    <h3>
+                        Demand Indicators
+                    </h3>
+
+                    <p>
+                        Gasoline and distillate product supplied with short-term
+                        and year-over-year context.
+                    </p>
+
+                </div>
+
+
+                <div class="demand-grid">
+
+
+                    <div class="demand-card">
+
+                        <h4>Gasoline Demand</h4>
+
+                        <p class="market-subtitle">
+                            Finished motor gasoline product supplied
+                        </p>
+
+                        <p class="demand-primary">
+                            <span id="gasoline-demand-value">--.---</span>
+                            <span class="market-unit">million b/d</span>
+                        </p>
+
+                        <div class="demand-metrics">
+
+                            <div class="demand-metric">
+                                <span class="demand-metric-label">Weekly</span>
+                                <span id="gasoline-demand-weekly" class="demand-metric-value">--</span>
+                            </div>
+
+                            <div class="demand-metric">
+                                <span class="demand-metric-label">4-Week Avg</span>
+                                <span id="gasoline-demand-4wk" class="demand-metric-value">--</span>
+                            </div>
+
+                            <div class="demand-metric">
+                                <span class="demand-metric-label">Year Ago</span>
+                                <span id="gasoline-demand-year-ago" class="demand-metric-value">--</span>
+                            </div>
+
+                            <div class="demand-metric">
+                                <span class="demand-metric-label">YoY</span>
+                                <span id="gasoline-demand-yoy" class="demand-metric-value">--</span>
+                            </div>
+
+                        </div>
+
+                        <div
+                            id="gasoline-demand-updated"
+                            class="supply-updated">
+                            Week ending: --
+                        </div>
+
+                    </div>
+
+
+                    <div class="demand-card">
+
+                        <h4>Distillate Demand</h4>
+
+                        <p class="market-subtitle">
+                            Distillate fuel oil product supplied
+                        </p>
+
+                        <p class="demand-primary">
+                            <span id="distillate-demand-value">--.---</span>
+                            <span class="market-unit">million b/d</span>
+                        </p>
+
+                        <div class="demand-metrics">
+
+                            <div class="demand-metric">
+                                <span class="demand-metric-label">Weekly</span>
+                                <span id="distillate-demand-weekly" class="demand-metric-value">--</span>
+                            </div>
+
+                            <div class="demand-metric">
+                                <span class="demand-metric-label">4-Week Avg</span>
+                                <span id="distillate-demand-4wk" class="demand-metric-value">--</span>
+                            </div>
+
+                            <div class="demand-metric">
+                                <span class="demand-metric-label">Year Ago</span>
+                                <span id="distillate-demand-year-ago" class="demand-metric-value">--</span>
+                            </div>
+
+                            <div class="demand-metric">
+                                <span class="demand-metric-label">YoY</span>
+                                <span id="distillate-demand-yoy" class="demand-metric-value">--</span>
+                            </div>
+
+                        </div>
+
+                        <div
+                            id="distillate-demand-updated"
+                            class="supply-updated">
+                            Week ending: --
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
             <div class="supply-chart-panel">
 
                 <div class="supply-chart-toolbar">
@@ -1496,6 +1703,14 @@
 
                             <option value="product_supplied">
                                 Products Supplied
+                            </option>
+
+                            <option value="gasoline_product_supplied">
+                                Gasoline Demand
+                            </option>
+
+                            <option value="distillate_product_supplied">
+                                Distillate Demand
                             </option>
 
                         </select>
@@ -2613,6 +2828,16 @@
                     'million barrels per day'
                 );
 
+                updateDemandIndicator(
+                    'gasoline-demand',
+                    series.gasoline_product_supplied?.data
+                );
+
+                updateDemandIndicator(
+                    'distillate-demand',
+                    series.distillate_product_supplied?.data
+                );
+
                 document
                     .getElementById('supply-report-date')
                     .textContent =
@@ -2655,6 +2880,23 @@
                             'Supply and demand data unavailable';
                         changeElement.className =
                             'supply-change neutral';
+                    }
+
+                });
+
+                [
+                    'gasoline-demand',
+                    'distillate-demand'
+                ].forEach(prefix => {
+
+                    const valueElement =
+                        document.getElementById(
+                            prefix + '-value'
+                        );
+
+                    if (valueElement) {
+                        valueElement.textContent =
+                            '--.---';
                     }
 
                 });
@@ -2752,6 +2994,196 @@
                 .textContent =
                 'Week ending: ' +
                 formatEIAWeek(latest.date);
+
+        }
+
+
+        function updateDemandIndicator(prefix, observations) {
+
+            if (
+                !Array.isArray(observations) ||
+                observations.length < 53
+            ) {
+                throw new Error(
+                    'Not enough demand observations for ' + prefix
+                );
+            }
+
+            const latest =
+                observations[observations.length - 1];
+
+            const previous =
+                observations[observations.length - 2];
+
+            const latestValue =
+                Number(latest.value);
+
+            const previousValue =
+                Number(previous.value);
+
+            const weeklyChange =
+                latestValue - previousValue;
+
+            const lastFour =
+                observations
+                    .slice(-4)
+                    .map(item => Number(item.value))
+                    .filter(Number.isFinite);
+
+            const fourWeekAverage =
+                lastFour.length
+                    ? lastFour.reduce(
+                        (sum, value) => sum + value,
+                        0
+                    ) / lastFour.length
+                    : null;
+
+            const targetDate =
+                new Date(
+                    latest.date + 'T00:00:00Z'
+                );
+
+            targetDate.setUTCFullYear(
+                targetDate.getUTCFullYear() - 1
+            );
+
+            let yearAgo = null;
+            let closestDistance = Infinity;
+
+            observations.forEach(item => {
+
+                const itemDate =
+                    new Date(
+                        item.date + 'T00:00:00Z'
+                    );
+
+                const distance =
+                    Math.abs(
+                        itemDate - targetDate
+                    );
+
+                if (
+                    distance < closestDistance &&
+                    item.date !== latest.date
+                ) {
+                    closestDistance = distance;
+                    yearAgo = item;
+                }
+
+            });
+
+            const yearAgoValue =
+                yearAgo
+                    ? Number(yearAgo.value)
+                    : null;
+
+            const yoyChange =
+                (
+                    Number.isFinite(yearAgoValue) &&
+                    yearAgoValue !== 0
+                )
+                    ? (
+                        (latestValue - yearAgoValue) /
+                        yearAgoValue
+                    ) * 100
+                    : null;
+
+            document
+                .getElementById(prefix + '-value')
+                .textContent =
+                latestValue.toFixed(3);
+
+            const weeklyElement =
+                document.getElementById(
+                    prefix + '-weekly'
+                );
+
+            const weeklySign =
+                weeklyChange > 0
+                    ? '+'
+                    : '';
+
+            weeklyElement.textContent =
+                weeklySign +
+                weeklyChange.toFixed(3) +
+                'M';
+
+            weeklyElement.className =
+                'demand-metric-value ' +
+                (
+                    weeklyChange > 0
+                        ? 'positive'
+                        : weeklyChange < 0
+                            ? 'negative'
+                            : 'neutral'
+                );
+
+            document
+                .getElementById(
+                    prefix + '-4wk'
+                )
+                .textContent =
+                Number.isFinite(fourWeekAverage)
+                    ? fourWeekAverage.toFixed(3) + 'M'
+                    : '--';
+
+            document
+                .getElementById(
+                    prefix + '-year-ago'
+                )
+                .textContent =
+                Number.isFinite(yearAgoValue)
+                    ? yearAgoValue.toFixed(3) + 'M'
+                    : '--';
+
+            const yoyElement =
+                document.getElementById(
+                    prefix + '-yoy'
+                );
+
+            if (Number.isFinite(yoyChange)) {
+
+                const yoySign =
+                    yoyChange > 0
+                        ? '+'
+                        : '';
+
+                yoyElement.textContent =
+                    yoySign +
+                    yoyChange.toFixed(2) +
+                    '%';
+
+                yoyElement.className =
+                    'demand-metric-value ' +
+                    (
+                        yoyChange > 0
+                            ? 'positive'
+                            : yoyChange < 0
+                                ? 'negative'
+                                : 'neutral'
+                    );
+
+            }
+
+            else {
+
+                yoyElement.textContent =
+                    '--';
+
+                yoyElement.className =
+                    'demand-metric-value neutral';
+
+            }
+
+            document
+                .getElementById(
+                    prefix + '-updated'
+                )
+                .textContent =
+                'Week ending: ' +
+                formatEIAWeek(
+                    latest.date
+                );
 
         }
 
