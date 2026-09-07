@@ -34,44 +34,44 @@ jobs:
           # WEEKLY EIA SERIES
           # -------------------------------------------------------
 
-          SERIES = {
-
-              "crude_production": {
-                  "series_id": "WCRFPUS2",
-                  "name": "U.S. Crude Oil Production",
-                  "unit": "million barrels per day"
-              },
-
-              "refinery_utilization": {
-                  "series_id": "WPULEUS3",
-                  "name": "Refinery Utilization",
-                  "unit": "percent"
-              },
-
-              "refinery_crude_inputs": {
-                  "series_id": "WCRRIUS2",
-                  "name": "Crude Oil Refinery Inputs",
-                  "unit": "million barrels per day"
-              },
-
-              "crude_imports": {
-                  "series_id": "WCRIMUS2",
-                  "name": "Crude Oil Imports",
-                  "unit": "million barrels per day"
-              },
-
-              "crude_exports": {
-                  "series_id": "WCREXUS2",
-                  "name": "Crude Oil Exports",
-                  "unit": "million barrels per day"
-              },
-
-              "product_supplied": {
-                  "series_id": "WRPUPUS2",
-                  "name": "Total Petroleum Products Supplied",
-                  "unit": "million barrels per day"
-              }
-          }
+                         SERIES = {
+                
+                    "crude_production": {
+                        "series_id": "PET.WCRFPUS2.W",
+                        "name": "U.S. Crude Oil Production",
+                        "unit": "million barrels per day"
+                    },
+                
+                    "refinery_utilization": {
+                        "series_id": "PET.WPULEUS3.W",
+                        "name": "Refinery Utilization",
+                        "unit": "percent"
+                    },
+                
+                    "refinery_crude_inputs": {
+                        "series_id": "PET.WCRRIUS2.W",
+                        "name": "Crude Oil Refinery Inputs",
+                        "unit": "million barrels per day"
+                    },
+                
+                    "crude_imports": {
+                        "series_id": "PET.WCRIMUS2.W",
+                        "name": "Crude Oil Imports",
+                        "unit": "million barrels per day"
+                    },
+                
+                    "crude_exports": {
+                        "series_id": "PET.WCREXUS2.W",
+                        "name": "Crude Oil Exports",
+                        "unit": "million barrels per day"
+                    },
+                
+                    "product_supplied": {
+                        "series_id": "PET.WRPUPUS2.W",
+                        "name": "Total Petroleum Products Supplied",
+                        "unit": "million barrels per day"
+                    }
+                }
 
 
           # -------------------------------------------------------
