@@ -3061,20 +3061,17 @@
 
                                         color:
                                             '#7f8d9d',
-
+                                    
                                         callback:
                                             function(value) {
-
-                                                return (
-                                                    value +
-                                                    (
-                                                        isPercent
-                                                            ? '%'
-                                                            : 'M'
-                                                    )
-                                                );
+                                    
+                                                if (isPercent) {
+                                                    return Number(value).toFixed(1) + '%';
+                                                }
+                                    
+                                                return Number(value).toFixed(1) + 'M';
                                             }
-
+                                    
                                     },
 
                                     title: {
