@@ -69,7 +69,18 @@ jobs:
                   "series_id": "PET.WRPUPUS2.W",
                   "name": "Total Petroleum Products Supplied",
                   "unit": "million barrels per day"
-              }
+              },
+              "gasoline_product_supplied": {
+                "series_id": "PET.WGFUPUS2.W",
+                "name": "Finished Motor Gasoline Product Supplied",
+                "unit": "million barrels per day"
+            },
+            
+            "distillate_product_supplied": {
+                "series_id": "PET.WDIUPUS2.W",
+                "name": "Distillate Fuel Oil Product Supplied",
+                "unit": "million barrels per day"
+            }
           }
 
 
