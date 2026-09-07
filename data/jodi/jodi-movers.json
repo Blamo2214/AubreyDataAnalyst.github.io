@@ -1,0 +1,394 @@
+{
+  "source": "JODI Oil World Database",
+  "dataset": "Extended Primary",
+  "generated_at": "2026-09-07T04:23:49.835874+00:00",
+  "latest_global_reported_month": "2026-06",
+  "methodology": {
+    "max_staleness_months": 6,
+    "flow_min_prior_value_mbd": 0.05,
+    "stock_min_prior_value_million_barrels": 1.0,
+    "comparison": "Latest available observation versus the exact same month one year earlier. Flow series are ranked by percentage change; closing stocks are ranked by absolute million-barrel change."
+  },
+  "series": {
+    "crude_production": {
+      "name": "Crude Production",
+      "unit": "million barrels per day",
+      "rank_by": "percent",
+      "eligible_country_count": 23,
+      "gainers": [
+        {
+          "code": "VE",
+          "name": "Venezuela",
+          "latest_month": "2026-06",
+          "latest_value": 1.187,
+          "year_ago_month": "2025-06",
+          "year_ago_value": 1.069,
+          "absolute_change": 0.118,
+          "percent_change": 11.038,
+          "stale_months": 0
+        },
+        {
+          "code": "CA",
+          "name": "Canada",
+          "latest_month": "2026-06",
+          "latest_value": 4.4511,
+          "year_ago_month": "2025-06",
+          "year_ago_value": 4.0543,
+          "absolute_change": 0.3968,
+          "percent_change": 9.787,
+          "stale_months": 0
+        },
+        {
+          "code": "TH",
+          "name": "Thailand",
+          "latest_month": "2026-05",
+          "latest_value": 0.1775,
+          "year_ago_month": "2025-05",
+          "year_ago_value": 0.1633,
+          "absolute_change": 0.0142,
+          "percent_change": 8.696,
+          "stale_months": 1
+        }
+      ],
+      "losers": [
+        {
+          "code": "BH",
+          "name": "BH",
+          "latest_month": "2026-06",
+          "latest_value": 0.0319,
+          "year_ago_month": "2025-06",
+          "year_ago_value": 0.187,
+          "absolute_change": -0.1551,
+          "percent_change": -82.941,
+          "stale_months": 0
+        },
+        {
+          "code": "KW",
+          "name": "Kuwait",
+          "latest_month": "2026-06",
+          "latest_value": 1.65,
+          "year_ago_month": "2025-06",
+          "year_ago_value": 2.42,
+          "absolute_change": -0.77,
+          "percent_change": -31.818,
+          "stale_months": 0
+        },
+        {
+          "code": "SA",
+          "name": "Saudi Arabia",
+          "latest_month": "2026-06",
+          "latest_value": 7.122,
+          "year_ago_month": "2025-06",
+          "year_ago_value": 9.752,
+          "absolute_change": -2.63,
+          "percent_change": -26.969,
+          "stale_months": 0
+        }
+      ]
+    },
+    "crude_imports": {
+      "name": "Crude Imports",
+      "unit": "million barrels per day",
+      "rank_by": "percent",
+      "eligible_country_count": 44,
+      "gainers": [
+        {
+          "code": "ID",
+          "name": "Indonesia",
+          "latest_month": "2026-06",
+          "latest_value": 0.4726,
+          "year_ago_month": "2025-06",
+          "year_ago_value": 0.2991,
+          "absolute_change": 0.1735,
+          "percent_change": 58.007,
+          "stale_months": 0
+        },
+        {
+          "code": "PT",
+          "name": "Portugal",
+          "latest_month": "2026-06",
+          "latest_value": 0.2737,
+          "year_ago_month": "2025-06",
+          "year_ago_value": 0.1924,
+          "absolute_change": 0.0813,
+          "percent_change": 42.256,
+          "stale_months": 0
+        },
+        {
+          "code": "BG",
+          "name": "BG",
+          "latest_month": "2026-06",
+          "latest_value": 0.1424,
+          "year_ago_month": "2025-06",
+          "year_ago_value": 0.1004,
+          "absolute_change": 0.042,
+          "percent_change": 41.833,
+          "stale_months": 0
+        }
+      ],
+      "losers": [
+        {
+          "code": "FI",
+          "name": "Finland",
+          "latest_month": "2026-06",
+          "latest_value": 0.0,
+          "year_ago_month": "2025-06",
+          "year_ago_value": 0.1924,
+          "absolute_change": -0.1924,
+          "percent_change": -100.0,
+          "stale_months": 0
+        },
+        {
+          "code": "PE",
+          "name": "Peru",
+          "latest_month": "2025-12",
+          "latest_value": 0.0,
+          "year_ago_month": "2024-12",
+          "year_ago_value": 0.1274,
+          "absolute_change": -0.1274,
+          "percent_change": -100.0,
+          "stale_months": 6
+        },
+        {
+          "code": "SA",
+          "name": "Saudi Arabia",
+          "latest_month": "2026-06",
+          "latest_value": 0.0,
+          "year_ago_month": "2025-06",
+          "year_ago_value": 0.15,
+          "absolute_change": -0.15,
+          "percent_change": -100.0,
+          "stale_months": 0
+        }
+      ]
+    },
+    "crude_exports": {
+      "name": "Crude Exports",
+      "unit": "million barrels per day",
+      "rank_by": "percent",
+      "eligible_country_count": 17,
+      "gainers": [
+        {
+          "code": "MY",
+          "name": "Malaysia",
+          "latest_month": "2026-06",
+          "latest_value": 0.1535,
+          "year_ago_month": "2025-06",
+          "year_ago_value": 0.1323,
+          "absolute_change": 0.0212,
+          "percent_change": 16.024,
+          "stale_months": 0
+        },
+        {
+          "code": "US",
+          "name": "United States",
+          "latest_month": "2026-06",
+          "latest_value": 4.2233,
+          "year_ago_month": "2025-06",
+          "year_ago_value": 3.7624,
+          "absolute_change": 0.4609,
+          "percent_change": 12.25,
+          "stale_months": 0
+        },
+        {
+          "code": "BN",
+          "name": "BN",
+          "latest_month": "2026-06",
+          "latest_value": 0.066,
+          "year_ago_month": "2025-06",
+          "year_ago_value": 0.0589,
+          "absolute_change": 0.0071,
+          "percent_change": 12.054,
+          "stale_months": 0
+        }
+      ],
+      "losers": [
+        {
+          "code": "BH",
+          "name": "BH",
+          "latest_month": "2026-06",
+          "latest_value": 0.0,
+          "year_ago_month": "2025-06",
+          "year_ago_value": 0.1523,
+          "absolute_change": -0.1523,
+          "percent_change": -100.0,
+          "stale_months": 0
+        },
+        {
+          "code": "ID",
+          "name": "Indonesia",
+          "latest_month": "2026-06",
+          "latest_value": 0.0,
+          "year_ago_month": "2025-06",
+          "year_ago_value": 0.07,
+          "absolute_change": -0.07,
+          "percent_change": -100.0,
+          "stale_months": 0
+        },
+        {
+          "code": "CN",
+          "name": "China",
+          "latest_month": "2026-06",
+          "latest_value": 0.0616,
+          "year_ago_month": "2025-06",
+          "year_ago_value": 0.307,
+          "absolute_change": -0.2454,
+          "percent_change": -79.935,
+          "stale_months": 0
+        }
+      ]
+    },
+    "refinery_intake": {
+      "name": "Refinery Intake",
+      "unit": "million barrels per day",
+      "rank_by": "percent",
+      "eligible_country_count": 48,
+      "gainers": [
+        {
+          "code": "MY",
+          "name": "Malaysia",
+          "latest_month": "2026-05",
+          "latest_value": 0.6753,
+          "year_ago_month": "2025-05",
+          "year_ago_value": 0.2704,
+          "absolute_change": 0.4049,
+          "percent_change": 149.741,
+          "stale_months": 1
+        },
+        {
+          "code": "NG",
+          "name": "Nigeria",
+          "latest_month": "2026-06",
+          "latest_value": 0.65,
+          "year_ago_month": "2025-06",
+          "year_ago_value": 0.431,
+          "absolute_change": 0.219,
+          "percent_change": 50.812,
+          "stale_months": 0
+        },
+        {
+          "code": "HR",
+          "name": "HR",
+          "latest_month": "2026-06",
+          "latest_value": 0.0794,
+          "year_ago_month": "2025-06",
+          "year_ago_value": 0.0559,
+          "absolute_change": 0.0235,
+          "percent_change": 42.039,
+          "stale_months": 0
+        }
+      ],
+      "losers": [
+        {
+          "code": "PE",
+          "name": "Peru",
+          "latest_month": "2025-12",
+          "latest_value": 0.0,
+          "year_ago_month": "2024-12",
+          "year_ago_value": 0.1662,
+          "absolute_change": -0.1662,
+          "percent_change": -100.0,
+          "stale_months": 6
+        },
+        {
+          "code": "BH",
+          "name": "BH",
+          "latest_month": "2026-06",
+          "latest_value": 0.0872,
+          "year_ago_month": "2025-06",
+          "year_ago_value": 0.2213,
+          "absolute_change": -0.1341,
+          "percent_change": -60.596,
+          "stale_months": 0
+        },
+        {
+          "code": "KW",
+          "name": "Kuwait",
+          "latest_month": "2026-06",
+          "latest_value": 0.622,
+          "year_ago_month": "2025-06",
+          "year_ago_value": 1.18,
+          "absolute_change": -0.558,
+          "percent_change": -47.288,
+          "stale_months": 0
+        }
+      ]
+    },
+    "closing_stocks": {
+      "name": "Closing Crude Stocks",
+      "unit": "million barrels",
+      "rank_by": "absolute",
+      "eligible_country_count": 42,
+      "gainers": [
+        {
+          "code": "CA",
+          "name": "Canada",
+          "latest_month": "2026-06",
+          "latest_value": 58.6357,
+          "year_ago_month": "2025-06",
+          "year_ago_value": 53.3735,
+          "absolute_change": 5.2622,
+          "percent_change": 9.859,
+          "stale_months": 0
+        },
+        {
+          "code": "TH",
+          "name": "Thailand",
+          "latest_month": "2026-05",
+          "latest_value": 26.7583,
+          "year_ago_month": "2025-05",
+          "year_ago_value": 22.4405,
+          "absolute_change": 4.3178,
+          "percent_change": 19.241,
+          "stale_months": 1
+        },
+        {
+          "code": "ES",
+          "name": "Spain",
+          "latest_month": "2026-06",
+          "latest_value": 32.1848,
+          "year_ago_month": "2025-06",
+          "year_ago_value": 28.9125,
+          "absolute_change": 3.2723,
+          "percent_change": 11.318,
+          "stale_months": 0
+        }
+      ],
+      "losers": [
+        {
+          "code": "JP",
+          "name": "Japan",
+          "latest_month": "2026-06",
+          "latest_value": 268.6144,
+          "year_ago_month": "2025-06",
+          "year_ago_value": 342.447,
+          "absolute_change": -73.8326,
+          "percent_change": -21.56,
+          "stale_months": 0
+        },
+        {
+          "code": "KR",
+          "name": "South Korea",
+          "latest_month": "2026-06",
+          "latest_value": 94.6455,
+          "year_ago_month": "2025-06",
+          "year_ago_value": 108.3832,
+          "absolute_change": -13.7377,
+          "percent_change": -12.675,
+          "stale_months": 0
+        },
+        {
+          "code": "SA",
+          "name": "Saudi Arabia",
+          "latest_month": "2026-06",
+          "latest_value": 144.21,
+          "year_ago_month": "2025-06",
+          "year_ago_value": 152.414,
+          "absolute_change": -8.204,
+          "percent_change": -5.383,
+          "stale_months": 0
+        }
+      ]
+    }
+  }
+}
