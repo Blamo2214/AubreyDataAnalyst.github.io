@@ -36,7 +36,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests pandas
+          pip install requests pandas pycountry
 
 
       - name: Download and process JODI data
@@ -44,17 +44,19 @@ jobs:
           python <<'PY'
 
           import json
+          import shutil
           import time
           from datetime import datetime, timezone
           from pathlib import Path
 
           import pandas as pd
+          import pycountry
           import requests
 
 
-          # ---------------------------------------------------------
-          # Configuration
-          # ---------------------------------------------------------
+          # =========================================================
+          # CONFIGURATION
+          # =========================================================
 
           START_YEAR = 2002
 
@@ -62,233 +64,364 @@ jobs:
               timezone.utc
           ).year
 
-          OUTPUT_FILE = Path(
-              "data/jodi-global-oil.json"
+
+          OUTPUT_DIR = Path(
+              "data/jodi"
+          )
+
+          COUNTRY_DIR = (
+              OUTPUT_DIR /
+              "countries"
+          )
+
+          SUMMARY_FILE = (
+              OUTPUT_DIR /
+              "summary.json"
           )
 
 
-          BASE_URL = (
+          BASE_DIR = (
               "https://www.jodidata.org/"
               "_resources/files/downloads/"
               "oil-data/annual-csv/primary/"
-              "primaryyear{year}.csv"
           )
 
 
-          # JODI flow codes we want to keep.
           FLOW_CONFIG = {
 
               "INDPROD": {
-                  "key": "crude_production",
-                  "name": "Crude Oil Production",
-                  "unit": "KBD",
-                  "output_unit":
+                  "key":
+                      "crude_production",
+
+                  "name":
+                      "Crude Oil Production",
+
+                  "source_unit":
+                      "KBD",
+
+                  "unit":
                       "million barrels per day"
               },
 
               "TOTIMPSB": {
-                  "key": "crude_imports",
-                  "name": "Crude Oil Imports",
-                  "unit": "KBD",
-                  "output_unit":
+                  "key":
+                      "crude_imports",
+
+                  "name":
+                      "Crude Oil Imports",
+
+                  "source_unit":
+                      "KBD",
+
+                  "unit":
                       "million barrels per day"
               },
 
               "TOTEXPSB": {
-                  "key": "crude_exports",
-                  "name": "Crude Oil Exports",
-                  "unit": "KBD",
-                  "output_unit":
+                  "key":
+                      "crude_exports",
+
+                  "name":
+                      "Crude Oil Exports",
+
+                  "source_unit":
+                      "KBD",
+
+                  "unit":
                       "million barrels per day"
               },
 
               "REFINOBS": {
-                  "key": "refinery_intake",
-                  "name": "Refinery Crude Intake",
-                  "unit": "KBD",
-                  "output_unit":
+                  "key":
+                      "refinery_intake",
+
+                  "name":
+                      "Refinery Crude Intake",
+
+                  "source_unit":
+                      "KBD",
+
+                  "unit":
                       "million barrels per day"
               },
 
               "CLOSTLV": {
-                  "key": "closing_stocks",
-                  "name": "Closing Crude Oil Stocks",
-                  "unit": "KBBL",
-                  "output_unit":
+                  "key":
+                      "closing_stocks",
+
+                  "name":
+                      "Closing Crude Oil Stocks",
+
+                  "source_unit":
+                      "KBBL",
+
+                  "unit":
                       "million barrels"
               }
 
           }
 
 
-          # ISO alpha-2 country names.
-          #
-          # We can expand this later if JODI contains special
-          # aggregate/territory codes we want to display.
-          COUNTRY_NAMES = {
+          # =========================================================
+          # COUNTRY NAME HELPER
+          # =========================================================
 
-              "AE": "United Arab Emirates",
-              "AR": "Argentina",
-              "AT": "Austria",
-              "AU": "Australia",
-              "BE": "Belgium",
-              "BR": "Brazil",
-              "CA": "Canada",
-              "CH": "Switzerland",
-              "CL": "Chile",
-              "CN": "China",
-              "CO": "Colombia",
-              "CZ": "Czech Republic",
-              "DE": "Germany",
-              "DK": "Denmark",
-              "DZ": "Algeria",
-              "EC": "Ecuador",
-              "EG": "Egypt",
-              "ES": "Spain",
-              "FI": "Finland",
-              "FR": "France",
-              "GB": "United Kingdom",
-              "GR": "Greece",
-              "HU": "Hungary",
-              "ID": "Indonesia",
-              "IE": "Ireland",
-              "IN": "India",
-              "IQ": "Iraq",
-              "IR": "Iran",
-              "IT": "Italy",
-              "JP": "Japan",
-              "KR": "South Korea",
-              "KW": "Kuwait",
-              "LY": "Libya",
-              "MX": "Mexico",
-              "MY": "Malaysia",
-              "NG": "Nigeria",
-              "NL": "Netherlands",
-              "NO": "Norway",
-              "NZ": "New Zealand",
-              "PE": "Peru",
-              "PH": "Philippines",
-              "PL": "Poland",
-              "PT": "Portugal",
-              "QA": "Qatar",
-              "RO": "Romania",
-              "RU": "Russia",
-              "SA": "Saudi Arabia",
-              "SE": "Sweden",
-              "SG": "Singapore",
-              "SK": "Slovakia",
-              "TH": "Thailand",
-              "TR": "Turkey",
-              "US": "United States",
-              "VE": "Venezuela",
-              "VN": "Vietnam",
-              "ZA": "South Africa"
+          COUNTRY_OVERRIDES = {
+
+              "AE":
+                  "United Arab Emirates",
+
+              "BO":
+                  "Bolivia",
+
+              "BN":
+                  "Brunei",
+
+              "CD":
+                  "Democratic Republic of the Congo",
+
+              "CI":
+                  "Ivory Coast",
+
+              "CZ":
+                  "Czech Republic",
+
+              "GB":
+                  "United Kingdom",
+
+              "IR":
+                  "Iran",
+
+              "KR":
+                  "South Korea",
+
+              "KP":
+                  "North Korea",
+
+              "LA":
+                  "Laos",
+
+              "MD":
+                  "Moldova",
+
+              "PS":
+                  "Palestine",
+
+              "RU":
+                  "Russia",
+
+              "SY":
+                  "Syria",
+
+              "TR":
+                  "Turkey",
+
+              "TZ":
+                  "Tanzania",
+
+              "US":
+                  "United States",
+
+              "VE":
+                  "Venezuela",
+
+              "VN":
+                  "Vietnam"
 
           }
 
 
-          # ---------------------------------------------------------
-          # Download helper
-          # ---------------------------------------------------------
+          def country_name(code):
+
+              if code in COUNTRY_OVERRIDES:
+                  return COUNTRY_OVERRIDES[
+                      code
+                  ]
+
+              try:
+
+                  country = (
+                      pycountry.countries.get(
+                          alpha_2=code
+                      )
+                  )
+
+                  if country:
+                      return country.name
+
+              except Exception:
+                  pass
+
+              return code
+
+
+          # =========================================================
+          # DOWNLOAD HELPER
+          # =========================================================
 
           def download_year(year):
 
-            urls = [
-                (
-                    "https://www.jodidata.org/"
-                    "_resources/files/downloads/"
-                    "oil-data/annual-csv/primary/"
-                    f"primaryyear{year}.csv"
-                ),
-                (
-                    "https://www.jodidata.org/"
-                    "_resources/files/downloads/"
-                    "oil-data/annual-csv/primary/"
-                    f"{year}.csv"
-                ),
-            ]
-        
-            print()
-            print(
-                f"Downloading JODI {year}..."
-            )
-        
-            last_error = None
-        
-            for url in urls:
-        
-                for attempt in range(1, 4):
-        
-                    try:
-        
-                        print(
-                            f"Trying: {url}"
-                        )
-        
-                        response = requests.get(
-                            url,
-                            timeout=90
-                        )
-        
-                        response.raise_for_status()
-        
-                        text_start = (
-                            response.text[:200]
-                            .lower()
-                        )
-        
-                        if (
-                            "<html" in text_start
-                            or
-                            "<!doctype html"
-                            in text_start
-                        ):
-                            raise RuntimeError(
-                                "JODI returned HTML "
-                                "instead of CSV."
-                            )
-        
-                        print(
-                            f"Downloaded {year}: "
-                            f"{len(response.content):,} bytes"
-                        )
-        
-                        return response.content
-        
-                    except Exception as error:
-        
-                        last_error = error
-        
-                        print(
-                            f"Attempt {attempt} failed "
-                            f"for {url}: {error}"
-                        )
-        
-                        if attempt < 3:
-                            time.sleep(
-                                attempt * 3
-                            )
-        
-            raise RuntimeError(
-                f"Could not download "
-                f"JODI data for {year}: "
-                f"{last_error}"
-            )
+              urls = [
+
+                  (
+                      BASE_DIR +
+                      f"primaryyear{year}.csv"
+                  ),
+
+                  (
+                      BASE_DIR +
+                      f"{year}.csv"
+                  )
+
+              ]
 
 
-          # ---------------------------------------------------------
-          # Download all annual files
-          # ---------------------------------------------------------
+              print()
+              print(
+                  f"Downloading JODI {year}..."
+              )
 
-          raw_dir = Path(
-              "data/jodi-temp"
-          )
 
-          raw_dir.mkdir(
+              last_error = None
+
+
+              for url in urls:
+
+                  for attempt in range(
+                      1,
+                      4
+                  ):
+
+                      try:
+
+                          print(
+                              f"Trying {url}"
+                          )
+
+
+                          response = (
+                              requests.get(
+                                  url,
+                                  timeout=90
+                              )
+                          )
+
+
+                          response.raise_for_status()
+
+
+                          beginning = (
+                              response.text[
+                                  :200
+                              ]
+                              .lower()
+                          )
+
+
+                          if (
+                              "<html"
+                              in beginning
+                              or
+                              "<!doctype html"
+                              in beginning
+                          ):
+
+                              raise RuntimeError(
+                                  "JODI returned "
+                                  "HTML instead "
+                                  "of CSV."
+                              )
+
+
+                          print(
+                              f"Downloaded "
+                              f"{year}: "
+                              f"{len(response.content):,} "
+                              f"bytes"
+                          )
+
+
+                          return (
+                              response.content
+                          )
+
+
+                      except Exception as error:
+
+                          last_error = error
+
+
+                          print(
+                              f"Attempt "
+                              f"{attempt} "
+                              f"failed: "
+                              f"{error}"
+                          )
+
+
+                          if attempt < 3:
+
+                              time.sleep(
+                                  attempt * 2
+                              )
+
+
+              raise RuntimeError(
+                  f"Could not download "
+                  f"JODI data for "
+                  f"{year}: "
+                  f"{last_error}"
+              )
+
+
+          # =========================================================
+          # PREPARE DIRECTORIES
+          # =========================================================
+
+          OUTPUT_DIR.mkdir(
               parents=True,
               exist_ok=True
           )
 
+
+          # Remove old per-country files so countries that
+          # disappear from a later JODI release do not remain
+          # on the website indefinitely.
+
+          if COUNTRY_DIR.exists():
+
+              shutil.rmtree(
+                  COUNTRY_DIR
+              )
+
+
+          COUNTRY_DIR.mkdir(
+              parents=True,
+              exist_ok=True
+          )
+
+
+          TEMP_DIR = Path(
+              "data/jodi-temp"
+          )
+
+
+          if TEMP_DIR.exists():
+
+              shutil.rmtree(
+                  TEMP_DIR
+              )
+
+
+          TEMP_DIR.mkdir(
+              parents=True,
+              exist_ok=True
+          )
+
+
+          # =========================================================
+          # DOWNLOAD ALL YEARS
+          # =========================================================
 
           frames = []
 
@@ -304,8 +437,8 @@ jobs:
 
 
               temp_file = (
-                  raw_dir /
-                  f"primaryyear{year}.csv"
+                  TEMP_DIR /
+                  f"{year}.csv"
               )
 
 
@@ -320,22 +453,19 @@ jobs:
               )
 
 
-              frame["SOURCE_YEAR"] = str(
-                  year
-              )
-
-
               frames.append(
                   frame
               )
 
 
-          # ---------------------------------------------------------
-          # Combine
-          # ---------------------------------------------------------
+          # =========================================================
+          # COMBINE DATA
+          # =========================================================
 
           print()
-          print("Combining annual files...")
+          print(
+              "Combining JODI files..."
+          )
 
 
           df = pd.concat(
@@ -345,14 +475,14 @@ jobs:
 
 
           print(
-              f"Combined rows: "
+              f"Raw rows: "
               f"{len(df):,}"
           )
 
 
-          # ---------------------------------------------------------
-          # Validate schema
-          # ---------------------------------------------------------
+          # =========================================================
+          # VALIDATE SCHEMA
+          # =========================================================
 
           REQUIRED_COLUMNS = {
 
@@ -376,31 +506,20 @@ jobs:
           if missing_columns:
 
               raise RuntimeError(
-                  "JODI schema is missing "
-                  f"required columns: "
+                  "Missing JODI columns: "
                   f"{sorted(missing_columns)}"
               )
 
 
-          # ---------------------------------------------------------
-          # Keep crude oil only
-          # ---------------------------------------------------------
+          # =========================================================
+          # FILTER CRUDE OIL
+          # =========================================================
 
           df = df[
               df["ENERGY_PRODUCT"]
               == "CRUDEOIL"
           ].copy()
 
-
-          print(
-              f"Crude oil rows: "
-              f"{len(df):,}"
-          )
-
-
-          # ---------------------------------------------------------
-          # Keep selected flows
-          # ---------------------------------------------------------
 
           df = df[
               df["FLOW_BREAKDOWN"]
@@ -410,52 +529,49 @@ jobs:
           ].copy()
 
 
-          print(
-              f"Selected flow rows: "
-              f"{len(df):,}"
-          )
+          # =========================================================
+          # SELECT CORRECT SOURCE UNIT
+          # =========================================================
 
+          def valid_unit(row):
 
-          # ---------------------------------------------------------
-          # Keep the correct unit for each flow
-          # ---------------------------------------------------------
-
-          def correct_unit(row):
-
-              config = FLOW_CONFIG.get(
-                  row["FLOW_BREAKDOWN"]
+              flow = (
+                  row[
+                      "FLOW_BREAKDOWN"
+                  ]
               )
 
 
-              if not config:
-                  return False
+              expected = (
+                  FLOW_CONFIG[
+                      flow
+                  ][
+                      "source_unit"
+                  ]
+              )
 
 
               return (
-                  row["UNIT_MEASURE"]
-                  == config["unit"]
+                  row[
+                      "UNIT_MEASURE"
+                  ]
+                  == expected
               )
 
 
           df = df[
               df.apply(
-                  correct_unit,
+                  valid_unit,
                   axis=1
               )
           ].copy()
 
 
-          print(
-              f"Correct-unit rows: "
-              f"{len(df):,}"
-          )
+          # =========================================================
+          # CLEAN VALUES
+          # =========================================================
 
-
-          # ---------------------------------------------------------
-          # Clean observations
-          # ---------------------------------------------------------
-
-          df["OBS_VALUE_NUMERIC"] = (
+          df["VALUE_RAW"] = (
               pd.to_numeric(
                   df["OBS_VALUE"],
                   errors="coerce"
@@ -463,163 +579,108 @@ jobs:
           )
 
 
-          invalid_count = int(
-              df["OBS_VALUE_NUMERIC"]
+          invalid_values = int(
+              df["VALUE_RAW"]
               .isna()
               .sum()
           )
 
 
           print(
-              f"Non-numeric observations "
-              f"removed: {invalid_count:,}"
+              f"Non-numeric values "
+              f"removed: "
+              f"{invalid_values:,}"
           )
 
 
           df = df.dropna(
               subset=[
-                  "OBS_VALUE_NUMERIC"
+                  "VALUE_RAW"
               ]
           ).copy()
 
 
-          # ---------------------------------------------------------
-          # Validate dates
-          # ---------------------------------------------------------
+          # KBD  -> million barrels/day
+          # KBBL -> million barrels
 
-          df["DATE"] = pd.to_datetime(
-              df["TIME_PERIOD"],
-              format="%Y-%m",
-              errors="coerce"
+          df["VALUE"] = (
+              df["VALUE_RAW"]
+              / 1000.0
           )
 
 
-          invalid_dates = int(
-              df["DATE"]
-              .isna()
-              .sum()
-          )
+          # =========================================================
+          # CLEAN DATES
+          # =========================================================
 
-
-          if invalid_dates:
-
-              print(
-                  f"Invalid dates removed: "
-                  f"{invalid_dates:,}"
+          df["DATE"] = (
+              pd.to_datetime(
+                  df["TIME_PERIOD"],
+                  format="%Y-%m",
+                  errors="coerce"
               )
+          )
 
 
           df = df.dropna(
-              subset=["DATE"]
+              subset=[
+                  "DATE"
+              ]
           ).copy()
 
 
-          # ---------------------------------------------------------
-          # Remove duplicates
-          # ---------------------------------------------------------
+          # =========================================================
+          # REMOVE DUPLICATES
+          # =========================================================
 
           df = df.sort_values(
+
               [
                   "REF_AREA",
                   "FLOW_BREAKDOWN",
                   "DATE"
               ]
+
           )
 
 
-          duplicate_mask = (
-              df.duplicated(
-                  subset=[
-                      "REF_AREA",
-                      "FLOW_BREAKDOWN",
-                      "TIME_PERIOD"
-                  ],
-                  keep="last"
-              )
+          before = len(df)
+
+
+          df = df.drop_duplicates(
+
+              subset=[
+                  "REF_AREA",
+                  "FLOW_BREAKDOWN",
+                  "TIME_PERIOD"
+              ],
+
+              keep="last"
+
           )
 
 
-          duplicate_count = int(
-              duplicate_mask.sum()
+          print(
+              "Duplicate rows removed:",
+              before - len(df)
           )
 
 
-          if duplicate_count:
+          # =========================================================
+          # GLOBAL METADATA
+          # =========================================================
 
-              print(
-                  f"Duplicate observations "
-                  f"removed: "
-                  f"{duplicate_count:,}"
-              )
-
-
-          df = df[
-              ~duplicate_mask
-          ].copy()
-
-
-          # ---------------------------------------------------------
-          # Convert units
-          #
-          # KBD  -> million barrels/day
-          # KBBL -> million barrels
-          #
-          # Both divide by 1,000.
-          # ---------------------------------------------------------
-
-          df["VALUE"] = (
-              df["OBS_VALUE_NUMERIC"]
-              / 1000.0
+          generated_at = (
+              datetime.now(
+                  timezone.utc
+              ).isoformat()
           )
 
 
-          # ---------------------------------------------------------
-          # Determine latest reported month
-          # ---------------------------------------------------------
-
-          latest_period = (
+          latest_global_month = (
               df["TIME_PERIOD"]
               .max()
           )
-
-
-          print()
-          print(
-              f"Latest reported month: "
-              f"{latest_period}"
-          )
-
-
-          # ---------------------------------------------------------
-          # Build JSON
-          # ---------------------------------------------------------
-
-          output = {
-
-              "source":
-                  "JODI Oil World Database",
-
-              "dataset":
-                  "Extended Primary",
-
-              "generated_at":
-                  datetime.now(
-                      timezone.utc
-                  ).isoformat(),
-
-              "latest_reported_month":
-                  latest_period,
-
-              "start_year":
-                  START_YEAR,
-
-              "end_year":
-                  CURRENT_YEAR,
-
-              "countries":
-                  {}
-
-          }
 
 
           country_codes = sorted(
@@ -629,33 +690,76 @@ jobs:
           )
 
 
+          print()
           print(
-              f"Countries/areas found: "
+              f"Countries/areas: "
               f"{len(country_codes)}"
           )
 
+          print(
+              f"Latest global month: "
+              f"{latest_global_month}"
+          )
 
-          for country_code in country_codes:
+
+          # =========================================================
+          # BUILD COUNTRY FILES
+          # =========================================================
+
+          summary_countries = []
+
+          total_observations = 0
+
+
+          for code in country_codes:
 
               country_df = df[
                   df["REF_AREA"]
-                  == country_code
-              ]
+                  == code
+              ].copy()
+
+
+              name = country_name(
+                  code
+              )
 
 
               country_output = {
 
-                  "name":
-                      COUNTRY_NAMES.get(
-                          country_code,
-                          country_code
-                      ),
+                  "source":
+                      "JODI Oil World Database",
+
+                  "dataset":
+                      "Extended Primary",
+
+                  "generated_at":
+                      generated_at,
+
+                  "country": {
+                      "code":
+                          code,
+
+                      "name":
+                          name
+                  },
+
+                  "series": {}
+
+              }
+
+
+              summary_entry = {
 
                   "code":
-                      country_code,
+                      code,
 
-                  "series":
-                      {}
+                  "name":
+                      name,
+
+                  "file":
+                      f"countries/{code}.json",
+
+                  "series": {}
 
               }
 
@@ -665,13 +769,16 @@ jobs:
                   config
               ) in FLOW_CONFIG.items():
 
-                  flow_df = country_df[
+                  series_df = (
                       country_df[
-                          "FLOW_BREAKDOWN"
+                          country_df[
+                              "FLOW_BREAKDOWN"
+                          ]
+                          == flow_code
                       ]
-                      == flow_code
-                  ].sort_values(
-                      "DATE"
+                      .sort_values(
+                          "DATE"
+                      )
                   )
 
 
@@ -679,7 +786,7 @@ jobs:
 
 
                   for _, row in (
-                      flow_df.iterrows()
+                      series_df.iterrows()
                   ):
 
                       assessment = (
@@ -689,14 +796,20 @@ jobs:
                       )
 
 
-                      if pd.isna(
-                          assessment
+                      if (
+                          pd.isna(
+                              assessment
+                          )
                       ):
+
                           assessment = None
 
                       else:
-                          assessment = str(
-                              assessment
+
+                          assessment = (
+                              str(
+                                  assessment
+                              )
                           )
 
 
@@ -723,6 +836,23 @@ jobs:
                       })
 
 
+                  if not observations:
+
+                      continue
+
+
+                  total_observations += (
+                      len(
+                          observations
+                      )
+                  )
+
+
+                  latest_observation = (
+                      observations[-1]
+                  )
+
+
                   country_output[
                       "series"
                   ][
@@ -730,14 +860,26 @@ jobs:
                   ] = {
 
                       "name":
-                          config["name"],
+                          config[
+                              "name"
+                          ],
 
                       "flow_code":
                           flow_code,
 
                       "unit":
                           config[
-                              "output_unit"
+                              "unit"
+                          ],
+
+                      "latest_reported_month":
+                          latest_observation[
+                              "date"
+                          ],
+
+                      "latest_value":
+                          latest_observation[
+                              "value"
                           ],
 
                       "observations":
@@ -746,44 +888,94 @@ jobs:
                   }
 
 
-              output[
-                  "countries"
-              ][
-                  country_code
-              ] = country_output
+                  summary_entry[
+                      "series"
+                  ][
+                      config["key"]
+                  ] = {
+
+                      "name":
+                          config[
+                              "name"
+                          ],
+
+                      "unit":
+                          config[
+                              "unit"
+                          ],
+
+                      "latest_reported_month":
+                          latest_observation[
+                              "date"
+                          ],
+
+                      "latest_value":
+                          latest_observation[
+                              "value"
+                          ],
+
+                      "observation_count":
+                          len(
+                              observations
+                          )
+
+                  }
 
 
-          # ---------------------------------------------------------
-          # Summary information
-          # ---------------------------------------------------------
+              country_file = (
+                  COUNTRY_DIR /
+                  f"{code}.json"
+              )
 
-          total_observations = 0
 
+              with country_file.open(
+                  "w",
+                  encoding="utf-8"
+              ) as file:
 
-          for country in (
-              output["countries"]
-              .values()
-          ):
+                  json.dump(
+                      country_output,
+                      file,
+                      indent=2
+                  )
 
-              for series in (
-                  country["series"]
-                  .values()
-              ):
-
-                  total_observations += len(
-                      series[
-                          "observations"
-                      ]
+                  file.write(
+                      "\n"
                   )
 
 
-          output["summary"] = {
+              summary_countries.append(
+                  summary_entry
+              )
+
+
+          # =========================================================
+          # BUILD SMALL SUMMARY / INDEX FILE
+          # =========================================================
+
+          summary = {
+
+              "source":
+                  "JODI Oil World Database",
+
+              "dataset":
+                  "Extended Primary",
+
+              "generated_at":
+                  generated_at,
+
+              "start_year":
+                  START_YEAR,
+
+              "end_year":
+                  CURRENT_YEAR,
+
+              "latest_global_reported_month":
+                  latest_global_month,
 
               "country_area_count":
                   len(
-                      output[
-                          "countries"
-                      ]
+                      summary_countries
                   ),
 
               "observation_count":
@@ -792,16 +984,20 @@ jobs:
               "flows": {
 
                   config["key"]: {
+
                       "name":
-                          config["name"],
+                          config[
+                              "name"
+                          ],
 
                       "flow_code":
                           flow_code,
 
                       "unit":
                           config[
-                              "output_unit"
+                              "unit"
                           ]
+
                   }
 
                   for (
@@ -810,39 +1006,85 @@ jobs:
                   )
                   in FLOW_CONFIG.items()
 
-              }
+              },
+
+              "countries":
+                  summary_countries
 
           }
 
 
-          # ---------------------------------------------------------
-          # Save
-          # ---------------------------------------------------------
-
-          OUTPUT_FILE.parent.mkdir(
-              parents=True,
-              exist_ok=True
-          )
-
-
-          with OUTPUT_FILE.open(
+          with SUMMARY_FILE.open(
               "w",
               encoding="utf-8"
           ) as file:
 
               json.dump(
-                  output,
+                  summary,
                   file,
                   indent=2
               )
 
-              file.write("\n")
+              file.write(
+                  "\n"
+              )
 
+
+          # =========================================================
+          # REMOVE OLD MONOLITHIC FILES
+          # =========================================================
+
+          old_files = [
+
+              Path(
+                  "data/jodi-global-oil.json"
+              ),
+
+              Path(
+                  "data/jodi-primary-raw.csv"
+              ),
+
+              Path(
+                  "data/jodi-primary-summary.json"
+              )
+
+          ]
+
+
+          for old_file in old_files:
+
+              if old_file.exists():
+
+                  print(
+                      f"Removing old file: "
+                      f"{old_file}"
+                  )
+
+                  old_file.unlink()
+
+
+          # =========================================================
+          # CLEAN TEMP DIRECTORY
+          # =========================================================
+
+          shutil.rmtree(
+              TEMP_DIR,
+              ignore_errors=True
+          )
+
+
+          # =========================================================
+          # FINAL OUTPUT
+          # =========================================================
 
           print()
           print(
-              f"Saved processed JODI data "
-              f"to {OUTPUT_FILE}"
+              "JODI processing complete."
+          )
+
+          print(
+              f"Country files created: "
+              f"{len(summary_countries)}"
           )
 
           print(
@@ -850,32 +1092,20 @@ jobs:
               f"{total_observations:,}"
           )
 
-
-          # ---------------------------------------------------------
-          # Clean temporary annual CSV files
-          # ---------------------------------------------------------
-
-          for file in (
-              raw_dir.glob("*.csv")
-          ):
-              file.unlink()
-
-
-          try:
-              raw_dir.rmdir()
-          except OSError:
-              pass
-
-
-          print()
           print(
-              "JODI processing complete."
+              f"Summary file: "
+              f"{SUMMARY_FILE}"
+          )
+
+          print(
+              f"Country directory: "
+              f"{COUNTRY_DIR}"
           )
 
           PY
 
 
-      - name: Validate generated JSON
+      - name: Validate generated JODI files
         run: |
           python <<'PY'
 
@@ -883,59 +1113,86 @@ jobs:
           from pathlib import Path
 
 
-          path = Path(
-              "data/jodi-global-oil.json"
+          summary_file = Path(
+              "data/jodi/summary.json"
           )
 
 
-          if not path.exists():
+          country_dir = Path(
+              "data/jodi/countries"
+          )
+
+
+          if not summary_file.exists():
+
               raise SystemExit(
-                  "JODI JSON was not created."
+                  "JODI summary file "
+                  "was not created."
               )
 
 
-          with path.open(
+          with summary_file.open(
               "r",
               encoding="utf-8"
           ) as file:
 
-              data = json.load(file)
+              summary = json.load(
+                  file
+              )
 
 
-          countries = data.get(
-              "countries",
-              {}
+          countries = (
+              summary.get(
+                  "countries",
+                  []
+              )
           )
 
 
           if not countries:
+
               raise SystemExit(
-                  "JODI JSON contains no countries."
+                  "JODI summary "
+                  "contains no countries."
+              )
+
+
+          country_files = list(
+              country_dir.glob(
+                  "*.json"
+              )
+          )
+
+
+          if len(country_files) != len(
+              countries
+          ):
+
+              raise SystemExit(
+                  "Country-file count "
+                  "does not match "
+                  "summary count."
               )
 
 
           observations = (
-              data
-              .get(
-                  "summary",
-                  {}
-              )
-              .get(
+              summary.get(
                   "observation_count",
                   0
               )
           )
 
 
-          if observations == 0:
+          if observations <= 0:
+
               raise SystemExit(
-                  "JODI JSON contains "
-                  "no observations."
+                  "No JODI observations "
+                  "were generated."
               )
 
 
           print(
-              "JODI JSON validation passed."
+              "JODI validation passed."
           )
 
           print(
@@ -944,14 +1201,19 @@ jobs:
           )
 
           print(
+              "Country files:",
+              len(country_files)
+          )
+
+          print(
               "Observations:",
               observations
           )
 
           print(
-              "Latest reported month:",
-              data.get(
-                  "latest_reported_month"
+              "Latest global month:",
+              summary.get(
+                  "latest_global_reported_month"
               )
           )
 
@@ -963,7 +1225,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add data/jodi-global-oil.json
+          git add -A data/jodi
+          git add -u data
 
           if git diff --cached --quiet; then
             echo "No JODI changes to commit."
