@@ -701,6 +701,203 @@
         }
 
 
+
+
+        /* =========================================================
+           GLOBAL JODI MARKET DATA
+        ========================================================= */
+
+        .global-header-row {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        .global-header-row .section-header {
+            margin-bottom: 0;
+        }
+
+        .global-country-control {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .global-country-control label,
+        .global-chart-controls label {
+            color: #8f9cac;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .global-country-control select,
+        .global-chart-controls select {
+            min-width: 235px;
+            padding: 10px 34px 10px 12px;
+            border: 1px solid #33404d;
+            border-radius: 3px;
+            background: #0c1219;
+            color: #e7ebef;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.8rem;
+            outline: none;
+        }
+
+        .global-report-date {
+            width: 100%;
+            color: #718092;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.69rem;
+            text-align: right;
+        }
+
+        .global-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .global-card {
+            background: var(--panel);
+            border: 1px solid var(--panel-border);
+            border-radius: 4px;
+            padding: 26px;
+        }
+
+        .global-card h3 {
+            margin: 0 0 5px;
+            font-size: 1.15rem;
+        }
+
+        .global-value {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 2.4rem;
+            font-weight: 700;
+            letter-spacing: -0.04em;
+        }
+
+        .global-card-metrics {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .global-card-metric {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding-top: 12px;
+        }
+
+        .global-card-metric-label {
+            display: block;
+            margin-bottom: 6px;
+            color: #728195;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.64rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .global-card-metric-value {
+            color: #d8dee6;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.88rem;
+            font-weight: 700;
+        }
+
+        .global-updated {
+            margin-top: 18px;
+            color: #68788b;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.69rem;
+        }
+
+        .global-stale-warning {
+            display: none;
+            margin-top: 10px;
+            color: #e6b96a;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.7rem;
+            line-height: 1.45;
+        }
+
+        .global-stale-warning.visible {
+            display: block;
+        }
+
+        .global-chart-panel {
+            margin-top: 22px;
+            background: var(--panel);
+            border: 1px solid var(--panel-border);
+            border-radius: 4px;
+            padding: 26px;
+        }
+
+        .global-chart-toolbar {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 24px;
+            margin-bottom: 22px;
+        }
+
+        .global-chart-title h3 {
+            margin: 0 0 6px;
+            font-size: 1.2rem;
+        }
+
+        .global-chart-title p {
+            margin: 0;
+            color: #8494a7;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.78rem;
+            line-height: 1.5;
+        }
+
+        .global-chart-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .global-range-button {
+            padding: 9px 12px;
+            border: 1px solid #33404d;
+            border-radius: 3px;
+            background: #0c1219;
+            color: #8f9cac;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .global-range-button:hover {
+            color: #fff;
+            border-color: #526171;
+        }
+
+        .global-range-button.active {
+            color: #fff;
+            border-color: var(--accent);
+            background: rgba(217,75,91,0.10);
+        }
+
+        .global-chart-wrap {
+            position: relative;
+            height: 430px;
+        }
+
+
         /* =========================================================
            PHYSICAL MARKET CARDS
         ========================================================= */
@@ -770,6 +967,7 @@
             .inventory-grid,
             .supply-grid,
             .demand-grid,
+            .global-grid,
             .placeholder-grid,
             .placeholder-grid.two-column {
                 grid-template-columns: 1fr;
@@ -777,7 +975,9 @@
 
             .inventory-header-row,
             .inventory-chart-toolbar,
-            .supply-chart-toolbar {
+            .supply-chart-toolbar,
+            .global-header-row,
+            .global-chart-toolbar {
                 align-items: flex-start;
                 flex-direction: column;
             }
@@ -789,7 +989,11 @@
             .inventory-chart-controls,
             .inventory-chart-controls select,
             .supply-chart-controls,
-            .supply-chart-controls select {
+            .supply-chart-controls select,
+            .global-country-control,
+            .global-country-control select,
+            .global-chart-controls,
+            .global-chart-controls select {
                 width: 100%;
             }
 
@@ -802,7 +1006,8 @@
             }
 
             .inventory-chart-wrap,
-            .supply-chart-wrap {
+            .supply-chart-wrap,
+            .global-chart-wrap {
                 height: 360px;
             }
 
@@ -1741,6 +1946,205 @@
         </section>
 
 
+        <!-- GLOBAL OIL MARKET -->
+        <section class="section">
+
+            <div class="global-header-row">
+
+                <div class="section-header">
+
+                    <span class="section-label">
+                        Global Oil Market
+                    </span>
+
+                    <h2>
+                        Global Crude Supply & Stocks
+                    </h2>
+
+                </div>
+
+                <div class="global-country-control">
+
+                    <label for="global-country-select">
+                        Country
+                    </label>
+
+                    <select id="global-country-select">
+                        <option value="">Loading countries...</option>
+                    </select>
+
+                    <div
+                        id="global-report-date"
+                        class="global-report-date">
+                        Latest JODI month: Loading...
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="global-grid">
+
+                <div class="global-card">
+                    <h3>Crude Production</h3>
+                    <p class="market-subtitle">Monthly crude oil production</p>
+                    <p class="global-value">
+                        <span id="global-production-value">--.---</span>
+                        <span id="global-production-unit" class="market-unit">million b/d</span>
+                    </p>
+                    <div class="global-card-metrics">
+                        <div class="global-card-metric">
+                            <span class="global-card-metric-label">MoM</span>
+                            <span id="global-production-mom" class="global-card-metric-value">--</span>
+                        </div>
+                        <div class="global-card-metric">
+                            <span class="global-card-metric-label">YoY</span>
+                            <span id="global-production-yoy" class="global-card-metric-value">--</span>
+                        </div>
+                    </div>
+                    <div id="global-production-updated" class="global-updated">Reported: --</div>
+                    <div id="global-production-stale" class="global-stale-warning"></div>
+                </div>
+
+                <div class="global-card">
+                    <h3>Crude Imports</h3>
+                    <p class="market-subtitle">Monthly crude oil imports</p>
+                    <p class="global-value">
+                        <span id="global-imports-value">--.---</span>
+                        <span id="global-imports-unit" class="market-unit">million b/d</span>
+                    </p>
+                    <div class="global-card-metrics">
+                        <div class="global-card-metric">
+                            <span class="global-card-metric-label">MoM</span>
+                            <span id="global-imports-mom" class="global-card-metric-value">--</span>
+                        </div>
+                        <div class="global-card-metric">
+                            <span class="global-card-metric-label">YoY</span>
+                            <span id="global-imports-yoy" class="global-card-metric-value">--</span>
+                        </div>
+                    </div>
+                    <div id="global-imports-updated" class="global-updated">Reported: --</div>
+                    <div id="global-imports-stale" class="global-stale-warning"></div>
+                </div>
+
+                <div class="global-card">
+                    <h3>Crude Exports</h3>
+                    <p class="market-subtitle">Monthly crude oil exports</p>
+                    <p class="global-value">
+                        <span id="global-exports-value">--.---</span>
+                        <span id="global-exports-unit" class="market-unit">million b/d</span>
+                    </p>
+                    <div class="global-card-metrics">
+                        <div class="global-card-metric">
+                            <span class="global-card-metric-label">MoM</span>
+                            <span id="global-exports-mom" class="global-card-metric-value">--</span>
+                        </div>
+                        <div class="global-card-metric">
+                            <span class="global-card-metric-label">YoY</span>
+                            <span id="global-exports-yoy" class="global-card-metric-value">--</span>
+                        </div>
+                    </div>
+                    <div id="global-exports-updated" class="global-updated">Reported: --</div>
+                    <div id="global-exports-stale" class="global-stale-warning"></div>
+                </div>
+
+                <div class="global-card">
+                    <h3>Refinery Intake</h3>
+                    <p class="market-subtitle">Monthly crude refinery intake</p>
+                    <p class="global-value">
+                        <span id="global-refinery-value">--.---</span>
+                        <span id="global-refinery-unit" class="market-unit">million b/d</span>
+                    </p>
+                    <div class="global-card-metrics">
+                        <div class="global-card-metric">
+                            <span class="global-card-metric-label">MoM</span>
+                            <span id="global-refinery-mom" class="global-card-metric-value">--</span>
+                        </div>
+                        <div class="global-card-metric">
+                            <span class="global-card-metric-label">YoY</span>
+                            <span id="global-refinery-yoy" class="global-card-metric-value">--</span>
+                        </div>
+                    </div>
+                    <div id="global-refinery-updated" class="global-updated">Reported: --</div>
+                    <div id="global-refinery-stale" class="global-stale-warning"></div>
+                </div>
+
+                <div class="global-card">
+                    <h3>Closing Crude Stocks</h3>
+                    <p class="market-subtitle">Reported end-of-month crude stocks</p>
+                    <p class="global-value">
+                        <span id="global-stocks-value">--.---</span>
+                        <span id="global-stocks-unit" class="market-unit">million bbl</span>
+                    </p>
+                    <div class="global-card-metrics">
+                        <div class="global-card-metric">
+                            <span class="global-card-metric-label">MoM</span>
+                            <span id="global-stocks-mom" class="global-card-metric-value">--</span>
+                        </div>
+                        <div class="global-card-metric">
+                            <span class="global-card-metric-label">YoY</span>
+                            <span id="global-stocks-yoy" class="global-card-metric-value">--</span>
+                        </div>
+                    </div>
+                    <div id="global-stocks-updated" class="global-updated">Reported: --</div>
+                    <div id="global-stocks-stale" class="global-stale-warning"></div>
+                </div>
+
+            </div>
+
+
+            <div class="data-note">
+                Monthly data supplied by the JODI Oil World Database. Reporting lags vary by country and series;
+                each card shows the latest month actually reported for that observation series.
+            </div>
+
+
+            <div class="global-chart-panel">
+
+                <div class="global-chart-toolbar">
+
+                    <div class="global-chart-title">
+                        <h3>Global Crude Production History</h3>
+                        <p>Monthly JODI observations for the selected country.</p>
+                    </div>
+
+                    <div class="global-chart-controls">
+
+                        <label for="global-series-select">Series</label>
+
+                        <select id="global-series-select">
+                            <option value="crude_production">Crude Production</option>
+                            <option value="crude_imports">Crude Imports</option>
+                            <option value="crude_exports">Crude Exports</option>
+                            <option value="refinery_intake">Refinery Intake</option>
+                            <option value="closing_stocks">Closing Crude Stocks</option>
+                        </select>
+
+                        <div class="range-controls" aria-label="Global chart range">
+                            <button type="button" class="global-range-button" data-global-range="1Y">1Y</button>
+                            <button type="button" class="global-range-button active" data-global-range="5Y">5Y</button>
+                            <button type="button" class="global-range-button" data-global-range="10Y">10Y</button>
+                            <button type="button" class="global-range-button" data-global-range="MAX">MAX</button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="global-chart-wrap">
+                    <canvas id="global-history-chart"></canvas>
+                </div>
+
+                <div id="global-chart-footnote" class="chart-footnote">
+                    Monthly observations from the JODI Oil World Database.
+                </div>
+
+            </div>
+
+        </section>
+
+
         <!-- ADDITIONAL PHYSICAL MARKET DATA -->
         <section class="section">
 
@@ -1756,27 +2160,7 @@
 
             </div>
 
-
-            <div class="placeholder-grid two-column">
-
-
-                <div class="placeholder-card">
-
-                    <h3>
-                        Global Inventories
-                    </h3>
-
-                    <p>
-                        Major national commercial inventories,
-                        strategic reserves, and global stock movements.
-                    </p>
-
-                    <span class="coming-soon">
-                        COMING SOON
-                    </span>
-
-                </div>
-
+            <div class="placeholder-grid">
 
                 <div class="placeholder-card">
 
@@ -1980,6 +2364,11 @@
         let eiaSupplyDemandData = null;
         let supplyHistoryChart = null;
         let supplyChartRange = '1Y';
+
+        let jodiSummaryData = null;
+        let jodiCountryData = null;
+        let jodiHistoryChart = null;
+        let jodiChartRange = '5Y';
 
 
         /*
@@ -3261,6 +3650,35 @@
 
                 });
 
+            const demandSeries =
+                seriesKey === 'gasoline_product_supplied' ||
+                seriesKey === 'distillate_product_supplied';
+
+            const rollingAverageByDate = new Map();
+
+            if (demandSeries) {
+
+                for (let index = 0; index < observations.length; index++) {
+
+                    if (index < 3) {
+                        rollingAverageByDate.set(observations[index].date, null);
+                        continue;
+                    }
+
+                    const windowValues = observations
+                        .slice(index - 3, index + 1)
+                        .map(item => Number(item.value))
+                        .filter(Number.isFinite);
+
+                    rollingAverageByDate.set(
+                        observations[index].date,
+                        windowValues.length === 4
+                            ? windowValues.reduce((sum, value) => sum + value, 0) / 4
+                            : null
+                    );
+                }
+            }
+
             const unit =
                 seriesObject.unit || '';
 
@@ -3291,6 +3709,11 @@
                     isPercent
                         ? 'Values are shown as percent of operable refinery capacity.'
                         : 'Values are shown in million barrels per day.'
+                ) +
+                (
+                    demandSeries
+                        ? ' The dashed line is the four-week rolling average.'
+                        : ''
                 );
 
             const canvas =
@@ -3345,7 +3768,26 @@
 
                                     tension:
                                         0.15
-                                }
+                                },
+
+                                ...(demandSeries
+                                    ? [{
+                                        label: '4-Week Rolling Average',
+
+                                        data: filtered.map(
+                                            item => rollingAverageByDate.get(item.date) ?? null
+                                        ),
+
+                                        borderColor: '#aab4c0',
+                                        backgroundColor: '#aab4c0',
+                                        borderWidth: 2,
+                                        borderDash: [7, 5],
+                                        pointRadius: 0,
+                                        pointHoverRadius: 4,
+                                        tension: 0.2,
+                                        spanGaps: false
+                                    }]
+                                    : [])
                             ]
                         },
 
@@ -3368,7 +3810,12 @@
 
                                 legend: {
                                     display:
-                                        false
+                                        demandSeries,
+                                    labels: {
+                                        color: '#9ba8b7',
+                                        usePointStyle: true,
+                                        boxWidth: 8
+                                    }
                                 },
 
                                 tooltip: {
@@ -3544,6 +3991,610 @@
         }
 
 
+
+
+        function formatJODIMonth(dateString) {
+
+            if (!dateString) {
+                return '--';
+            }
+
+            const parts = dateString.split('-');
+
+            if (parts.length < 2) {
+                return dateString;
+            }
+
+            const date = new Date(
+                Date.UTC(
+                    Number(parts[0]),
+                    Number(parts[1]) - 1,
+                    1
+                )
+            );
+
+            return date.toLocaleDateString(
+                'en-US',
+                {
+                    month: 'short',
+                    year: 'numeric',
+                    timeZone: 'UTC'
+                }
+            );
+        }
+
+
+        function jodiMonthDistance(olderMonth, newerMonth) {
+
+            if (!olderMonth || !newerMonth) {
+                return null;
+            }
+
+            const [olderYear, olderMonthNumber] =
+                olderMonth.split('-').map(Number);
+
+            const [newerYear, newerMonthNumber] =
+                newerMonth.split('-').map(Number);
+
+            return (
+                (newerYear - olderYear) * 12 +
+                (newerMonthNumber - olderMonthNumber)
+            );
+        }
+
+
+        function findJODIYearAgo(observations, latestMonth) {
+
+            if (!Array.isArray(observations) || !latestMonth) {
+                return null;
+            }
+
+            const [year, month] = latestMonth.split('-').map(Number);
+            const target = `${year - 1}-${String(month).padStart(2, '0')}`;
+
+            return (
+                observations.find(item => item.date === target) ||
+                null
+            );
+        }
+
+
+        function setGlobalMetricClass(element, value) {
+
+            if (!element) {
+                return;
+            }
+
+            element.className =
+                'global-card-metric-value ' +
+                (
+                    value > 0
+                        ? 'positive'
+                        : value < 0
+                            ? 'negative'
+                            : 'neutral'
+                );
+        }
+
+
+        function resetGlobalCard(prefix) {
+
+            document.getElementById(prefix + '-value').textContent = '--.---';
+            document.getElementById(prefix + '-mom').textContent = '--';
+            document.getElementById(prefix + '-yoy').textContent = '--';
+            document.getElementById(prefix + '-updated').textContent = 'Reported: --';
+
+            const warning = document.getElementById(prefix + '-stale');
+            warning.textContent = '';
+            warning.className = 'global-stale-warning';
+        }
+
+
+        function updateGlobalCard(prefix, seriesObject) {
+
+            if (
+                !seriesObject ||
+                !Array.isArray(seriesObject.observations) ||
+                !seriesObject.observations.length
+            ) {
+                resetGlobalCard(prefix);
+                return;
+            }
+
+            const observations = seriesObject.observations;
+            const latest = observations[observations.length - 1];
+            const previous = observations.length > 1
+                ? observations[observations.length - 2]
+                : null;
+
+            const latestValue = Number(latest.value);
+            const previousValue = previous
+                ? Number(previous.value)
+                : null;
+
+            const momChange =
+                Number.isFinite(previousValue)
+                    ? latestValue - previousValue
+                    : null;
+
+            const momPercent =
+                Number.isFinite(previousValue) && previousValue !== 0
+                    ? (momChange / previousValue) * 100
+                    : null;
+
+            const yearAgo = findJODIYearAgo(
+                observations,
+                latest.date
+            );
+
+            const yearAgoValue = yearAgo
+                ? Number(yearAgo.value)
+                : null;
+
+            const yoyPercent =
+                Number.isFinite(yearAgoValue) && yearAgoValue !== 0
+                    ? ((latestValue - yearAgoValue) / yearAgoValue) * 100
+                    : null;
+
+            document
+                .getElementById(prefix + '-value')
+                .textContent = latestValue.toFixed(3);
+
+            document
+                .getElementById(prefix + '-unit')
+                .textContent =
+                seriesObject.unit === 'million barrels'
+                    ? 'million bbl'
+                    : 'million b/d';
+
+            const momElement =
+                document.getElementById(prefix + '-mom');
+
+            if (Number.isFinite(momChange)) {
+
+                const momSign = momChange > 0 ? '+' : '';
+                const percentText = Number.isFinite(momPercent)
+                    ? ` (${momPercent > 0 ? '+' : ''}${momPercent.toFixed(2)}%)`
+                    : '';
+
+                momElement.textContent =
+                    `${momSign}${momChange.toFixed(3)}M${percentText}`;
+
+                setGlobalMetricClass(momElement, momChange);
+            }
+
+            else {
+                momElement.textContent = '--';
+                setGlobalMetricClass(momElement, 0);
+            }
+
+            const yoyElement =
+                document.getElementById(prefix + '-yoy');
+
+            if (Number.isFinite(yoyPercent)) {
+                yoyElement.textContent =
+                    `${yoyPercent > 0 ? '+' : ''}${yoyPercent.toFixed(2)}%`;
+                setGlobalMetricClass(yoyElement, yoyPercent);
+            }
+
+            else {
+                yoyElement.textContent = '--';
+                setGlobalMetricClass(yoyElement, 0);
+            }
+
+            document
+                .getElementById(prefix + '-updated')
+                .textContent =
+                'Reported: ' + formatJODIMonth(latest.date);
+
+            const staleMonths = jodiMonthDistance(
+                latest.date,
+                jodiSummaryData?.latest_global_reported_month
+            );
+
+            const warning =
+                document.getElementById(prefix + '-stale');
+
+            if (Number.isFinite(staleMonths) && staleMonths >= 3) {
+                warning.textContent =
+                    `Reporting is ${staleMonths} months behind the latest JODI month.`;
+                warning.className = 'global-stale-warning visible';
+            }
+
+            else {
+                warning.textContent = '';
+                warning.className = 'global-stale-warning';
+            }
+        }
+
+
+        async function loadJODIData() {
+
+            try {
+
+                const response = await fetch(
+                    '../data/jodi/summary.json?t=' + Date.now(),
+                    { cache: 'no-store' }
+                );
+
+                if (!response.ok) {
+                    throw new Error('Could not load JODI summary data.');
+                }
+
+                jodiSummaryData = await response.json();
+
+                const countries = [
+                    ...(jodiSummaryData.countries || [])
+                ].sort((a, b) =>
+                    a.name.localeCompare(b.name)
+                );
+
+                const select =
+                    document.getElementById('global-country-select');
+
+                select.innerHTML = '';
+
+                countries.forEach(country => {
+                    const option = document.createElement('option');
+                    option.value = country.code;
+                    option.textContent = country.name;
+                    select.appendChild(option);
+                });
+
+                const defaultCountry =
+                    countries.some(country => country.code === 'US')
+                        ? 'US'
+                        : countries[0]?.code;
+
+                if (!defaultCountry) {
+                    throw new Error('No JODI countries were found.');
+                }
+
+                select.value = defaultCountry;
+
+                document
+                    .getElementById('global-report-date')
+                    .textContent =
+                    'Latest JODI month: ' +
+                    formatJODIMonth(
+                        jodiSummaryData.latest_global_reported_month
+                    );
+
+                await loadJODICountry(defaultCountry);
+            }
+
+            catch (error) {
+                console.error(error);
+
+                document
+                    .getElementById('global-report-date')
+                    .textContent = 'Latest JODI month: unavailable';
+            }
+        }
+
+
+        async function loadJODICountry(countryCode) {
+
+            if (!jodiSummaryData) {
+                return;
+            }
+
+            const summaryEntry =
+                (jodiSummaryData.countries || [])
+                    .find(country => country.code === countryCode);
+
+            if (!summaryEntry) {
+                return;
+            }
+
+            try {
+
+                const response = await fetch(
+                    '../data/jodi/' + summaryEntry.file + '?t=' + Date.now(),
+                    { cache: 'no-store' }
+                );
+
+                if (!response.ok) {
+                    throw new Error(
+                        'Could not load JODI country data for ' + countryCode
+                    );
+                }
+
+                jodiCountryData = await response.json();
+
+                const series = jodiCountryData.series || {};
+
+                updateGlobalCard(
+                    'global-production',
+                    series.crude_production
+                );
+
+                updateGlobalCard(
+                    'global-imports',
+                    series.crude_imports
+                );
+
+                updateGlobalCard(
+                    'global-exports',
+                    series.crude_exports
+                );
+
+                updateGlobalCard(
+                    'global-refinery',
+                    series.refinery_intake
+                );
+
+                updateGlobalCard(
+                    'global-stocks',
+                    series.closing_stocks
+                );
+
+                renderGlobalChart(
+                    document.getElementById('global-series-select').value
+                );
+            }
+
+            catch (error) {
+                console.error(error);
+            }
+        }
+
+
+        function renderGlobalChart(seriesKey) {
+
+            const seriesObject =
+                jodiCountryData?.series?.[seriesKey];
+
+            if (!seriesObject?.observations?.length) {
+
+                if (jodiHistoryChart) {
+                    jodiHistoryChart.destroy();
+                    jodiHistoryChart = null;
+                }
+
+                document
+                    .querySelector('.global-chart-title h3')
+                    .textContent = 'Series unavailable';
+
+                document
+                    .querySelector('.global-chart-title p')
+                    .textContent =
+                    'This country does not report the selected JODI series.';
+
+                return;
+            }
+
+            const observations = seriesObject.observations;
+            const latestDate = new Date(
+                observations[observations.length - 1].date + '-01T00:00:00Z'
+            );
+
+            let startDate = new Date(latestDate);
+
+            if (jodiChartRange === '1Y') {
+                startDate.setUTCFullYear(startDate.getUTCFullYear() - 1);
+            }
+
+            else if (jodiChartRange === '5Y') {
+                startDate.setUTCFullYear(startDate.getUTCFullYear() - 5);
+            }
+
+            else if (jodiChartRange === '10Y') {
+                startDate.setUTCFullYear(startDate.getUTCFullYear() - 10);
+            }
+
+            else {
+                startDate = null;
+            }
+
+            const filtered = observations.filter(item => {
+                if (!startDate) {
+                    return true;
+                }
+
+                return (
+                    new Date(item.date + '-01T00:00:00Z') >= startDate
+                );
+            });
+
+            const countryName =
+                jodiCountryData?.country?.name || '';
+
+            document
+                .querySelector('.global-chart-title h3')
+                .textContent =
+                `${countryName} ${seriesObject.name} History`;
+
+            document
+                .querySelector('.global-chart-title p')
+                .textContent =
+                (jodiChartRange === 'MAX'
+                    ? 'Complete available monthly history.'
+                    : `${jodiChartRange} of monthly JODI observations.`) +
+                ` Latest reported month: ${formatJODIMonth(seriesObject.latest_reported_month)}.`;
+
+            document
+                .getElementById('global-chart-footnote')
+                .textContent =
+                'Monthly observations from the JODI Oil World Database. ' +
+                'Reporting coverage and freshness vary by country and series. ' +
+                (
+                    seriesObject.unit === 'million barrels'
+                        ? 'Values are shown in million barrels.'
+                        : 'Values are shown in million barrels per day.'
+                );
+
+            const canvas =
+                document.getElementById('global-history-chart');
+
+            const ctx = canvas.getContext('2d');
+
+            if (jodiHistoryChart) {
+                jodiHistoryChart.destroy();
+            }
+
+            const isStocks =
+                seriesObject.unit === 'million barrels';
+
+            jodiHistoryChart = new Chart(
+                ctx,
+                {
+                    type: 'line',
+
+                    data: {
+                        labels: filtered.map(item => item.date),
+
+                        datasets: [
+                            {
+                                label: seriesObject.name,
+                                data: filtered.map(item => Number(item.value)),
+                                borderColor: '#d94b5b',
+                                backgroundColor: '#d94b5b',
+                                borderWidth: 2.5,
+                                pointRadius: 0,
+                                pointHoverRadius: 5,
+                                tension: 0.15
+                            }
+                        ]
+                    },
+
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+
+                        interaction: {
+                            mode: 'index',
+                            intersect: false
+                        },
+
+                        plugins: {
+                            legend: {
+                                display: false
+                            },
+
+                            tooltip: {
+                                callbacks: {
+                                    title: function(items) {
+                                        return items.length
+                                            ? formatJODIMonth(items[0].label)
+                                            : '';
+                                    },
+
+                                    label: function(context) {
+                                        const value = Number(context.raw);
+                                        return (
+                                            value.toFixed(3) +
+                                            (isStocks ? 'M bbl' : 'M b/d')
+                                        );
+                                    }
+                                }
+                            }
+                        },
+
+                        scales: {
+                            x: {
+                                grid: {
+                                    color: 'rgba(255,255,255,0.045)'
+                                },
+
+                                ticks: {
+                                    color: '#6f7d8d',
+                                    maxTicksLimit:
+                                        jodiChartRange === 'MAX' ? 10 : 12,
+
+                                    callback: function(value) {
+                                        const label = this.getLabelForValue(value);
+                                        const date = new Date(label + '-01T00:00:00Z');
+
+                                        if (jodiChartRange === '1Y') {
+                                            return date.toLocaleDateString(
+                                                'en-US',
+                                                {
+                                                    month: 'short',
+                                                    timeZone: 'UTC'
+                                                }
+                                            );
+                                        }
+
+                                        if (jodiChartRange === '5Y') {
+                                            return date.toLocaleDateString(
+                                                'en-US',
+                                                {
+                                                    month: 'short',
+                                                    year: '2-digit',
+                                                    timeZone: 'UTC'
+                                                }
+                                            );
+                                        }
+
+                                        return date.getUTCFullYear();
+                                    }
+                                }
+                            },
+
+                            y: {
+                                grid: {
+                                    color: 'rgba(255,255,255,0.055)'
+                                },
+
+                                ticks: {
+                                    color: '#7f8d9d',
+                                    callback: function(value) {
+                                        return Number(value).toFixed(1) + 'M';
+                                    }
+                                },
+
+                                title: {
+                                    display: true,
+                                    text:
+                                        isStocks
+                                            ? 'Million barrels'
+                                            : 'Million barrels per day',
+                                    color: '#718092'
+                                }
+                            }
+                        }
+                    }
+                }
+            );
+        }
+
+
+        document
+            .getElementById('global-country-select')
+            .addEventListener('change', async function(event) {
+                await loadJODICountry(event.target.value);
+            });
+
+
+        document
+            .getElementById('global-series-select')
+            .addEventListener('change', function(event) {
+                renderGlobalChart(event.target.value);
+            });
+
+
+        document
+            .querySelectorAll('.global-range-button')
+            .forEach(button => {
+
+                button.addEventListener('click', function() {
+
+                    jodiChartRange = this.dataset.globalRange;
+
+                    document
+                        .querySelectorAll('.global-range-button')
+                        .forEach(item => item.classList.remove('active'));
+
+                    this.classList.add('active');
+
+                    renderGlobalChart(
+                        document.getElementById('global-series-select').value
+                    );
+                });
+            });
+
+
         document
             .getElementById(
                 'supply-series-select'
@@ -3644,6 +4695,7 @@
         loadOilPrices();
         loadEIAInventories();
         loadEIASupplyDemand();
+        loadJODIData();
 
     </script>
 
