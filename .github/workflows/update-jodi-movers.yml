@@ -1,0 +1,64 @@
+name: Update JODI YoY Movers
+
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows:
+      - Update JODI Global Oil Data
+    types:
+      - completed
+
+permissions:
+  contents: write
+
+jobs:
+  update-movers:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      github.event.workflow_run.conclusion == 'success'
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Build JODI mover summary
+        run: python scripts/build-jodi-movers.py
+
+      - name: Commit updated mover data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add data/jodi/movers.json
+
+          if git diff --cached --quiet; then
+            echo "No JODI mover changes to commit."
+            exit 0
+          fi
+
+          git commit -m "Update JODI YoY movers"
+
+          for attempt in 1 2 3; do
+            echo "Push attempt $attempt"
+            git pull --rebase origin main
+
+            if git push origin main; then
+              echo "JODI mover data successfully updated."
+              exit 0
+            fi
+
+            echo "Remote changed during push. Retrying..."
+            sleep 5
+          done
+
+          echo "Failed to push JODI mover update after 3 attempts."
+          exit 1
