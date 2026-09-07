@@ -2036,7 +2036,10 @@
             try {
 
                 const response =
-                    await fetch('../data/eia-oil-inventories.json');
+                    await fetch(
+                        '../data/eia-oil-inventories.json?t=' + Date.now(),
+                        { cache: 'no-store' }
+                    );
 
                 if (!response.ok) {
                     throw new Error(
@@ -2784,7 +2787,10 @@
             try {
 
                 const response =
-                    await fetch('../data/eia-oil-supply-demand.json');
+                    await fetch(
+                        '../data/eia-oil-supply-demand.json?t=' + Date.now(),
+                        { cache: 'no-store' }
+                    );
 
                 if (!response.ok) {
                     throw new Error(
