@@ -338,6 +338,12 @@
             gap: 18px;
         }
 
+        @media (max-width: 900px) {
+            .inventory-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
         .inventory-card {
             background: var(--panel);
             border: 1px solid var(--panel-border);
@@ -942,6 +948,78 @@
 
                 </div>
 
+
+                <!-- TOTAL MOTOR GASOLINE -->
+                <div class="inventory-card">
+
+                    <h3>Total Motor Gasoline</h3>
+
+                    <p class="market-subtitle">
+                        U.S. ending stocks
+                    </p>
+
+                    <p class="inventory-value">
+
+                        <span id="gasoline-value">
+                            ---.---
+                        </span>
+
+                        <span class="market-unit">
+                            million bbl
+                        </span>
+
+                    </p>
+
+                    <div
+                        id="gasoline-change"
+                        class="inventory-change neutral">
+                        Loading...
+                    </div>
+
+                    <div
+                        id="gasoline-updated"
+                        class="inventory-updated">
+                        Week ending: --
+                    </div>
+
+                </div>
+
+
+                <!-- DISTILLATE FUEL OIL -->
+                <div class="inventory-card">
+
+                    <h3>Distillate Fuel Oil</h3>
+
+                    <p class="market-subtitle">
+                        U.S. ending stocks
+                    </p>
+
+                    <p class="inventory-value">
+
+                        <span id="distillates-value">
+                            ---.---
+                        </span>
+
+                        <span class="market-unit">
+                            million bbl
+                        </span>
+
+                    </p>
+
+                    <div
+                        id="distillates-change"
+                        class="inventory-change neutral">
+                        Loading...
+                    </div>
+
+                    <div
+                        id="distillates-updated"
+                        class="inventory-updated">
+                        Week ending: --
+                    </div>
+
+                </div>
+
             </div>
 
 
@@ -986,6 +1064,14 @@
 
                             <option value="spr">
                                 Strategic Petroleum Reserve
+                            </option>
+
+                            <option value="gasoline">
+                                Total Motor Gasoline
+                            </option>
+
+                            <option value="distillates">
+                                Distillate Fuel Oil
                             </option>
 
                         </select>
@@ -1253,6 +1339,55 @@
         let inventoryChartRange = '1Y';
 
 
+        /*
+         * Standard Agitlytics visualization watermark.
+         * Registered globally so every Chart.js visualization on this
+         * page automatically carries the brand inside the plot area.
+         */
+        const agitlyticsWatermark = {
+            id: 'agitlyticsWatermark',
+
+            afterDraw(chart) {
+
+                const {
+                    ctx,
+                    chartArea
+                } = chart;
+
+                if (!chartArea) {
+                    return;
+                }
+
+                ctx.save();
+
+                ctx.font =
+                    '700 11px Arial, Helvetica, sans-serif';
+
+                ctx.fillStyle =
+                    'rgba(255, 255, 255, 0.16)';
+
+                ctx.textAlign =
+                    'right';
+
+                ctx.textBaseline =
+                    'bottom';
+
+                ctx.fillText(
+                    'AGITLYTICS',
+                    chartArea.right - 10,
+                    chartArea.bottom - 10
+                );
+
+                ctx.restore();
+            }
+        };
+
+
+        if (typeof Chart !== 'undefined') {
+            Chart.register(agitlyticsWatermark);
+        }
+
+
         async function loadEIAInventories() {
 
             try {
@@ -1286,6 +1421,16 @@
                     series.spr?.data
                 );
 
+                updateInventoryCard(
+                    'gasoline',
+                    series.gasoline?.data
+                );
+
+                updateInventoryCard(
+                    'distillates',
+                    series.distillates?.data
+                );
+
                 document
                     .getElementById('inventory-report-date')
                     .textContent =
@@ -1312,7 +1457,9 @@
                 [
                     'commercial-crude',
                     'cushing',
-                    'spr'
+                    'spr',
+                    'gasoline',
+                    'distillates'
                 ].forEach(prefix => {
 
                     const changeElement =
