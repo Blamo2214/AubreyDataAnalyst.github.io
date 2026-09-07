@@ -1,33 +1,62 @@
 {
   "WTI_USD": {
-    "price": 91.22,
-    "change": 0.0,
-    "change_percent": 0.0,
-    "timestamp": "2026-09-06T21:07:23.000Z",
-    "data_status": "current",
+    "price": 91.87,
+    "change": 0.65,
+    "change_percent": 0.7126,
+    "timestamp": "2026-09-07T00:43:02.475Z",
+    "currency": "USD",
     "type": "spot_price",
-    "source": "market_reporting"
+    "source": "market_reporting",
+    "stale": false,
+    "synthetic": false,
+    "data_status": "current",
+    "metadata": {
+      "source": "market_reporting",
+      "source_description": "Aggregated from published market sources",
+      "discover": {
+        "endpoint": "/v1/prices/historical?by_code=WTI_USD",
+        "description": "See WTI_USD's price history"
+      }
+    }
   },
   "BRENT_CRUDE_USD": {
     "price": 96.28,
-    "change": 0.43,
-    "change_percent": 0.45,
-    "timestamp": "2026-09-04T20:59:51.000Z",
-    "data_status": "current",
+    "change": 0.0,
+    "change_percent": 0.0,
+    "timestamp": "2026-09-07T01:00:54.000Z",
+    "currency": "USD",
     "type": "spot_price",
     "source": "market_reporting",
-    "benchmark": {
-      "id": "ice_brent_front_month",
-      "name": "ICE Brent Crude front-month futures",
-      "instrument_type": "front_month_futures",
-      "quote_type": "indicative_last_price",
-      "unit": "USD_per_barrel",
-      "contract_month": "2026-11",
-      "roll_method": "explicit_contract_curve",
-      "observed_at": "2026-09-04T20:59:51.000Z",
-      "observation_time_basis": "upstream_market",
-      "collected_at": "2026-09-06T21:06:33.683Z",
-      "source_tier": "contract_curve_fallback"
+    "stale": false,
+    "synthetic": false,
+    "data_status": "current",
+    "metadata": {
+      "source": "market_reporting",
+      "source_description": "Aggregated from published market sources",
+      "discover": {
+        "endpoint": "/v1/prices/historical?by_code=BRENT_CRUDE_USD",
+        "description": "See BRENT_CRUDE_USD's price history"
+      }
+    }
+  },
+  "GASOLINE_USD": {
+    "price": 3.19,
+    "change": 0.0,
+    "change_percent": 0.0,
+    "timestamp": "2026-09-07T01:10:12.000Z",
+    "currency": "USD",
+    "type": "spot_price",
+    "source": "market_reporting",
+    "stale": false,
+    "synthetic": false,
+    "data_status": "current",
+    "metadata": {
+      "source": "market_reporting",
+      "source_description": "Aggregated from published market sources",
+      "discover": {
+        "endpoint": "/v1/prices/historical?by_code=GASOLINE_USD",
+        "description": "See GASOLINE_USD's price history"
+      }
     }
   }
 }
