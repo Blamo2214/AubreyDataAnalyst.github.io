@@ -945,6 +945,307 @@
         }
 
 
+
+
+        /* =========================================================
+           ANALYTICAL VISUAL SUITE
+        ========================================================= */
+
+        .analytics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 22px;
+        }
+
+        .analytics-panel {
+            min-width: 0;
+            background: var(--panel);
+            border: 1px solid var(--panel-border);
+            border-radius: 4px;
+            padding: 26px;
+        }
+
+        .analytics-panel.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .custom-visual-watermark {
+            position: relative;
+        }
+
+        .custom-visual-watermark::after {
+            content: 'AGITLYTICS';
+            position: absolute;
+            right: 14px;
+            bottom: 10px;
+            color: rgba(255,255,255,0.13);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.66rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            pointer-events: none;
+        }
+
+        .analytics-panel-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 18px;
+            margin-bottom: 18px;
+        }
+
+        .analytics-panel-header h3 {
+            margin: 0 0 6px;
+            font-size: 1.2rem;
+        }
+
+        .analytics-panel-header p {
+            margin: 0;
+            color: #8494a7;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.78rem;
+            line-height: 1.5;
+        }
+
+        .analytics-status {
+            color: #718092;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.7rem;
+            white-space: nowrap;
+        }
+
+        .analytics-chart-wrap {
+            position: relative;
+            height: 390px;
+        }
+
+        .analytics-chart-wrap.tall {
+            height: 520px;
+        }
+
+        .analytics-footnote {
+            margin-top: 14px;
+            color: #667587;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.7rem;
+            line-height: 1.5;
+        }
+
+        .map-wrap {
+            position: relative;
+            min-height: 470px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 3px;
+            background: #0b1118;
+        }
+
+        #global-production-map {
+            display: block;
+            width: 100%;
+            height: 470px;
+        }
+
+        .map-country {
+            stroke: #263340;
+            stroke-width: 0.6;
+            cursor: pointer;
+            transition: opacity 120ms ease, stroke 120ms ease;
+        }
+
+        .map-country:hover,
+        .map-country:focus {
+            stroke: #f2f3f5;
+            stroke-width: 1.2;
+            outline: none;
+        }
+
+        .map-tooltip {
+            position: absolute;
+            display: none;
+            z-index: 3;
+            pointer-events: none;
+            max-width: 230px;
+            padding: 10px 12px;
+            border: 1px solid #354352;
+            border-radius: 3px;
+            background: rgba(7, 11, 16, 0.96);
+            color: #eef2f6;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.75rem;
+            line-height: 1.45;
+        }
+
+        .map-tooltip strong {
+            display: block;
+            margin-bottom: 3px;
+            font-size: 0.8rem;
+        }
+
+        .map-legend {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 12px;
+            color: #718092;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.68rem;
+        }
+
+        .map-legend-gradient {
+            width: 150px;
+            height: 8px;
+            border-radius: 99px;
+            background: linear-gradient(90deg, #18212b, #d94b5b);
+        }
+
+        .matrix-scroll {
+            overflow-x: auto;
+            width: 100%;
+        }
+
+        .momentum-table,
+        .stock-heatmap-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 4px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.74rem;
+        }
+
+        .momentum-table th,
+        .stock-heatmap-table th {
+            padding: 8px 7px;
+            color: #7f8d9d;
+            font-size: 0.66rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .momentum-table th:first-child,
+        .stock-heatmap-table th:first-child {
+            text-align: left;
+        }
+
+        .momentum-table td,
+        .stock-heatmap-table td {
+            min-width: 76px;
+            padding: 10px 8px;
+            border-radius: 2px;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .momentum-table td:first-child,
+        .stock-heatmap-table td:first-child {
+            min-width: 165px;
+            color: #d8dee6;
+            background: #0d141c;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-align: left;
+        }
+
+        .stock-heatmap-table tbody tr {
+            cursor: pointer;
+        }
+
+        .stock-heatmap-table tbody tr:hover td:first-child {
+            color: #fff;
+        }
+
+        .matrix-cell-neutral {
+            color: #9ba8b7;
+            background: rgba(130, 145, 160, 0.12);
+        }
+
+        .seasonal-position-grid {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .seasonal-position-card {
+            min-width: 0;
+            padding: 17px;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 3px;
+            background: #0d141c;
+        }
+
+        .seasonal-position-card h4 {
+            margin: 0 0 14px;
+            min-height: 38px;
+            font-size: 0.9rem;
+        }
+
+        .seasonal-z {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: -0.04em;
+        }
+
+        .seasonal-z-label {
+            margin-top: 2px;
+            color: #718092;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+        }
+
+        .seasonal-track {
+            position: relative;
+            height: 7px;
+            margin: 18px 0 10px;
+            border-radius: 99px;
+            background: #222d39;
+        }
+
+        .seasonal-track-fill {
+            position: absolute;
+            inset: 0 auto 0 0;
+            border-radius: 99px;
+            background: rgba(217,75,91,0.62);
+        }
+
+        .seasonal-track-marker {
+            position: absolute;
+            top: 50%;
+            width: 3px;
+            height: 15px;
+            border-radius: 2px;
+            background: #fff;
+            transform: translate(-50%, -50%);
+        }
+
+        .seasonal-position-meta {
+            color: #8290a0;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.68rem;
+            line-height: 1.5;
+        }
+
+        .seasonal-position-meta strong {
+            color: #d8dee6;
+        }
+
+        .suite-loading {
+            padding: 30px 0;
+            color: #718092;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.78rem;
+            text-align: center;
+        }
+
+
         /* =========================================================
            MOBILE
         ========================================================= */
@@ -1033,10 +1334,20 @@
             .page-container {
                 padding-top: 45px;
             }
+
+            .seasonal-position-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .analytics-panel {
+                padding: 20px;
+            }
         }
     </style>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
 </head>
 
 
@@ -1107,6 +1418,7 @@
             <div class="tag-row">
 
                 <span class="tag">EIA Data</span>
+                <span class="tag">JODI Data</span>
                 <span class="tag">Market Research</span>
 
             </div>
@@ -1946,6 +2258,141 @@
         </section>
 
 
+
+
+        <!-- U.S. INVENTORY ANALYTICS -->
+        <section class="section">
+
+            <div class="section-header">
+                <span class="section-label">Inventory Analytics</span>
+                <h2>U.S. Inventory Momentum & Seasonal Position</h2>
+            </div>
+
+            <div class="analytics-grid">
+
+                <div class="analytics-panel custom-visual-watermark">
+                    <div class="analytics-panel-header">
+                        <div>
+                            <h3>Inventory Momentum Matrix</h3>
+                            <p>Percent change across multiple horizons. Builds are positive; draws are negative.</p>
+                        </div>
+                    </div>
+                    <div id="inventory-momentum-matrix" class="matrix-scroll">
+                        <div class="suite-loading">Loading inventory momentum...</div>
+                    </div>
+                    <div class="analytics-footnote">
+                        Horizons use the latest reported weekly observation versus approximately 1, 4, 13, and 52 weeks earlier.
+                    </div>
+                </div>
+
+                <div class="analytics-panel custom-visual-watermark">
+                    <div class="analytics-panel-header">
+                        <div>
+                            <h3>Seasonal Position</h3>
+                            <p>Current inventory versus the same ISO week during the prior five full years.</p>
+                        </div>
+                    </div>
+                    <div id="inventory-seasonal-position" class="seasonal-position-grid">
+                        <div class="suite-loading">Loading seasonal positions...</div>
+                    </div>
+                    <div class="analytics-footnote">
+                        Z-scores use the five same-week observations preceding the current year. With only five seasonal observations, treat the score as a compact positioning indicator rather than a formal statistical test.
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- GLOBAL MARKET VISUALS -->
+        <section class="section" id="global-market-overview">
+
+            <div class="inventory-header-row">
+                <div class="section-header">
+                    <span class="section-label">Global Market Overview</span>
+                    <h2>Global Crude Flows, Production & Stocks</h2>
+                </div>
+                <div id="global-visuals-report-date" class="inventory-report-date">
+                    Latest JODI month: Loading...
+                </div>
+            </div>
+
+            <div class="analytics-grid">
+
+                <div class="analytics-panel full-width custom-visual-watermark">
+                    <div class="analytics-panel-header">
+                        <div>
+                            <h3>Global Production Map</h3>
+                            <p>Latest reported crude production. Select a country to open its detailed JODI profile below.</p>
+                        </div>
+                        <div id="production-map-status" class="analytics-status">Loading...</div>
+                    </div>
+                    <div class="map-wrap">
+                        <svg id="global-production-map" role="img" aria-label="World map of latest reported crude oil production by country"></svg>
+                        <div id="global-production-map-tooltip" class="map-tooltip"></div>
+                    </div>
+                    <div class="map-legend">
+                        <span>Lower</span>
+                        <span class="map-legend-gradient"></span>
+                        <span>Higher production</span>
+                    </div>
+                    <div class="analytics-footnote">
+                        Color intensity reflects each country's latest reported JODI crude production. Countries more than 12 months behind the latest global JODI month are shown with reduced opacity.
+                    </div>
+                </div>
+
+                <div class="analytics-panel">
+                    <div class="analytics-panel-header">
+                        <div>
+                            <h3>Global Production Leaderboard</h3>
+                            <p>Top crude producers by latest reported monthly production.</p>
+                        </div>
+                    </div>
+                    <div class="analytics-chart-wrap tall">
+                        <canvas id="global-production-leaderboard-chart"></canvas>
+                    </div>
+                    <div class="analytics-footnote">
+                        Rankings use each country's latest available production observation. Hover for reporting month and freshness.
+                    </div>
+                </div>
+
+                <div class="analytics-panel">
+                    <div class="analytics-panel-header">
+                        <div>
+                            <h3>Global Crude Trade Balance</h3>
+                            <p>Net crude exports minus imports for countries with reasonably current, matched trade observations.</p>
+                        </div>
+                    </div>
+                    <div class="analytics-chart-wrap tall">
+                        <canvas id="global-trade-balance-chart"></canvas>
+                    </div>
+                    <div class="analytics-footnote">
+                        Positive values indicate net crude exporters; negative values indicate net crude importers. Only countries whose import and export observations are from the same month and no more than 12 months behind the latest JODI month are included.
+                    </div>
+                </div>
+
+                <div class="analytics-panel full-width custom-visual-watermark">
+                    <div class="analytics-panel-header">
+                        <div>
+                            <h3>Global Stock Change Heatmap</h3>
+                            <p>Month-over-month crude stock builds and draws across major reporting countries.</p>
+                        </div>
+                        <div id="stock-heatmap-status" class="analytics-status">Loading...</div>
+                    </div>
+                    <div id="global-stock-heatmap" class="matrix-scroll">
+                        <div class="suite-loading">Loading stock histories...</div>
+                    </div>
+                    <div class="analytics-footnote">
+                        The heatmap uses the largest recently reported positive crude stock levels and displays monthly changes over the latest 12 JODI months. Missing observations are left neutral. Click a country row to open its detailed profile below.
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
         <!-- GLOBAL OIL MARKET -->
         <section class="section">
 
@@ -2477,6 +2924,9 @@
                         .getElementById('inventory-series-select')
                         .value
                 );
+
+                renderInventoryMomentumMatrix();
+                renderInventorySeasonalPosition();
 
             }
 
@@ -4208,6 +4658,827 @@
         }
 
 
+
+
+        /* =========================================================
+           ANALYTICAL VISUAL SUITE
+        ========================================================= */
+
+        let globalProductionLeaderboardChart = null;
+        let globalTradeBalanceChart = null;
+        let productionLeaderboardCodes = [];
+        let tradeBalanceCodes = [];
+
+        const ISO2_TO_NUMERIC = {"AD": "020", "AE": "784", "AF": "004", "AG": "028", "AI": "660", "AL": "008", "AM": "051", "AO": "024", "AQ": "010", "AR": "032", "AS": "016", "AT": "040", "AU": "036", "AW": "533", "AX": "248", "AZ": "031", "BA": "070", "BB": "052", "BD": "050", "BE": "056", "BF": "854", "BG": "100", "BH": "048", "BI": "108", "BJ": "204", "BL": "652", "BM": "060", "BN": "096", "BO": "068", "BQ": "535", "BR": "076", "BS": "044", "BT": "064", "BV": "074", "BW": "072", "BY": "112", "BZ": "084", "CA": "124", "CC": "166", "CD": "180", "CF": "140", "CG": "178", "CH": "756", "CI": "384", "CK": "184", "CL": "152", "CM": "120", "CN": "156", "CO": "170", "CR": "188", "CU": "192", "CV": "132", "CW": "531", "CX": "162", "CY": "196", "CZ": "203", "DE": "276", "DJ": "262", "DK": "208", "DM": "212", "DO": "214", "DZ": "012", "EC": "218", "EE": "233", "EG": "818", "EH": "732", "ER": "232", "ES": "724", "ET": "231", "FI": "246", "FJ": "242", "FK": "238", "FM": "583", "FO": "234", "FR": "250", "GA": "266", "GB": "826", "GD": "308", "GE": "268", "GF": "254", "GG": "831", "GH": "288", "GI": "292", "GL": "304", "GM": "270", "GN": "324", "GP": "312", "GQ": "226", "GR": "300", "GS": "239", "GT": "320", "GU": "316", "GW": "624", "GY": "328", "HK": "344", "HM": "334", "HN": "340", "HR": "191", "HT": "332", "HU": "348", "ID": "360", "IE": "372", "IL": "376", "IM": "833", "IN": "356", "IO": "086", "IQ": "368", "IR": "364", "IS": "352", "IT": "380", "JE": "832", "JM": "388", "JO": "400", "JP": "392", "KE": "404", "KG": "417", "KH": "116", "KI": "296", "KM": "174", "KN": "659", "KP": "408", "KR": "410", "KW": "414", "KY": "136", "KZ": "398", "LA": "418", "LB": "422", "LC": "662", "LI": "438", "LK": "144", "LR": "430", "LS": "426", "LT": "440", "LU": "442", "LV": "428", "LY": "434", "MA": "504", "MC": "492", "MD": "498", "ME": "499", "MF": "663", "MG": "450", "MH": "584", "MK": "807", "ML": "466", "MM": "104", "MN": "496", "MO": "446", "MP": "580", "MQ": "474", "MR": "478", "MS": "500", "MT": "470", "MU": "480", "MV": "462", "MW": "454", "MX": "484", "MY": "458", "MZ": "508", "NA": "516", "NC": "540", "NE": "562", "NF": "574", "NG": "566", "NI": "558", "NL": "528", "NO": "578", "NP": "524", "NR": "520", "NU": "570", "NZ": "554", "OM": "512", "PA": "591", "PE": "604", "PF": "258", "PG": "598", "PH": "608", "PK": "586", "PL": "616", "PM": "666", "PN": "612", "PR": "630", "PS": "275", "PT": "620", "PW": "585", "PY": "600", "QA": "634", "RE": "638", "RO": "642", "RS": "688", "RU": "643", "RW": "646", "SA": "682", "SB": "090", "SC": "690", "SD": "729", "SE": "752", "SG": "702", "SH": "654", "SI": "705", "SJ": "744", "SK": "703", "SL": "694", "SM": "674", "SN": "686", "SO": "706", "SR": "740", "SS": "728", "ST": "678", "SV": "222", "SX": "534", "SY": "760", "SZ": "748", "TC": "796", "TD": "148", "TF": "260", "TG": "768", "TH": "764", "TJ": "762", "TK": "772", "TL": "626", "TM": "795", "TN": "788", "TO": "776", "TR": "792", "TT": "780", "TV": "798", "TW": "158", "TZ": "834", "UA": "804", "UG": "800", "UM": "581", "US": "840", "UY": "858", "UZ": "860", "VA": "336", "VC": "670", "VE": "862", "VG": "092", "VI": "850", "VN": "704", "VU": "548", "WF": "876", "WS": "882", "YE": "887", "YT": "175", "ZA": "710", "ZM": "894", "ZW": "716"};
+
+        function clamp(value, min, max) {
+            return Math.min(max, Math.max(min, value));
+        }
+
+        function monthKeyToIndex(month) {
+            if (!month || !/^\d{4}-\d{2}$/.test(month)) {
+                return null;
+            }
+
+            const [year, monthNumber] = month.split('-').map(Number);
+            return year * 12 + (monthNumber - 1);
+        }
+
+        function monthOffset(month, offset) {
+            const index = monthKeyToIndex(month);
+            if (!Number.isFinite(index)) {
+                return null;
+            }
+
+            const shifted = index + offset;
+            const year = Math.floor(shifted / 12);
+            const monthNumber = (shifted % 12) + 1;
+            return `${year}-${String(monthNumber).padStart(2, '0')}`;
+        }
+
+        function selectGlobalCountryFromVisual(countryCode) {
+            const select = document.getElementById('global-country-select');
+
+            if (!select || !countryCode) {
+                return;
+            }
+
+            const exists = Array.from(select.options)
+                .some(option => option.value === countryCode);
+
+            if (!exists) {
+                return;
+            }
+
+            select.value = countryCode;
+            loadJODICountry(countryCode);
+
+            const detailSection = select.closest('section');
+            if (detailSection) {
+                detailSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        function getInventorySeriesConfig() {
+            return [
+                ['commercial_crude', 'Commercial Crude'],
+                ['cushing', 'Cushing'],
+                ['spr', 'Strategic Petroleum Reserve'],
+                ['gasoline', 'Motor Gasoline'],
+                ['distillates', 'Distillate Fuel Oil']
+            ];
+        }
+
+        function inventoryChangeOverWeeks(observations, weeksBack) {
+            if (!Array.isArray(observations) || observations.length <= weeksBack) {
+                return null;
+            }
+
+            const latest = Number(observations[observations.length - 1].value);
+            const earlier = Number(observations[observations.length - 1 - weeksBack].value);
+
+            if (!Number.isFinite(latest) || !Number.isFinite(earlier) || earlier === 0) {
+                return null;
+            }
+
+            return {
+                absolute: latest - earlier,
+                percent: ((latest - earlier) / earlier) * 100
+            };
+        }
+
+        function matrixCellStyle(value, maxAbs) {
+            if (!Number.isFinite(value) || !Number.isFinite(maxAbs) || maxAbs <= 0) {
+                return 'background: rgba(130,145,160,0.12); color: #9ba8b7;';
+            }
+
+            const intensity = clamp(Math.abs(value) / maxAbs, 0, 1);
+            const alpha = 0.10 + intensity * 0.42;
+
+            if (value > 0) {
+                return `background: rgba(95,211,141,${alpha.toFixed(3)}); color: #dff7e8;`;
+            }
+
+            if (value < 0) {
+                return `background: rgba(255,122,122,${alpha.toFixed(3)}); color: #ffe3e3;`;
+            }
+
+            return 'background: rgba(130,145,160,0.12); color: #9ba8b7;';
+        }
+
+        function renderInventoryMomentumMatrix() {
+            const container = document.getElementById('inventory-momentum-matrix');
+            const series = eiaInventoryData?.series || {};
+
+            if (!container) {
+                return;
+            }
+
+            const horizons = [
+                { label: '1 Week', weeks: 1 },
+                { label: '4 Weeks', weeks: 4 },
+                { label: '13 Weeks', weeks: 13 },
+                { label: '52 Weeks', weeks: 52 }
+            ];
+
+            const rows = getInventorySeriesConfig().map(([key, name]) => {
+                const observations = series[key]?.data || [];
+                return {
+                    key,
+                    name,
+                    values: horizons.map(horizon =>
+                        inventoryChangeOverWeeks(observations, horizon.weeks)
+                    )
+                };
+            });
+
+            const maxAbs = Math.max(
+                0.01,
+                ...rows.flatMap(row =>
+                    row.values
+                        .map(value => value?.percent)
+                        .filter(Number.isFinite)
+                        .map(Math.abs)
+                )
+            );
+
+            const header = horizons
+                .map(horizon => `<th>${horizon.label}</th>`)
+                .join('');
+
+            const body = rows.map(row => {
+                const cells = row.values.map(value => {
+                    if (!value) {
+                        return '<td class="matrix-cell-neutral">--</td>';
+                    }
+
+                    const sign = value.percent > 0 ? '+' : '';
+                    const absoluteSign = value.absolute > 0 ? '+' : '';
+
+                    return `
+                        <td style="${matrixCellStyle(value.percent, maxAbs)}"
+                            title="${absoluteSign}${value.absolute.toFixed(3)} million barrels">
+                            ${sign}${value.percent.toFixed(2)}%
+                        </td>
+                    `;
+                }).join('');
+
+                return `<tr><td>${row.name}</td>${cells}</tr>`;
+            }).join('');
+
+            container.innerHTML = `
+                <table class="momentum-table">
+                    <thead>
+                        <tr>
+                            <th>Inventory</th>
+                            ${header}
+                        </tr>
+                    </thead>
+                    <tbody>${body}</tbody>
+                </table>
+            `;
+        }
+
+        function calculateSameWeekSeasonalStats(observations) {
+            if (!Array.isArray(observations) || observations.length < 6) {
+                return null;
+            }
+
+            const latest = observations[observations.length - 1];
+            const latestValue = Number(latest.value);
+            const latestISO = getISOYearWeek(latest.date);
+            const priorValues = [];
+
+            observations.forEach(item => {
+                const iso = getISOYearWeek(item.date);
+                const value = Number(item.value);
+
+                if (
+                    Number.isFinite(value) &&
+                    iso.week === latestISO.week &&
+                    iso.year >= latestISO.year - 5 &&
+                    iso.year < latestISO.year
+                ) {
+                    priorValues.push(value);
+                }
+            });
+
+            if (priorValues.length < 3 || !Number.isFinite(latestValue)) {
+                return null;
+            }
+
+            const mean = priorValues.reduce((sum, value) => sum + value, 0) / priorValues.length;
+            const variance = priorValues.length > 1
+                ? priorValues.reduce((sum, value) => sum + Math.pow(value - mean, 2), 0) / (priorValues.length - 1)
+                : 0;
+            const sd = Math.sqrt(variance);
+            const minimum = Math.min(...priorValues);
+            const maximum = Math.max(...priorValues);
+            const z = sd > 0 ? (latestValue - mean) / sd : 0;
+            const rangePosition = maximum > minimum
+                ? ((latestValue - minimum) / (maximum - minimum)) * 100
+                : 50;
+
+            return {
+                latest,
+                latestValue,
+                mean,
+                sd,
+                minimum,
+                maximum,
+                z,
+                rangePosition: clamp(rangePosition, 0, 100),
+                count: priorValues.length
+            };
+        }
+
+        function renderInventorySeasonalPosition() {
+            const container = document.getElementById('inventory-seasonal-position');
+            const series = eiaInventoryData?.series || {};
+
+            if (!container) {
+                return;
+            }
+
+            const cards = getInventorySeriesConfig().map(([key, name]) => {
+                const stats = calculateSameWeekSeasonalStats(series[key]?.data || []);
+
+                if (!stats) {
+                    return `
+                        <div class="seasonal-position-card">
+                            <h4>${name}</h4>
+                            <p class="seasonal-z">--</p>
+                            <div class="seasonal-z-label">Seasonal Z-Score</div>
+                            <div class="seasonal-position-meta">Insufficient history</div>
+                        </div>
+                    `;
+                }
+
+                const zSign = stats.z > 0 ? '+' : '';
+                const relation = stats.latestValue >= stats.mean ? 'above' : 'below';
+                const diff = stats.latestValue - stats.mean;
+                const diffSign = diff > 0 ? '+' : '';
+
+                return `
+                    <div class="seasonal-position-card">
+                        <h4>${name}</h4>
+                        <p class="seasonal-z">${zSign}${stats.z.toFixed(2)}σ</p>
+                        <div class="seasonal-z-label">Seasonal Z-Score</div>
+                        <div class="seasonal-track" title="Position within prior five-year same-week range">
+                            <div class="seasonal-track-fill" style="width:${stats.rangePosition.toFixed(1)}%"></div>
+                            <div class="seasonal-track-marker" style="left:${stats.rangePosition.toFixed(1)}%"></div>
+                        </div>
+                        <div class="seasonal-position-meta">
+                            <strong>${stats.latestValue.toFixed(1)}M bbl</strong><br>
+                            ${diffSign}${diff.toFixed(1)}M ${relation} 5Y avg<br>
+                            Range: ${stats.minimum.toFixed(1)}–${stats.maximum.toFixed(1)}M
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            container.innerHTML = cards;
+        }
+
+        function renderGlobalProductionLeaderboard() {
+            if (!jodiSummaryData) {
+                return;
+            }
+
+            const candidates = (jodiSummaryData.countries || [])
+                .map(country => {
+                    const production = country.series?.crude_production;
+                    if (!production || !Number.isFinite(Number(production.latest_value))) {
+                        return null;
+                    }
+
+                    return {
+                        code: country.code,
+                        name: country.name,
+                        value: Number(production.latest_value),
+                        month: production.latest_reported_month,
+                        staleMonths: jodiMonthDistance(
+                            production.latest_reported_month,
+                            jodiSummaryData.latest_global_reported_month
+                        )
+                    };
+                })
+                .filter(Boolean)
+                .filter(item => item.value > 0)
+                .sort((a, b) => b.value - a.value)
+                .slice(0, 15);
+
+            productionLeaderboardCodes = candidates.map(item => item.code);
+
+            const canvas = document.getElementById('global-production-leaderboard-chart');
+            if (!canvas) {
+                return;
+            }
+
+            if (globalProductionLeaderboardChart) {
+                globalProductionLeaderboardChart.destroy();
+            }
+
+            globalProductionLeaderboardChart = new Chart(canvas.getContext('2d'), {
+                type: 'bar',
+                data: {
+                    labels: candidates.map(item => item.name),
+                    datasets: [{
+                        label: 'Crude Production',
+                        data: candidates.map(item => item.value),
+                        backgroundColor: candidates.map(item =>
+                            Number.isFinite(item.staleMonths) && item.staleMonths > 12
+                                ? 'rgba(113,128,146,0.55)'
+                                : 'rgba(217,75,91,0.78)'
+                        ),
+                        borderColor: candidates.map(item =>
+                            Number.isFinite(item.staleMonths) && item.staleMonths > 12
+                                ? '#718092'
+                                : '#d94b5b'
+                        ),
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    onClick: function(event, elements) {
+                        if (!elements.length) return;
+                        selectGlobalCountryFromVisual(
+                            productionLeaderboardCodes[elements[0].index]
+                        );
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const item = candidates[context.dataIndex];
+                                    return `${item.value.toFixed(3)}M b/d · ${formatJODIMonth(item.month)}`;
+                                },
+                                afterLabel: function(context) {
+                                    const item = candidates[context.dataIndex];
+                                    return Number.isFinite(item.staleMonths) && item.staleMonths > 0
+                                        ? `${item.staleMonths} month${item.staleMonths === 1 ? '' : 's'} behind latest JODI month`
+                                        : 'Current with latest JODI month';
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            grid: { color: 'rgba(255,255,255,0.055)' },
+                            ticks: {
+                                color: '#7f8d9d',
+                                callback: value => Number(value).toFixed(1) + 'M'
+                            },
+                            title: {
+                                display: true,
+                                text: 'Million barrels per day',
+                                color: '#718092'
+                            }
+                        },
+                        y: {
+                            grid: { display: false },
+                            ticks: { color: '#aab4c0' }
+                        }
+                    }
+                }
+            });
+        }
+
+        function renderGlobalTradeBalance() {
+            if (!jodiSummaryData) {
+                return;
+            }
+
+            const candidates = (jodiSummaryData.countries || [])
+                .map(country => {
+                    const imports = country.series?.crude_imports;
+                    const exports = country.series?.crude_exports;
+
+                    if (!imports || !exports) {
+                        return null;
+                    }
+
+                    if (imports.latest_reported_month !== exports.latest_reported_month) {
+                        return null;
+                    }
+
+                    const staleMonths = jodiMonthDistance(
+                        imports.latest_reported_month,
+                        jodiSummaryData.latest_global_reported_month
+                    );
+
+                    if (!Number.isFinite(staleMonths) || staleMonths > 12) {
+                        return null;
+                    }
+
+                    const importValue = Number(imports.latest_value);
+                    const exportValue = Number(exports.latest_value);
+
+                    if (!Number.isFinite(importValue) || !Number.isFinite(exportValue)) {
+                        return null;
+                    }
+
+                    return {
+                        code: country.code,
+                        name: country.name,
+                        month: imports.latest_reported_month,
+                        balance: exportValue - importValue
+                    };
+                })
+                .filter(Boolean);
+
+            const exporters = candidates
+                .filter(item => item.balance > 0)
+                .sort((a, b) => b.balance - a.balance)
+                .slice(0, 8);
+
+            const importers = candidates
+                .filter(item => item.balance < 0)
+                .sort((a, b) => a.balance - b.balance)
+                .slice(0, 8);
+
+            const display = [...exporters, ...importers]
+                .sort((a, b) => b.balance - a.balance);
+
+            tradeBalanceCodes = display.map(item => item.code);
+
+            const canvas = document.getElementById('global-trade-balance-chart');
+            if (!canvas) {
+                return;
+            }
+
+            if (globalTradeBalanceChart) {
+                globalTradeBalanceChart.destroy();
+            }
+
+            globalTradeBalanceChart = new Chart(canvas.getContext('2d'), {
+                type: 'bar',
+                data: {
+                    labels: display.map(item => item.name),
+                    datasets: [{
+                        label: 'Net Crude Trade Balance',
+                        data: display.map(item => item.balance),
+                        backgroundColor: display.map(item =>
+                            item.balance >= 0
+                                ? 'rgba(95,211,141,0.70)'
+                                : 'rgba(255,122,122,0.70)'
+                        ),
+                        borderColor: display.map(item =>
+                            item.balance >= 0 ? '#5fd38d' : '#ff7a7a'
+                        ),
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    onClick: function(event, elements) {
+                        if (!elements.length) return;
+                        selectGlobalCountryFromVisual(
+                            tradeBalanceCodes[elements[0].index]
+                        );
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const item = display[context.dataIndex];
+                                    const sign = item.balance > 0 ? '+' : '';
+                                    return `${sign}${item.balance.toFixed(3)}M b/d · ${formatJODIMonth(item.month)}`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: { color: 'rgba(255,255,255,0.055)' },
+                            ticks: {
+                                color: '#7f8d9d',
+                                callback: value => `${Number(value) > 0 ? '+' : ''}${Number(value).toFixed(1)}M`
+                            },
+                            title: {
+                                display: true,
+                                text: 'Exports minus imports · million barrels per day',
+                                color: '#718092'
+                            }
+                        },
+                        y: {
+                            grid: { display: false },
+                            ticks: { color: '#aab4c0' }
+                        }
+                    }
+                }
+            });
+        }
+
+        async function renderGlobalStockHeatmap() {
+            const container = document.getElementById('global-stock-heatmap');
+            const status = document.getElementById('stock-heatmap-status');
+
+            if (!container || !jodiSummaryData) {
+                return;
+            }
+
+            const globalLatest = jodiSummaryData.latest_global_reported_month;
+
+            const candidates = (jodiSummaryData.countries || [])
+                .map(country => {
+                    const stocks = country.series?.closing_stocks;
+                    if (!stocks) return null;
+
+                    const value = Number(stocks.latest_value);
+                    const staleMonths = jodiMonthDistance(
+                        stocks.latest_reported_month,
+                        globalLatest
+                    );
+
+                    if (
+                        !Number.isFinite(value) ||
+                        value <= 0 ||
+                        !Number.isFinite(staleMonths) ||
+                        staleMonths > 12
+                    ) {
+                        return null;
+                    }
+
+                    return {
+                        code: country.code,
+                        name: country.name,
+                        value,
+                        file: country.file
+                    };
+                })
+                .filter(Boolean)
+                .sort((a, b) => b.value - a.value)
+                .slice(0, 15);
+
+            status.textContent = `Loading ${candidates.length} country histories...`;
+
+            try {
+                const records = await Promise.all(
+                    candidates.map(async country => {
+                        const response = await fetch(
+                            '../data/jodi/' + country.file + '?t=' + Date.now(),
+                            { cache: 'no-store' }
+                        );
+
+                        if (!response.ok) {
+                            return { ...country, observations: [] };
+                        }
+
+                        const data = await response.json();
+                        return {
+                            ...country,
+                            observations: data.series?.closing_stocks?.observations || []
+                        };
+                    })
+                );
+
+                const months = Array.from({ length: 12 }, (_, index) =>
+                    monthOffset(globalLatest, index - 11)
+                );
+
+                const rows = records.map(record => {
+                    const byMonth = new Map(
+                        record.observations.map(item => [item.date, Number(item.value)])
+                    );
+
+                    const changes = months.map(month => {
+                        const current = byMonth.get(month);
+                        const previous = byMonth.get(monthOffset(month, -1));
+
+                        return Number.isFinite(current) && Number.isFinite(previous)
+                            ? current - previous
+                            : null;
+                    });
+
+                    return { ...record, changes };
+                });
+
+                const maxAbs = Math.max(
+                    0.01,
+                    ...rows.flatMap(row =>
+                        row.changes.filter(Number.isFinite).map(Math.abs)
+                    )
+                );
+
+                const monthHeaders = months.map(month => {
+                    const date = new Date(month + '-01T00:00:00Z');
+                    return `<th>${date.toLocaleDateString('en-US', { month: 'short', year: '2-digit', timeZone: 'UTC' })}</th>`;
+                }).join('');
+
+                const body = rows.map(row => {
+                    const cells = row.changes.map(change => {
+                        if (!Number.isFinite(change)) {
+                            return '<td class="matrix-cell-neutral">--</td>';
+                        }
+
+                        const sign = change > 0 ? '+' : '';
+                        return `<td style="${matrixCellStyle(change, maxAbs)}" title="${sign}${change.toFixed(3)} million barrels">${sign}${change.toFixed(1)}</td>`;
+                    }).join('');
+
+                    return `<tr data-country-code="${row.code}"><td>${row.name}</td>${cells}</tr>`;
+                }).join('');
+
+                container.innerHTML = `
+                    <table class="stock-heatmap-table">
+                        <thead>
+                            <tr>
+                                <th>Country</th>
+                                ${monthHeaders}
+                            </tr>
+                        </thead>
+                        <tbody>${body}</tbody>
+                    </table>
+                `;
+
+                container.querySelectorAll('tbody tr').forEach(row => {
+                    row.addEventListener('click', () =>
+                        selectGlobalCountryFromVisual(row.dataset.countryCode)
+                    );
+                });
+
+                status.textContent = `${rows.length} countries · through ${formatJODIMonth(globalLatest)}`;
+            }
+
+            catch (error) {
+                console.error(error);
+                container.innerHTML = '<div class="suite-loading">Stock heatmap unavailable.</div>';
+                status.textContent = 'Unavailable';
+            }
+        }
+
+        async function renderGlobalProductionMap() {
+            const svgElement = document.getElementById('global-production-map');
+            const tooltip = document.getElementById('global-production-map-tooltip');
+            const status = document.getElementById('production-map-status');
+
+            if (!svgElement || !jodiSummaryData) {
+                return;
+            }
+
+            if (typeof d3 === 'undefined' || typeof topojson === 'undefined') {
+                status.textContent = 'Map library unavailable';
+                return;
+            }
+
+            try {
+                const response = await fetch(
+                    'https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-50m.json',
+                    { cache: 'force-cache' }
+                );
+
+                if (!response.ok) {
+                    throw new Error('Could not load world boundary data.');
+                }
+
+                const world = await response.json();
+                const features = topojson.feature(
+                    world,
+                    world.objects.countries
+                ).features;
+
+                const productionByNumeric = new Map();
+                const globalLatest = jodiSummaryData.latest_global_reported_month;
+
+                (jodiSummaryData.countries || []).forEach(country => {
+                    const numeric = ISO2_TO_NUMERIC[country.code];
+                    const production = country.series?.crude_production;
+
+                    if (!numeric || !production) {
+                        return;
+                    }
+
+                    const value = Number(production.latest_value);
+                    if (!Number.isFinite(value)) {
+                        return;
+                    }
+
+                    productionByNumeric.set(String(Number(numeric)), {
+                        code: country.code,
+                        name: country.name,
+                        value,
+                        month: production.latest_reported_month,
+                        staleMonths: jodiMonthDistance(
+                            production.latest_reported_month,
+                            globalLatest
+                        )
+                    });
+                });
+
+                const values = Array.from(productionByNumeric.values())
+                    .map(item => item.value)
+                    .filter(value => value > 0);
+
+                const maxValue = Math.max(...values, 1);
+                const color = d3.scaleSequential()
+                    .domain([0, maxValue])
+                    .interpolator(d3.interpolateRgb('#18212b', '#d94b5b'));
+
+                const svg = d3.select(svgElement);
+                svg.selectAll('*').remove();
+
+                const width = 1200;
+                const height = 470;
+                svg.attr('viewBox', `0 0 ${width} ${height}`)
+                    .attr('preserveAspectRatio', 'xMidYMid meet');
+
+                const projection = d3.geoNaturalEarth1()
+                    .fitExtent([[12, 12], [width - 12, height - 12]], {
+                        type: 'FeatureCollection',
+                        features
+                    });
+
+                const path = d3.geoPath(projection);
+
+                svg.append('g')
+                    .selectAll('path')
+                    .data(features)
+                    .join('path')
+                    .attr('class', 'map-country')
+                    .attr('d', path)
+                    .attr('tabindex', feature =>
+                        productionByNumeric.has(String(Number(feature.id))) ? 0 : null
+                    )
+                    .attr('fill', feature => {
+                        const item = productionByNumeric.get(String(Number(feature.id)));
+                        if (!item || item.value <= 0) return '#111a23';
+                        return color(item.value);
+                    })
+                    .attr('opacity', feature => {
+                        const item = productionByNumeric.get(String(Number(feature.id)));
+                        return item && Number.isFinite(item.staleMonths) && item.staleMonths > 12
+                            ? 0.42
+                            : 1;
+                    })
+                    .on('mousemove', function(event, feature) {
+                        const item = productionByNumeric.get(String(Number(feature.id)));
+                        if (!item) return;
+
+                        tooltip.innerHTML = `
+                            <strong>${item.name}</strong>
+                            ${item.value.toFixed(3)}M b/d<br>
+                            Reported: ${formatJODIMonth(item.month)}
+                            ${Number.isFinite(item.staleMonths) && item.staleMonths > 0
+                                ? `<br>${item.staleMonths} month${item.staleMonths === 1 ? '' : 's'} behind latest JODI month`
+                                : ''}
+                        `;
+                        tooltip.style.display = 'block';
+
+                        const wrap = svgElement.parentElement.getBoundingClientRect();
+                        tooltip.style.left = `${clamp(event.clientX - wrap.left + 14, 8, wrap.width - 238)}px`;
+                        tooltip.style.top = `${clamp(event.clientY - wrap.top + 14, 8, wrap.height - 100)}px`;
+                    })
+                    .on('mouseleave', function() {
+                        tooltip.style.display = 'none';
+                    })
+                    .on('click', function(event, feature) {
+                        const item = productionByNumeric.get(String(Number(feature.id)));
+                        if (item) selectGlobalCountryFromVisual(item.code);
+                    })
+                    .on('keydown', function(event, feature) {
+                        if (event.key !== 'Enter' && event.key !== ' ') return;
+                        const item = productionByNumeric.get(String(Number(feature.id)));
+                        if (item) {
+                            event.preventDefault();
+                            selectGlobalCountryFromVisual(item.code);
+                        }
+                    });
+
+                status.textContent = `${productionByNumeric.size} reporting areas · ${formatJODIMonth(globalLatest)}`;
+            }
+
+            catch (error) {
+                console.error(error);
+                status.textContent = 'Map unavailable';
+            }
+        }
+
+        function renderGlobalVisualSuite() {
+            if (!jodiSummaryData) {
+                return;
+            }
+
+            document
+                .getElementById('global-visuals-report-date')
+                .textContent =
+                'Latest JODI month: ' +
+                formatJODIMonth(jodiSummaryData.latest_global_reported_month);
+
+            renderGlobalProductionLeaderboard();
+            renderGlobalTradeBalance();
+            renderGlobalProductionMap();
+            renderGlobalStockHeatmap();
+        }
+
+
         async function loadJODIData() {
 
             try {
@@ -4259,6 +5530,8 @@
                     formatJODIMonth(
                         jodiSummaryData.latest_global_reported_month
                     );
+
+                renderGlobalVisualSuite();
 
                 await loadJODICountry(defaultCountry);
             }
