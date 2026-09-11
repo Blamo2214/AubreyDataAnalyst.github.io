@@ -1,0 +1,1067 @@
+<!DOCTYPE HTML>
+
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html lang="en">
+<head>
+<title>Agitlytics</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport"/>
+<link href="assets/css/main.css" rel="stylesheet"/>
+<noscript><link href="assets/css/noscript.css" rel="stylesheet"/></noscript>
+<style>
+			:root {
+				--research-bg: #07090d;
+				--research-surface: #0f1319;
+				--research-surface-2: #151a22;
+				--research-text: #f3f5f7;
+				--research-muted: #aeb6c0;
+				--research-faint: #7f8995;
+				--research-border: rgba(255,255,255,.12);
+				--research-accent: #d45a68;
+				--research-accent-soft: rgba(212,90,104,.13);
+				--reading-width: 48rem;
+			}
+
+			* { box-sizing: border-box; }
+
+			html { scroll-behavior: smooth; }
+
+			body {
+				background: var(--research-bg);
+				color: var(--research-text);
+			}
+
+			#wrapper,
+			#wrapper.fade-in,
+			#main,
+			#footer {
+				background-color: var(--research-bg);
+			}
+
+			/* Article pages use a compact publication masthead rather than the
+			   full-screen landing intro used elsewhere in the template. */
+			#intro { display: none; }
+
+			#header {
+				min-height: 5rem;
+				background: rgba(7,9,13,.96);
+				border-bottom: 1px solid var(--research-border);
+			}
+
+			#header .logo {
+				border: 0;
+				color: var(--research-text) !important;
+				font-size: .82rem;
+				font-weight: 800;
+				letter-spacing: .2em;
+				padding: 0;
+				text-transform: uppercase;
+			}
+
+			#header .logo::before {
+				content: "Agitlytics  /  ";
+				color: var(--research-accent);
+			}
+
+			#nav {
+				background: rgba(15,19,25,.97);
+				border-bottom: 1px solid var(--research-border);
+			}
+
+			#nav a,
+			#nav .icon:before {
+				color: var(--research-muted) !important;
+			}
+
+			#nav ul.links li.active {
+				background: var(--research-accent-soft);
+			}
+
+			#nav ul.links li.active a,
+			#nav a:hover {
+				color: #fff !important;
+			}
+
+			#main {
+				max-width: 82rem;
+				padding: 0;
+				background: var(--research-bg);
+			}
+
+			#main > .post {
+				padding: 0;
+				background: transparent;
+			}
+
+			.article-hero {
+				position: relative;
+				padding: 5.25rem 5rem 3.5rem !important;
+				margin: 0 !important;
+				background:
+					radial-gradient(circle at 90% 10%, rgba(212,90,104,.14), transparent 28%),
+					linear-gradient(135deg, #0c1016, #080a0e);
+				border-bottom: 1px solid var(--research-border);
+				text-align: left !important;
+			}
+
+			.article-hero::before {
+				content: "Agitlytics Research Desk";
+				display: block;
+				margin-bottom: 1.35rem;
+				color: var(--research-accent);
+				font-size: .72rem;
+				font-weight: 800;
+				letter-spacing: .2em;
+				text-transform: uppercase;
+			}
+
+			.article-hero h1 {
+				max-width: 18ch;
+				margin: 0 0 1.4rem !important;
+				color: var(--research-text) !important;
+				font-size: clamp(2.55rem, 6vw, 5.3rem);
+				line-height: .98;
+				letter-spacing: -.015em;
+				text-align: left;
+			}
+
+			.article-hero p {
+				margin: 0 !important;
+				color: var(--research-muted) !important;
+				font-family: inherit;
+				font-size: .82rem;
+				font-style: normal;
+				font-weight: 700;
+				letter-spacing: .14em;
+				line-height: 1.5;
+				text-align: left;
+				text-transform: uppercase;
+			}
+
+			.article-hero .date:empty { display: none; }
+
+			.hero-image {
+				width: min(72rem, calc(100% - 5rem));
+				margin: -1px auto 0 !important;
+				background: var(--research-surface);
+				border: 1px solid var(--research-border);
+				border-top: 0;
+				overflow: hidden;
+			}
+
+			.hero-image img {
+				display: block;
+				width: 100%;
+				max-height: 42rem;
+				object-fit: cover;
+			}
+
+			.article-body {
+				width: min(var(--reading-width), calc(100% - 4rem));
+				margin: 0 auto;
+				padding: 4.5rem 0 6rem;
+				color: var(--research-text);
+			}
+
+			.article-body > h2:first-child:empty { display: none; }
+
+			.article-body h2,
+			.article-body h3,
+			.article-body h4 {
+				color: var(--research-text) !important;
+				text-align: left;
+			}
+
+			.article-body h2 {
+				position: relative;
+				margin: 4.5rem 0 1.4rem;
+				padding-top: 1.5rem;
+				font-size: clamp(1.55rem, 3vw, 2.25rem);
+				line-height: 1.15;
+				letter-spacing: -.005em;
+			}
+
+			.article-body h2::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 3.25rem;
+				height: 2px;
+				background: var(--research-accent);
+			}
+
+			.article-body h3 {
+				margin: 3rem 0 1rem;
+				font-size: 1.35rem;
+			}
+
+			.article-body p,
+			.article-body li,
+			.article-body blockquote {
+				color: #d9dee4 !important;
+				font-family: Georgia, "Times New Roman", serif;
+				font-size: 1.12rem;
+				line-height: 1.88;
+				text-align: left;
+			}
+
+			.article-body p {
+				margin: 0 0 1.55rem;
+			}
+
+			.article-body a {
+				color: #f08a96;
+				border-bottom-color: rgba(240,138,150,.45);
+			}
+
+			.article-body a:hover {
+				color: #fff !important;
+				border-bottom-color: var(--research-accent);
+			}
+
+			.article-body strong,
+			.article-body b {
+				color: #fff;
+			}
+
+			.article-body i,
+			.article-body em {
+				color: #eef1f4;
+			}
+
+			.article-body blockquote,
+			.article-body p:has(> i:only-child),
+			.article-body p:has(> em:only-child) {
+				margin: 2.25rem 0;
+				padding: 1.4rem 1.6rem;
+				background: var(--research-surface);
+				border-left: 3px solid var(--research-accent);
+			}
+
+			.article-body ul,
+			.article-body ol {
+				margin: 1.5rem 0 2rem;
+			}
+
+			.article-body .image,
+			.article-body .image.main,
+			.article-body .image.fit,
+			.article-body .image.left,
+			.article-body .image.right {
+				display: block;
+				float: none;
+				width: min(64rem, 100%);
+				max-width: none;
+				margin: 2.75rem auto;
+				padding: 0;
+				background: var(--research-surface);
+				border: 1px solid var(--research-border);
+				border-radius: 2px;
+				overflow: hidden;
+			}
+
+			.article-body .image img,
+			.article-body img {
+				display: block;
+				max-width: 100%;
+				height: auto;
+			}
+
+			.article-body table {
+				display: block;
+				width: 100%;
+				margin: 2rem 0;
+				overflow-x: auto;
+				background: var(--research-surface);
+				border: 1px solid var(--research-border);
+			}
+
+			.article-body table th,
+			.article-body table td {
+				color: var(--research-text);
+				border-color: var(--research-border);
+			}
+
+			.article-body .button,
+			.article-body button,
+			.article-body input[type="submit"],
+			.article-body input[type="reset"],
+			.article-body input[type="button"] {
+				background: transparent;
+				border-color: rgba(255,255,255,.65) !important;
+				box-shadow: inset 0 0 0 2px rgba(255,255,255,.65);
+				color: #fff !important;
+			}
+
+			.article-body .button:hover {
+				background: var(--research-accent-soft);
+				border-color: var(--research-accent) !important;
+				box-shadow: inset 0 0 0 2px var(--research-accent);
+			}
+
+			#footer {
+				background: #0d1117;
+				border-top: 1px solid var(--research-border);
+			}
+
+			#footer h3,
+			#footer p,
+			#footer a,
+			#copyright,
+			#copyright a {
+				color: var(--research-muted) !important;
+			}
+
+			#copyright {
+				background: var(--research-bg);
+			}
+
+			@media screen and (max-width: 980px) {
+				.article-hero {
+					padding: 4.25rem 3rem 3rem !important;
+				}
+
+				.hero-image {
+					width: calc(100% - 3rem);
+				}
+			}
+
+			@media screen and (max-width: 736px) {
+				#header {
+					min-height: 4rem;
+				}
+
+				#header .logo {
+					font-size: .68rem;
+					letter-spacing: .15em;
+				}
+
+				#header .logo::before {
+					content: "Agitlytics / ";
+				}
+
+				.article-hero {
+					padding: 3.2rem 1.4rem 2.4rem !important;
+				}
+
+				.article-hero::before {
+					margin-bottom: 1rem;
+					font-size: .62rem;
+				}
+
+				.article-hero h1 {
+					max-width: none;
+					font-size: clamp(2.15rem, 11vw, 3.35rem);
+					line-height: 1.02;
+					overflow-wrap: anywhere;
+				}
+
+				.article-hero p {
+					font-size: .68rem;
+					letter-spacing: .1em;
+				}
+
+				.hero-image {
+					width: 100%;
+					border-left: 0;
+					border-right: 0;
+				}
+
+				.hero-image img {
+					max-height: 25rem;
+				}
+
+				.article-body {
+					width: calc(100% - 2.5rem);
+					padding: 3rem 0 4.5rem;
+				}
+
+				.article-body p,
+				.article-body li,
+				.article-body blockquote {
+					font-size: 1.03rem;
+					line-height: 1.76;
+				}
+
+				.article-body h2 {
+					margin-top: 3.5rem;
+					font-size: 1.55rem;
+				}
+
+				.article-body .image,
+				.article-body .image.main,
+				.article-body .image.fit,
+				.article-body .image.left,
+				.article-body .image.right {
+					width: calc(100% + 1rem);
+					margin-left: -.5rem;
+				}
+			}
+		</style>
+
+<style>
+	/* ===== Agitlytics publication navigation ===== */
+	.publication-nav {
+		position: sticky;
+		top: 0;
+		z-index: 10000;
+		background: rgba(7, 9, 13, .9);
+		border-bottom: 1px solid rgba(255,255,255,.1);
+		-webkit-backdrop-filter: blur(16px);
+		backdrop-filter: blur(16px);
+	}
+
+	.publication-nav__inner {
+		max-width: 82rem;
+		min-height: 4.6rem;
+		margin: 0 auto;
+		padding: 0 2rem;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 2rem;
+	}
+
+	.publication-brand {
+		display: inline-flex;
+		align-items: center;
+		gap: .75rem;
+		color: #fff !important;
+		border: 0 !important;
+		font-family: inherit;
+		font-size: .82rem;
+		font-weight: 900;
+		letter-spacing: .22em;
+		text-decoration: none;
+		text-transform: uppercase;
+		white-space: nowrap;
+	}
+
+	.publication-brand::before {
+		content: "";
+		width: .62rem;
+		height: .62rem;
+		background: #d45a68;
+		border-radius: 50%;
+		box-shadow: 0 0 0 .35rem rgba(212,90,104,.12);
+	}
+
+	.publication-links {
+		display: flex;
+		align-items: center;
+		gap: 1.55rem;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.publication-links a {
+		color: #aeb6c0 !important;
+		border: 0 !important;
+		font-family: inherit;
+		font-size: .7rem;
+		font-weight: 800;
+		letter-spacing: .13em;
+		text-decoration: none;
+		text-transform: uppercase;
+		white-space: nowrap;
+		transition: color .2s ease;
+	}
+
+	.publication-links a:hover,
+	.publication-links a.is-active {
+		color: #fff !important;
+	}
+
+	.publication-links a.is-active {
+		position: relative;
+	}
+
+	.publication-links a.is-active::after {
+		content: "";
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: -.68rem;
+		height: 2px;
+		background: #d45a68;
+	}
+
+	.article-end {
+		width: min(64rem, calc(100% - 4rem));
+		margin: 0 auto 6rem;
+		padding: 3rem;
+		background:
+			linear-gradient(145deg, rgba(212,90,104,.08), transparent 36%),
+			#0f1319;
+		border: 1px solid rgba(255,255,255,.12);
+	}
+
+	.article-end__top {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 2rem;
+		padding-bottom: 2.1rem;
+		border-bottom: 1px solid rgba(255,255,255,.1);
+	}
+
+	.article-end__eyebrow {
+		margin: 0 0 .55rem;
+		color: #d45a68;
+		font-family: inherit;
+		font-size: .68rem;
+		font-weight: 900;
+		letter-spacing: .18em;
+		text-transform: uppercase;
+	}
+
+	.article-end h2 {
+		margin: 0 !important;
+		padding: 0 !important;
+		color: #fff !important;
+		font-size: clamp(1.45rem, 3vw, 2.2rem);
+		line-height: 1.08;
+	}
+
+	.article-end h2::before {
+		display: none !important;
+	}
+
+	.article-end__library {
+		flex: 0 0 auto;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 3.2rem;
+		padding: 0 1.3rem;
+		border: 1px solid rgba(255,255,255,.5) !important;
+		color: #fff !important;
+		font-family: inherit;
+		font-size: .68rem;
+		font-weight: 900;
+		letter-spacing: .13em;
+		text-decoration: none;
+		text-transform: uppercase;
+		transition: .2s ease;
+	}
+
+	.article-end__library:hover {
+		background: #d45a68;
+		border-color: #d45a68 !important;
+	}
+
+	.article-pager {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 1px;
+		margin-top: 1px;
+		background: rgba(255,255,255,.1);
+	}
+
+	.article-pager a {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		min-height: 10rem;
+		padding: 1.7rem;
+		background: #0b0f14;
+		border: 0 !important;
+		text-decoration: none;
+		transition: background .2s ease, transform .2s ease;
+	}
+
+	.article-pager a:hover {
+		background: #151a22;
+	}
+
+	.article-pager a:last-child {
+		text-align: right;
+	}
+
+	.article-pager__label {
+		margin-bottom: .7rem;
+		color: #7f8995;
+		font-family: inherit;
+		font-size: .62rem;
+		font-weight: 900;
+		letter-spacing: .17em;
+		text-transform: uppercase;
+	}
+
+	.article-pager__category {
+		margin-bottom: .38rem;
+		color: #d45a68;
+		font-family: inherit;
+		font-size: .64rem;
+		font-weight: 800;
+		letter-spacing: .12em;
+		text-transform: uppercase;
+	}
+
+	.article-pager__title {
+		color: #f3f5f7;
+		font-family: inherit;
+		font-size: 1rem;
+		font-weight: 800;
+		line-height: 1.35;
+	}
+
+	.article-topics {
+		display: flex;
+		flex-wrap: wrap;
+		gap: .65rem;
+		margin-top: 2rem;
+	}
+
+	.article-topics a {
+		display: inline-flex;
+		align-items: center;
+		min-height: 2.35rem;
+		padding: 0 .9rem;
+		background: rgba(255,255,255,.035);
+		border: 1px solid rgba(255,255,255,.11) !important;
+		color: #aeb6c0 !important;
+		font-family: inherit;
+		font-size: .62rem;
+		font-weight: 800;
+		letter-spacing: .11em;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+
+	.article-topics a:hover {
+		color: #fff !important;
+		border-color: #d45a68 !important;
+	}
+
+	@media screen and (max-width: 736px) {
+		.publication-nav__inner {
+			min-height: 4rem;
+			padding: 0 1rem;
+		}
+
+		.publication-brand {
+			font-size: .72rem;
+			letter-spacing: .16em;
+		}
+
+		.publication-links {
+			gap: .9rem;
+			overflow-x: auto;
+			scrollbar-width: none;
+		}
+
+		.publication-links::-webkit-scrollbar {
+			display: none;
+		}
+
+		.publication-links a {
+			font-size: .59rem;
+			letter-spacing: .09em;
+		}
+
+		.publication-links li:nth-child(2),
+		.publication-links li:nth-child(3) {
+			display: none;
+		}
+
+		.article-end {
+			width: calc(100% - 1.5rem);
+			margin-bottom: 3rem;
+			padding: 1.4rem;
+		}
+
+		.article-end__top {
+			align-items: flex-start;
+			flex-direction: column;
+		}
+
+		.article-end__library {
+			width: 100%;
+		}
+
+		.article-pager {
+			grid-template-columns: 1fr;
+		}
+
+		.article-pager a,
+		.article-pager a:last-child {
+			min-height: 8rem;
+			text-align: left;
+		}
+	}
+</style>
+</head>
+<body class="is-preload">
+<!-- Wrapper -->
+<nav aria-label="Primary navigation" class="publication-nav">
+<div class="publication-nav__inner">
+<a class="publication-brand" href="elements.html">Agitlytics Research</a>
+<ul class="publication-links">
+<li><a href="index.html">Portfolio</a></li>
+<li><a href="DataProj.html">Data Projects</a></li>
+<li><a href="generic.html">About</a></li>
+<li><a class="is-active" href="elements.html">Research Library</a></li>
+</ul>
+</div>
+</nav><div class="fade-in" id="wrapper">
+<!-- Intro -->
+<div id="intro">
+<h1>Agitlytics</h1>
+<p>Commentary by <a href="https://www.linkedin.com/in/aubrey-waddle-962634314" rel="noopener noreferrer" target="_blank">Aubrey Waddle</a></p>
+<ul class="actions">
+<li><a class="button icon solid solo fa-arrow-down scrolly" href="#header">Continue</a></li>
+</ul>
+</div>
+<!-- Header -->
+<header id="header" style="display:none;">
+<a class="logo" href="elements.html">Research &amp; Commentary</a>
+</header>
+<!-- Nav -->
+<nav id="nav" style="display:none;">
+<ul class="links">
+<li><a href="index.html">Home</a></li>
+<li><a href="DataProj.html">Data Projects</a></li>
+<li class="active"><a href="elements.html">Agitlytics</a></li>
+<li class="active"><a href="AI.html">AI</a></li>
+</ul>
+<ul class="icons">
+<li><a class="cib-tableau" href="images/RESUME 2025Nov.pdf.pdf" rel="noopener noreferrer" target="_blank"><span class="label">Résumé</span></a></li>
+<li><a class="cib-tableau" href="images/SNHU Diploma.pdf" rel="noopener noreferrer" target="_blank"><span class="label">Diploma</span></a></li>
+<li><a class="cib-tableau" href="images/Transcript_AUBREYWADDLE FINAL.pdf" rel="noopener noreferrer" target="_blank"><span class="label">Transcript</span></a></li>
+<li><a class="cib-tableau" href="https://public.tableau.com/app/profile/aubrey.waddle/vizzes" rel="noopener noreferrer" target="_blank"><span class="label">Tableau Public</span></a></li>
+<li><a class="icon brands alt fa-linkedin" href="https://www.linkedin.com/in/aubrey-waddle-962634314" rel="noopener noreferrer" target="_blank"><span class="label">linkedin</span></a></li>
+<li><a class="icon brands fa-github" href="https://github.com/Blamo2214" rel="noopener noreferrer" target="_blank"><span class="label">GitHub</span></a></li>
+<li><a class="icon brands fa-facebook-f" href="https://www.facebook.com/aubrey.waddle/" rel="noopener noreferrer" target="_blank"><span class="label">Facebook</span></a></li>
+<li><a class="icon brands fa-instagram" href="https://www.instagram.com/aubrey_waddle12/" rel="noopener noreferrer" target="_blank"><span class="label">Instagram</span></a></li>
+</ul>
+</nav>
+<!-- Main -->
+<div id="main">
+<!-- Post -->
+<section class="post">
+<header class="major article-hero">
+<span class="date"></span>
+<h1>AI, Capitalism, and the Development of the Productive Forces</h1>
+<p>Commentary - Aubrey Waddle - 8/9/2026</p>
+</header>
+<div class="image main hero-image" href="https://global.chinadaily.com.cn/a/202605/18/WS6a0a6b01a310d6866eb49226.html"><img alt="" src="images/prodfor.png"/></div><div class="article-body">
+<h2>AI, Capitalism, and the Development of the Productive Forces</h2>
+
+<article class="analysis-paper">
+
+    <p>
+        Like almost everything in economics, I think the development
+        of AI presents a trade-off.
+    </p>
+
+    <p>
+        At the 30,000-foot level, under a capitalist incentive
+        structure—what we generally describe as the profit motive—we get extremely
+        rapid development of new productive forces. AI becomes a race between companies
+        to develop a product that can be monetized, while the individuals involved have
+        the additional motivation of becoming extremely wealthy. That process also
+        compounds: the more successful these companies become, the more capital they
+        accumulate to pour back into research and development, allowing innovation to
+        accelerate even further.
+    </p>
+
+    <p>
+        The trade-off is that technological development can occur
+        much faster than the regulatory state is capable of responding to it.
+    </p>
+
+    <p>
+        This isn't unique to AI. We've seen essentially the same
+        process repeatedly since the Industrial Revolution. The profit motive
+        encourages the rapid development of productive forces, while the regulatory
+        body of the state remains bogged down dealing with the problems already in
+        front of it. The state rarely stops technological development beforehand to
+        determine what problems might emerge. Instead, development proceeds until
+        something goes wrong, and then the state attempts to regulate the problem
+        afterward.
+    </p>
+
+    <p>
+        In that sense, regulations are often written in the blood of
+        workers, consumers, or the public.
+    </p>
+
+    <p>
+        The opioid epidemic is one example. The development of
+        inexpensive and effective painkillers obviously had enormous medical value. But
+        <a href="https://www.jstor.org/stable/45284527"
+           target="_blank"
+           rel="noopener noreferrer">
+            the profit incentive surrounding those drugs also encouraged aggressive
+            marketing and over-prescription, contributing to a massive public-health crisis.
+        </a>
+    </p>
+
+    <p>
+        Climate change provides an even larger example. The
+        Industrial Revolution produced an extraordinary expansion of humanity's
+        productive capacity, largely through fossil fuels. But that development
+        occurred long before an adequate regulatory structure existed to control its
+        environmental consequences.
+        <a href="https://www.nature.com/articles/s41558-022-01452-z"
+           target="_blank"
+           rel="noopener noreferrer">
+            By the time we thoroughly understood the magnitude of anthropogenic climate
+            change, fossil-fuel infrastructure had become deeply embedded throughout the
+            global economy. More than two centuries after the beginning of
+            industrialization, we are still struggling to adequately rein in the
+            environmental consequences of that development.
+        </a>
+    </p>
+
+    <p>
+        That's the fundamental contradiction I'm interested in:
+        capitalism can be extraordinarily effective at rapidly developing the
+        productive forces, but that speed can itself become dangerous because the
+        regulatory state is almost inherently reactive. It develops the guardrails
+        after the technology has already been deployed.
+    </p>
+
+    <p>
+        And that's what concerns me about AI.
+    </p>
+
+    <p>
+        My personal feelings toward AI are actually fairly mundane.
+        I'm excited about its ability to develop the productive forces to a degree we
+        couldn't have imagined even ten or twenty years ago. My concern is: at what
+        cost?
+    </p>
+
+    <p>
+        I basically accept that the regulatory state is going to be
+        behind the development of AI. It's not going to be ahead of the curve. It may
+        not even seriously chase the curve until something has already gone wrong.
+    </p>
+
+    <p>
+        The question is whether AI produces problems that are
+        reversible once we finally decide to regulate them. Does something horrible
+        have to happen before the state meaningfully intervenes? And, more importantly,
+        could we eventually discover that some of the damage cannot simply be undone?
+    </p>
+
+    <p>
+        That's where the comparison with climate change becomes
+        important. The concern isn't merely that regulation comes late. It's that
+        technological development can create path dependencies and accumulated harms
+        that become extraordinarily difficult—and in some cases impossible—to
+        completely reverse.
+    </p>
+
+    <p>
+        But that brings me to the other side of the trade-off: would
+        AI have developed this rapidly under a socialist, publicly directed, or more
+        centrally planned system?
+    </p>
+
+    <p>
+        Probably not.
+    </p>
+
+    <p>
+        Without the capitalist profit motive—without companies
+        racing against each other and individuals pursuing enormous private
+        fortunes—you would probably sacrifice some of the extraordinary speed of
+        development we're seeing today.
+    </p>
+
+    <p>
+        But slower does not necessarily mean worse.
+    </p>
+
+    <p>
+        There are historical examples demonstrating that
+        technological innovation does not require private profit as its primary
+        motivation. The American space program is an obvious example.
+        <a href="https://www.jpl.nasa.gov/infographics/20-inventions-we-wouldnt-have-without-space-travel/"
+           target="_blank"
+           rel="noopener noreferrer">
+            During the Kennedy administration and throughout the Cold War space race
+            with the USSR, enormous technological advances emerged from publicly funded
+            research and state-directed investment.
+        </a>
+    </p>
+
+    <p>
+        The motivation was different. Instead of firms competing for
+        private profit, states were competing geopolitically and technologically.
+    </p>
+
+    <p>
+        Something similar could theoretically happen with AI. We
+        don't necessarily need another empire frightening us into innovation, but even
+        within the geopolitical system that already exists,
+        <a href="https://www.bloomberg.com/graphics/2026-us-china-ai-race/"
+           target="_blank"
+           rel="noopener noreferrer">
+            the United States has an obvious motivation to publicly fund AI research
+            through technological competition with China.
+        </a>
+    </p>
+
+    <p>
+        Under that model, AI could still advance, but perhaps more
+        gradually and with regulation incorporated into the development process itself
+        rather than imposed afterward.
+    </p>
+
+    <p>
+        That's ultimately the trade-off I see between the two
+        systems.
+    </p>
+
+    <p>
+        Under capitalism, technological development is like burning
+        gasoline. The profit motive produces an enormous amount of energy very quickly.
+        Money, competition, accumulation, and greed become the fuel driving the
+        development of productive forces at extraordinary speed. But the regulatory
+        state is constantly chasing behind it, attempting to control the consequences
+        after they emerge.
+    </p>
+
+    <p>
+        A more publicly directed or socialist model might be more
+        like a slower diesel burn. You potentially sacrifice some speed because you
+        aren't exploiting the same "money, money, money; greed, greed, greed"
+        incentive structure as fuel. But in exchange, technological development can
+        theoretically occur more deliberately, with public oversight and regulation
+        incorporated as it develops.
+    </p>
+
+    <p>
+        So I don't think the question is simply whether capitalism
+        or socialism produces more innovation. The more interesting question is what
+        we're actually optimizing for.
+    </p>
+
+    <p>
+        Capitalism may be extraordinarily good at maximizing the
+        <strong>speed</strong> at which productive forces develop. But speed is only one
+        variable. We also have to consider safety, distribution, democratic control,
+        externalities, and whether society retains the ability to regulate a technology
+        before its consequences become irreversible.
+    </p>
+
+    <p>
+        AI may simply be the newest and potentially most
+        consequential version of a trade-off we've been dealing with since the
+        Industrial Revolution.
+    </p>
+
+</article>
+
+
+</div></section>
+</div><aside aria-label="Continue reading" class="article-end">
+<div class="article-end__top">
+<div>
+<p class="article-end__eyebrow">Continue Exploring</p>
+<h2>More from the Agitlytics Research Desk</h2>
+</div>
+<a class="article-end__library" href="elements.html">Back to Research Library</a>
+</div>
+<div class="article-pager">
+<a aria-label="Previous article: The Inflationary Impact of Tariffs" href="Inflation.html">
+<span class="article-pager__label">← Previous Analysis</span>
+<span class="article-pager__category">Markets &amp; Economics</span>
+<span class="article-pager__title">The Inflationary Impact of Tariffs</span>
+</a>
+<a aria-label="Next article: Who the Democratic Party Is Really Losing — and Why Scolding the Left Won’t Fix It" href="DemCrit.html">
+<span class="article-pager__label">Next Analysis →</span>
+<span class="article-pager__category">Elections</span>
+<span class="article-pager__title">Who the Democratic Party Is Really Losing — and Why Scolding the Left Won’t Fix It</span>
+</a>
+</div>
+<nav aria-label="Research topics" class="article-topics">
+<a href="elements.html">Political Economy</a><a href="elements.html">Foreign Policy</a><a href="elements.html">Elections</a><a href="elements.html">Markets &amp; Economics</a><a href="elements.html">Political Analysis</a>
+</nav>
+</aside>
+<!-- Footer -->
+<footer id="footer">
+<!-- <section>
+							<form method="post" action="#">
+								<div class="fields">
+									<div class="field">
+										<label for="name">Name</label>
+										<input type="text" name="name" id="name" />
+									</div>
+									<div class="field">
+										<label for="email">Email</label>
+										<input type="text" name="email" id="email" />
+									</div>
+									<div class="field">
+										<label for="message">Message</label>
+										<textarea name="message" id="message" rows="3"></textarea>
+									</div>
+								</div>
+								<ul class="actions">
+									<li><input type="submit" value="Send Message" /></li>
+								</ul>
+							</form>
+						</section> -->
+<section class="posts">
+<article>
+<header>
+<!-- <span class="date"></span>
+										<h2><a href="https://public.tableau.com/shared/YFXYJXN7D?:display_count=n&:origin=viz_share_link">Data Exploration of<br />
+										Covid Datasets in SQL</a></h2>  -->
+</header>
+<a class="image main" href="#"><img alt="" src="images/Headshot.png"/></a>
+<p></p>
+<ul class="actions special">
+</ul>
+</article>
+</section>
+<section class="split contact">
+<section class="alt">
+<h3>Location</h3>
+<p>Houston, TX<br/>
+</p>
+</section>
+<section>
+<h3>Phone</h3>
+<p><a href="#">(936)446-8053</a></p>
+</section>
+<section>
+<h3>Email</h3>
+<p><a href="#">aubreywaddle2@gmail.com</a></p>
+</section>
+<section>
+<h3>Social</h3>
+<ul class="icons alt">
+<li><a class="icon brands alt fa-linkedin" href="www.linkedin.com/in/aubrey-waddle-962634314"><span class="label">linkedin</span></a></li>
+<li><a class="icon brands alt fa-facebook-f" href="https://www.facebook.com/aubrey.waddle/"><span class="label">Facebook</span></a></li>
+<li><a class="icon brands alt fa-instagram" href="https://www.instagram.com/aubrey_waddle12/"><span class="label">Instagram</span></a></li>
+<li><a class="icon brands alt fa-github" href="https://github.com/Blamo2214"><span class="label">GitHub</span></a></li>
+</ul>
+</section>
+</section>
+</footer>
+<!-- Copyright -->
+<div id="copyright">
+<ul><li>© Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+</div>
+</div>
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
