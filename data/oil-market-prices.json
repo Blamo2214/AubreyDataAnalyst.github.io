@@ -1,15 +1,15 @@
 {
   "WTI_USD": {
-    "price": 100.87,
-    "change": -0.24,
-    "change_percent": -0.2374,
-    "timestamp": "2026-09-18T05:55:20.000Z",
+    "price": 101.32,
+    "change": 0.45,
+    "change_percent": 0.4461,
+    "timestamp": "2026-09-18T10:31:13.383Z",
     "currency": "USD",
     "type": "spot_price",
     "source": "market_reporting",
     "stale": false,
     "synthetic": false,
-    "data_status": "current",
+    "data_status": "delayed",
     "metadata": {
       "source": "market_reporting",
       "source_description": "Aggregated from published market sources",
@@ -20,10 +20,10 @@
     }
   },
   "BRENT_CRUDE_USD": {
-    "price": 103.33,
-    "change": -0.58,
-    "change_percent": -0.5582,
-    "timestamp": "2026-09-18T05:41:00.000Z",
+    "price": 103.27,
+    "change": -0.06,
+    "change_percent": -0.0581,
+    "timestamp": "2026-09-18T11:06:00.000Z",
     "currency": "USD",
     "type": "spot_price",
     "source": "market_reporting",
@@ -40,10 +40,10 @@
     }
   },
   "GASOLINE_USD": {
-    "price": 3.46,
-    "change": 0.01,
-    "change_percent": 0.2899,
-    "timestamp": "2026-09-18T05:55:14.000Z",
+    "price": 3.44,
+    "change": -0.02,
+    "change_percent": -0.578,
+    "timestamp": "2026-09-18T11:10:19.000Z",
     "currency": "USD",
     "type": "spot_price",
     "source": "market_reporting",
