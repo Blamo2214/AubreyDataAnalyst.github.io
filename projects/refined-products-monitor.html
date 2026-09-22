@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>U.S. Refined Products Monitor | Agitlytics</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<style>
+*{box-sizing:border-box}
+:root{--bg:#090d12;--panel:#111821;--panel2:#0d141c;--border:#25303c;--text:#f2f3f5;--muted:#9ba8b7;--subtle:#718092;--accent:#d94b5b;--positive:#5fd38d;--negative:#ff7a7a;--gold:#e7b45c;--blue:#72a7ff}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Georgia,"Times New Roman",serif}
+.site-nav{height:88px;border-bottom:1px solid rgba(255,255,255,.1);background:#070a0e}
+.nav-inner{width:min(1490px,90%);height:100%;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:40px}
+.brand{display:flex;align-items:center;gap:12px;color:#f5f5f5;text-decoration:none;font:700 .95rem Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+.brand-dot{width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 6px rgba(217,75,91,.12)}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{color:#aeb4bd;text-decoration:none;text-transform:uppercase;font:700 .74rem Arial,sans-serif;letter-spacing:.08em;padding:34px 0 12px;border-bottom:2px solid transparent}
+.nav-links a:hover,.nav-links a.active{color:#fff;border-bottom-color:var(--accent)}
+.hero{border-bottom:1px solid rgba(255,255,255,.1);background:radial-gradient(circle at 88% 20%,rgba(103,30,45,.28),transparent 34%),linear-gradient(110deg,#0a0f15 0%,#0a0e13 58%,#130d12 100%)}
+.hero-inner,.page{width:min(1490px,90%);margin:auto}
+.hero-inner{padding:78px 0 55px}
+.eyebrow,.section-label{display:block;color:var(--accent);font:700 .76rem Arial,sans-serif;letter-spacing:.17em;text-transform:uppercase}
+.hero h1{margin:20px 0 0;max-width:1100px;font-size:clamp(3.2rem,6vw,5.8rem);line-height:.98;letter-spacing:-.035em}
+.hero p{max-width:980px;margin:26px 0 0;color:#c3cad3;font-size:1.04rem;line-height:1.8}
+.hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.pill{padding:10px 14px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.025);color:#d1d6dd;font:700 .68rem Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase}
+.page{padding:58px 0 100px}
+.back-link{display:inline-block;margin-bottom:38px;color:#d7dde5;text-decoration:none;font:700 .72rem Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase}
+.back-link:hover{color:#fff}
+.section{margin-bottom:72px}
+.section-header{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:22px}
+.section-header h2{margin:7px 0 0;font-size:2rem;letter-spacing:-.02em}
+.section-note{max-width:680px;color:var(--muted);font:400 .85rem/1.55 Arial,sans-serif;text-align:right}
+.snapshot-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.metric{min-height:148px;padding:20px;border:1px solid var(--border);background:linear-gradient(180deg,#121a24,#0e151d)}
+.metric .kicker{color:var(--muted);font:700 .67rem Arial,sans-serif;letter-spacing:.11em;text-transform:uppercase}
+.metric .value{margin-top:13px;font:700 2rem Arial,sans-serif;letter-spacing:-.04em}
+.metric .unit{margin-top:4px;color:var(--subtle);font:400 .72rem Arial,sans-serif}
+.metric .change{margin-top:12px;font:700 .73rem Arial,sans-serif}
+.metric .change.up{color:var(--positive)} .metric .change.down{color:var(--negative)} .metric .change.flat{color:var(--muted)}
+.product-title{display:flex;align-items:center;gap:12px}
+.product-dot{width:11px;height:11px;border-radius:50%}
+.gas{background:var(--gold)} .diesel{background:var(--blue)}
+.chart-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:18px}
+.chart-card{border:1px solid var(--border);background:var(--panel);padding:22px;min-width:0}
+.chart-card.wide{grid-column:1/-1}
+.chart-head{display:flex;justify-content:space-between;align-items:start;gap:15px;margin-bottom:16px}
+.chart-head h3{margin:0;font-size:1.15rem}
+.chart-head p{margin:6px 0 0;color:var(--muted);font:400 .76rem/1.45 Arial,sans-serif}
+.range{display:flex;gap:6px;flex-wrap:wrap}
+.range button{border:1px solid #2b3744;background:#0b1118;color:#9eabb9;padding:7px 9px;cursor:pointer;font:700 .63rem Arial,sans-serif;text-transform:uppercase}
+.range button:hover,.range button.active{color:#fff;border-color:#6b7887;background:#17212c}
+.canvas-wrap{position:relative;height:330px}.wide .canvas-wrap{height:390px}
+.analysis-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.analysis-card{padding:22px;border:1px solid var(--border);background:var(--panel2)}
+.analysis-card .label{color:var(--muted);font:700 .66rem Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase}
+.analysis-card .big{margin-top:10px;font:700 1.65rem Arial,sans-serif}
+.analysis-card p{margin:9px 0 0;color:var(--subtle);font:400 .75rem/1.5 Arial,sans-serif}
+.status{padding:18px;border:1px solid var(--border);background:var(--panel);color:var(--muted);font:400 .85rem Arial,sans-serif}
+.footer{border-top:1px solid rgba(255,255,255,.1);padding:28px 0;color:#718092;font:400 .72rem Arial,sans-serif}
+@media(max-width:1100px){.snapshot-grid{grid-template-columns:repeat(3,1fr)}.analysis-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:800px){.site-nav{height:auto}.nav-inner{padding:22px 0;align-items:flex-start;flex-direction:column;gap:14px}.nav-links{gap:16px;flex-wrap:wrap}.nav-links a{padding:5px 0}.hero-inner{padding:55px 0 42px}.chart-grid{grid-template-columns:1fr}.snapshot-grid{grid-template-columns:repeat(2,1fr)}.section-header{align-items:start;flex-direction:column}.section-note{text-align:left}.wide .canvas-wrap,.canvas-wrap{height:300px}}
+@media(max-width:520px){.snapshot-grid,.analysis-grid{grid-template-columns:1fr}.hero h1{font-size:3rem}}
+</style>
+</head>
+<body>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a class="brand" href="../index.html"><span class="brand-dot"></span>Agitlytics</a>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="./oil-market-monitor.html">Oil Market Monitor</a>
+      <a class="active" href="./refined-products-monitor.html">Refined Products</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">Agitlytics • U.S. Petroleum Markets</span>
+    <h1>U.S. Refined Products Monitor</h1>
+    <p>Weekly gasoline and distillate market conditions from the U.S. Energy Information Administration. Track production, domestic product supplied, imports, exports, inventories, and the changing relationship between U.S. consumption and foreign demand.</p>
+    <div class="hero-meta">
+      <span class="pill">Gasoline</span><span class="pill">Distillate / Diesel</span><span class="pill">Weekly EIA Data</span><span class="pill" id="reportDate">Latest report: —</span>
+    </div>
+  </div>
+</header>
+
+<main class="page">
+<a class="back-link" href="./oil-market-monitor.html">← Back to Oil Market Monitor</a>
+<div id="status" class="status">Loading EIA refined-products data…</div>
+
+<section class="section" id="snapshot" hidden>
+  <div class="section-header">
+    <div><span class="section-label">Latest Weekly Data</span><h2>Market Snapshot</h2></div>
+    <div class="section-note">Latest observations from the weekly EIA feed. Changes compare with the previous available weekly observation.</div>
+  </div>
+  <div class="product-title"><span class="product-dot gas"></span><h3>Gasoline</h3></div>
+  <div class="snapshot-grid" id="gasSnapshot"></div>
+  <div class="product-title" style="margin-top:28px"><span class="product-dot diesel"></span><h3>Distillate / Diesel</h3></div>
+  <div class="snapshot-grid" id="dieselSnapshot"></div>
+</section>
+
+<section class="section" id="gasSection" hidden>
+  <div class="section-header">
+    <div><span class="section-label">Gasoline</span><h2>U.S. Gasoline Market</h2></div>
+    <div class="section-note">Production and product supplied show the domestic balance; trade and stocks show how that balance interacts with foreign demand and inventories.</div>
+  </div>
+  <div class="chart-grid">
+    <article class="chart-card"><div class="chart-head"><div><h3>Production vs. Domestic Product Supplied</h3><p>Million barrels per day</p></div><div class="range" data-chart="gasBalance"></div></div><div class="canvas-wrap"><canvas id="gasBalance"></canvas></div></article>
+    <article class="chart-card"><div class="chart-head"><div><h3>Imports vs. Exports</h3><p>Million barrels per day</p></div><div class="range" data-chart="gasTrade"></div></div><div class="canvas-wrap"><canvas id="gasTrade"></canvas></div></article>
+    <article class="chart-card wide"><div class="chart-head"><div><h3>Total Motor Gasoline Stocks</h3><p>Million barrels</p></div><div class="range" data-chart="gasStocks"></div></div><div class="canvas-wrap"><canvas id="gasStocks"></canvas></div></article>
+  </div>
+</section>
+
+<section class="section" id="dieselSection" hidden>
+  <div class="section-header">
+    <div><span class="section-label">Distillate / Diesel</span><h2>U.S. Distillate Market</h2></div>
+    <div class="section-note">Distillate fuel oil includes diesel and heating-oil-type products. Export flows are large enough to materially affect the U.S. balance.</div>
+  </div>
+  <div class="chart-grid">
+    <article class="chart-card"><div class="chart-head"><div><h3>Production vs. Domestic Product Supplied</h3><p>Million barrels per day</p></div><div class="range" data-chart="dieselBalance"></div></div><div class="canvas-wrap"><canvas id="dieselBalance"></canvas></div></article>
+    <article class="chart-card"><div class="chart-head"><div><h3>Imports vs. Exports</h3><p>Million barrels per day</p></div><div class="range" data-chart="dieselTrade"></div></div><div class="canvas-wrap"><canvas id="dieselTrade"></canvas></div></article>
+    <article class="chart-card wide"><div class="chart-head"><div><h3>Distillate Fuel Oil Stocks</h3><p>Million barrels</p></div><div class="range" data-chart="dieselStocks"></div></div><div class="canvas-wrap"><canvas id="dieselStocks"></canvas></div></article>
+  </div>
+</section>
+
+<section class="section" id="analysisSection" hidden>
+  <div class="section-header">
+    <div><span class="section-label">Trade & Supply</span><h2>Current Balance Indicators</h2></div>
+    <div class="section-note">Calculated from the latest EIA observations. Net exports = exports − imports. Export share compares exports with domestic production.</div>
+  </div>
+  <div class="analysis-grid" id="analysisCards"></div>
+  <div class="chart-grid">
+    <article class="chart-card wide"><div class="chart-head"><div><h3>Domestic Product Supplied vs. Exports</h3><p>Gasoline and distillate, million barrels per day</p></div><div class="range" data-chart="demandExports"></div></div><div class="canvas-wrap"><canvas id="demandExports"></canvas></div></article>
+  </div>
+</section>
+</main>
+
+<footer class="footer"><div class="page">Source: U.S. Energy Information Administration. Visualization and derived calculations: Agitlytics.</div></footer>
+
+<script>
+const DATA_URL = "../data/eia-oil-supply-demand.json";
+const COLORS = {gas:"#e7b45c", diesel:"#72a7ff", demand:"#d94b5b", imports:"#5fd38d", exports:"#ff7a7a", grid:"rgba(255,255,255,.075)", text:"#9ba8b7"};
+const charts = {};
+const chartSpecs = {};
+
+const agitlyticsWatermark = {
+  id:"agitlyticsWatermark",
+  afterDraw(chart){
+    const {ctx,chartArea}=chart;if(!chartArea)return;
+    ctx.save();ctx.font="700 11px Arial, Helvetica, sans-serif";ctx.fillStyle="rgba(255,255,255,.16)";
+    ctx.textAlign="right";ctx.textBaseline="bottom";ctx.fillText("AGITLYTICS",chartArea.right-10,chartArea.bottom-10);ctx.restore();
+  }
+};
+Chart.register(agitlyticsWatermark);
+
+function latest(s){return s?.data?.length?s.data[s.data.length-1]:null}
+function previous(s){return s?.data?.length>1?s.data[s.data.length-2]:null}
+function fmt(v,d=3){return Number(v).toFixed(d)}
+function pct(v){return `${v>=0?"+":""}${v.toFixed(1)}%`}
+function weeklyChange(s){
+  const a=latest(s),b=previous(s); if(!a||!b||!b.value)return null;
+  return ((a.value-b.value)/b.value)*100;
+}
+function metric(label,s,unit){
+  const a=latest(s), ch=weeklyChange(s);
+  const cls=ch===null?"flat":ch>0?"up":ch<0?"down":"flat";
+  return `<div class="metric"><div class="kicker">${label}</div><div class="value">${a?fmt(a.value):"—"}</div><div class="unit">${unit}</div><div class="change ${cls}">${ch===null?"—":pct(ch)} vs prior week</div></div>`;
+}
+function commonOptions(){
+ return {responsive:true,maintainAspectRatio:false,interaction:{mode:"index",intersect:false},
+  plugins:{legend:{labels:{color:"#c9d0d8",boxWidth:12,font:{family:"Arial",size:11}}},tooltip:{callbacks:{label:c=>`${c.dataset.label}: ${Number(c.parsed.y).toFixed(3)}`}}},
+  scales:{x:{ticks:{color:COLORS.text,maxTicksLimit:9},grid:{color:COLORS.grid}},y:{ticks:{color:COLORS.text},grid:{color:COLORS.grid}}}};
+}
+function dateCutoff(range){
+ const d=new Date(); if(range==="MAX")return null;
+ const years=Number(range.replace("Y","")); d.setFullYear(d.getFullYear()-years); return d;
+}
+function filtered(data,range){
+ const cut=dateCutoff(range); return cut?data.filter(x=>new Date(x.date)>=cut):data;
+}
+function mapByDate(series){return new Map(series.data.map(x=>[x.date,x.value]))}
+function paired(a,b,range){
+ const A=filtered(a.data,range), bm=mapByDate(b);
+ const rows=A.filter(x=>bm.has(x.date)).map(x=>({date:x.date,a:x.value,b:bm.get(x.date)}));
+ return rows;
+}
+function buildLine(id, labels, datasets){
+ if(charts[id])charts[id].destroy();
+ charts[id]=new Chart(document.getElementById(id),{type:"line",data:{labels,datasets},options:commonOptions()});
+}
+function renderSpec(id,range){
+ const s=chartSpecs[id]; if(!s)return;
+ s.render(range);
+ document.querySelectorAll(`.range[data-chart="${id}"] button`).forEach(b=>b.classList.toggle("active",b.dataset.range===range));
+}
+function addRangeButtons(){
+ document.querySelectorAll(".range").forEach(el=>{
+   ["1Y","5Y","10Y","MAX"].forEach(r=>{
+     const b=document.createElement("button");b.textContent=r;b.dataset.range=r;
+     b.onclick=()=>renderSpec(el.dataset.chart,r);el.appendChild(b);
+   });
+ });
+}
+function dataset(label,data,color){
+ return {label,data,borderColor:color,backgroundColor:color,borderWidth:2,pointRadius:0,pointHoverRadius:3,tension:.15};
+}
+
+async function init(){
+ try{
+  const res=await fetch(DATA_URL,{cache:"no-store"}); if(!res.ok)throw new Error(`HTTP ${res.status}`);
+  const json=await res.json(), s=json.series;
+  const required=["gasoline_production","gasoline_product_supplied","gasoline_imports","gasoline_exports","gasoline_stocks","distillate_production","distillate_product_supplied","distillate_imports","distillate_exports","distillate_stocks"];
+  const missing=required.filter(k=>!s[k]?.data?.length); if(missing.length)throw new Error(`Missing series: ${missing.join(", ")}`);
+  document.getElementById("status").hidden=true;
+  ["snapshot","gasSection","dieselSection","analysisSection"].forEach(id=>document.getElementById(id).hidden=false);
+  document.getElementById("reportDate").textContent=`Latest report: ${json.latest_date||"—"}`;
+
+  document.getElementById("gasSnapshot").innerHTML=
+    metric("Production",s.gasoline_production,"million bbl/day")+
+    metric("Product Supplied",s.gasoline_product_supplied,"million bbl/day")+
+    metric("Imports",s.gasoline_imports,"million bbl/day")+
+    metric("Exports",s.gasoline_exports,"million bbl/day")+
+    metric("Stocks",s.gasoline_stocks,"million barrels");
+
+  document.getElementById("dieselSnapshot").innerHTML=
+    metric("Production",s.distillate_production,"million bbl/day")+
+    metric("Product Supplied",s.distillate_product_supplied,"million bbl/day")+
+    metric("Imports",s.distillate_imports,"million bbl/day")+
+    metric("Exports",s.distillate_exports,"million bbl/day")+
+    metric("Stocks",s.distillate_stocks,"million barrels");
+
+  const gp=latest(s.gasoline_production).value, gi=latest(s.gasoline_imports).value, ge=latest(s.gasoline_exports).value;
+  const dp=latest(s.distillate_production).value, di=latest(s.distillate_imports).value, de=latest(s.distillate_exports).value;
+  const gnet=ge-gi,dnet=de-di,gshare=ge/gp*100,dshare=de/dp*100;
+  document.getElementById("analysisCards").innerHTML=`
+   <div class="analysis-card"><div class="label">Gasoline Net Exports</div><div class="big">${fmt(gnet)} mb/d</div><p>Exports minus imports.</p></div>
+   <div class="analysis-card"><div class="label">Gasoline Export Share</div><div class="big">${gshare.toFixed(1)}%</div><p>Exports as a share of reported production.</p></div>
+   <div class="analysis-card"><div class="label">Distillate Net Exports</div><div class="big">${fmt(dnet)} mb/d</div><p>Exports minus imports.</p></div>
+   <div class="analysis-card"><div class="label">Distillate Export Share</div><div class="big">${dshare.toFixed(1)}%</div><p>Exports as a share of reported production.</p></div>`;
+
+  chartSpecs.gasBalance={render:r=>{const x=paired(s.gasoline_production,s.gasoline_product_supplied,r);buildLine("gasBalance",x.map(z=>z.date),[dataset("Production",x.map(z=>z.a),COLORS.gas),dataset("Product Supplied",x.map(z=>z.b),COLORS.demand)])}};
+  chartSpecs.gasTrade={render:r=>{const x=paired(s.gasoline_imports,s.gasoline_exports,r);buildLine("gasTrade",x.map(z=>z.date),[dataset("Imports",x.map(z=>z.a),COLORS.imports),dataset("Exports",x.map(z=>z.b),COLORS.exports)])}};
+  chartSpecs.gasStocks={render:r=>{const x=filtered(s.gasoline_stocks.data,r);buildLine("gasStocks",x.map(z=>z.date),[dataset("Gasoline Stocks",x.map(z=>z.value),COLORS.gas)])}};
+  chartSpecs.dieselBalance={render:r=>{const x=paired(s.distillate_production,s.distillate_product_supplied,r);buildLine("dieselBalance",x.map(z=>z.date),[dataset("Production",x.map(z=>z.a),COLORS.diesel),dataset("Product Supplied",x.map(z=>z.b),COLORS.demand)])}};
+  chartSpecs.dieselTrade={render:r=>{const x=paired(s.distillate_imports,s.distillate_exports,r);buildLine("dieselTrade",x.map(z=>z.date),[dataset("Imports",x.map(z=>z.a),COLORS.imports),dataset("Exports",x.map(z=>z.b),COLORS.exports)])}};
+  chartSpecs.dieselStocks={render:r=>{const x=filtered(s.distillate_stocks.data,r);buildLine("dieselStocks",x.map(z=>z.date),[dataset("Distillate Stocks",x.map(z=>z.value),COLORS.diesel)])}};
+  chartSpecs.demandExports={render:r=>{
+    const g=paired(s.gasoline_product_supplied,s.gasoline_exports,r), d=paired(s.distillate_product_supplied,s.distillate_exports,r);
+    const dates=[...new Set([...g.map(x=>x.date),...d.map(x=>x.date)])].sort(), gm=new Map(g.map(x=>[x.date,x])),dm=new Map(d.map(x=>[x.date,x]));
+    buildLine("demandExports",dates,[
+      dataset("Gasoline Product Supplied",dates.map(x=>gm.get(x)?.a??null),COLORS.gas),
+      dataset("Gasoline Exports",dates.map(x=>gm.get(x)?.b??null),"#ff9c67"),
+      dataset("Distillate Product Supplied",dates.map(x=>dm.get(x)?.a??null),COLORS.diesel),
+      dataset("Distillate Exports",dates.map(x=>dm.get(x)?.b??null),COLORS.exports)
+    ]);
+  }};
+  addRangeButtons();
+  Object.keys(chartSpecs).forEach(id=>renderSpec(id,id.includes("Stocks")?"5Y":"5Y"));
+ }catch(err){
+   document.getElementById("status").textContent=`Unable to load refined-products data: ${err.message}`;
+ }
+}
+init();
+</script>
+</body>
+</html>
