@@ -33,7 +33,12 @@ jobs:
           # -------------------------------------------------------
           # WEEKLY EIA SERIES
           # -------------------------------------------------------
+          
           SERIES = {
+          
+              # ===================================================
+              # CRUDE / REFINING
+              # ===================================================
           
               "crude_production": {
                   "series_id": "PET.WCRFPUS2.W",
@@ -70,17 +75,76 @@ jobs:
                   "name": "Total Petroleum Products Supplied",
                   "unit": "million barrels per day"
               },
+          
+          
+              # ===================================================
+              # GASOLINE
+              # ===================================================
+          
+              "gasoline_production": {
+                  "series_id": "PET.WGFRPUS2.W",
+                  "name": "Finished Motor Gasoline Production",
+                  "unit": "million barrels per day"
+              },
+          
               "gasoline_product_supplied": {
-                "series_id": "PET.WGFUPUS2.W",
-                "name": "Finished Motor Gasoline Product Supplied",
-                "unit": "million barrels per day"
-            },
-            
-            "distillate_product_supplied": {
-                "series_id": "PET.WDIUPUS2.W",
-                "name": "Distillate Fuel Oil Product Supplied",
-                "unit": "million barrels per day"
-            }
+                  "series_id": "PET.WGFUPUS2.W",
+                  "name": "Finished Motor Gasoline Product Supplied",
+                  "unit": "million barrels per day"
+              },
+          
+              "gasoline_imports": {
+                  "series_id": "PET.WGTIMUS2.W",
+                  "name": "Total Motor Gasoline Imports",
+                  "unit": "million barrels per day"
+              },
+          
+              "gasoline_exports": {
+                  "series_id": "PET.WGTEXUS2.W",
+                  "name": "Total Motor Gasoline Exports",
+                  "unit": "million barrels per day"
+              },
+          
+              "gasoline_stocks": {
+                  "series_id": "PET.WGTSTUS1.W",
+                  "name": "Total Motor Gasoline Stocks",
+                  "unit": "million barrels"
+              },
+          
+          
+              # ===================================================
+              # DISTILLATE / DIESEL
+              # ===================================================
+          
+              "distillate_production": {
+                  "series_id": "PET.WDIRPUS2.W",
+                  "name": "Distillate Fuel Oil Production",
+                  "unit": "million barrels per day"
+              },
+          
+              "distillate_product_supplied": {
+                  "series_id": "PET.WDIUPUS2.W",
+                  "name": "Distillate Fuel Oil Product Supplied",
+                  "unit": "million barrels per day"
+              },
+          
+              "distillate_imports": {
+                  "series_id": "PET.WDIIMUS2.W",
+                  "name": "Distillate Fuel Oil Imports",
+                  "unit": "million barrels per day"
+              },
+          
+              "distillate_exports": {
+                  "series_id": "PET.WDIEXUS2.W",
+                  "name": "Distillate Fuel Oil Exports",
+                  "unit": "million barrels per day"
+              },
+          
+              "distillate_stocks": {
+                  "series_id": "PET.WDISTUS1.W",
+                  "name": "Distillate Fuel Oil Stocks",
+                  "unit": "million barrels"
+              }
           }
 
 
@@ -156,7 +220,10 @@ jobs:
                   # thousand barrels per day.
                   # Convert to million barrels/day.
 
-                  if unit == "million barrels per day":
+                  if unit in (
+                      "million barrels per day",
+                      "million barrels"
+                  ):
                       value = value / 1000
 
 
