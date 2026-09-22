@@ -1,0 +1,1206 @@
+<!DOCTYPE HTML>
+
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html lang="en">
+<head>
+<title>Agitlytics</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport"/>
+<link href="assets/css/main.css" rel="stylesheet"/>
+<noscript><link href="assets/css/noscript.css" rel="stylesheet"/></noscript>
+<style>
+			:root {
+				--research-bg: #07090d;
+				--research-surface: #0f1319;
+				--research-surface-2: #151a22;
+				--research-text: #f3f5f7;
+				--research-muted: #aeb6c0;
+				--research-faint: #7f8995;
+				--research-border: rgba(255,255,255,.12);
+				--research-accent: #d45a68;
+				--research-accent-soft: rgba(212,90,104,.13);
+				--reading-width: 48rem;
+			}
+
+			* { box-sizing: border-box; }
+
+			html { scroll-behavior: smooth; }
+
+			body {
+				background: var(--research-bg);
+				color: var(--research-text);
+			}
+
+			#wrapper,
+			#wrapper.fade-in,
+			#main,
+			#footer {
+				background-color: var(--research-bg);
+			}
+
+			/* Article pages use a compact publication masthead rather than the
+			   full-screen landing intro used elsewhere in the template. */
+			#intro { display: none; }
+
+			#header {
+				min-height: 5rem;
+				background: rgba(7,9,13,.96);
+				border-bottom: 1px solid var(--research-border);
+			}
+
+			#header .logo {
+				border: 0;
+				color: var(--research-text) !important;
+				font-size: .82rem;
+				font-weight: 800;
+				letter-spacing: .2em;
+				padding: 0;
+				text-transform: uppercase;
+			}
+
+			#header .logo::before {
+				content: "Agitlytics  /  ";
+				color: var(--research-accent);
+			}
+
+			#nav {
+				background: rgba(15,19,25,.97);
+				border-bottom: 1px solid var(--research-border);
+			}
+
+			#nav a,
+			#nav .icon:before {
+				color: var(--research-muted) !important;
+			}
+
+			#nav ul.links li.active {
+				background: var(--research-accent-soft);
+			}
+
+			#nav ul.links li.active a,
+			#nav a:hover {
+				color: #fff !important;
+			}
+
+			#main {
+				max-width: 82rem;
+				padding: 0;
+				background: var(--research-bg);
+			}
+
+			#main > .post {
+				padding: 0;
+				background: transparent;
+			}
+
+			.article-hero {
+				position: relative;
+				padding: 5.25rem 5rem 3.5rem !important;
+				margin: 0 !important;
+				background:
+					radial-gradient(circle at 90% 10%, rgba(212,90,104,.14), transparent 28%),
+					linear-gradient(135deg, #0c1016, #080a0e);
+				border-bottom: 1px solid var(--research-border);
+				text-align: left !important;
+			}
+
+			.article-hero::before {
+				content: "Agitlytics Research Desk";
+				display: block;
+				margin-bottom: 1.35rem;
+				color: var(--research-accent);
+				font-size: .72rem;
+				font-weight: 800;
+				letter-spacing: .2em;
+				text-transform: uppercase;
+			}
+
+			.article-hero h1 {
+				max-width: 18ch;
+				margin: 0 0 1.4rem !important;
+				color: var(--research-text) !important;
+				font-size: clamp(2.55rem, 6vw, 5.3rem);
+				line-height: .98;
+				letter-spacing: -.015em;
+				text-align: left;
+			}
+
+			.article-hero p {
+				margin: 0 !important;
+				color: var(--research-muted) !important;
+				font-family: inherit;
+				font-size: .82rem;
+				font-style: normal;
+				font-weight: 700;
+				letter-spacing: .14em;
+				line-height: 1.5;
+				text-align: left;
+				text-transform: uppercase;
+			}
+
+			.article-hero .date:empty { display: none; }
+
+			.hero-image {
+				width: min(72rem, calc(100% - 5rem));
+				margin: -1px auto 0 !important;
+				background: var(--research-surface);
+				border: 1px solid var(--research-border);
+				border-top: 0;
+				overflow: hidden;
+			}
+
+			.hero-image img {
+				display: block;
+				width: 100%;
+				max-height: 42rem;
+				object-fit: cover;
+			}
+
+			.article-body {
+				width: min(var(--reading-width), calc(100% - 4rem));
+				margin: 0 auto;
+				padding: 4.5rem 0 6rem;
+				color: var(--research-text);
+			}
+
+			.article-body > h2:first-child:empty { display: none; }
+
+			.article-body h2,
+			.article-body h3,
+			.article-body h4 {
+				color: var(--research-text) !important;
+				text-align: left;
+			}
+
+			.article-body h2 {
+				position: relative;
+				margin: 4.5rem 0 1.4rem;
+				padding-top: 1.5rem;
+				font-size: clamp(1.55rem, 3vw, 2.25rem);
+				line-height: 1.15;
+				letter-spacing: -.005em;
+			}
+
+			.article-body h2::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 3.25rem;
+				height: 2px;
+				background: var(--research-accent);
+			}
+
+			.article-body h3 {
+				margin: 3rem 0 1rem;
+				font-size: 1.35rem;
+			}
+
+			.article-body p,
+			.article-body li,
+			.article-body blockquote {
+				color: #d9dee4 !important;
+				font-family: Georgia, "Times New Roman", serif;
+				font-size: 1.12rem;
+				line-height: 1.88;
+				text-align: left;
+			}
+
+			.article-body p {
+				margin: 0 0 1.55rem;
+			}
+
+			.article-body a {
+				color: #f08a96;
+				border-bottom-color: rgba(240,138,150,.45);
+			}
+
+			.article-body a:hover {
+				color: #fff !important;
+				border-bottom-color: var(--research-accent);
+			}
+
+			.article-body strong,
+			.article-body b {
+				color: #fff;
+			}
+
+			.article-body i,
+			.article-body em {
+				color: #eef1f4;
+			}
+
+			.article-body blockquote,
+			.article-body p:has(> i:only-child),
+			.article-body p:has(> em:only-child) {
+				margin: 2.25rem 0;
+				padding: 1.4rem 1.6rem;
+				background: var(--research-surface);
+				border-left: 3px solid var(--research-accent);
+			}
+
+			.article-body ul,
+			.article-body ol {
+				margin: 1.5rem 0 2rem;
+			}
+
+			.article-body .image,
+			.article-body .image.main,
+			.article-body .image.fit,
+			.article-body .image.left,
+			.article-body .image.right {
+				display: block;
+				float: none;
+				width: min(64rem, 100%);
+				max-width: none;
+				margin: 2.75rem auto;
+				padding: 0;
+				background: var(--research-surface);
+				border: 1px solid var(--research-border);
+				border-radius: 2px;
+				overflow: hidden;
+			}
+
+			.article-body .image img,
+			.article-body img {
+				display: block;
+				max-width: 100%;
+				height: auto;
+			}
+
+			.article-body table {
+				display: block;
+				width: 100%;
+				margin: 2rem 0;
+				overflow-x: auto;
+				background: var(--research-surface);
+				border: 1px solid var(--research-border);
+			}
+
+			.article-body table th,
+			.article-body table td {
+				color: var(--research-text);
+				border-color: var(--research-border);
+			}
+
+			.article-body .button,
+			.article-body button,
+			.article-body input[type="submit"],
+			.article-body input[type="reset"],
+			.article-body input[type="button"] {
+				background: transparent;
+				border-color: rgba(255,255,255,.65) !important;
+				box-shadow: inset 0 0 0 2px rgba(255,255,255,.65);
+				color: #fff !important;
+			}
+
+			.article-body .button:hover {
+				background: var(--research-accent-soft);
+				border-color: var(--research-accent) !important;
+				box-shadow: inset 0 0 0 2px var(--research-accent);
+			}
+
+			#footer {
+				background: #0d1117;
+				border-top: 1px solid var(--research-border);
+			}
+
+			#footer h3,
+			#footer p,
+			#footer a,
+			#copyright,
+			#copyright a {
+				color: var(--research-muted) !important;
+			}
+
+			#copyright {
+				background: var(--research-bg);
+			}
+
+			@media screen and (max-width: 980px) {
+				.article-hero {
+					padding: 4.25rem 3rem 3rem !important;
+				}
+
+				.hero-image {
+					width: calc(100% - 3rem);
+				}
+			}
+
+			@media screen and (max-width: 736px) {
+				#header {
+					min-height: 4rem;
+				}
+
+				#header .logo {
+					font-size: .68rem;
+					letter-spacing: .15em;
+				}
+
+				#header .logo::before {
+					content: "Agitlytics / ";
+				}
+
+				.article-hero {
+					padding: 3.2rem 1.4rem 2.4rem !important;
+				}
+
+				.article-hero::before {
+					margin-bottom: 1rem;
+					font-size: .62rem;
+				}
+
+				.article-hero h1 {
+					max-width: none;
+					font-size: clamp(2.15rem, 11vw, 3.35rem);
+					line-height: 1.02;
+					overflow-wrap: anywhere;
+				}
+
+				.article-hero p {
+					font-size: .68rem;
+					letter-spacing: .1em;
+				}
+
+				.hero-image {
+					width: 100%;
+					border-left: 0;
+					border-right: 0;
+				}
+
+				.hero-image img {
+					max-height: 25rem;
+				}
+
+				.article-body {
+					width: calc(100% - 2.5rem);
+					padding: 3rem 0 4.5rem;
+				}
+
+				.article-body p,
+				.article-body li,
+				.article-body blockquote {
+					font-size: 1.03rem;
+					line-height: 1.76;
+				}
+
+				.article-body h2 {
+					margin-top: 3.5rem;
+					font-size: 1.55rem;
+				}
+
+				.article-body .image,
+				.article-body .image.main,
+				.article-body .image.fit,
+				.article-body .image.left,
+				.article-body .image.right {
+					width: calc(100% + 1rem);
+					margin-left: -.5rem;
+				}
+			}
+		</style>
+
+<style>
+	/* ===== Agitlytics publication navigation ===== */
+	.publication-nav {
+		position: sticky;
+		top: 0;
+		z-index: 10000;
+		background: rgba(7, 9, 13, .9);
+		border-bottom: 1px solid rgba(255,255,255,.1);
+		-webkit-backdrop-filter: blur(16px);
+		backdrop-filter: blur(16px);
+	}
+
+	.publication-nav__inner {
+		max-width: 82rem;
+		min-height: 4.6rem;
+		margin: 0 auto;
+		padding: 0 2rem;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 2rem;
+	}
+
+	.publication-brand {
+		display: inline-flex;
+		align-items: center;
+		gap: .75rem;
+		color: #fff !important;
+		border: 0 !important;
+		font-family: inherit;
+		font-size: .82rem;
+		font-weight: 900;
+		letter-spacing: .22em;
+		text-decoration: none;
+		text-transform: uppercase;
+		white-space: nowrap;
+	}
+
+	.publication-brand::before {
+		content: "";
+		width: .62rem;
+		height: .62rem;
+		background: #d45a68;
+		border-radius: 50%;
+		box-shadow: 0 0 0 .35rem rgba(212,90,104,.12);
+	}
+
+	.publication-links {
+		display: flex;
+		align-items: center;
+		gap: 1.55rem;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.publication-links a {
+		color: #aeb6c0 !important;
+		border: 0 !important;
+		font-family: inherit;
+		font-size: .7rem;
+		font-weight: 800;
+		letter-spacing: .13em;
+		text-decoration: none;
+		text-transform: uppercase;
+		white-space: nowrap;
+		transition: color .2s ease;
+	}
+
+	.publication-links a:hover,
+	.publication-links a.is-active {
+		color: #fff !important;
+	}
+
+	.publication-links a.is-active {
+		position: relative;
+	}
+
+	.publication-links a.is-active::after {
+		content: "";
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: -.68rem;
+		height: 2px;
+		background: #d45a68;
+	}
+
+	.article-end {
+		width: min(64rem, calc(100% - 4rem));
+		margin: 0 auto 6rem;
+		padding: 3rem;
+		background:
+			linear-gradient(145deg, rgba(212,90,104,.08), transparent 36%),
+			#0f1319;
+		border: 1px solid rgba(255,255,255,.12);
+	}
+
+	.article-end__top {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 2rem;
+		padding-bottom: 2.1rem;
+		border-bottom: 1px solid rgba(255,255,255,.1);
+	}
+
+	.article-end__eyebrow {
+		margin: 0 0 .55rem;
+		color: #d45a68;
+		font-family: inherit;
+		font-size: .68rem;
+		font-weight: 900;
+		letter-spacing: .18em;
+		text-transform: uppercase;
+	}
+
+	.article-end h2 {
+		margin: 0 !important;
+		padding: 0 !important;
+		color: #fff !important;
+		font-size: clamp(1.45rem, 3vw, 2.2rem);
+		line-height: 1.08;
+	}
+
+	.article-end h2::before {
+		display: none !important;
+	}
+
+	.article-end__library {
+		flex: 0 0 auto;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 3.2rem;
+		padding: 0 1.3rem;
+		border: 1px solid rgba(255,255,255,.5) !important;
+		color: #fff !important;
+		font-family: inherit;
+		font-size: .68rem;
+		font-weight: 900;
+		letter-spacing: .13em;
+		text-decoration: none;
+		text-transform: uppercase;
+		transition: .2s ease;
+	}
+
+	.article-end__library:hover {
+		background: #d45a68;
+		border-color: #d45a68 !important;
+	}
+
+	.article-pager {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 1px;
+		margin-top: 1px;
+		background: rgba(255,255,255,.1);
+	}
+
+	.article-pager a {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		min-height: 10rem;
+		padding: 1.7rem;
+		background: #0b0f14;
+		border: 0 !important;
+		text-decoration: none;
+		transition: background .2s ease, transform .2s ease;
+	}
+
+	.article-pager a:hover {
+		background: #151a22;
+	}
+
+	.article-pager a:last-child {
+		text-align: right;
+	}
+
+	.article-pager__label {
+		margin-bottom: .7rem;
+		color: #7f8995;
+		font-family: inherit;
+		font-size: .62rem;
+		font-weight: 900;
+		letter-spacing: .17em;
+		text-transform: uppercase;
+	}
+
+	.article-pager__category {
+		margin-bottom: .38rem;
+		color: #d45a68;
+		font-family: inherit;
+		font-size: .64rem;
+		font-weight: 800;
+		letter-spacing: .12em;
+		text-transform: uppercase;
+	}
+
+	.article-pager__title {
+		color: #f3f5f7;
+		font-family: inherit;
+		font-size: 1rem;
+		font-weight: 800;
+		line-height: 1.35;
+	}
+
+	.article-topics {
+		display: flex;
+		flex-wrap: wrap;
+		gap: .65rem;
+		margin-top: 2rem;
+	}
+
+	.article-topics a {
+		display: inline-flex;
+		align-items: center;
+		min-height: 2.35rem;
+		padding: 0 .9rem;
+		background: rgba(255,255,255,.035);
+		border: 1px solid rgba(255,255,255,.11) !important;
+		color: #aeb6c0 !important;
+		font-family: inherit;
+		font-size: .62rem;
+		font-weight: 800;
+		letter-spacing: .11em;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+
+	.article-topics a:hover {
+		color: #fff !important;
+		border-color: #d45a68 !important;
+	}
+
+	@media screen and (max-width: 736px) {
+		.publication-nav__inner {
+			min-height: 4rem;
+			padding: 0 1rem;
+		}
+
+		.publication-brand {
+			font-size: .72rem;
+			letter-spacing: .16em;
+		}
+
+		.publication-links {
+			gap: .9rem;
+			overflow-x: auto;
+			scrollbar-width: none;
+		}
+
+		.publication-links::-webkit-scrollbar {
+			display: none;
+		}
+
+		.publication-links a {
+			font-size: .59rem;
+			letter-spacing: .09em;
+		}
+
+		.publication-links li:nth-child(2),
+		.publication-links li:nth-child(3) {
+			display: none;
+		}
+
+		.article-end {
+			width: calc(100% - 1.5rem);
+			margin-bottom: 3rem;
+			padding: 1.4rem;
+		}
+
+		.article-end__top {
+			align-items: flex-start;
+			flex-direction: column;
+		}
+
+		.article-end__library {
+			width: 100%;
+		}
+
+		.article-pager {
+			grid-template-columns: 1fr;
+		}
+
+		.article-pager a,
+		.article-pager a:last-child {
+			min-height: 8rem;
+			text-align: left;
+		}
+	}
+</style>
+</head>
+<body class="is-preload">
+<!-- Wrapper -->
+<nav aria-label="Primary navigation" class="publication-nav">
+<div class="publication-nav__inner">
+<a class="publication-brand" href="elements.html">Agitlytics Research</a>
+<ul class="publication-links">
+<li><a href="index.html">Portfolio</a></li>
+<li><a href="DataProj.html">Data Projects</a></li>
+<li><a href="generic.html">About</a></li>
+<li><a class="is-active" href="elements.html">Research Library</a></li>
+</ul>
+</div>
+</nav><div class="fade-in" id="wrapper">
+<!-- Intro -->
+<div id="intro">
+<h1>Agitlytics</h1>
+<p>Commentary by <a href="https://www.linkedin.com/in/aubrey-waddle-962634314" rel="noopener noreferrer" target="_blank">Aubrey Waddle</a></p>
+<ul class="actions">
+<li><a class="button icon solid solo fa-arrow-down scrolly" href="#header">Continue</a></li>
+</ul>
+</div>
+<!-- Header -->
+<header id="header" style="display:none;">
+<a class="logo" href="elements.html">Research &amp; Commentary</a>
+</header>
+<!-- Nav -->
+<nav id="nav" style="display:none;">
+<ul class="links">
+<li><a href="index.html">Home</a></li>
+<li><a href="DataProj.html">Data Projects</a></li>
+<li class="active"><a href="elements.html">Agitlytics</a></li>
+<li class="active"><a href="AI.html">AI</a></li>
+</ul>
+<ul class="icons">
+<li><a class="cib-tableau" href="images/RESUME 2025Nov.pdf.pdf" rel="noopener noreferrer" target="_blank"><span class="label">Résumé</span></a></li>
+<li><a class="cib-tableau" href="images/SNHU Diploma.pdf" rel="noopener noreferrer" target="_blank"><span class="label">Diploma</span></a></li>
+<li><a class="cib-tableau" href="images/Transcript_AUBREYWADDLE FINAL.pdf" rel="noopener noreferrer" target="_blank"><span class="label">Transcript</span></a></li>
+<li><a class="cib-tableau" href="https://public.tableau.com/app/profile/aubrey.waddle/vizzes" rel="noopener noreferrer" target="_blank"><span class="label">Tableau Public</span></a></li>
+<li><a class="icon brands alt fa-linkedin" href="https://www.linkedin.com/in/aubrey-waddle-962634314" rel="noopener noreferrer" target="_blank"><span class="label">linkedin</span></a></li>
+<li><a class="icon brands fa-github" href="https://github.com/Blamo2214" rel="noopener noreferrer" target="_blank"><span class="label">GitHub</span></a></li>
+<li><a class="icon brands fa-facebook-f" href="https://www.facebook.com/aubrey.waddle/" rel="noopener noreferrer" target="_blank"><span class="label">Facebook</span></a></li>
+<li><a class="icon brands fa-instagram" href="https://www.instagram.com/aubrey_waddle12/" rel="noopener noreferrer" target="_blank"><span class="label">Instagram</span></a></li>
+</ul>
+</nav>
+<!-- Main -->
+<div id="main">
+<!-- Post -->
+<section class="post">
+<header class="major article-hero">
+<span class="date"></span>
+<h1>AI, Capitalism, and the Development of the Productive Forces</h1>
+<p>Commentary - Aubrey Waddle - 8/9/2026</p>
+</header>
+<div class="image main_hero-image">
+    <img alt="" src="images/russiaref.png"/>
+
+    <div style="text-align: right; margin-top: 4px; font-size: 0.7rem; opacity: 0.65;">
+        <a href="https://global.chinadaily.com.cn/a/202605/18/WS6a0a6b01a310d6866eb49226.html"
+           target="_blank"
+           rel="noopener noreferrer"
+           style="color: inherit; text-decoration: none;">
+            Photo Source
+        </a>
+    </div>
+</div>
+	<div class="article-body">
+<h2>Why a Diesel Export Ban Wouldn't Solve the Diesel Crisis</h2>
+
+<article class="analysis-paper">
+
+    <p>
+        There is growing political pressure for the Trump
+        administration to ban U.S. diesel exports in response to the current fuel
+        crisis.
+        <a href="https://www.ft.com/content/319c7b67-b585-407e-a0da-6e23b1612180?syn-25a6b1a6=1"
+           target="_blank"
+           rel="noopener noreferrer">
+            Republican lawmakers, including Sen. Chuck Grassley and Reps. Ashley
+            Hinson and Zach Nunn, have argued that restricting exports would keep more
+            diesel in the United States and provide relief to American consumers, farmers,
+            and truckers. The proposal comes as U.S. diesel prices have reached record
+            nominal levels amid severe disruptions to global distillate supplies.
+        </a>
+    </p>
+
+    <p>
+        At first glance, the argument seems intuitive: the United
+        States is exporting enormous quantities of diesel while Americans are paying
+        extraordinarily high prices for it. Stop exporting diesel, keep that fuel here,
+        increase domestic supply, and prices should fall.
+    </p>
+
+    <p>
+        The problem is that this treats the American petroleum
+        market as though it exists independently of the global market and treats diesel
+        as though refiners can simply choose how much of it they want to produce.
+        Neither is really the case.
+    </p>
+
+    <p>
+        Understanding why requires understanding some basic refinery
+        economics.
+    </p>
+
+    <p>
+        A barrel of crude oil does not enter a refinery and become a
+        barrel of gasoline or a barrel of diesel. Refineries process crude into a slate
+        of products—gasoline, diesel and other distillates, jet fuel, petroleum gases,
+        feedstocks, and other products. Refiners have some ability to adjust that
+        product mix, but only within technological and economic limits.
+    </p>
+
+    <p>
+        So, generally speaking, the process looks something like
+        this:
+    </p>
+
+    <p>
+        <strong>
+            Crude oil → refinery → gasoline + diesel + jet fuel +
+            other petroleum products
+        </strong>
+    </p>
+
+    <p>
+        Those products then have to find markets.
+    </p>
+
+    <p>
+        Under the current system, those markets are both domestic
+        and international. American demand is therefore being met within the context of
+        a global petroleum market rather than an isolated American one.
+    </p>
+
+    <p>
+        A refinery is not primarily deciding where its diesel goes
+        based on whether every American gas station has been adequately supplied. It
+        responds to prices. If an overseas buyer is willing to pay more for a barrel of
+        diesel than a domestic buyer, after accounting for transportation and other
+        costs, there is an economic incentive to export it.
+    </p>
+
+    <p>
+        That is particularly important right now. According to the
+        EIA, reduced refinery activity in Russia, China, and the Middle East has
+        tightened global distillate supplies and driven international diesel prices
+        higher. Those higher prices simultaneously make diesel more expensive for the
+        United States to import and make exporting American diesel more profitable.
+        U.S. distillate inventories are consequently about 13 percent below their
+        five-year seasonal average, even though American refineries are already running
+        extremely hard: refinery utilization reached 97 percent in the week ending
+        September 11.
+    </p>
+
+    <p>
+        So what happens if the government suddenly prohibits diesel
+        exports?
+    </p>
+
+    <p>
+        Initially, proponents of the ban would probably get some of
+        what they want.
+    </p>
+
+    <p>
+        Imagine a refinery currently produces 300 units of diesel.
+        Domestic buyers purchase 220 and foreign buyers purchase the remaining 80.
+        Prohibit exports and those 80 units suddenly have nowhere to go
+        internationally.
+    </p>
+
+    <p>
+        They are redirected toward the domestic market or
+        inventories:
+    </p>
+
+    <p>
+        <strong>
+            300 produced − 220 domestically consumed = 80 units of
+            excess diesel
+        </strong>
+    </p>
+
+    <p>
+        That additional supply would put downward pressure on
+        domestic wholesale diesel prices. Meanwhile, removing American diesel from the
+        international market would do precisely the opposite abroad: global supply
+        would become even tighter and international diesel prices would rise.
+    </p>
+
+    <p>
+        The United States would therefore temporarily create two
+        increasingly disconnected markets: relatively cheaper diesel trapped inside the
+        United States and increasingly expensive diesel outside it.
+    </p>
+
+    <p>
+        But refiners cannot indefinitely produce diesel that nobody
+        wants to purchase at a profitable price. Storage is finite, and storage itself
+        costs money. As inventories accumulate and domestic diesel prices fall,
+        refinery margins on producing that diesel deteriorate.
+    </p>
+
+    <p>
+        Eventually, refiners have to respond.
+    </p>
+
+    <p>
+        And they cannot simply say, "We'll stop producing
+        diesel and continue producing everything else."
+    </p>
+
+    <p>
+        Diesel is part of the product slate generated when crude oil
+        moves through a refinery. If refiners cannot economically sell part of that
+        output, eventually the rational response is to process less crude.
+    </p>
+
+    <p>
+        <strong>
+            Diesel export ban → excess domestic diesel → falling
+            diesel margins → lower refinery profitability → reduced crude runs.
+        </strong>
+    </p>
+
+    <p>
+        And reducing crude runs does not merely reduce diesel
+        production. It also means producing less gasoline, jet fuel, and other
+        petroleum products.
+    </p>
+
+    <p>
+        This is where the apparent solution begins to boomerang.
+    </p>
+
+    <p>
+        The initial diesel surplus pushes domestic diesel prices
+        downward, but that same price decline undermines the economics that caused
+        refiners to produce the diesel in the first place. Refinery utilization falls,
+        petroleum-product output declines, inventories stop accumulating, and
+        eventually the original domestic surplus begins disappearing.
+    </p>
+
+    <p>
+        Meanwhile, the rest of the world has not disappeared.
+    </p>
+
+    <p>
+        Removing U.S. diesel exports from an already extremely tight
+        international distillate market would put additional upward pressure on global
+        diesel prices. The EIA explicitly notes that today's tight global distillate
+        market is already raising international prices and incentivizing unusually high
+        U.S. exports. U.S. distillate exports were roughly 1.6 million barrels per day
+        during the week ending September 11.
+    </p>
+
+    <p>
+        The United States also both imports and exports petroleum
+        products. That seemingly contradictory arrangement exists partly because the
+        American petroleum system is geographically fragmented. A barrel sitting on the
+        Gulf Coast is not automatically available to a distributor in New England
+        simply because both are located inside the United States. Pipelines, shipping
+        costs, refinery configurations, product specifications, storage infrastructure,
+        and regional supply relationships all matter.
+    </p>
+
+    <p>
+        Consequently, American distributors in regions dependent on
+        imported fuel would still confront the global price that the export ban itself
+        had helped push upward. And if domestic refinery runs decline in response to
+        deteriorating margins, some regions could become even more dependent on those
+        alternative supply channels.
+    </p>
+
+    <p>
+        There is therefore a feedback loop:
+    </p>
+
+    <p>
+        <strong>
+            Ban diesel exports → domestic diesel supply initially
+            increases → domestic diesel prices fall → refinery margins deteriorate → crude
+            runs decline → production of diesel, gasoline, jet fuel, and other products
+            declines → domestic supply tightens again.
+        </strong>
+    </p>
+
+    <p>
+        At the same time:
+    </p>
+
+    <p>
+        <strong>
+            Ban U.S. exports → global diesel supply tightens further
+            → international diesel prices rise → imported petroleum products become more
+            expensive → those higher international prices feed back into parts of the
+            American petroleum market.
+        </strong>
+    </p>
+
+    <p>
+        <a href="https://www.dallasfed.org/research/economics/2022/0104"
+           target="_blank"
+           rel="noopener noreferrer">
+            This is essentially the same broader problem the Dallas Fed
+            has previously identified when discussing petroleum export restrictions.
+            Its economists argued in 2022 that U.S. gasoline and diesel prices cannot be
+            understood simply by looking at domestic petroleum production because the
+            United States participates in global crude and refined-product markets. They
+            also pointed out another important complication: different crude oils are not
+            interchangeable. At the time, the United States was simultaneously exporting
+            millions of barrels of predominantly light crude while importing millions of
+            barrels of heavier crude better suited to portions of the existing U.S.
+            refining system.
+        </a>
+    </p>
+
+    <p>
+        None of this means a diesel export ban could have no effect
+        whatsoever. In the immediate aftermath of a ban, trapping additional diesel
+        inside the United States could put downward pressure on domestic wholesale
+        prices. The important question is what happens after refiners, distributors,
+        importers, inventories, and international markets begin responding to the new
+        price signals.
+    </p>
+
+    <p>
+        The current diesel crisis is fundamentally occurring within
+        a global distillate shortage. U.S. refineries are already operating near
+        maximum utilization, while disruptions to refining and petroleum flows in
+
+        <a href="https://www.reuters.com/business/energy/moscow-oil-refinery-output-halted-after-sunday-drone-attack-sources-say-2026-09-21/"
+           target="_blank"
+           rel="noopener noreferrer">Russia</a>,
+
+        <a href="https://www.aljazeera.com/news/2026/9/17/china-faces-oil-challenge-as-prices-soar-and-supply-options-narrow"
+           target="_blank"
+           rel="noopener noreferrer">China</a>,
+
+        and the
+
+        <a href="https://www.todayville.com/the-middle-east-oil-crisis-is-exposing-a-dangerous-weakness/"
+           target="_blank"
+           rel="noopener noreferrer">Middle East</a>
+
+        have reduced international supplies.
+
+        <a href="https://www.tribuneindia.com/news/business/us-retail-diesel-price-hits-record-high-global-distillate-output-to-remain-below-last-years-levels-eia/"
+           target="_blank"
+           rel="noopener noreferrer">
+            EIA expects global distillate production to remain below last year's
+            levels in the coming months
+        </a>,
+
+        which is precisely why American diesel exports
+        have remained unusually high and domestic inventories unusually low.
+    </p>
+
+    <p>
+        An export ban does not create new refinery capacity. It does
+        not produce another barrel of crude oil. It does not create additional storage,
+        pipelines, tankers, or refining infrastructure. And it does not solve the
+        international shortage that is producing the extraordinarily high global price
+        for diesel in the first place.
+    </p>
+
+    <p>
+        It changes where existing barrels are allowed to go.
+    </p>
+
+    <p>
+        That distinction matters. The immediate effect could be a
+        temporary domestic price reduction as exported barrels are trapped inside the
+        United States. But over time, refiners and distributors would adjust: refinery
+        runs could fall, production of multiple petroleum products could decline,
+        regional markets would continue interacting with international suppliers, and
+        the global market would begin transmitting its prices back into the United
+        States through the remaining channels of trade.
+    </p>
+
+    <p>
+        With the midterm elections approaching and fuel prices
+        placing significant pressure on consumers, farmers, and the transportation
+        industry, the political attraction to what I would describe as a knee-jerk policy
+        reaction is absolutely in character for todays republican party and the current
+        administration. Republican lawmakers are currently pressing the administration
+        to adopt exactly this approach, while industry groups and critics such as
+        myself argue that restricting exports would likely produce many of these
+        unintended consequences.
+    </p>
+
+    <p>
+        The underlying economics, however, are considerably more
+        complicated than simply asking why the United States is exporting diesel while
+        Americans are paying high prices for it. The United States is one component of
+        an interconnected global petroleum market. Restricting one of the flows within
+        that system can change prices temporarily, but the rest of the system does not
+        remain static afterward.
+    </p>
+
+</article>
+
+    
+
+
+</div></section>
+</div><aside aria-label="Continue reading" class="article-end">
+<div class="article-end__top">
+<div>
+<p class="article-end__eyebrow">Continue Exploring</p>
+<h2>More from the Agitlytics Research Desk</h2>
+</div>
+<a class="article-end__library" href="elements.html">Back to Research Library</a>
+</div>
+<div class="article-pager">
+<a aria-label="Previous article: The Inflationary Impact of Tariffs" href="Inflation.html">
+<span class="article-pager__label">← Previous Analysis</span>
+<span class="article-pager__category">Markets &amp; Economics</span>
+<span class="article-pager__title">The Inflationary Impact of Tariffs</span>
+</a>
+<a aria-label="Next article: Who the Democratic Party Is Really Losing — and Why Scolding the Left Won’t Fix It" href="DemCrit.html">
+<span class="article-pager__label">Next Analysis →</span>
+<span class="article-pager__category">Elections</span>
+<span class="article-pager__title">Who the Democratic Party Is Really Losing — and Why Scolding the Left Won’t Fix It</span>
+</a>
+</div>
+<nav aria-label="Research topics" class="article-topics">
+<a href="elements.html">Political Economy</a><a href="elements.html">Foreign Policy</a><a href="elements.html">Elections</a><a href="elements.html">Markets &amp; Economics</a><a href="elements.html">Political Analysis</a>
+</nav>
+</aside>
+<!-- Footer -->
+<footer id="footer">
+<!-- <section>
+							<form method="post" action="#">
+								<div class="fields">
+									<div class="field">
+										<label for="name">Name</label>
+										<input type="text" name="name" id="name" />
+									</div>
+									<div class="field">
+										<label for="email">Email</label>
+										<input type="text" name="email" id="email" />
+									</div>
+									<div class="field">
+										<label for="message">Message</label>
+										<textarea name="message" id="message" rows="3"></textarea>
+									</div>
+								</div>
+								<ul class="actions">
+									<li><input type="submit" value="Send Message" /></li>
+								</ul>
+							</form>
+						</section> -->
+<section class="posts">
+<article>
+<header>
+<!-- <span class="date"></span>
+										<h2><a href="https://public.tableau.com/shared/YFXYJXN7D?:display_count=n&:origin=viz_share_link">Data Exploration of<br />
+										Covid Datasets in SQL</a></h2>  -->
+</header>
+<a class="image main" href="#"><img alt="" src="images/Headshot.png"/></a>
+<p></p>
+<ul class="actions special">
+</ul>
+</article>
+</section>
+<section class="split contact">
+<section class="alt">
+<h3>Location</h3>
+<p>Houston, TX<br/>
+</p>
+</section>
+<section>
+<h3>Phone</h3>
+<p><a href="#">(936)446-8053</a></p>
+</section>
+<section>
+<h3>Email</h3>
+<p><a href="#">aubreywaddle2@gmail.com</a></p>
+</section>
+<section>
+<h3>Social</h3>
+<ul class="icons alt">
+<li><a class="icon brands alt fa-linkedin" href="www.linkedin.com/in/aubrey-waddle-962634314"><span class="label">linkedin</span></a></li>
+<li><a class="icon brands alt fa-facebook-f" href="https://www.facebook.com/aubrey.waddle/"><span class="label">Facebook</span></a></li>
+<li><a class="icon brands alt fa-instagram" href="https://www.instagram.com/aubrey_waddle12/"><span class="label">Instagram</span></a></li>
+<li><a class="icon brands alt fa-github" href="https://github.com/Blamo2214"><span class="label">GitHub</span></a></li>
+</ul>
+</section>
+</section>
+</footer>
+<!-- Copyright -->
+<div id="copyright">
+<ul><li>© Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+</div>
+</div>
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
