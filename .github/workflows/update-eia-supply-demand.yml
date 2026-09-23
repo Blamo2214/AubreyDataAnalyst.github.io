@@ -144,7 +144,75 @@ jobs:
                   "series_id": "PET.WDISTUS1.W",
                   "name": "Distillate Fuel Oil Stocks",
                   "unit": "million barrels"
-              }
+              },
+                          # ===================================================
+            # PADD REGIONAL GASOLINE STOCKS
+            # ===================================================
+
+            "padd1_gasoline_stocks": {
+                "series_id": "PET.WGTSTP11.W",
+                "name": "PADD 1 East Coast Total Motor Gasoline Stocks",
+                "unit": "million barrels"
+            },
+
+            "padd2_gasoline_stocks": {
+                "series_id": "PET.WGTSTP21.W",
+                "name": "PADD 2 Midwest Total Motor Gasoline Stocks",
+                "unit": "million barrels"
+            },
+
+            "padd3_gasoline_stocks": {
+                "series_id": "PET.WGTSTP31.W",
+                "name": "PADD 3 Gulf Coast Total Motor Gasoline Stocks",
+                "unit": "million barrels"
+            },
+
+            "padd4_gasoline_stocks": {
+                "series_id": "PET.WGTSTP41.W",
+                "name": "PADD 4 Rocky Mountain Total Motor Gasoline Stocks",
+                "unit": "million barrels"
+            },
+
+            "padd5_gasoline_stocks": {
+                "series_id": "PET.WGTSTP51.W",
+                "name": "PADD 5 West Coast Total Motor Gasoline Stocks",
+                "unit": "million barrels"
+            },
+
+
+            # ===================================================
+            # PADD REGIONAL DISTILLATE STOCKS
+            # ===================================================
+
+            "padd1_distillate_stocks": {
+                "series_id": "PET.WDISTP11.W",
+                "name": "PADD 1 East Coast Distillate Fuel Oil Stocks",
+                "unit": "million barrels"
+            },
+
+            "padd2_distillate_stocks": {
+                "series_id": "PET.WDISTP21.W",
+                "name": "PADD 2 Midwest Distillate Fuel Oil Stocks",
+                "unit": "million barrels"
+            },
+
+            "padd3_distillate_stocks": {
+                "series_id": "PET.WDISTP31.W",
+                "name": "PADD 3 Gulf Coast Distillate Fuel Oil Stocks",
+                "unit": "million barrels"
+            },
+
+            "padd4_distillate_stocks": {
+                "series_id": "PET.WDISTP41.W",
+                "name": "PADD 4 Rocky Mountain Distillate Fuel Oil Stocks",
+                "unit": "million barrels"
+            },
+
+            "padd5_distillate_stocks": {
+                "series_id": "PET.WDISTP51.W",
+                "name": "PADD 5 West Coast Distillate Fuel Oil Stocks",
+                "unit": "million barrels"
+            }
           }
 
 
