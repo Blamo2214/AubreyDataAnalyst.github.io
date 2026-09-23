@@ -57,10 +57,40 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:Georgia,"Times 
 .analysis-card .big{margin-top:10px;font:700 1.65rem Arial,sans-serif}
 .analysis-card p{margin:9px 0 0;color:var(--subtle);font:400 .75rem/1.5 Arial,sans-serif}
 .status{padding:18px;border:1px solid var(--border);background:var(--panel);color:var(--muted);font:400 .85rem Arial,sans-serif}
-.footer{border-top:1px solid rgba(255,255,255,.1);padding:28px 0;color:#718092;font:400 .72rem Arial,sans-serif}
+.footer{border-top:1px solid rgba(255,255,255,.1);padding:28px 0;color:#718092;font:400 .72rem Arial,sans-serif}.footer .page{padding:0}
 @media(max-width:1100px){.snapshot-grid{grid-template-columns:repeat(3,1fr)}.analysis-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:800px){.site-nav{height:auto}.nav-inner{padding:22px 0;align-items:flex-start;flex-direction:column;gap:14px}.nav-links{gap:16px;flex-wrap:wrap}.nav-links a{padding:5px 0}.hero-inner{padding:55px 0 42px}.chart-grid{grid-template-columns:1fr}.snapshot-grid{grid-template-columns:repeat(2,1fr)}.section-header{align-items:start;flex-direction:column}.section-note{text-align:left}.wide .canvas-wrap,.canvas-wrap{height:300px}}
 @media(max-width:520px){.snapshot-grid,.analysis-grid{grid-template-columns:1fr}.hero h1{font-size:3rem}}
+
+.inventory-coverage-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.coverage-card{position:relative;overflow:hidden;padding:26px;border:1px solid var(--border);background:linear-gradient(145deg,#121b25,#0c1219)}
+.coverage-card::after{content:"";position:absolute;width:190px;height:190px;border-radius:50%;right:-90px;top:-100px;background:rgba(255,255,255,.025)}
+.coverage-top{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.coverage-name{display:flex;align-items:center;gap:10px;font-size:1.08rem;font-weight:700}
+.coverage-value{margin-top:20px;font:700 clamp(2.8rem,5vw,4.4rem) Arial,sans-serif;letter-spacing:-.055em}
+.coverage-value span{font-size:.95rem;letter-spacing:0;color:var(--muted);margin-left:8px}
+.coverage-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px;padding-top:18px;border-top:1px solid rgba(255,255,255,.08)}
+.coverage-meta .mini-label,.padd-stat-label{color:var(--subtle);font:700 .61rem Arial,sans-serif;letter-spacing:.09em;text-transform:uppercase}
+.coverage-meta .mini-value{margin-top:6px;font:700 .86rem Arial,sans-serif;color:#dce2e9}
+.padd-toolbar{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-bottom:18px}
+.toggle-group{display:inline-flex;border:1px solid var(--border);background:#0b1118;padding:4px}
+.toggle-group button{border:0;background:transparent;color:var(--muted);padding:9px 13px;cursor:pointer;font:700 .66rem Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase}
+.toggle-group button.active{background:#1a2531;color:#fff}
+.padd-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.padd-card{padding:20px;border:1px solid var(--border);background:linear-gradient(180deg,#111922,#0d141b)}
+.padd-number{color:var(--accent);font:700 .65rem Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase}
+.padd-name{margin-top:7px;font-size:1rem;font-weight:700}
+.padd-value{margin-top:18px;font:700 1.75rem Arial,sans-serif;letter-spacing:-.035em}
+.padd-unit{margin-top:3px;color:var(--subtle);font:400 .68rem Arial,sans-serif}
+.padd-stats{display:grid;gap:10px;margin-top:18px;padding-top:15px;border-top:1px solid rgba(255,255,255,.08)}
+.padd-stat{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.padd-stat-value{font:700 .72rem Arial,sans-serif}
+.pos{color:var(--positive)}.neg{color:var(--negative)}.neutral{color:var(--muted)}
+.explainer{margin-top:14px;color:var(--subtle);font:400 .73rem/1.55 Arial,sans-serif}
+@media(max-width:1200px){.padd-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:800px){.inventory-coverage-grid{grid-template-columns:1fr}.padd-grid{grid-template-columns:repeat(2,1fr)}.padd-toolbar{align-items:flex-start;flex-direction:column}}
+@media(max-width:520px){.padd-grid{grid-template-columns:1fr}.coverage-meta{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -99,6 +129,63 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:Georgia,"Times 
   <div class="snapshot-grid" id="gasSnapshot"></div>
   <div class="product-title" style="margin-top:28px"><span class="product-dot diesel"></span><h3>Distillate / Diesel</h3></div>
   <div class="snapshot-grid" id="dieselSnapshot"></div>
+</section>
+
+
+<section class="section" id="coverageSection" hidden>
+  <div class="section-header">
+    <div><span class="section-label">Inventory Coverage</span><h2>U.S. Days of Supply</h2></div>
+    <div class="section-note">Current stocks divided by the trailing four-week average of EIA product supplied. Product supplied is used as EIA's proxy for domestic demand.</div>
+  </div>
+
+  <div class="inventory-coverage-grid">
+    <article class="coverage-card" id="gasCoverageCard"></article>
+    <article class="coverage-card" id="dieselCoverageCard"></article>
+  </div>
+
+  <div class="chart-grid">
+    <article class="chart-card">
+      <div class="chart-head">
+        <div><h3>Gasoline Days of Supply</h3><p>Stocks ÷ trailing four-week average product supplied</p></div>
+        <div class="range" data-chart="gasDaysSupply"></div>
+      </div>
+      <div class="canvas-wrap"><canvas id="gasDaysSupply"></canvas></div>
+    </article>
+    <article class="chart-card">
+      <div class="chart-head">
+        <div><h3>Distillate Days of Supply</h3><p>Stocks ÷ trailing four-week average product supplied</p></div>
+        <div class="range" data-chart="dieselDaysSupply"></div>
+      </div>
+      <div class="canvas-wrap"><canvas id="dieselDaysSupply"></canvas></div>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="paddSection" hidden>
+  <div class="section-header">
+    <div><span class="section-label">Regional Inventories</span><h2>PADD Regional Monitor</h2></div>
+    <div class="section-note">Track gasoline and distillate inventories across the five Petroleum Administration for Defense Districts. Seasonal position compares each region with its own five-year norm for the same part of the year.</div>
+  </div>
+
+  <div class="padd-toolbar">
+    <div class="toggle-group" id="paddToggle">
+      <button class="active" data-product="gasoline">Gasoline</button>
+      <button data-product="distillate">Distillate / Diesel</button>
+    </div>
+  </div>
+
+  <div class="padd-grid" id="paddCards"></div>
+
+  <div class="chart-grid">
+    <article class="chart-card wide">
+      <div class="chart-head">
+        <div><h3 id="paddChartTitle">Regional Gasoline Inventories</h3><p>Million barrels by PADD</p></div>
+        <div class="range" data-chart="paddHistory"></div>
+      </div>
+      <div class="canvas-wrap"><canvas id="paddHistory"></canvas></div>
+    </article>
+  </div>
+  <div class="explainer">Seasonal position is the latest inventory level relative to the average of observations within roughly two weeks of the same calendar date during the previous five years. This normalizes for each PADD's different storage scale and seasonal pattern.</div>
 </section>
 
 <section class="section" id="gasSection" hidden>
@@ -203,6 +290,95 @@ function addRangeButtons(){
    });
  });
 }
+
+function rolling4Map(series){
+  const out=new Map(), d=series?.data||[];
+  for(let i=3;i<d.length;i++){
+    const avg=(d[i].value+d[i-1].value+d[i-2].value+d[i-3].value)/4;
+    out.set(d[i].date,avg);
+  }
+  return out;
+}
+function daysSupplySeries(stocks,demand){
+  const avg=rolling4Map(demand);
+  return (stocks?.data||[]).filter(x=>avg.has(x.date)&&avg.get(x.date)>0)
+    .map(x=>({date:x.date,value:x.value/avg.get(x.date)}));
+}
+function valueOneYearAgo(data,date){
+  const target=new Date(date); target.setFullYear(target.getFullYear()-1);
+  let best=null,bestDiff=Infinity;
+  for(const x of data){
+    const diff=Math.abs(new Date(x.date)-target);
+    if(diff<bestDiff){best=x;bestDiff=diff}
+  }
+  return bestDiff<=10*86400000?best:null;
+}
+function changePct(a,b){return (a!=null&&b)?(a-b)/b*100:null}
+function changeClass(v){return v==null?"neutral":v>0?"pos":v<0?"neg":"neutral"}
+function signed(v,d=1,suffix="%"){return v==null?"—":`${v>=0?"+":""}${v.toFixed(d)}${suffix}`}
+function coverageCard(name,cls,series){
+  const cur=series.at(-1),prev=series.at(-2),yr=cur?valueOneYearAgo(series,cur.date):null;
+  const wow=cur&&prev?cur.value-prev.value:null;
+  const yoy=cur&&yr?cur.value-yr.value:null;
+  return `<div class="coverage-top"><div class="coverage-name"><span class="product-dot ${cls}"></span>${name}</div><span class="pill">4-week demand avg</span></div>
+    <div class="coverage-value">${cur?cur.value.toFixed(1):"—"}<span>days</span></div>
+    <div class="coverage-meta">
+      <div><div class="mini-label">Prior Week</div><div class="mini-value">${prev?prev.value.toFixed(1):"—"} days</div></div>
+      <div><div class="mini-label">Weekly Change</div><div class="mini-value ${changeClass(wow)}">${wow==null?"—":signed(wow,1," days")}</div></div>
+      <div><div class="mini-label">Year Ago</div><div class="mini-value">${yr?yr.value.toFixed(1):"—"} days${yoy==null?"":` <span class="${changeClass(yoy)}">(${signed(yoy,1,"")})</span>`}</div></div>
+    </div>`;
+}
+function seasonalFiveYearAverage(data,current){
+  if(!current)return null;
+  const cd=new Date(current.date), vals=[];
+  for(const x of data){
+    const d=new Date(x.date), age=cd.getFullYear()-d.getFullYear();
+    if(age<1||age>5)continue;
+    const target=new Date(cd); target.setFullYear(d.getFullYear());
+    const diff=Math.abs(d-target)/86400000;
+    if(diff<=14)vals.push(x.value);
+  }
+  return vals.length?vals.reduce((a,b)=>a+b,0)/vals.length:null;
+}
+const PADD_META=[
+  {n:1,name:"East Coast"},
+  {n:2,name:"Midwest"},
+  {n:3,name:"Gulf Coast"},
+  {n:4,name:"Rocky Mountain"},
+  {n:5,name:"West Coast"}
+];
+let paddProduct="gasoline";
+let allSeries=null;
+function paddSeriesKey(n,product){return `padd${n}_${product}_stocks`}
+function renderPaddCards(){
+  const s=allSeries;if(!s)return;
+  document.getElementById("paddCards").innerHTML=PADD_META.map(p=>{
+    const ser=s[paddSeriesKey(p.n,paddProduct)],cur=latest(ser),prev=previous(ser),yr=cur?valueOneYearAgo(ser.data,cur.date):null;
+    const wow=cur&&prev?changePct(cur.value,prev.value):null;
+    const yoy=cur&&yr?changePct(cur.value,yr.value):null;
+    const avg=seasonalFiveYearAverage(ser.data,cur);
+    const seas=cur&&avg?changePct(cur.value,avg):null;
+    return `<article class="padd-card">
+      <div class="padd-number">PADD ${p.n}</div><div class="padd-name">${p.name}</div>
+      <div class="padd-value">${cur?cur.value.toFixed(3):"—"}</div><div class="padd-unit">million barrels</div>
+      <div class="padd-stats">
+        <div class="padd-stat"><span class="padd-stat-label">WoW</span><span class="padd-stat-value ${changeClass(wow)}">${signed(wow)}</span></div>
+        <div class="padd-stat"><span class="padd-stat-label">YoY</span><span class="padd-stat-value ${changeClass(yoy)}">${signed(yoy)}</span></div>
+        <div class="padd-stat"><span class="padd-stat-label">vs 5Y seasonal avg</span><span class="padd-stat-value ${changeClass(seas)}">${signed(seas)}</span></div>
+      </div></article>`;
+  }).join("");
+}
+function renderPaddHistory(range="5Y"){
+  const s=allSeries;if(!s)return;
+  const series=PADD_META.map(p=>({p,data:filtered(s[paddSeriesKey(p.n,paddProduct)].data,range)}));
+  const dates=[...new Set(series.flatMap(x=>x.data.map(d=>d.date)))].sort();
+  const maps=series.map(x=>new Map(x.data.map(d=>[d.date,d.value])));
+  const palette=["#d94b5b","#e7b45c","#72a7ff","#5fd38d","#c58cff"];
+  buildLine("paddHistory",dates,PADD_META.map((p,i)=>dataset(`PADD ${p.n} — ${p.name}`,dates.map(d=>maps[i].get(d)??null),palette[i])));
+  document.getElementById("paddChartTitle").textContent=`Regional ${paddProduct==="gasoline"?"Gasoline":"Distillate"} Inventories`;
+  document.querySelectorAll('.range[data-chart="paddHistory"] button').forEach(b=>b.classList.toggle("active",b.dataset.range===range));
+}
+
 function dataset(label,data,color){
  return {label,data,borderColor:color,backgroundColor:color,borderWidth:2,pointRadius:0,pointHoverRadius:3,tension:.15};
 }
@@ -211,11 +387,24 @@ async function init(){
  try{
   const res=await fetch(DATA_URL,{cache:"no-store"}); if(!res.ok)throw new Error(`HTTP ${res.status}`);
   const json=await res.json(), s=json.series;
-  const required=["gasoline_production","gasoline_product_supplied","gasoline_imports","gasoline_exports","gasoline_stocks","distillate_production","distillate_product_supplied","distillate_imports","distillate_exports","distillate_stocks"];
+  const required=["gasoline_production","gasoline_product_supplied","gasoline_imports","gasoline_exports","gasoline_stocks","distillate_production","distillate_product_supplied","distillate_imports","distillate_exports","distillate_stocks",...Array.from({length:5},(_,i)=>`padd${i+1}_gasoline_stocks`),...Array.from({length:5},(_,i)=>`padd${i+1}_distillate_stocks`)];
   const missing=required.filter(k=>!s[k]?.data?.length); if(missing.length)throw new Error(`Missing series: ${missing.join(", ")}`);
   document.getElementById("status").hidden=true;
-  ["snapshot","gasSection","dieselSection","analysisSection"].forEach(id=>document.getElementById(id).hidden=false);
+  ["snapshot","coverageSection","paddSection","gasSection","dieselSection","analysisSection"].forEach(id=>document.getElementById(id).hidden=false);
   document.getElementById("reportDate").textContent=`Latest report: ${json.latest_date||"—"}`;
+
+   allSeries=s;
+   const gasDOS=daysSupplySeries(s.gasoline_stocks,s.gasoline_product_supplied);
+   const dieselDOS=daysSupplySeries(s.distillate_stocks,s.distillate_product_supplied);
+   document.getElementById("gasCoverageCard").innerHTML=coverageCard("Gasoline","gas",gasDOS);
+   document.getElementById("dieselCoverageCard").innerHTML=coverageCard("Distillate / Diesel","diesel",dieselDOS);
+   renderPaddCards();
+   document.querySelectorAll("#paddToggle button").forEach(btn=>btn.onclick=()=>{
+     paddProduct=btn.dataset.product;
+     document.querySelectorAll("#paddToggle button").forEach(b=>b.classList.toggle("active",b===btn));
+     renderPaddCards(); renderPaddHistory("5Y");
+   });
+
 
   document.getElementById("gasSnapshot").innerHTML=
     metric("Production",s.gasoline_production,"million bbl/day")+
@@ -240,7 +429,10 @@ async function init(){
    <div class="analysis-card"><div class="label">Distillate Net Exports</div><div class="big">${fmt(dnet)} mb/d</div><p>Exports minus imports.</p></div>
    <div class="analysis-card"><div class="label">Distillate Export Share</div><div class="big">${dshare.toFixed(1)}%</div><p>Exports as a share of reported production.</p></div>`;
 
-  chartSpecs.gasBalance={render:r=>{const x=paired(s.gasoline_production,s.gasoline_product_supplied,r);buildLine("gasBalance",x.map(z=>z.date),[dataset("Production",x.map(z=>z.a),COLORS.gas),dataset("Product Supplied",x.map(z=>z.b),COLORS.demand)])}};
+  chartSpecs.gasDaysSupply={render:r=>{const x=filtered(gasDOS,r);buildLine("gasDaysSupply",x.map(z=>z.date),[dataset("Gasoline Days of Supply",x.map(z=>z.value),COLORS.gas)])}};
+   chartSpecs.dieselDaysSupply={render:r=>{const x=filtered(dieselDOS,r);buildLine("dieselDaysSupply",x.map(z=>z.date),[dataset("Distillate Days of Supply",x.map(z=>z.value),COLORS.diesel)])}};
+   chartSpecs.paddHistory={render:r=>renderPaddHistory(r)};
+   chartSpecs.gasBalance={render:r=>{const x=paired(s.gasoline_production,s.gasoline_product_supplied,r);buildLine("gasBalance",x.map(z=>z.date),[dataset("Production",x.map(z=>z.a),COLORS.gas),dataset("Product Supplied",x.map(z=>z.b),COLORS.demand)])}};
   chartSpecs.gasTrade={render:r=>{const x=paired(s.gasoline_imports,s.gasoline_exports,r);buildLine("gasTrade",x.map(z=>z.date),[dataset("Imports",x.map(z=>z.a),COLORS.imports),dataset("Exports",x.map(z=>z.b),COLORS.exports)])}};
   chartSpecs.gasStocks={render:r=>{const x=filtered(s.gasoline_stocks.data,r);buildLine("gasStocks",x.map(z=>z.date),[dataset("Gasoline Stocks",x.map(z=>z.value),COLORS.gas)])}};
   chartSpecs.dieselBalance={render:r=>{const x=paired(s.distillate_production,s.distillate_product_supplied,r);buildLine("dieselBalance",x.map(z=>z.date),[dataset("Production",x.map(z=>z.a),COLORS.diesel),dataset("Product Supplied",x.map(z=>z.b),COLORS.demand)])}};
