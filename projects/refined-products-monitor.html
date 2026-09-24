@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>U.S. Refined Products Monitor | Agitlytics</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
 <style>
 *{box-sizing:border-box}
 :root{--bg:#090d12;--panel:#111821;--panel2:#0d141c;--border:#25303c;--text:#f2f3f5;--muted:#9ba8b7;--subtle:#718092;--accent:#d94b5b;--positive:#5fd38d;--negative:#ff7a7a;--gold:#e7b45c;--blue:#72a7ff}
@@ -91,7 +93,7 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:Georgia,"Times 
 @media(max-width:800px){.inventory-coverage-grid{grid-template-columns:1fr}.padd-grid{grid-template-columns:repeat(2,1fr)}.padd-toolbar{align-items:flex-start;flex-direction:column}}
 @media(max-width:520px){.padd-grid{grid-template-columns:1fr}.coverage-meta{grid-template-columns:1fr}}
 
-</style>
+.padd-map-panel{border:1px solid var(--border);background:var(--panel);padding:22px;margin-bottom:18px}.padd-map-head{display:flex;justify-content:space-between;gap:18px;margin-bottom:14px}.padd-map-head h3{margin:0}.padd-map-head p{margin:6px 0 0;color:var(--muted);font:400 .76rem Arial,sans-serif}.map-metric{display:flex;gap:6px}.map-metric button{border:1px solid #2b3744;background:#0b1118;color:#9eabb9;padding:8px 10px;cursor:pointer;font:700 .63rem Arial,sans-serif;text-transform:uppercase}.map-metric button.active{color:#fff;background:#17212c}.padd-map-layout{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(250px,.75fr);gap:18px}.padd-map-wrap{position:relative;min-height:420px;background:#0b1118;border:1px solid rgba(255,255,255,.06)}#paddMap{width:100%;height:420px;display:block}.padd-state{stroke:#090d12;stroke-width:.8;cursor:pointer}.padd-state:hover,.padd-state.selected{stroke:#fff;stroke-width:1.7}.padd-boundary{fill:none;stroke:rgba(255,255,255,.5);stroke-width:1.5;pointer-events:none}.padd-map-label{fill:#fff;font:700 12px Arial,sans-serif;text-anchor:middle;pointer-events:none}.map-watermark{position:absolute;right:12px;bottom:10px;color:rgba(255,255,255,.16);font:700 11px Arial,sans-serif}.map-detail{background:#0d141c;border:1px solid rgba(255,255,255,.08);padding:22px}.map-detail h4{margin:7px 0 0;font-size:1.35rem}.map-big{margin-top:22px;font:700 2.25rem Arial,sans-serif}.map-unit{color:var(--subtle);font:400 .7rem Arial,sans-serif}.map-detail-grid{display:grid;gap:11px;margin-top:20px;padding-top:17px;border-top:1px solid rgba(255,255,255,.08)}.map-detail-row{display:flex;justify-content:space-between;gap:12px}.map-detail-row span:first-child{color:var(--subtle);font:700 .62rem Arial,sans-serif;text-transform:uppercase}.map-detail-row span:last-child{font:700 .76rem Arial,sans-serif}.map-legend{display:flex;align-items:center;gap:10px;margin-top:12px;color:var(--subtle);font:400 .68rem Arial,sans-serif}.map-legend-bar{height:8px;flex:1;max-width:250px;background:linear-gradient(90deg,#8d3543,#343e49,#34795a);border-radius:8px}@media(max-width:900px){.padd-map-layout{grid-template-columns:1fr}.padd-map-head{flex-direction:column}}</style>
 </head>
 <body>
 <nav class="site-nav">
@@ -174,7 +176,8 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:Georgia,"Times 
     </div>
   </div>
 
-  <div class="padd-grid" id="paddCards"></div>
+  <div class="padd-map-panel"><div class="padd-map-head"><div><h3>Regional Inventory Map</h3><p>Click a state to select its PADD. Shading shows seasonal tightness or absolute inventory.</p></div><div class="map-metric" id="mapMetric"><button class="active" data-mapmetric="seasonal">Seasonal Position</button><button data-mapmetric="inventory">Inventory Level</button></div></div><div class="padd-map-layout"><div><div class="padd-map-wrap"><svg id="paddMap" aria-label="Interactive PADD inventory map"></svg><div class="map-watermark">AGITLYTICS</div></div><div class="map-legend" id="mapLegend"><span>Tighter vs 5Y</span><div class="map-legend-bar"></div><span>Higher vs 5Y</span></div></div><aside class="map-detail" id="mapDetail"></aside></div></div>
+<div class="padd-grid" id="paddCards"></div>
 
   <div class="chart-grid">
     <article class="chart-card wide">
@@ -350,6 +353,13 @@ const PADD_META=[
 let paddProduct="gasoline";
 let allSeries=null;
 function paddSeriesKey(n,product){return `padd${n}_${product}_stocks`}
+const STATE_PADD={"01":3,"02":5,"04":5,"05":3,"06":5,"08":4,"09":1,"10":1,"11":1,"12":1,"13":1,"15":5,"16":4,"17":2,"18":2,"19":2,"20":2,"21":2,"22":3,"23":1,"24":1,"25":1,"26":2,"27":2,"28":3,"29":2,"30":4,"31":2,"32":5,"33":1,"34":1,"35":3,"36":1,"37":1,"38":2,"39":2,"40":2,"41":5,"42":1,"44":1,"45":1,"46":2,"47":2,"48":3,"49":4,"50":1,"51":1,"53":5,"54":1,"55":2,"56":4};
+let mapMetricMode="seasonal",selectedPadd=3,usAtlasCache=null;
+function paddMetrics(n){const ser=allSeries?.[paddSeriesKey(n,paddProduct)];if(!ser)return null;const cur=latest(ser),prev=previous(ser),yr=cur?valueOneYearAgo(ser.data,cur.date):null,avg=seasonalFiveYearAverage(ser.data,cur);return{cur,wow:cur&&prev?changePct(cur.value,prev.value):null,yoy:cur&&yr?changePct(cur.value,yr.value):null,seasonal:cur&&avg?changePct(cur.value,avg):null}}
+function mapColor(v,mode){if(v==null)return"#29323c";if(mode==="inventory"){const a=PADD_META.map(p=>paddMetrics(p.n)?.cur?.value).filter(Number.isFinite),lo=Math.min(...a),hi=Math.max(...a),t=hi===lo?.5:(v-lo)/(hi-lo);return d3.interpolateRgb("#263545","#d9a64c")(t)}const t=Math.max(-20,Math.min(20,v));return t<0?d3.interpolateRgb("#343e49","#8d3543")(-t/20):d3.interpolateRgb("#343e49","#34795a")(t/20)}
+function updateMapDetail(){const p=PADD_META.find(x=>x.n===selectedPadd),m=paddMetrics(selectedPadd);if(!p||!m)return;document.getElementById("mapDetail").innerHTML=`<div class="padd-number">PADD ${p.n}</div><h4>${p.name}</h4><div class="map-big">${m.cur?.value.toFixed(3)??"—"}</div><div class="map-unit">million barrels • ${paddProduct==="gasoline"?"gasoline":"distillate"}</div><div class="map-detail-grid"><div class="map-detail-row"><span>WoW</span><span class="${changeClass(m.wow)}">${signed(m.wow)}</span></div><div class="map-detail-row"><span>YoY</span><span class="${changeClass(m.yoy)}">${signed(m.yoy)}</span></div><div class="map-detail-row"><span>vs 5Y seasonal avg</span><span class="${changeClass(m.seasonal)}">${signed(m.seasonal)}</span></div></div>`}
+async function renderPaddMap(){const el=document.getElementById("paddMap");if(!el||!allSeries)return;try{if(!usAtlasCache){const r=await fetch("https://cdn.jsdelivr.net/npm/us-atlas@3.0.1/states-10m.json");usAtlasCache=await r.json()}const w=Math.max(320,el.parentElement.clientWidth),ht=420,svg=d3.select(el);svg.selectAll("*").remove();svg.attr("viewBox",`0 0 ${w} ${ht}`);const states=topojson.feature(usAtlasCache,usAtlasCache.objects.states).features.filter(f=>STATE_PADD[String(f.id).padStart(2,"0")]);const fc={type:"FeatureCollection",features:states},proj=d3.geoAlbersUsa().fitExtent([[15,15],[w-15,ht-15]],fc),path=d3.geoPath(proj),g=svg.append("g");g.selectAll("path").data(states).join("path").attr("class",d=>`padd-state ${STATE_PADD[String(d.id).padStart(2,"0")]===selectedPadd?"selected":""}`).attr("d",path).attr("fill",d=>{const m=paddMetrics(STATE_PADD[String(d.id).padStart(2,"0")]);return mapColor(mapMetricMode==="seasonal"?m?.seasonal:m?.cur?.value,mapMetricMode)}).on("click",(e,d)=>{selectedPadd=STATE_PADD[String(d.id).padStart(2,"0")];renderPaddMap()}).append("title").text(d=>{const n=STATE_PADD[String(d.id).padStart(2,"0")],m=paddMetrics(n);return`PADD ${n}: ${m?.cur?.value.toFixed(3)??"—"} MMbbl; ${signed(m?.seasonal)} vs 5Y seasonal avg`});const mesh=topojson.mesh(usAtlasCache,usAtlasCache.objects.states,(a,b)=>a!==b&&STATE_PADD[String(a.id).padStart(2,"0")]!==STATE_PADD[String(b.id).padStart(2,"0")]);g.append("path").datum(mesh).attr("class","padd-boundary").attr("d",path);PADD_META.forEach(p=>{const sub={type:"FeatureCollection",features:states.filter(f=>STATE_PADD[String(f.id).padStart(2,"0")]===p.n)},c=path.centroid(sub);if(isFinite(c[0]))g.append("text").attr("class","padd-map-label").attr("x",c[0]).attr("y",c[1]).text(`PADD ${p.n}`)});updateMapDetail();document.getElementById("mapLegend").innerHTML=mapMetricMode==="seasonal"?'<span>Tighter vs 5Y</span><div class="map-legend-bar"></div><span>Higher vs 5Y</span>':'<span>Lower inventory</span><div class="map-legend-bar" style="background:linear-gradient(90deg,#263545,#d9a64c)"></div><span>Higher inventory</span>'}catch(e){document.getElementById("mapDetail").innerHTML=`<div class="padd-number">Map unavailable</div><p class="explainer">${e.message}</p>`}}
+
 function renderPaddCards(){
   const s=allSeries;if(!s)return;
   document.getElementById("paddCards").innerHTML=PADD_META.map(p=>{
@@ -399,10 +409,12 @@ async function init(){
    document.getElementById("gasCoverageCard").innerHTML=coverageCard("Gasoline","gas",gasDOS);
    document.getElementById("dieselCoverageCard").innerHTML=coverageCard("Distillate / Diesel","diesel",dieselDOS);
    renderPaddCards();
+   document.querySelectorAll("#mapMetric button").forEach(btn=>btn.onclick=()=>{mapMetricMode=btn.dataset.mapmetric;document.querySelectorAll("#mapMetric button").forEach(b=>b.classList.toggle("active",b===btn));renderPaddMap()});
+   renderPaddMap();
    document.querySelectorAll("#paddToggle button").forEach(btn=>btn.onclick=()=>{
      paddProduct=btn.dataset.product;
      document.querySelectorAll("#paddToggle button").forEach(b=>b.classList.toggle("active",b===btn));
-     renderPaddCards(); renderPaddHistory("5Y");
+     renderPaddCards(); renderPaddHistory("5Y"); renderPaddMap();
    });
 
 
