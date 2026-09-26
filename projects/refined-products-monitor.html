@@ -331,6 +331,16 @@ function coverageCard(name,cls,series){
       <div><div class="mini-label">Year Ago</div><div class="mini-value">${yr?yr.value.toFixed(1):"—"} days${yoy==null?"":` <span class="${changeClass(yoy)}">(${signed(yoy,1,"")})</span>`}</div></div>
     </div>`;
 }
+function getISOYearWeek(dateString){
+ const d=new Date(dateString+"T00:00:00Z"),t=new Date(Date.UTC(d.getUTCFullYear(),d.getUTCMonth(),d.getUTCDate())); const day=t.getUTCDay()||7;t.setUTCDate(t.getUTCDate()+4-day);const year=t.getUTCFullYear(),ys=new Date(Date.UTC(year,0,1));return {year,week:Math.ceil((((t-ys)/86400000)+1)/7)};
+}
+function buildDOSSeasonal(data){
+ if(!data?.length)return null;const cy=getISOYearWeek(data.at(-1).date).year,yrs=[cy-5,cy-4,cy-3,cy-2,cy-1],by={};data.forEach(x=>{const i=getISOYearWeek(x.date);(by[i.year]??={})[i.week]=Number(x.value)});const labels=[],current=[],avg=[],min=[],max=[];for(let w=1;w<=52;w++){labels.push("Week "+w);const v=yrs.map(y=>by[y]?.[w]).filter(Number.isFinite),c=by[cy]?.[w];current.push(Number.isFinite(c)?c:null);avg.push(v.length?v.reduce((a,b)=>a+b,0)/v.length:null);min.push(v.length?Math.min(...v):null);max.push(v.length?Math.max(...v):null)}return{labels,current,avg,min,max,cy};
+}
+function renderDOSSeasonal(id,data,color){
+ const s=buildDOSSeasonal(data);if(!s)return;if(charts[id])charts[id].destroy();charts[id]=new Chart(document.getElementById(id),{type:"line",data:{labels:s.labels,datasets:[{label:"5-Year Maximum",data:s.max,borderWidth:0,pointRadius:0,fill:false},{label:"5-Year Range",data:s.min,borderWidth:0,pointRadius:0,fill:"-1",backgroundColor:"rgba(140,153,168,.14)"},{label:"5-Year Average",data:s.avg,borderColor:"#94a3b8",borderDash:[7,6],borderWidth:2,pointRadius:0,tension:.25},{label:String(s.cy),data:s.current,borderColor:color,backgroundColor:color,borderWidth:3,pointRadius:2,pointHoverRadius:5,spanGaps:false,tension:.25}]},options:{responsive:true,maintainAspectRatio:false,interaction:{mode:"index",intersect:false},plugins:{legend:{labels:{color:"#c9d0d8",boxWidth:12,font:{family:"Arial",size:11},filter:i=>i.text!=="5-Year Maximum"}},tooltip:{callbacks:{label:c=>c.raw===null?null:`${c.dataset.label}: ${Number(c.parsed.y).toFixed(1)} days`}}},scales:{x:{ticks:{color:COLORS.text,maxTicksLimit:13},grid:{color:COLORS.grid}},y:{ticks:{color:COLORS.text,callback:v=>Number(v).toFixed(1)},grid:{color:COLORS.grid},title:{display:true,text:"Days of supply",color:COLORS.text}}}}});
+}
+
 function seasonalFiveYearAverage(data,current){
   if(!current)return null;
   const cd=new Date(current.date), vals=[];
@@ -441,8 +451,8 @@ async function init(){
    <div class="analysis-card"><div class="label">Distillate Net Exports</div><div class="big">${fmt(dnet)} mb/d</div><p>Exports minus imports.</p></div>
    <div class="analysis-card"><div class="label">Distillate Export Share</div><div class="big">${dshare.toFixed(1)}%</div><p>Exports as a share of reported production.</p></div>`;
 
-  chartSpecs.gasDaysSupply={render:r=>{const x=filtered(gasDOS,r);buildLine("gasDaysSupply",x.map(z=>z.date),[dataset("Gasoline Days of Supply",x.map(z=>z.value),COLORS.gas)])}};
-   chartSpecs.dieselDaysSupply={render:r=>{const x=filtered(dieselDOS,r);buildLine("dieselDaysSupply",x.map(z=>z.date),[dataset("Distillate Days of Supply",x.map(z=>z.value),COLORS.diesel)])}};
+  chartSpecs.gasDaysSupply={render:r=>{if(r==="1Y"){renderDOSSeasonal("gasDaysSupply",gasDOS,COLORS.gas);return;}const x=filtered(gasDOS,r);buildLine("gasDaysSupply",x.map(z=>z.date),[dataset("Gasoline Days of Supply",x.map(z=>z.value),COLORS.gas)])}};
+   chartSpecs.dieselDaysSupply={render:r=>{if(r==="1Y"){renderDOSSeasonal("dieselDaysSupply",dieselDOS,COLORS.diesel);return;}const x=filtered(dieselDOS,r);buildLine("dieselDaysSupply",x.map(z=>z.date),[dataset("Distillate Days of Supply",x.map(z=>z.value),COLORS.diesel)])}};
    chartSpecs.paddHistory={render:r=>renderPaddHistory(r)};
    chartSpecs.gasBalance={render:r=>{const x=paired(s.gasoline_production,s.gasoline_product_supplied,r);buildLine("gasBalance",x.map(z=>z.date),[dataset("Production",x.map(z=>z.a),COLORS.gas),dataset("Product Supplied",x.map(z=>z.b),COLORS.demand)])}};
   chartSpecs.gasTrade={render:r=>{const x=paired(s.gasoline_imports,s.gasoline_exports,r);buildLine("gasTrade",x.map(z=>z.date),[dataset("Imports",x.map(z=>z.a),COLORS.imports),dataset("Exports",x.map(z=>z.b),COLORS.exports)])}};
