@@ -1,7 +1,7 @@
 {
   "source": "JODI Oil World Database",
   "dataset": "Extended Primary",
-  "generated_at": "2026-09-22T02:54:24.130170+00:00",
+  "generated_at": "2026-09-30T05:25:44.265694+00:00",
   "country": {
     "code": "TW",
     "name": "Taiwan, Province of China"
@@ -11,7 +11,7 @@
       "name": "Crude Oil Production",
       "flow_code": "INDPROD",
       "unit": "million barrels per day",
-      "latest_reported_month": "2026-06",
+      "latest_reported_month": "2026-07",
       "latest_value": 0.0,
       "observations": [
         {
@@ -1483,6 +1483,11 @@
           "date": "2026-06",
           "value": 0.0,
           "assessment_code": "3"
+        },
+        {
+          "date": "2026-07",
+          "value": 0.0,
+          "assessment_code": "3"
         }
       ]
     },
@@ -1490,8 +1495,8 @@
       "name": "Crude Oil Imports",
       "flow_code": "TOTIMPSB",
       "unit": "million barrels per day",
-      "latest_reported_month": "2026-06",
-      "latest_value": 0.9076,
+      "latest_reported_month": "2026-07",
+      "latest_value": 0.7099,
       "observations": [
         {
           "date": "2002-01",
@@ -2962,6 +2967,11 @@
           "date": "2026-06",
           "value": 0.9076,
           "assessment_code": "3"
+        },
+        {
+          "date": "2026-07",
+          "value": 0.7099,
+          "assessment_code": "3"
         }
       ]
     },
@@ -3183,8 +3193,8 @@
       "name": "Refinery Crude Intake",
       "flow_code": "REFINOBS",
       "unit": "million barrels per day",
-      "latest_reported_month": "2026-06",
-      "latest_value": 0.7692,
+      "latest_reported_month": "2026-07",
+      "latest_value": 0.7712,
       "observations": [
         {
           "date": "2002-01",
@@ -4655,6 +4665,11 @@
           "date": "2026-06",
           "value": 0.7692,
           "assessment_code": "3"
+        },
+        {
+          "date": "2026-07",
+          "value": 0.7712,
+          "assessment_code": "3"
         }
       ]
     },
@@ -4662,8 +4677,8 @@
       "name": "Closing Crude Oil Stocks",
       "flow_code": "CLOSTLV",
       "unit": "million barrels",
-      "latest_reported_month": "2026-06",
-      "latest_value": 26.5538,
+      "latest_reported_month": "2026-07",
+      "latest_value": 24.6633,
       "observations": [
         {
           "date": "2002-01",
@@ -6133,6 +6148,11 @@
         {
           "date": "2026-06",
           "value": 26.5538,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2026-07",
+          "value": 24.6633,
           "assessment_code": "3"
         }
       ]

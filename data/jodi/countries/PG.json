@@ -1,7 +1,7 @@
 {
   "source": "JODI Oil World Database",
   "dataset": "Extended Primary",
-  "generated_at": "2026-09-22T02:54:24.130170+00:00",
+  "generated_at": "2026-09-30T05:25:44.265694+00:00",
   "country": {
     "code": "PG",
     "name": "Papua New Guinea"
@@ -4227,8 +4227,8 @@
       "name": "Closing Crude Oil Stocks",
       "flow_code": "CLOSTLV",
       "unit": "million barrels",
-      "latest_reported_month": "2026-05",
-      "latest_value": 0.005,
+      "latest_reported_month": "2026-07",
+      "latest_value": 0.008,
       "observations": [
         {
           "date": "2007-01",
@@ -5358,6 +5358,16 @@
         {
           "date": "2026-05",
           "value": 0.005,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2026-06",
+          "value": 0.005,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2026-07",
+          "value": 0.008,
           "assessment_code": "3"
         }
       ]
