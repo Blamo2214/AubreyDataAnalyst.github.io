@@ -1,26 +1,453 @@
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta
         name="description"
-        content="Agitlytics proprietary petroleum market models and WTI comparative inventory research."
+        content="Agitlytics proprietary petroleum market models, including interactive WTI comparative inventory research."
     >
 
     <title>Proprietary Models | Agitlytics</title>
 
-    <!-- Chart library -->
+    <!-- Plotly -->
     <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
 
-    <!-- Page styling -->
-    <link rel="stylesheet" href="../assets/css/proprietary-models.css">
 
-    <!-- Interactive chart -->
-    <script src="../assets/js/proprietary-models.js" defer></script>
+    <!-- =====================================================
+         CSS — ALL PAGE STYLING
+    ====================================================== -->
+
+    <style>
+
+        :root {
+            --bg: #090d12;
+            --panel: #111821;
+            --border: #283440;
+            --text: #f2f3f5;
+            --muted: #9ba8b7;
+            --accent: #d94b5b;
+            --gold: #e8b86d;
+            --green: #5fd38d;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: Georgia, "Times New Roman", serif;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        select {
+            font: inherit;
+        }
+
+        .nav-inner,
+        .wrap,
+        .hero-inner {
+            width: min(1490px, 90%);
+            margin: auto;
+        }
+
+
+        /* =================================================
+           NAVIGATION
+        ================================================== */
+
+        nav {
+            height: 88px;
+            background: #070a0e;
+            border-bottom: 1px solid #ffffff1a;
+        }
+
+        .nav-inner {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font: 700 15px Arial, sans-serif;
+            letter-spacing: .16em;
+        }
+
+        .brand i {
+            width: 10px;
+            height: 10px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 0 6px #d94b5b22;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            color: #aeb4bd;
+            font: 700 12px Arial, sans-serif;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+
+        .nav-links a:hover,
+        .nav-links .active {
+            color: white;
+        }
+
+        .nav-links .active {
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 10px;
+        }
+
+
+        /* =================================================
+           HERO
+        ================================================== */
+
+        .hero {
+            background:
+                radial-gradient(
+                    circle at 85% 20%,
+                    #641c2d33,
+                    transparent 38%
+                ),
+                linear-gradient(110deg, #0a0f15, #101821);
+
+            border-bottom: 1px solid #ffffff1a;
+        }
+
+        .hero-inner {
+            padding: 75px 0 60px;
+        }
+
+        .eyebrow,
+        .section-label {
+            color: var(--accent);
+            font: 700 12px Arial, sans-serif;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin: 18px 0;
+            font-size: clamp(42px, 5.5vw, 74px);
+            line-height: 1.05;
+        }
+
+        h2 {
+            margin: 0 0 10px;
+            font-size: 31px;
+        }
+
+        h3 {
+            margin: 0 0 12px;
+            font-size: 22px;
+        }
+
+        .lede {
+            max-width: 850px;
+            color: var(--muted);
+            font: 16px/1.8 Arial, sans-serif;
+        }
+
+        .crumb {
+            display: inline-block;
+            margin-top: 20px;
+            color: #e9b4bc;
+            font: 700 12px Arial, sans-serif;
+            letter-spacing: .08em;
+        }
+
+        .crumb:hover {
+            text-decoration: underline;
+        }
+
+
+        /* =================================================
+           MAIN CONTENT
+        ================================================== */
+
+        .wrap {
+            padding: 58px 0 100px;
+        }
+
+        .section-label {
+            margin: 0 0 14px;
+        }
+
+        .intro {
+            max-width: 900px;
+            margin: 0 0 25px;
+            color: var(--muted);
+            font: 14px/1.8 Arial, sans-serif;
+        }
+
+
+        /* =================================================
+           CHART PANEL
+        ================================================== */
+
+        .panel {
+            margin: 26px 0 62px;
+            padding: 28px 30px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+        }
+
+        .panel-top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .tag {
+            display: inline-block;
+            margin-bottom: 12px;
+            padding: 7px 10px;
+            color: var(--green);
+            background: #5fd38d10;
+            border: 1px solid #5fd38d55;
+            border-radius: 3px;
+            font: 700 10px Arial, sans-serif;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+        }
+
+        .tag.soon {
+            color: #a7b3c2;
+            background: #202b36;
+            border-color: #546271;
+        }
+
+
+        /* =================================================
+           CHART CONTROLS
+        ================================================== */
+
+        .controlbar {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 24px 0 14px;
+            font: 12px Arial, sans-serif;
+        }
+
+        .controlbar label {
+            color: #aeb8c5;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .06em;
+        }
+
+        .controlbar select,
+        .controlbar button {
+            padding: 10px 13px;
+            color: var(--text);
+            background: #0d131b;
+            border: 1px solid #354352;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .controlbar select {
+            max-width: 230px;
+        }
+
+        .controlbar button.active {
+            background: #451d28;
+            border-color: var(--accent);
+        }
+
+
+        /* =================================================
+           PLOTLY CHART
+        ================================================== */
+
+        .plotbox {
+            position: relative;
+            min-height: 590px;
+        }
+
+        #scatter {
+            width: 100%;
+            height: 610px;
+        }
+
+        .plotbox::after {
+            content: "AGITLYTICS";
+            position: absolute;
+            right: 60px;
+            bottom: 34px;
+            color: #ffffff35;
+            font: 700 12px Arial, sans-serif;
+            letter-spacing: .05em;
+            pointer-events: none;
+        }
+
+
+        /* =================================================
+           LATEST OBSERVATION CARDS
+        ================================================== */
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin: 18px 0;
+        }
+
+        .stat {
+            padding: 16px;
+            background: #0c121a;
+            border: 1px solid #26313d;
+        }
+
+        .stat small {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--muted);
+            font: 12px Arial, sans-serif;
+        }
+
+        .stat strong {
+            font: 700 23px Arial, sans-serif;
+        }
+
+        .notes {
+            color: #92a2b4;
+            font: 12px/1.8 Arial, sans-serif;
+        }
+
+
+        /* =================================================
+           COMING SOON CARDS
+        ================================================== */
+
+        .coming {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+            margin-top: 24px;
+        }
+
+        .tile {
+            min-height: 220px;
+            padding: 25px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+        }
+
+        .tile p {
+            color: var(--muted);
+            font: 14px/1.75 Arial, sans-serif;
+        }
+
+        .tile .sub {
+            margin: 14px 0 6px;
+            color: #c4ceda;
+            font: 700 11px Arial, sans-serif;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+        }
+
+
+        /* =================================================
+           RESEARCH DISCLOSURE
+        ================================================== */
+
+        .method {
+            margin-top: 26px;
+            padding: 18px 23px;
+            color: #aeb9c6;
+            background: #101720;
+            border-left: 3px solid var(--accent);
+            font: 13px/1.85 Arial, sans-serif;
+        }
+
+        .method strong {
+            color: white;
+        }
+
+
+        /* =================================================
+           FOOTER
+        ================================================== */
+
+        .site-footer {
+            padding: 30px 0;
+            color: #8493a4;
+            border-top: 1px solid #ffffff1a;
+            font: 12px Arial, sans-serif;
+        }
+
+
+        /* =================================================
+           MOBILE
+        ================================================== */
+
+        @media (max-width: 850px) {
+
+            .coming,
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                gap: 14px;
+            }
+
+            .panel {
+                padding: 18px;
+            }
+
+            .plotbox {
+                min-height: 470px;
+            }
+
+            #scatter {
+                height: 490px;
+            }
+
+            .plotbox::after {
+                right: 20px;
+                bottom: 22px;
+            }
+
+            .nav-inner {
+                width: 94%;
+            }
+
+            .brand {
+                font-size: 12px;
+            }
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
@@ -37,6 +464,7 @@
             </a>
 
             <div class="nav-links">
+
                 <a href="oil-market-monitor.html">
                     Oil Market Monitor
                 </a>
@@ -44,6 +472,7 @@
                 <a class="active" href="proprietary-models.html">
                     Proprietary Models
                 </a>
+
             </div>
 
         </div>
@@ -86,7 +515,9 @@
 
     <main class="wrap">
 
-        <p class="section-label">01 / WTI Crude Oil</p>
+        <p class="section-label">
+            01 / WTI Crude Oil
+        </p>
 
         <h2>WTI vs. Comparative Inventories</h2>
 
@@ -99,21 +530,29 @@
         </p>
 
 
-        <!-- Interactive scatterplot -->
+        <!-- =================================================
+             INTERACTIVE SCATTERPLOT
+        ================================================== -->
 
         <section class="panel">
 
             <div class="panel-top">
 
                 <div>
-                    <span class="tag">Interactive Research Tool</span>
 
-                    <h3>WTI / Comparative Commercial Crude</h3>
+                    <span class="tag">
+                        Interactive Research Tool
+                    </span>
+
+                    <h3>
+                        WTI / Comparative Commercial Crude
+                    </h3>
 
                     <p class="intro" style="margin:0">
                         Each point is one weekly observation.
                         The highlighted year is connected chronologically.
                     </p>
+
                 </div>
 
                 <div class="notes" id="dataPeriod"></div>
@@ -125,15 +564,24 @@
 
             <div class="controlbar">
 
-                <label for="focusYear">Highlight year</label>
+                <label for="focusYear">
+                    Highlight year
+                </label>
 
                 <select id="focusYear"></select>
 
-                <button id="allYears" class="active" type="button">
+                <button
+                    id="allYears"
+                    class="active"
+                    type="button"
+                >
                     All historical years
                 </button>
 
-                <button id="onlyYear" type="button">
+                <button
+                    id="onlyYear"
+                    type="button"
+                >
                     Selected year only
                 </button>
 
@@ -146,58 +594,84 @@
                     Historical regression
                 </button>
 
-                <button id="resetChart" type="button">
+                <button
+                    id="resetChart"
+                    type="button"
+                >
                     Reset view
                 </button>
 
             </div>
 
 
-            <!-- Plotly chart -->
+            <!-- Chart -->
 
             <div class="plotbox">
+
                 <div
                     id="scatter"
                     role="img"
-                    aria-label="WTI prices versus comparative inventories"
+                    aria-label="WTI prices versus comparative crude inventories"
                 ></div>
+
             </div>
 
 
-            <!-- Latest observation -->
+            <!-- Latest observations -->
 
             <div class="stats">
 
                 <div class="stat">
-                    <small id="weekLabel">Latest paired week</small>
-                    <strong id="latestWeek">—</strong>
+
+                    <small>Latest paired week</small>
+
+                    <strong id="latestWeek">
+                        —
+                    </strong>
+
                 </div>
 
                 <div class="stat">
+
                     <small>WTI front-month close</small>
-                    <strong id="latestWti">—</strong>
+
+                    <strong id="latestWti">
+                        —
+                    </strong>
+
                 </div>
 
                 <div class="stat">
+
                     <small>Comparative inventories</small>
-                    <strong id="latestInventory">—</strong>
+
+                    <strong id="latestInventory">
+                        —
+                    </strong>
+
                 </div>
 
             </div>
 
 
-            <!-- Data and methodology -->
+            <!-- Data sources and methodology -->
 
             <p class="notes">
+
                 Source: U.S. Energy Information Administration inventory
                 observations and the project's historical WTI front-month
-                dataset. Comparative inventories equal commercial crude
-                stocks minus the average for the same ISO week over the
-                preceding five years. Week 53 is excluded.
+                dataset.
 
-                The historical regression is fitted only through
-                December 2018. It is descriptive, not a current fair-value
-                estimate. The dataset is a research snapshot, not a live feed.
+                Comparative inventories equal commercial crude stocks
+                minus the mean for the same ISO week in the preceding
+                five years. Week 53 is excluded.
+
+                Historical regression is fitted only through December
+                2018. It is descriptive, not a current fair-value
+                estimate.
+
+                This dataset is a research snapshot, not a live feed.
+
             </p>
 
         </section>
@@ -207,32 +681,40 @@
              FUTURE MODELS
         ================================================== -->
 
-        <p class="section-label">02 / Research Pipeline</p>
+        <p class="section-label">
+            02 / Research Pipeline
+        </p>
 
         <h2>Models in Development</h2>
 
         <p class="intro">
             This page will eventually house the broader petroleum
             valuation research project. The following sections are
-            placeholders until their models and validation are ready
-            for publication.
+            placeholders until their models and validation are
+            ready for publication.
         </p>
 
 
         <div class="coming">
 
+
             <!-- WTI models -->
 
             <article class="tile">
 
-                <span class="tag soon">Coming Soon</span>
+                <span class="tag soon">
+                    Coming Soon
+                </span>
 
-                <h3>WTI Fundamental Models</h3>
+                <h3>
+                    WTI Fundamental Models
+                </h3>
 
                 <p>
-                    Observed versus inventory-implied WTI, expanded
-                    supply-and-demand estimates, historical residuals,
-                    and rolling coefficient diagnostics.
+                    Observed versus inventory-implied WTI,
+                    expanded supply-and-demand estimates,
+                    historical residuals, and rolling
+                    coefficient diagnostics.
                 </p>
 
                 <div class="sub">
@@ -242,18 +724,23 @@
             </article>
 
 
-            <!-- Gasoline models -->
+            <!-- RBOB gasoline -->
 
             <article class="tile">
 
-                <span class="tag soon">Coming Soon</span>
+                <span class="tag soon">
+                    Coming Soon
+                </span>
 
-                <h3>RBOB Gasoline</h3>
+                <h3>
+                    RBOB Gasoline
+                </h3>
 
                 <p>
-                    Gasoline inventory relationships, demand and
-                    production fundamentals, RBOB price analysis,
-                    and the RBOB–WTI crack spread.
+                    Gasoline inventory relationships,
+                    demand and production fundamentals,
+                    RBOB price analysis, and the
+                    RBOB–WTI crack spread.
                 </p>
 
                 <div class="sub">
@@ -263,17 +750,23 @@
             </article>
 
 
-            <!-- Distillate and crack spreads -->
+            <!-- Heating oil and crack spreads -->
 
             <article class="tile">
 
-                <span class="tag soon">Coming Soon</span>
+                <span class="tag soon">
+                    Coming Soon
+                </span>
 
-                <h3>Heating Oil &amp; Crack Spreads</h3>
+                <h3>
+                    Heating Oil &amp; Crack Spreads
+                </h3>
 
                 <p>
-                    ULSD/distillate fundamentals, heating-oil futures,
-                    heating-oil–WTI cracks, and cross-product comparisons.
+                    ULSD/distillate fundamentals,
+                    heating-oil futures,
+                    heating-oil–WTI cracks,
+                    and cross-product comparisons.
                 </p>
 
                 <div class="sub">
@@ -285,7 +778,9 @@
         </div>
 
 
-        <!-- Research disclosure -->
+        <!-- =================================================
+             RESEARCH DISCLOSURE
+        ================================================== -->
 
         <div class="method">
 
@@ -293,9 +788,11 @@
 
             Historical correlations and model residuals do not
             independently identify geopolitical risk premiums or
-            establish tradeable mispricing. Models will be evaluated
-            against held-out observations and transparent price
-            benchmarks before their results are published here.
+            establish tradeable mispricing.
+
+            Models will be evaluated against held-out observations
+            and transparent price benchmarks before their results
+            are published here.
 
         </div>
 
@@ -307,10 +804,429 @@
     ====================================================== -->
 
     <footer class="site-footer">
+
         <div class="wrap" style="padding:0">
             © AGITLYTICS · PETROLEUM MARKET RESEARCH
         </div>
+
     </footer>
+
+
+    <!-- =====================================================
+         JAVASCRIPT — INTERACTIVE SCATTERPLOT
+    ====================================================== -->
+
+    <script>
+
+        // =================================================
+        // DATA SOURCE
+        // =================================================
+
+        const DATA_URL = "../data/wti-comparative-data.json";
+
+        let DATA;
+        let years;
+        let focus;
+
+        let only = false;
+        let showFit = true;
+
+        const palette = [
+            "#648bd5",
+            "#cc8e64",
+            "#54a992",
+            "#9b86c9",
+            "#d7b565",
+            "#5c9fbc",
+            "#bd708f",
+            "#9aaa70",
+            "#c08db9",
+            "#d09a5d"
+        ];
+
+
+        // =================================================
+        // INITIALIZE
+        // =================================================
+
+        function initialize(data) {
+
+            DATA = data;
+
+            years = [
+                ...new Set(DATA.rows.map(row => row.y))
+            ].sort((a, b) => a - b);
+
+            focus = years.at(-1);
+
+            const select = document.getElementById("focusYear");
+
+            // Populate year selector
+
+            for (const year of [...years].reverse()) {
+
+                const option = document.createElement("option");
+
+                option.value = year;
+                option.textContent = year;
+
+                select.appendChild(option);
+
+            }
+
+            select.value = focus;
+
+
+            // Latest available observation
+
+            const latest = DATA.rows.at(-1);
+
+            document.getElementById("latestWeek").textContent =
+                latest.d;
+
+            document.getElementById("latestWti").textContent =
+                "$" + latest.p.toFixed(2);
+
+            document.getElementById("latestInventory").textContent =
+                (latest.x >= 0 ? "+" : "") +
+                latest.x.toFixed(1) +
+                " MMbbl";
+
+            document.getElementById("dataPeriod").textContent =
+                DATA.rows[0].d + " — " + latest.d;
+
+
+            setupControls();
+            render();
+
+        }
+
+
+        // =================================================
+        // RENDER SCATTERPLOT
+        // =================================================
+
+        function render() {
+
+            const traces = [];
+
+
+            // Historical observations
+
+            for (const year of years) {
+
+                if (year === focus || only) {
+                    continue;
+                }
+
+                const rows = DATA.rows.filter(
+                    row => row.y === year
+                );
+
+                traces.push({
+
+                    type: "scattergl",
+                    mode: "markers",
+                    name: String(year),
+
+                    x: rows.map(row => row.x),
+                    y: rows.map(row => row.p),
+
+                    customdata: rows.map(row => row.d),
+
+                    marker: {
+                        size: 6,
+                        color: palette[
+                            (year - years[0]) % palette.length
+                        ],
+                        opacity: 0.53
+                    },
+
+                    hovertemplate:
+                        "%{customdata}" +
+                        "<br>Comparative inventory: %{x:.1f} MMbbl" +
+                        "<br>WTI: $%{y:.2f}" +
+                        "<extra>" + year + "</extra>"
+
+                });
+
+            }
+
+
+            // Highlighted year trajectory
+
+            const current = DATA.rows.filter(
+                row => row.y === focus
+            );
+
+            traces.push({
+
+                type: "scatter",
+                mode: "lines+markers",
+
+                name: focus + " trajectory",
+
+                x: current.map(row => row.x),
+                y: current.map(row => row.p),
+
+                customdata: current.map(row => row.d),
+
+                line: {
+                    color: "#5fd3b4",
+                    width: 2.8
+                },
+
+                marker: {
+                    size: 8,
+                    color: "#5fd3b4"
+                },
+
+                hovertemplate:
+                    "%{customdata}" +
+                    "<br>Comparative inventory: %{x:.1f} MMbbl" +
+                    "<br>WTI: $%{y:.2f}" +
+                    "<extra>" + focus + "</extra>"
+
+            });
+
+
+            // Historical regression
+
+            if (showFit) {
+
+                const xs = [
+                    DATA.xmin,
+                    DATA.xmax
+                ];
+
+                traces.push({
+
+                    type: "scatter",
+                    mode: "lines",
+
+                    name: "Pre-2019 regression",
+
+                    x: xs,
+
+                    y: xs.map(
+                        x => DATA.intercept + DATA.slope * x
+                    ),
+
+                    line: {
+                        color: "#d94b5b",
+                        dash: "dash",
+                        width: 2.4
+                    },
+
+                    hovertemplate:
+                        "Inventory: %{x:.1f} MMbbl" +
+                        "<br>Fitted WTI: $%{y:.2f}" +
+                        "<extra>Pre-2019 fit</extra>"
+
+                });
+
+            }
+
+
+            // Plotly layout
+
+            const layout = {
+
+                paper_bgcolor: "#111821",
+                plot_bgcolor: "#111821",
+
+                font: {
+                    family: "Arial, sans-serif",
+                    color: "#dce4ec",
+                    size: 12
+                },
+
+                margin: {
+                    l: 75,
+                    r: 25,
+                    t: 25,
+                    b: 75
+                },
+
+                xaxis: {
+                    title:
+                        "Commercial crude minus prior 5Y " +
+                        "same-week average (MMbbl)",
+
+                    gridcolor: "#2a3743",
+                    zerolinecolor: "#77889b"
+                },
+
+                yaxis: {
+                    title: "WTI front-month close ($/bbl)",
+                    gridcolor: "#2a3743",
+                    tickprefix: "$"
+                },
+
+                legend: {
+                    orientation: "h",
+                    y: -0.23,
+                    x: 0,
+                    font: {
+                        size: 10
+                    }
+                },
+
+                hovermode: "closest",
+                uirevision: "keep",
+                showlegend: true
+
+            };
+
+
+            // Draw or update chart
+
+            Plotly.react(
+                "scatter",
+                traces,
+                layout,
+                {
+                    responsive: true,
+                    displaylogo: false
+                }
+            );
+
+        }
+
+
+        // =================================================
+        // CHART CONTROLS
+        // =================================================
+
+        function sync() {
+
+            document.getElementById("allYears")
+                .classList.toggle("active", !only);
+
+            document.getElementById("onlyYear")
+                .classList.toggle("active", only);
+
+            document.getElementById("fitToggle")
+                .classList.toggle("active", showFit);
+
+            document.getElementById("fitToggle")
+                .setAttribute(
+                    "aria-pressed",
+                    String(showFit)
+                );
+
+            render();
+
+        }
+
+
+        function setupControls() {
+
+            const select = document.getElementById("focusYear");
+
+
+            // Year selection
+
+            select.addEventListener("change", () => {
+
+                focus = Number(select.value);
+
+                sync();
+
+            });
+
+
+            // Show all historical years
+
+            document.getElementById("allYears").onclick = () => {
+
+                only = false;
+
+                sync();
+
+            };
+
+
+            // Show selected year only
+
+            document.getElementById("onlyYear").onclick = () => {
+
+                only = true;
+
+                sync();
+
+            };
+
+
+            // Toggle regression
+
+            document.getElementById("fitToggle").onclick = () => {
+
+                showFit = !showFit;
+
+                sync();
+
+            };
+
+
+            // Reset chart axes
+
+            document.getElementById("resetChart").onclick = () => {
+
+                Plotly.relayout("scatter", {
+
+                    "xaxis.autorange": true,
+                    "yaxis.autorange": true
+
+                });
+
+            };
+
+        }
+
+
+        // =================================================
+        // LOAD DATA AND START CHART
+        // =================================================
+
+        fetch(DATA_URL)
+
+            .then(response => {
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        "HTTP " + response.status
+                    );
+
+                }
+
+                return response.json();
+
+            })
+
+            .then(data => {
+
+                if (!window.Plotly) {
+
+                    throw new Error(
+                        "Plotly is unavailable"
+                    );
+
+                }
+
+                initialize(data);
+
+            })
+
+            .catch(error => {
+
+                document.getElementById("scatter").textContent =
+                    "Unable to load chart: " + error.message;
+
+            });
+
+    </script>
 
 </body>
 </html>
