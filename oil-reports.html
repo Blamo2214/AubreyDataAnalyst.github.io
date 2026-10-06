@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oil Market Reports | Agitlytics</title>
+    <meta name="description" content="Agitlytics oil market reports covering crude oil, refined products, inventories, geopolitics, and global petroleum markets.">
+
+    <style>
+        * { box-sizing: border-box; }
+
+        :root {
+            --bg: #07090d;
+            --panel: #10141b;
+            --panel-soft: #151a22;
+            --text: #f4f6f8;
+            --muted: #aeb6c0;
+            --subtle: #77818d;
+            --border: rgba(255,255,255,0.12);
+            --accent: #d45a68;
+            --accent-soft: rgba(212,90,104,0.12);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: Georgia, "Times New Roman", serif;
+        }
+
+        a { color: inherit; }
+
+        .site-nav {
+            min-height: 76px;
+            background: rgba(7,9,13,.97);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-inner {
+            width: min(1320px, 92%);
+            min-height: 76px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .brand {
+            color: #fff;
+            text-decoration: none;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: .78rem;
+            font-weight: 800;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: #aeb6c0;
+            text-decoration: none;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: .7rem;
+            font-weight: 800;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active { color: #fff; }
+
+        .hero {
+            background:
+                radial-gradient(circle at 88% 18%, rgba(103,30,45,.25), transparent 34%),
+                linear-gradient(110deg, #0a0f15 0%, #0a0e13 58%, #130d12 100%);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero-inner {
+            width: min(1320px, 92%);
+            margin: 0 auto;
+            padding: 78px 0 64px;
+        }
+
+        .eyebrow {
+            margin: 0 0 18px;
+            color: var(--accent);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: .7rem;
+            font-weight: 800;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            margin: 0;
+            font-size: clamp(3rem, 7vw, 5.8rem);
+            line-height: .96;
+            letter-spacing: -.035em;
+        }
+
+        .hero-copy {
+            max-width: 850px;
+            margin: 26px 0 0;
+            color: #c3cad3;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1rem;
+            line-height: 1.75;
+        }
+
+        .page {
+            width: min(1320px, 92%);
+            margin: 0 auto;
+            padding: 48px 0 110px;
+        }
+
+        .report-nav {
+            position: sticky;
+            top: 14px;
+            z-index: 20;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 22px;
+            margin-bottom: 42px;
+            padding: 20px 22px;
+            background: rgba(16,20,27,.96);
+            border: 1px solid var(--border);
+            box-shadow: 0 14px 35px rgba(0,0,0,.24);
+            backdrop-filter: blur(10px);
+        }
+
+        .report-nav-copy strong {
+            display: block;
+            margin-bottom: 5px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: .72rem;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+        }
+
+        .report-nav-copy span {
+            color: var(--muted);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: .78rem;
+        }
+
+        .report-select {
+            min-width: 240px;
+            padding: 12px 38px 12px 14px;
+            background: #0b0f15;
+            color: #fff;
+            border: 1px solid #39424d;
+            border-radius: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: .8rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .reports-heading {
+            margin: 0 0 26px;
+            color: var(--muted);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: .68rem;
+            font-weight: 800;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+        }
+
+        .reports-heading::before {
+            content: "";
+            display: inline-block;
+            width: 2rem;
+            height: 1px;
+            margin-right: .8rem;
+            vertical-align: middle;
+            background: var(--accent);
+        }
+
+        .report {
+            scroll-margin-top: 125px;
+            margin-bottom: 28px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+        }
+
+        .report:first-of-type {
+            border-color: rgba(212,90,104,.45);
+        }
+
+        .report-header {
+            display: grid;
+            grid-template-columns: 190px minmax(0,1fr);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .report-date {
+            padding: 28px;
+            background: var(--accent-soft);
+            border-right: 1px solid var(--border);
+        }
+
+        .report-date .label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--accent);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: .62rem;
+            font-weight: 800;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+        }
+
+        .report-date time {
+            display: block;
+            font-size: 1.35rem;
+            line-height: 1.15;
+        }
+
+        .report-title {
+            padding: 28px 32px;
+        }
+
+        .report-title h2 {
+            margin: 0 0 8px;
+            font-size: clamp(1.55rem, 3vw, 2.25rem);
+            line-height: 1.1;
+        }
+
+        .report-title p {
+            margin: 0;
+            color: var(--muted);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: .86rem;
+            line-height: 1.6;
+        }
+
+        .report-body {
+            padding: 32px;
+        }
+
+        .report-body h3 {
+            margin: 30px 0 12px;
+            color: #fff;
+            font-size: 1.08rem;
+        }
+
+        .report-body h3:first-child { margin-top: 0; }
+
+        .report-body p,
+        .report-body li {
+            color: #c5ccd4;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: .94rem;
+            line-height: 1.75;
+        }
+
+        .report-body ul {
+            margin: 0;
+            padding-left: 1.3rem;
+        }
+
+        .report-body li + li { margin-top: 8px; }
+
+        .price-strip {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0,1fr));
+            gap: 1px;
+            margin: 24px 0 4px;
+            background: var(--border);
+            border: 1px solid var(--border);
+        }
+
+        .price-item {
+            padding: 18px;
+            background: #0b1016;
+        }
+
+        .price-item span {
+            display: block;
+            color: var(--subtle);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: .61rem;
+            font-weight: 800;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+        }
+
+        .price-item strong {
+            display: block;
+            margin-top: 7px;
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.15rem;
+        }
+
+        .report-note {
+            margin-top: 28px;
+            padding: 18px 20px;
+            border-left: 2px solid var(--accent);
+            background: rgba(212,90,104,.06);
+        }
+
+        .report-note strong {
+            display: block;
+            margin-bottom: 7px;
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: .7rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+        }
+
+        .report-note p { margin: 0; }
+
+        .back-to-top {
+            position: fixed;
+            right: 24px;
+            bottom: 22px;
+            z-index: 100;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(34,18,23,.96);
+            border: 1px solid rgba(212,90,104,.7);
+            color: #fff;
+            text-decoration: none;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.35rem;
+            font-weight: 800;
+            box-shadow: 0 10px 30px rgba(0,0,0,.38);
+            transition: transform .2s ease, background .2s ease;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            background: rgba(76,30,40,.98);
+        }
+
+        .footer {
+            padding: 34px 4%;
+            border-top: 1px solid var(--border);
+            color: #767f89;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: .7rem;
+        }
+
+        @media (max-width: 760px) {
+            .nav-inner {
+                align-items: flex-start;
+                flex-direction: column;
+                padding: 20px 0;
+            }
+
+            .nav-links { gap: 14px 20px; }
+
+            .hero-inner { padding: 58px 0 48px; }
+
+            .report-nav {
+                position: static;
+                align-items: stretch;
+                flex-direction: column;
+            }
+
+            .report-select { width: 100%; }
+
+            .report-header { grid-template-columns: 1fr; }
+
+            .report-date {
+                border-right: 0;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .report-title,
+            .report-date,
+            .report-body { padding: 22px; }
+
+            .price-strip { grid-template-columns: 1fr; }
+
+            .back-to-top {
+                right: 14px;
+                bottom: 14px;
+                width: 44px;
+                height: 44px;
+            }
+        }
+    </style>
+</head>
+
+<body id="top">
+
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <a href="elements.html" class="brand">Agitlytics</a>
+
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="DataProj.html">Data Projects</a>
+                <a href="elements.html" class="active">Agitlytics</a>
+                <a href="book-reviews.html">Book Reviews</a>
+                <a href="generic.html">About Me</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-inner">
+            <p class="eyebrow">Agitlytics Energy Research</p>
+            <h1>Oil Market Reports</h1>
+            <p class="hero-copy">
+                A continuing market journal tracking crude oil, refined products, inventories,
+                supply disruptions, geopolitics, and the forces shaping global petroleum markets.
+                Reports are arranged chronologically, beginning with the first entry in the series.
+            </p>
+        </div>
+    </header>
+
+    <main class="page">
+
+        <div class="report-nav">
+            <div class="report-nav-copy">
+                <strong>Jump to a report</strong>
+                <span>Select a reporting date to move directly to that entry.</span>
+            </div>
+
+            <select id="report-select" class="report-select" aria-label="Jump to a report date">
+                <option value="">Select report date</option>
+                <option value="report-2026-10-01">October 1, 2026</option>
+                <option value="report-2026-10-02">October 2, 2026</option>
+                <option value="report-2026-10-05">October 5, 2026</option>
+            </select>
+        </div>
+
+        <p class="reports-heading">Market Journal</p>
+
+        <!-- =========================================================
+             REPORT — OCTOBER 1, 2026
+             To add a future report, duplicate a <article class="report">
+             block and add the matching ID/date to the dropdown above.
+        ========================================================== -->
+        <article class="report" id="report-2026-10-01">
+            <div class="report-header">
+                <div class="report-date">
+                    <span class="label">Starting Report</span>
+                    <time datetime="2026-10-01">October 1<br>2026</time>
+                </div>
+
+                <div class="report-title">
+                    <h2>Oil Market Report — October 1</h2>
+                    <p>The opening entry in the Agitlytics oil-market reporting series.</p>
+                </div>
+            </div>
+
+            <div class="report-body">
+                <h3>Major Developments</h3>
+                <ul>
+                    <li>Tanker strikes around the Strait of Hormuz remained a central physical-market risk.</li>
+                    <li>China suspended October petroleum-product exports, tightening the outlook for globally traded refined products.</li>
+                    <li>Russia restricted diesel exports as an already tight distillate market faced additional pressure.</li>
+                    <li>Attention turned toward European diesel reserves, particularly in France and Germany, as governments faced pressure to use inventories to cushion the market.</li>
+                    <li>U.S. military reinforcement in the Middle East increased geopolitical risk surrounding the crude complex.</li>
+                </ul>
+
+                <div class="price-strip">
+                    <div class="price-item">
+                        <span>WTI</span>
+                        <strong>~$93/bbl</strong>
+                    </div>
+                    <div class="price-item">
+                        <span>Brent</span>
+                        <strong>&gt;$100/bbl</strong>
+                    </div>
+                    <div class="price-item">
+                        <span>Diesel Crack</span>
+                        <strong>~$107 → $102</strong>
+                    </div>
+                </div>
+
+                <h3>Refined Products</h3>
+                <p>
+                    Gasoline cracks moved from roughly $44–45 per barrel toward $50, while the diesel
+                    crack remained dramatically stronger despite easing from around $107 to roughly $102.
+                    The diesel-gasoline spread narrowed by approximately 10–15 cents.
+                </p>
+
+                <div class="report-note">
+                    <strong>Agitlytics Analysis</strong>
+                    <p>
+                        The opening report established the central theme for the series: crude prices were
+                        being shaped not only by headline geopolitical risk, but by an increasingly constrained
+                        refined-products system in which diesel availability, export policy, shipping security,
+                        and refinery limitations could transmit stress back into crude markets.
+                    </p>
+                </div>
+            </div>
+        </article>
+
+        <!-- =========================================================
+             REPORT — OCTOBER 2, 2026
+        ========================================================== -->
+        <article class="report" id="report-2026-10-02">
+            <div class="report-header">
+                <div class="report-date">
+                    <span class="label">Market Update</span>
+                    <time datetime="2026-10-02">October 2<br>2026</time>
+                </div>
+
+                <div class="report-title">
+                    <h2>Oil Market Report — October 2</h2>
+                    <p>Emergency reserves, another tanker strike, and continued pressure around Hormuz.</p>
+                </div>
+            </div>
+
+            <div class="report-body">
+                <h3>Major Developments</h3>
+                <ul>
+                    <li>The G7 announced an emergency release of roughly 100 million barrels over four months.</li>
+                    <li>Another tanker strike was reported in the UKMTO #148 incident.</li>
+                    <li>Public claims that the Strait of Hormuz remained open stood in tension with continuing attacks and elevated shipping risk.</li>
+                    <li>Saudi Arabia's East–West pipeline, with capacity around 6 million barrels per day, remained an important bypass route for Persian Gulf exports.</li>
+                </ul>
+
+                <div class="price-strip">
+                    <div class="price-item">
+                        <span>WTI</span>
+                        <strong>~$89 → $91.40</strong>
+                    </div>
+                    <div class="price-item">
+                        <span>Diesel Crack</span>
+                        <strong>~$102 → $95 → $97</strong>
+                    </div>
+                    <div class="price-item">
+                        <span>Emergency Release</span>
+                        <strong>~100 MMbbl / 4 mo.</strong>
+                    </div>
+                </div>
+
+                <div class="report-note">
+                    <strong>Agitlytics Analysis</strong>
+                    <p>
+                        The reserve release initially appeared too small and too gradual to eliminate the
+                        underlying physical risks. The market remained exposed to shipping disruption and
+                        refined-product tightness, while U.S. export restrictions remained an important policy risk.
+                    </p>
+                </div>
+            </div>
+        </article>
+
+        <!-- =========================================================
+             REPORT — OCTOBER 5, 2026
+        ========================================================== -->
+        <article class="report" id="report-2026-10-05">
+            <div class="report-header">
+                <div class="report-date">
+                    <span class="label">Market Update</span>
+                    <time datetime="2026-10-05">October 5<br>2026</time>
+                </div>
+
+                <div class="report-title">
+                    <h2>Oil Market Report — October 5</h2>
+                    <p>Saudi-Houthi escalation, continuing shipping risk, and a shift in U.S. diesel policy.</p>
+                </div>
+            </div>
+
+            <div class="report-body">
+                <h3>Major Developments</h3>
+                <ul>
+                    <li>Saudi-backed forces intensified their campaign against the Houthis as the regional conflict widened.</li>
+                    <li>Attacks affecting shipping around Hormuz continued to reinforce the physical-risk premium in petroleum markets.</li>
+                    <li>The Trump administration ruled out a diesel export ban and instead pursued tax and red-dyed-diesel relief measures.</li>
+                </ul>
+
+                <div class="report-note">
+                    <strong>Agitlytics Analysis</strong>
+                    <p>
+                        The policy shift away from an outright diesel export ban reduced one potential source
+                        of market distortion, while the larger petroleum outlook remained dominated by physical
+                        supply constraints, regional escalation, shipping security, and the availability of
+                        middle distillates.
+                    </p>
+                </div>
+            </div>
+        </article>
+
+    </main>
+
+    <a class="back-to-top" href="#top" aria-label="Back to top" title="Back to top">↑</a>
+
+    <footer class="footer">
+        AGITLYTICS · OIL MARKET REPORTS
+    </footer>
+
+    <script>
+        const reportSelect = document.getElementById('report-select');
+
+        reportSelect.addEventListener('change', function () {
+            if (!this.value) return;
+
+            const target = document.getElementById(this.value);
+
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>
