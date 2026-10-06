@@ -406,6 +406,74 @@
 				transform: scaleX(0);
 			}
 
+
+			/* ===== Oil reports gateway ===== */
+
+			.oil-reports-gateway {
+				margin: 0;
+				padding: 1.9rem 2rem;
+				background:
+					linear-gradient(90deg, rgba(9,13,18,.98) 0%, rgba(12,16,22,.96) 58%, rgba(66,25,35,.72) 100%);
+				border: 1px solid rgba(212,90,104,.55);
+				border-left: 1px solid var(--research-accent);
+				border-right: 1px solid var(--research-accent);
+			}
+
+			.oil-reports-gateway__inner {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				gap: 2rem;
+			}
+
+			.oil-reports-gateway__eyebrow {
+				display: block;
+				margin-bottom: .55rem;
+				color: var(--research-accent);
+				font-size: .62rem;
+				font-weight: 800;
+				letter-spacing: .16em;
+				text-transform: uppercase;
+			}
+
+			.oil-reports-gateway h2 {
+				margin: 0 0 .45rem !important;
+				font-size: 1.85rem !important;
+				line-height: 1.05;
+			}
+
+			.oil-reports-gateway p {
+				margin: 0 !important;
+				max-width: 47rem;
+				color: var(--research-muted) !important;
+				font-size: .82rem;
+				line-height: 1.55;
+				text-align: left;
+			}
+
+			.oil-reports-gateway__button {
+				flex: 0 0 auto;
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				min-height: 2.9rem;
+				padding: 0 1.4rem;
+				border: 1px solid rgba(255,255,255,.25);
+				background: rgba(212,90,104,.12);
+				color: #fff !important;
+				text-decoration: none;
+				font-size: .64rem;
+				font-weight: 800;
+				letter-spacing: .06em;
+				text-transform: uppercase;
+				transition: border-color .2s ease, background .2s ease;
+			}
+
+			.oil-reports-gateway__button:hover {
+				border-color: var(--research-accent);
+				background: rgba(212,90,104,.20);
+			}
+
 			@media screen and (max-width: 980px) {
 				.research-hero { grid-template-columns: 1fr; gap: 1.5rem; padding: 4.5rem 3rem 3.5rem; }
 				.research-hero::before { left: 3rem; }
@@ -491,6 +559,9 @@
 				.tools-section { padding: 2rem 1rem; }
 				.tools-grid { grid-template-columns: 1fr; }
 				.tool-card { min-height: 0; }
+				.oil-reports-gateway { padding: 1.6rem 1rem; }
+				.oil-reports-gateway__inner { align-items: stretch; flex-direction: column; gap: 1.25rem; }
+				.oil-reports-gateway__button { width: 100%; }
 			}
 		</style>
 	</head>
@@ -572,6 +643,17 @@
 							</p>
 							<span class="tool-card__action">In Development</span>
 						</div>
+					</div>
+				</section>
+
+				<section class="oil-reports-gateway" aria-labelledby="oil-reports-heading">
+					<div class="oil-reports-gateway__inner">
+						<div>
+							<span class="oil-reports-gateway__eyebrow">Agitlytics Energy Research</span>
+							<h2 id="oil-reports-heading">Oil Market Reports</h2>
+							<p>Periodic analysis of crude oil, refined products, inventories, geopolitics, and the forces shaping global petroleum markets.</p>
+						</div>
+						<a href="oil-reports.html" class="oil-reports-gateway__button">Open Oil Reports →</a>
 					</div>
 				</section>
 
