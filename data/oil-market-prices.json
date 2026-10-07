@@ -1,9 +1,9 @@
 {
   "WTI_USD": {
-    "price": 89.92,
-    "change": 0.39,
-    "change_percent": 0.4356,
-    "timestamp": "2026-10-06T21:30:35.000Z",
+    "price": 90.41,
+    "change": 0.49,
+    "change_percent": 0.5449,
+    "timestamp": "2026-10-07T01:21:05.000Z",
     "currency": "USD",
     "type": "spot_price",
     "source": "market_reporting",
@@ -14,16 +14,16 @@
       "source": "market_reporting",
       "source_description": "Aggregated from published market sources",
       "discover": {
-        "endpoint": "/v1/prices/historical?by_code=WTI_USD",
-        "description": "See WTI_USD's price history"
+        "endpoint": "/v1/commodities",
+        "description": "Browse every commodity code we track"
       }
     }
   },
   "BRENT_CRUDE_USD": {
-    "price": 101.02,
-    "change": 0.72,
-    "change_percent": 0.7178,
-    "timestamp": "2026-10-06T21:38:32.000Z",
+    "price": 101.69,
+    "change": 0.67,
+    "change_percent": 0.6632,
+    "timestamp": "2026-10-07T01:20:00.000Z",
     "currency": "USD",
     "type": "spot_price",
     "source": "market_reporting",
@@ -34,16 +34,16 @@
       "source": "market_reporting",
       "source_description": "Aggregated from published market sources",
       "discover": {
-        "endpoint": "/v1/prices/historical?by_code=BRENT_CRUDE_USD",
-        "description": "See BRENT_CRUDE_USD's price history"
+        "endpoint": "/v1/commodities",
+        "description": "Browse every commodity code we track"
       }
     }
   },
   "GASOLINE_USD": {
-    "price": 3.31,
-    "change": 0.06,
-    "change_percent": 1.8462,
-    "timestamp": "2026-10-06T21:25:18.000Z",
+    "price": 3.34,
+    "change": 0.03,
+    "change_percent": 0.9063,
+    "timestamp": "2026-10-07T01:25:45.000Z",
     "currency": "USD",
     "type": "spot_price",
     "source": "market_reporting",
@@ -54,8 +54,8 @@
       "source": "market_reporting",
       "source_description": "Aggregated from published market sources",
       "discover": {
-        "endpoint": "/v1/prices/historical?by_code=GASOLINE_USD",
-        "description": "See GASOLINE_USD's price history"
+        "endpoint": "/v1/commodities",
+        "description": "Browse every commodity code we track"
       }
     }
   }
