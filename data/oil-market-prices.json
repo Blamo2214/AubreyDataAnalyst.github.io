@@ -1,9 +1,9 @@
 {
   "WTI_USD": {
-    "price": 91.66,
-    "change": 0.0,
-    "change_percent": 0.0,
-    "timestamp": "2026-10-10T22:19:38.000Z",
+    "price": 91.85,
+    "change": 0.19,
+    "change_percent": 0.2073,
+    "timestamp": "2026-10-09T20:59:58.000Z",
     "currency": "USD",
     "type": "spot_price",
     "source": "market_reporting",
@@ -14,8 +14,8 @@
       "source": "market_reporting",
       "source_description": "Aggregated from published market sources",
       "discover": {
-        "endpoint": "/v1/commodities",
-        "description": "Browse every commodity code we track"
+        "endpoint": "/v1/prices/historical?by_code=WTI_USD",
+        "description": "See WTI_USD's price history"
       }
     }
   },
@@ -23,7 +23,7 @@
     "price": 104.54,
     "change": 0.0,
     "change_percent": 0.0,
-    "timestamp": "2026-10-10T22:26:15.000Z",
+    "timestamp": "2026-10-11T01:50:15.000Z",
     "currency": "USD",
     "type": "spot_price",
     "source": "market_reporting",
@@ -34,8 +34,8 @@
       "source": "market_reporting",
       "source_description": "Aggregated from published market sources",
       "discover": {
-        "endpoint": "/v1/commodities",
-        "description": "Browse every commodity code we track"
+        "endpoint": "/v1/prices/historical?by_code=BRENT_CRUDE_USD",
+        "description": "See BRENT_CRUDE_USD's price history"
       }
     }
   },
@@ -54,8 +54,8 @@
       "source": "market_reporting",
       "source_description": "Aggregated from published market sources",
       "discover": {
-        "endpoint": "/v1/commodities",
-        "description": "Browse every commodity code we track"
+        "endpoint": "/v1/prices/historical?by_code=GASOLINE_USD",
+        "description": "See GASOLINE_USD's price history"
       }
     }
   }
