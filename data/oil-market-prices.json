@@ -1,9 +1,9 @@
 {
   "WTI_USD": {
-    "price": 97.93,
-    "change": -0.12,
-    "change_percent": -0.1224,
-    "timestamp": "2026-10-15T18:56:11.000Z",
+    "price": 97.52,
+    "change": -0.41,
+    "change_percent": -0.4187,
+    "timestamp": "2026-10-15T22:06:11.000Z",
     "currency": "USD",
     "type": "spot_price",
     "source": "market_reporting",
@@ -20,10 +20,10 @@
     }
   },
   "BRENT_CRUDE_USD": {
-    "price": 105.91,
-    "change": 0.09,
-    "change_percent": 0.0851,
-    "timestamp": "2026-10-15T18:56:00.000Z",
+    "price": 105.69,
+    "change": -0.22,
+    "change_percent": -0.2077,
+    "timestamp": "2026-10-15T22:15:48.000Z",
     "currency": "USD",
     "type": "spot_price",
     "source": "market_reporting",
@@ -40,19 +40,19 @@
     }
   },
   "GASOLINE_USD": {
-    "price": 3.18,
-    "change": 0.0,
-    "change_percent": 0.0,
-    "timestamp": "2026-10-15T18:55:34.000Z",
+    "price": 3.53,
+    "change": 0.35,
+    "change_percent": 11.0063,
+    "timestamp": "2026-10-14T12:00:00.000Z",
     "currency": "USD",
     "type": "spot_price",
-    "source": "market_reporting",
+    "source": "eia_api",
     "stale": false,
     "synthetic": false,
     "data_status": "current",
     "metadata": {
-      "source": "market_reporting",
-      "source_description": "Aggregated from published market sources",
+      "source": "eia_api",
+      "source_description": "U.S. Energy Information Administration (EIA)",
       "discover": {
         "endpoint": "/v1/prices/historical?by_code=GASOLINE_USD",
         "description": "See GASOLINE_USD's price history"
