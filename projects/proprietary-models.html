@@ -205,12 +205,14 @@ h3 {
 .plotbox:after {
     content:'AGITLYTICS';
     position:absolute;
-    bottom:34px;
-    right:60px;
-    color:#ffffff35;
-    font:700 12px Arial,sans-serif;
+    top:16px;
+    right:24px;
+    bottom:auto;
+    color:rgba(255,255,255,0.38);
+    font:700 28px Arial,sans-serif;
+    letter-spacing:.12em;
     pointer-events:none;
-    letter-spacing:.05em
+    z-index:10;
 }
 #scatter {
     width:100%;
@@ -309,8 +311,10 @@ h3 {
         height:490px
     }
     .plotbox:after {
-        right:20px;
-        bottom:22px
+    top:12px;
+    right:12px;
+    bottom:auto;
+    font-size:18px;
     }
     .nav-inner {
         width:94%
