@@ -1,7 +1,7 @@
 {
   "source": "JODI Oil World Database",
   "dataset": "Extended Primary",
-  "generated_at": "2026-10-15T16:40:30.795909+00:00",
+  "generated_at": "2026-10-21T19:42:38.656355+00:00",
   "country": {
     "code": "DO",
     "name": "Dominican Republic"
@@ -905,8 +905,8 @@
       "name": "Crude Oil Imports",
       "flow_code": "TOTIMPSB",
       "unit": "million barrels per day",
-      "latest_reported_month": "2025-09",
-      "latest_value": 0.03,
+      "latest_reported_month": "2026-03",
+      "latest_value": 0.0322,
       "observations": [
         {
           "date": "2002-01",
@@ -2312,6 +2312,36 @@
           "date": "2025-09",
           "value": 0.03,
           "assessment_code": "1"
+        },
+        {
+          "date": "2025-10",
+          "value": 0.0158,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-11",
+          "value": 0.0324,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-12",
+          "value": 0.0322,
+          "assessment_code": "2"
+        },
+        {
+          "date": "2026-01",
+          "value": 0.0306,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2026-02",
+          "value": 0.0179,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2026-03",
+          "value": 0.0322,
+          "assessment_code": "2"
         }
       ]
     },

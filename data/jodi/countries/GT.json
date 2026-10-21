@@ -1,7 +1,7 @@
 {
   "source": "JODI Oil World Database",
   "dataset": "Extended Primary",
-  "generated_at": "2026-10-15T16:40:30.795909+00:00",
+  "generated_at": "2026-10-21T19:42:38.656355+00:00",
   "country": {
     "code": "GT",
     "name": "Guatemala"
@@ -1200,7 +1200,7 @@
       "name": "Crude Oil Imports",
       "flow_code": "TOTIMPSB",
       "unit": "million barrels per day",
-      "latest_reported_month": "2016-07",
+      "latest_reported_month": "2025-04",
       "latest_value": 0.0,
       "observations": [
         {
@@ -2077,6 +2077,26 @@
           "date": "2016-07",
           "value": 0.0,
           "assessment_code": "3"
+        },
+        {
+          "date": "2025-01",
+          "value": 0.0001,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-02",
+          "value": 0.0001,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-03",
+          "value": 0.0001,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-04",
+          "value": 0.0,
+          "assessment_code": "2"
         }
       ]
     },
@@ -3183,6 +3203,21 @@
           "assessment_code": "1"
         },
         {
+          "date": "2025-01",
+          "value": 0.0,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-02",
+          "value": 0.0,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-03",
+          "value": 0.0,
+          "assessment_code": "1"
+        },
+        {
           "date": "2025-04",
           "value": 0.009,
           "assessment_code": "2"
@@ -3190,7 +3225,7 @@
         {
           "date": "2025-05",
           "value": 0.0064,
-          "assessment_code": "1"
+          "assessment_code": "2"
         },
         {
           "date": "2025-06",

@@ -1,7 +1,7 @@
 {
   "source": "JODI Oil World Database",
   "dataset": "Extended Primary",
-  "generated_at": "2026-10-15T16:40:30.795909+00:00",
+  "generated_at": "2026-10-21T19:42:38.656355+00:00",
   "country": {
     "code": "GY",
     "name": "Guyana"
@@ -11,8 +11,8 @@
       "name": "Crude Oil Production",
       "flow_code": "INDPROD",
       "unit": "million barrels per day",
-      "latest_reported_month": "2016-07",
-      "latest_value": 0.0,
+      "latest_reported_month": "2026-06",
+      "latest_value": 0.9499,
       "observations": [
         {
           "date": "2002-01",
@@ -888,6 +888,76 @@
           "date": "2016-07",
           "value": 0.0,
           "assessment_code": "3"
+        },
+        {
+          "date": "2025-01",
+          "value": 0.8914,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-02",
+          "value": 0.9871,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-06",
+          "value": 0.8894,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-07",
+          "value": 0.8932,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-09",
+          "value": 0.8338,
+          "assessment_code": "2"
+        },
+        {
+          "date": "2025-10",
+          "value": 0.8685,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-11",
+          "value": 0.9011,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-12",
+          "value": 0.9353,
+          "assessment_code": "2"
+        },
+        {
+          "date": "2026-01",
+          "value": 0.8423,
+          "assessment_code": "2"
+        },
+        {
+          "date": "2026-02",
+          "value": 0.9738,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2026-03",
+          "value": 0.8972,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2026-04",
+          "value": 0.9086,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2026-05",
+          "value": 0.8968,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2026-06",
+          "value": 0.9499,
+          "assessment_code": "2"
         }
       ]
     },
@@ -1779,8 +1849,8 @@
       "name": "Crude Oil Exports",
       "flow_code": "TOTEXPSB",
       "unit": "million barrels per day",
-      "latest_reported_month": "2016-07",
-      "latest_value": 0.0,
+      "latest_reported_month": "2026-06",
+      "latest_value": 0.9642,
       "observations": [
         {
           "date": "2002-01",
@@ -2656,6 +2726,91 @@
           "date": "2016-07",
           "value": 0.0,
           "assessment_code": "3"
+        },
+        {
+          "date": "2025-01",
+          "value": 0.8735,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-02",
+          "value": 0.9673,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-04",
+          "value": 0.8699,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-05",
+          "value": 0.843,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-06",
+          "value": 0.8716,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-07",
+          "value": 0.8754,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-08",
+          "value": 0.8531,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-09",
+          "value": 0.8171,
+          "assessment_code": "2"
+        },
+        {
+          "date": "2025-10",
+          "value": 0.8511,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-11",
+          "value": 0.8831,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-12",
+          "value": 0.9165,
+          "assessment_code": "2"
+        },
+        {
+          "date": "2026-01",
+          "value": 0.8255,
+          "assessment_code": "2"
+        },
+        {
+          "date": "2026-02",
+          "value": 0.9544,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2026-03",
+          "value": 0.8793,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2026-04",
+          "value": 0.9267,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2026-05",
+          "value": 0.9148,
+          "assessment_code": "2"
+        },
+        {
+          "date": "2026-06",
+          "value": 0.9642,
+          "assessment_code": "2"
         }
       ]
     },

@@ -1,7 +1,7 @@
 {
   "source": "JODI Oil World Database",
   "dataset": "Extended Primary",
-  "generated_at": "2026-10-15T16:40:30.795909+00:00",
+  "generated_at": "2026-10-21T19:42:38.656355+00:00",
   "country": {
     "code": "MT",
     "name": "Malta"
@@ -225,7 +225,7 @@
       "name": "Crude Oil Imports",
       "flow_code": "TOTIMPSB",
       "unit": "million barrels per day",
-      "latest_reported_month": "2026-06",
+      "latest_reported_month": "2026-07",
       "latest_value": 0.0,
       "observations": [
         {
@@ -1665,6 +1665,11 @@
         },
         {
           "date": "2026-06",
+          "value": 0.0,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2026-07",
           "value": 0.0,
           "assessment_code": "1"
         }
@@ -1674,7 +1679,7 @@
       "name": "Crude Oil Exports",
       "flow_code": "TOTEXPSB",
       "unit": "million barrels per day",
-      "latest_reported_month": "2026-06",
+      "latest_reported_month": "2026-07",
       "latest_value": 0.0,
       "observations": [
         {
@@ -3114,6 +3119,11 @@
         },
         {
           "date": "2026-06",
+          "value": 0.0,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2026-07",
           "value": 0.0,
           "assessment_code": "1"
         }
@@ -3123,7 +3133,7 @@
       "name": "Refinery Crude Intake",
       "flow_code": "REFINOBS",
       "unit": "million barrels per day",
-      "latest_reported_month": "2026-06",
+      "latest_reported_month": "2026-07",
       "latest_value": 0.0,
       "observations": [
         {
@@ -4563,6 +4573,11 @@
         },
         {
           "date": "2026-06",
+          "value": 0.0,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2026-07",
           "value": 0.0,
           "assessment_code": "1"
         }

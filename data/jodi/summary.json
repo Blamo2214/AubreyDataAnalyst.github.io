@@ -1,12 +1,12 @@
 {
   "source": "JODI Oil World Database",
   "dataset": "Extended Primary",
-  "generated_at": "2026-10-15T16:40:30.795909+00:00",
+  "generated_at": "2026-10-21T19:42:38.656355+00:00",
   "start_year": 2002,
   "end_year": 2026,
-  "latest_global_reported_month": "2026-07",
+  "latest_global_reported_month": "2026-08",
   "country_area_count": 106,
-  "observation_count": 118933,
+  "observation_count": 119452,
   "flows": {
     "crude_production": {
       "name": "Crude Oil Production",
@@ -127,9 +127,9 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2020-07",
-          "latest_value": 0.599,
-          "observation_count": 223
+          "latest_reported_month": "2026-07",
+          "latest_value": 0.9029,
+          "observation_count": 242
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
@@ -141,9 +141,9 @@
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2020-07",
-          "latest_value": 0.0772,
-          "observation_count": 219
+          "latest_reported_month": "2026-05",
+          "latest_value": 0.272,
+          "observation_count": 236
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
@@ -169,37 +169,37 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.0089,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.0086,
+          "observation_count": 296
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.1517,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.1562,
+          "observation_count": 296
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.1715,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.1747,
+          "observation_count": 296
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2026-07",
-          "latest_value": 4.6652,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 4.4883,
+          "observation_count": 296
         }
       }
     },
@@ -211,37 +211,37 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.1798,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.1831,
+          "observation_count": 296
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.1714,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.1776,
+          "observation_count": 296
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.2301,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.2223,
+          "observation_count": 296
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.2501,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.2398,
+          "observation_count": 296
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2026-07",
-          "latest_value": 8.2028,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 8.166,
+          "observation_count": 296
         }
       }
     },
@@ -253,37 +253,37 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.4489,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.4294,
+          "observation_count": 296
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.0247,
-          "observation_count": 41
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.009,
+          "observation_count": 42
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.3221,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.2996,
+          "observation_count": 296
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.1236,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.1203,
+          "observation_count": 296
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2026-07",
-          "latest_value": 4.3483,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 4.9305,
+          "observation_count": 296
         }
       }
     },
@@ -295,9 +295,9 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2021-09",
+          "latest_reported_month": "2026-06",
           "latest_value": 0.0004,
-          "observation_count": 208
+          "observation_count": 226
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
@@ -337,37 +337,37 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.6357,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.67,
+          "observation_count": 296
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.6394,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.6604,
+          "observation_count": 296
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2026-07",
-          "latest_value": 3.1765,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 3.346,
+          "observation_count": 296
         }
       }
     },
@@ -379,37 +379,37 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 283
+          "observation_count": 284
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.1483,
-          "observation_count": 283
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.079,
+          "observation_count": 284
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 283
+          "observation_count": 284
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.1298,
-          "observation_count": 283
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.1199,
+          "observation_count": 284
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2026-07",
-          "latest_value": 3.9729,
-          "observation_count": 283
+          "latest_reported_month": "2026-08",
+          "latest_value": 2.6168,
+          "observation_count": 284
         }
       }
     },
@@ -421,37 +421,37 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-06",
-          "latest_value": 0.0319,
-          "observation_count": 270
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.102,
+          "observation_count": 272
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-06",
-          "latest_value": 0.0452,
-          "observation_count": 228
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.1377,
+          "observation_count": 230
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-06",
-          "latest_value": 0.0,
-          "observation_count": 222
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.0687,
+          "observation_count": 224
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-06",
-          "latest_value": 0.0872,
-          "observation_count": 145
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.0918,
+          "observation_count": 147
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2026-06",
-          "latest_value": 0.9286,
-          "observation_count": 258
+          "latest_reported_month": "2026-08",
+          "latest_value": 1.3413,
+          "observation_count": 260
         }
       }
     },
@@ -463,37 +463,37 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.1096,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.109,
+          "observation_count": 296
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.2065,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.1319,
+          "observation_count": 296
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.0735,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.083,
+          "observation_count": 296
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.1842,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.1852,
+          "observation_count": 296
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2026-07",
-          "latest_value": 1.7799,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 1.5157,
+          "observation_count": 296
         }
       }
     },
@@ -505,37 +505,37 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2025-12",
-          "latest_value": 0.0205,
-          "observation_count": 192
+          "latest_reported_month": "2026-06",
+          "latest_value": 0.0222,
+          "observation_count": 198
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2025-12",
+          "latest_reported_month": "2026-01",
           "latest_value": 0.0,
-          "observation_count": 186
+          "observation_count": 187
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2016-07",
+          "latest_reported_month": "2026-02",
           "latest_value": 0.0,
-          "observation_count": 175
+          "observation_count": 176
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2025-12",
+          "latest_reported_month": "2026-01",
           "latest_value": 0.0226,
-          "observation_count": 187
+          "observation_count": 188
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2025-12",
+          "latest_reported_month": "2026-02",
           "latest_value": 0.085,
-          "observation_count": 192
+          "observation_count": 194
         }
       }
     },
@@ -547,23 +547,23 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2022-12",
-          "latest_value": 3.0773,
-          "observation_count": 252
+          "latest_reported_month": "2026-07",
+          "latest_value": 4.4984,
+          "observation_count": 271
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2022-12",
-          "latest_value": 0.4159,
-          "observation_count": 252
+          "latest_reported_month": "2026-07",
+          "latest_value": 0.2434,
+          "observation_count": 271
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2022-12",
-          "latest_value": 1.7778,
-          "observation_count": 252
+          "latest_reported_month": "2026-07",
+          "latest_value": 1.7716,
+          "observation_count": 271
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
@@ -666,37 +666,37 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 4.4125,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 4.4611,
+          "observation_count": 296
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.6704,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.6055,
+          "observation_count": 296
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 3.7528,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 3.8897,
+          "observation_count": 296
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 1.2479,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 1.2861,
+          "observation_count": 296
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2026-07",
-          "latest_value": 58.8642,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 55.6361,
+          "observation_count": 296
         }
       }
     },
@@ -708,37 +708,37 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.0661,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.0616,
+          "observation_count": 296
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.0659,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.0628,
+          "observation_count": 296
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.3022,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.3243,
+          "observation_count": 296
         }
       }
     },
@@ -750,37 +750,37 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.002,
-          "observation_count": 295
+          "observation_count": 296
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.1892,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.2002,
+          "observation_count": 296
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.1817,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.2255,
+          "observation_count": 296
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2026-07",
-          "latest_value": 3.1525,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 2.6143,
+          "observation_count": 296
         }
       }
     },
@@ -792,30 +792,30 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 4.3131,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 4.3526,
+          "observation_count": 296
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 8.4359,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 8.9559,
+          "observation_count": 296
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.0574,
-          "observation_count": 289
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.0615,
+          "observation_count": 290
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 12.6917,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 13.2471,
+          "observation_count": 296
         }
       }
     },
@@ -827,9 +827,9 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2016-09",
-          "latest_value": 0.8586,
-          "observation_count": 177
+          "latest_reported_month": "2026-07",
+          "latest_value": 0.7279,
+          "observation_count": 196
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
@@ -995,37 +995,37 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.0012,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.0009,
+          "observation_count": 296
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.1443,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.1954,
+          "observation_count": 296
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.1537,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.1613,
+          "observation_count": 296
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2026-07",
-          "latest_value": 8.0186,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 9.0651,
+          "observation_count": 296
         }
       }
     },
@@ -1037,37 +1037,37 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0304,
-          "observation_count": 295
+          "observation_count": 296
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 1.5579,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 1.5287,
+          "observation_count": 296
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 1.46,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 1.49,
+          "observation_count": 296
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2026-07",
-          "latest_value": 133.397,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 131.7756,
+          "observation_count": 296
         }
       }
     },
@@ -1079,37 +1079,37 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0697,
-          "observation_count": 295
+          "observation_count": 296
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.0915,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.0687,
+          "observation_count": 296
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.0252,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.0,
+          "observation_count": 296
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.1631,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.1648,
+          "observation_count": 296
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2026-07",
-          "latest_value": 3.5302,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 2.7785,
+          "observation_count": 296
         }
       }
     },
@@ -1128,9 +1128,9 @@
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2025-09",
-          "latest_value": 0.03,
-          "observation_count": 281
+          "latest_reported_month": "2026-03",
+          "latest_value": 0.0322,
+          "observation_count": 287
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
@@ -1163,37 +1163,37 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.995,
-          "observation_count": 289
+          "latest_reported_month": "2026-08",
+          "latest_value": 1.0,
+          "observation_count": 290
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.004,
-          "observation_count": 289
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.007,
+          "observation_count": 290
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.415,
-          "observation_count": 289
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.386,
+          "observation_count": 290
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.541,
-          "observation_count": 289
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.546,
+          "observation_count": 290
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2026-07",
-          "latest_value": 8.334,
-          "observation_count": 289
+          "latest_reported_month": "2026-08",
+          "latest_value": 7.728,
+          "observation_count": 290
         }
       }
     },
@@ -1247,37 +1247,37 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         }
       }
     },
@@ -1324,37 +1324,37 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 1.2555,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 1.3563,
+          "observation_count": 296
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 1.2266,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 1.2955,
+          "observation_count": 296
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2026-07",
-          "latest_value": 32.6638,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 34.1084,
+          "observation_count": 296
         }
       }
     },
@@ -1366,37 +1366,37 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.1885,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.1528,
+          "observation_count": 296
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2026-07",
-          "latest_value": 7.7827,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 5.3211,
+          "observation_count": 296
         }
       }
     },
@@ -1408,37 +1408,37 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.0097,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.0099,
+          "observation_count": 296
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.97,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 1.0135,
+          "observation_count": 296
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.9544,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.991,
+          "observation_count": 296
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2026-07",
-          "latest_value": 45.3181,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 45.6793,
+          "observation_count": 296
         }
       }
     },
@@ -1492,37 +1492,37 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.5121,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.3917,
+          "observation_count": 296
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.9091,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.6657,
+          "observation_count": 296
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.5154,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.3309,
+          "observation_count": 296
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.8742,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.9058,
+          "observation_count": 296
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2026-07",
-          "latest_value": 21.7341,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 16.892,
+          "observation_count": 296
         }
       }
     },
@@ -1618,37 +1618,37 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-06",
+          "latest_reported_month": "2026-07",
           "latest_value": 0.0007,
-          "observation_count": 294
+          "observation_count": 295
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-06",
-          "latest_value": 0.541,
-          "observation_count": 294
+          "latest_reported_month": "2026-07",
+          "latest_value": 0.5185,
+          "observation_count": 295
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-06",
+          "latest_reported_month": "2026-07",
           "latest_value": 0.0,
-          "observation_count": 294
+          "observation_count": 295
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-06",
-          "latest_value": 0.5118,
-          "observation_count": 294
+          "latest_reported_month": "2026-07",
+          "latest_value": 0.5349,
+          "observation_count": 295
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2026-06",
+          "latest_reported_month": "2026-07",
           "latest_value": 11.3645,
-          "observation_count": 294
+          "observation_count": 295
         }
       }
     },
@@ -1667,16 +1667,16 @@
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2016-07",
+          "latest_reported_month": "2025-04",
           "latest_value": 0.0,
-          "observation_count": 175
+          "observation_count": 179
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
           "latest_reported_month": "2025-06",
           "latest_value": 0.0043,
-          "observation_count": 222
+          "observation_count": 225
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
@@ -1702,9 +1702,9 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2016-07",
-          "latest_value": 0.0,
-          "observation_count": 175
+          "latest_reported_month": "2026-06",
+          "latest_value": 0.9499,
+          "observation_count": 189
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
@@ -1716,9 +1716,9 @@
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2016-07",
-          "latest_value": 0.0,
-          "observation_count": 175
+          "latest_reported_month": "2026-06",
+          "latest_value": 0.9642,
+          "observation_count": 192
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
@@ -1814,37 +1814,37 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-06",
+          "latest_reported_month": "2026-07",
           "latest_value": 0.0091,
-          "observation_count": 258
+          "observation_count": 259
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-06",
-          "latest_value": 0.0598,
-          "observation_count": 258
+          "latest_reported_month": "2026-07",
+          "latest_value": 0.0972,
+          "observation_count": 259
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-06",
+          "latest_reported_month": "2026-07",
           "latest_value": 0.0,
-          "observation_count": 258
+          "observation_count": 259
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-06",
-          "latest_value": 0.0732,
-          "observation_count": 258
+          "latest_reported_month": "2026-07",
+          "latest_value": 0.0751,
+          "observation_count": 259
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2026-06",
-          "latest_value": 7.24,
-          "observation_count": 258
+          "latest_reported_month": "2026-07",
+          "latest_value": 8.2043,
+          "observation_count": 259
         }
       }
     },
@@ -1898,37 +1898,37 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0232,
-          "observation_count": 295
+          "observation_count": 296
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.0525,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.0523,
+          "observation_count": 296
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.0778,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.0771,
+          "observation_count": 296
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2026-07",
-          "latest_value": 11.2614,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 11.195,
+          "observation_count": 296
         }
       }
     },
@@ -1940,37 +1940,37 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.5454,
-          "observation_count": 279
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.5461,
+          "observation_count": 280
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.4091,
-          "observation_count": 268
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.368,
+          "observation_count": 269
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 272
+          "observation_count": 273
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.9555,
-          "observation_count": 264
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.9532,
+          "observation_count": 265
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 116
+          "observation_count": 117
         }
       }
     },
@@ -1982,37 +1982,37 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.0625,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.0592,
+          "observation_count": 296
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.0602,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.0616,
+          "observation_count": 296
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.8402,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.796,
+          "observation_count": 296
         }
       }
     },
@@ -2150,37 +2150,37 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         }
       }
     },
@@ -2192,37 +2192,37 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.0681,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.0727,
+          "observation_count": 296
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 1.1566,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 1.2246,
+          "observation_count": 296
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.0074,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.0076,
+          "observation_count": 296
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 1.1417,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 1.3792,
+          "observation_count": 296
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2026-07",
-          "latest_value": 37.4912,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 39.658,
+          "observation_count": 296
         }
       }
     },
@@ -2276,37 +2276,37 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.0029,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.0026,
+          "observation_count": 296
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 2.3822,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 2.4922,
+          "observation_count": 296
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 2.4216,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 2.3493,
+          "observation_count": 296
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2026-07",
-          "latest_value": 267.9069,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 272.3362,
+          "observation_count": 296
         }
       }
     },
@@ -2318,37 +2318,37 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 3.0058,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 2.9463,
+          "observation_count": 296
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 2.7566,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 2.9766,
+          "observation_count": 296
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2026-07",
-          "latest_value": 115.1562,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 117.5662,
+          "observation_count": 296
         }
       }
     },
@@ -2360,37 +2360,37 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 1.971,
-          "observation_count": 293
+          "latest_reported_month": "2026-08",
+          "latest_value": 1.988,
+          "observation_count": 294
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 293
+          "observation_count": 294
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 1.129,
-          "observation_count": 293
+          "latest_reported_month": "2026-08",
+          "latest_value": 1.048,
+          "observation_count": 294
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.648,
-          "observation_count": 293
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.83,
+          "observation_count": 294
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 222
+          "observation_count": 223
         }
       }
     },
@@ -2402,23 +2402,23 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-06",
-          "latest_value": 1.859,
-          "observation_count": 254
+          "latest_reported_month": "2026-07",
+          "latest_value": 1.5969,
+          "observation_count": 255
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-06",
+          "latest_reported_month": "2026-07",
           "latest_value": 0.0,
-          "observation_count": 207
+          "observation_count": 208
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-06",
-          "latest_value": 1.5018,
-          "observation_count": 224
+          "latest_reported_month": "2026-07",
+          "latest_value": 1.5672,
+          "observation_count": 225
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
@@ -2437,37 +2437,37 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0005,
-          "observation_count": 283
+          "observation_count": 284
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.2108,
-          "observation_count": 283
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.2126,
+          "observation_count": 284
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 283
+          "observation_count": 284
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.199,
-          "observation_count": 283
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.202,
+          "observation_count": 284
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2026-07",
-          "latest_value": 2.117,
-          "observation_count": 283
+          "latest_reported_month": "2026-08",
+          "latest_value": 2.4601,
+          "observation_count": 284
         }
       }
     },
@@ -2479,37 +2479,37 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         }
       }
     },
@@ -2521,37 +2521,37 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         }
       }
     },
@@ -2563,37 +2563,37 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-06",
-          "latest_value": 1.394,
-          "observation_count": 144
+          "latest_reported_month": "2026-08",
+          "latest_value": 1.397,
+          "observation_count": 146
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-06",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 144
+          "observation_count": 146
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-06",
-          "latest_value": 1.213,
-          "observation_count": 144
+          "latest_reported_month": "2026-08",
+          "latest_value": 1.257,
+          "observation_count": 146
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-06",
-          "latest_value": 0.135,
-          "observation_count": 144
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.114,
+          "observation_count": 146
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2026-06",
-          "latest_value": 11.241,
-          "observation_count": 64
+          "latest_reported_month": "2026-08",
+          "latest_value": 10.746,
+          "observation_count": 66
         }
       }
     },
@@ -2738,23 +2738,23 @@
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-06",
+          "latest_reported_month": "2026-07",
           "latest_value": 0.0,
-          "observation_count": 288
+          "observation_count": 289
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-06",
+          "latest_reported_month": "2026-07",
           "latest_value": 0.0,
-          "observation_count": 288
+          "observation_count": 289
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-06",
+          "latest_reported_month": "2026-07",
           "latest_value": 0.0,
-          "observation_count": 288
+          "observation_count": 289
         }
       }
     },
@@ -2766,37 +2766,37 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-06",
-          "latest_value": 1.6659,
-          "observation_count": 294
+          "latest_reported_month": "2026-07",
+          "latest_value": 1.6743,
+          "observation_count": 295
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-06",
+          "latest_reported_month": "2026-07",
           "latest_value": 0.0,
-          "observation_count": 294
+          "observation_count": 295
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-06",
-          "latest_value": 0.5889,
-          "observation_count": 294
+          "latest_reported_month": "2026-07",
+          "latest_value": 0.4681,
+          "observation_count": 295
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-06",
-          "latest_value": 1.0172,
-          "observation_count": 294
+          "latest_reported_month": "2026-07",
+          "latest_value": 1.2173,
+          "observation_count": 295
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2026-06",
-          "latest_value": 16.7152,
-          "observation_count": 294
+          "latest_reported_month": "2026-07",
+          "latest_value": 17.3711,
+          "observation_count": 295
         }
       }
     },
@@ -2864,37 +2864,37 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 1.505,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 1.5,
+          "observation_count": 296
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.1,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.131,
+          "observation_count": 296
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.977,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 1.163,
+          "observation_count": 296
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.472,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.689,
+          "observation_count": 296
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2026-07",
-          "latest_value": 32.014,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 29.152,
+          "observation_count": 296
         }
       }
     },
@@ -2948,37 +2948,37 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.0059,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.0062,
+          "observation_count": 296
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 1.1742,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 1.1,
+          "observation_count": 296
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0017,
-          "observation_count": 295
+          "observation_count": 296
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.9149,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 1.0333,
+          "observation_count": 296
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2026-07",
-          "latest_value": 35.0075,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 33.3566,
+          "observation_count": 296
         }
       }
     },
@@ -2990,37 +2990,37 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 1.7896,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 1.8952,
+          "observation_count": 296
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.0221,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.044,
+          "observation_count": 296
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 1.6509,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 1.6397,
+          "observation_count": 296
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.2175,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.2177,
+          "observation_count": 296
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2026-07",
-          "latest_value": 15.2264,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 16.7962,
+          "observation_count": 296
         }
       }
     },
@@ -3032,37 +3032,37 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.0118,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.0131,
+          "observation_count": 296
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.0014,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.0254,
+          "observation_count": 296
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.8475,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.4569,
+          "observation_count": 296
         }
       }
     },
@@ -3284,37 +3284,37 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.0161,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.0163,
+          "observation_count": 296
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.5278,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.4824,
+          "observation_count": 296
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.4805,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.5599,
+          "observation_count": 296
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2026-07",
-          "latest_value": 48.9368,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 46.7995,
+          "observation_count": 296
         }
       }
     },
@@ -3326,37 +3326,37 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.2166,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.2285,
+          "observation_count": 296
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.2232,
-          "observation_count": 295
+          "observation_count": 296
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2026-07",
-          "latest_value": 4.9674,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 5.0927,
+          "observation_count": 296
         }
       }
     },
@@ -3452,37 +3452,37 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-06",
-          "latest_value": 0.049,
-          "observation_count": 282
+          "latest_reported_month": "2026-07",
+          "latest_value": 0.0491,
+          "observation_count": 283
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-06",
-          "latest_value": 0.1483,
-          "observation_count": 282
+          "latest_reported_month": "2026-07",
+          "latest_value": 0.1208,
+          "observation_count": 283
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-06",
-          "latest_value": 0.0003,
-          "observation_count": 282
+          "latest_reported_month": "2026-07",
+          "latest_value": 0.0,
+          "observation_count": 283
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-06",
-          "latest_value": 0.2056,
-          "observation_count": 282
+          "latest_reported_month": "2026-07",
+          "latest_value": 0.1905,
+          "observation_count": 283
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2026-06",
-          "latest_value": 5.5762,
-          "observation_count": 282
+          "latest_reported_month": "2026-07",
+          "latest_value": 4.7657,
+          "observation_count": 283
         }
       }
     },
@@ -3494,37 +3494,37 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-06",
-          "latest_value": 0.0149,
-          "observation_count": 30
+          "latest_reported_month": "2026-07",
+          "latest_value": 0.0156,
+          "observation_count": 31
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-06",
-          "latest_value": 0.0838,
-          "observation_count": 30
+          "latest_reported_month": "2026-07",
+          "latest_value": 0.0362,
+          "observation_count": 31
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-06",
+          "latest_reported_month": "2026-07",
           "latest_value": 0.0,
-          "observation_count": 30
+          "observation_count": 31
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-06",
-          "latest_value": 0.0731,
-          "observation_count": 30
+          "latest_reported_month": "2026-07",
+          "latest_value": 0.0653,
+          "observation_count": 31
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2026-06",
-          "latest_value": 2.5142,
-          "observation_count": 30
+          "latest_reported_month": "2026-07",
+          "latest_value": 2.0964,
+          "observation_count": 31
         }
       }
     },
@@ -3578,37 +3578,37 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 8.1351,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 6.2379,
+          "observation_count": 296
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.042,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.0677,
+          "observation_count": 296
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 4.1246,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 4.4507,
+          "observation_count": 296
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 2.4778,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 2.2971,
+          "observation_count": 296
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2026-07",
-          "latest_value": 175.632,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 143.197,
+          "observation_count": 296
         }
       }
     },
@@ -3620,37 +3620,37 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.2729,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.4831,
+          "observation_count": 296
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.3819,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.3991,
+          "observation_count": 296
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2026-07",
-          "latest_value": 6.9057,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 9.581,
+          "observation_count": 296
         }
       }
     },
@@ -3662,16 +3662,16 @@
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.9634,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.7146,
+          "observation_count": 296
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 198
+          "observation_count": 199
         }
       }
     },
@@ -3683,37 +3683,37 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         }
       }
     },
@@ -3725,37 +3725,37 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.1082,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.1127,
+          "observation_count": 296
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.1036,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.1225,
+          "observation_count": 296
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2026-07",
-          "latest_value": 7.5248,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 7.2005,
+          "observation_count": 296
         }
       }
     },
@@ -3767,9 +3767,9 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2016-07",
-          "latest_value": 0.0,
-          "observation_count": 175
+          "latest_reported_month": "2026-06",
+          "latest_value": 0.019,
+          "observation_count": 193
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
@@ -3970,37 +3970,37 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.1288,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.1279,
+          "observation_count": 296
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.6971,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.6761,
+          "observation_count": 296
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.8206,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.8893,
+          "observation_count": 296
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2026-07",
-          "latest_value": 51.4205,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 49.18,
+          "observation_count": 296
         }
       }
     },
@@ -4012,9 +4012,9 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2017-03",
-          "latest_value": 0.0717,
-          "observation_count": 183
+          "latest_reported_month": "2026-06",
+          "latest_value": 0.0729,
+          "observation_count": 201
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
@@ -4026,9 +4026,9 @@
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2017-03",
-          "latest_value": 0.0385,
-          "observation_count": 183
+          "latest_reported_month": "2026-06",
+          "latest_value": 0.0514,
+          "observation_count": 201
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
@@ -4054,16 +4054,16 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 295
+          "observation_count": 296
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.7099,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.827,
+          "observation_count": 296
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
@@ -4075,16 +4075,16 @@
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.7712,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.8047,
+          "observation_count": 296
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2026-07",
-          "latest_value": 24.6633,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 25.3536,
+          "observation_count": 296
         }
       }
     },
@@ -4138,37 +4138,37 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 13.8174,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 13.8504,
+          "observation_count": 296
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 5.8786,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 6.709,
+          "observation_count": 296
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 3.5214,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 3.8195,
+          "observation_count": 296
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 17.1601,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 17.4002,
+          "observation_count": 296
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2026-07",
-          "latest_value": 568.729,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 565.444,
+          "observation_count": 296
         }
       }
     },
@@ -4187,9 +4187,9 @@
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2025-09",
-          "latest_value": 0.024,
-          "observation_count": 285
+          "latest_reported_month": "2025-12",
+          "latest_value": 0.0337,
+          "observation_count": 288
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
@@ -4201,16 +4201,16 @@
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2025-08",
-          "latest_value": 0.0198,
-          "observation_count": 284
+          "latest_reported_month": "2025-12",
+          "latest_value": 0.035,
+          "observation_count": 287
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2025-09",
-          "latest_value": 1.413,
-          "observation_count": 285
+          "latest_reported_month": "2025-12",
+          "latest_value": 1.76,
+          "observation_count": 288
         }
       }
     },
@@ -4222,37 +4222,37 @@
         "crude_production": {
           "name": "Crude Oil Production",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 1.2,
-          "observation_count": 295
+          "latest_reported_month": "2026-08",
+          "latest_value": 1.201,
+          "observation_count": 296
         },
         "crude_imports": {
           "name": "Crude Oil Imports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 185
+          "observation_count": 186
         },
         "crude_exports": {
           "name": "Crude Oil Exports",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
-          "latest_value": 0.855,
-          "observation_count": 201
+          "latest_reported_month": "2026-08",
+          "latest_value": 0.924,
+          "observation_count": 202
         },
         "refinery_intake": {
           "name": "Refinery Crude Intake",
           "unit": "million barrels per day",
-          "latest_reported_month": "2026-07",
+          "latest_reported_month": "2026-08",
           "latest_value": 0.0,
-          "observation_count": 185
+          "observation_count": 186
         },
         "closing_stocks": {
           "name": "Closing Crude Oil Stocks",
           "unit": "million barrels",
-          "latest_reported_month": "2026-07",
-          "latest_value": 22.074,
-          "observation_count": 185
+          "latest_reported_month": "2026-08",
+          "latest_value": 16.106,
+          "observation_count": 186
         }
       }
     },

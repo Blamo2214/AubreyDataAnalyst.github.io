@@ -1,7 +1,7 @@
 {
   "source": "JODI Oil World Database",
   "dataset": "Extended Primary",
-  "generated_at": "2026-10-15T16:40:30.795909+00:00",
+  "generated_at": "2026-10-21T19:42:38.656355+00:00",
   "country": {
     "code": "NO",
     "name": "Norway"
@@ -11,8 +11,8 @@
       "name": "Crude Oil Production",
       "flow_code": "INDPROD",
       "unit": "million barrels per day",
-      "latest_reported_month": "2026-07",
-      "latest_value": 1.7896,
+      "latest_reported_month": "2026-08",
+      "latest_value": 1.8952,
       "observations": [
         {
           "date": "2002-01",
@@ -1486,7 +1486,12 @@
         },
         {
           "date": "2026-07",
-          "value": 1.7896,
+          "value": 1.8302,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2026-08",
+          "value": 1.8952,
           "assessment_code": "1"
         }
       ]
@@ -1495,8 +1500,8 @@
       "name": "Crude Oil Imports",
       "flow_code": "TOTIMPSB",
       "unit": "million barrels per day",
-      "latest_reported_month": "2026-07",
-      "latest_value": 0.0221,
+      "latest_reported_month": "2026-08",
+      "latest_value": 0.044,
       "observations": [
         {
           "date": "2002-01",
@@ -2971,6 +2976,11 @@
         {
           "date": "2026-07",
           "value": 0.0221,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2026-08",
+          "value": 0.044,
           "assessment_code": "2"
         }
       ]
@@ -2979,8 +2989,8 @@
       "name": "Crude Oil Exports",
       "flow_code": "TOTEXPSB",
       "unit": "million barrels per day",
-      "latest_reported_month": "2026-07",
-      "latest_value": 1.6509,
+      "latest_reported_month": "2026-08",
+      "latest_value": 1.6397,
       "observations": [
         {
           "date": "2002-01",
@@ -4456,6 +4466,11 @@
           "date": "2026-07",
           "value": 1.6509,
           "assessment_code": "1"
+        },
+        {
+          "date": "2026-08",
+          "value": 1.6397,
+          "assessment_code": "1"
         }
       ]
     },
@@ -4463,8 +4478,8 @@
       "name": "Refinery Crude Intake",
       "flow_code": "REFINOBS",
       "unit": "million barrels per day",
-      "latest_reported_month": "2026-07",
-      "latest_value": 0.2175,
+      "latest_reported_month": "2026-08",
+      "latest_value": 0.2177,
       "observations": [
         {
           "date": "2002-01",
@@ -5940,6 +5955,11 @@
           "date": "2026-07",
           "value": 0.2175,
           "assessment_code": "1"
+        },
+        {
+          "date": "2026-08",
+          "value": 0.2177,
+          "assessment_code": "1"
         }
       ]
     },
@@ -5947,8 +5967,8 @@
       "name": "Closing Crude Oil Stocks",
       "flow_code": "CLOSTLV",
       "unit": "million barrels",
-      "latest_reported_month": "2026-07",
-      "latest_value": 15.2264,
+      "latest_reported_month": "2026-08",
+      "latest_value": 16.7962,
       "observations": [
         {
           "date": "2002-01",
@@ -7422,7 +7442,12 @@
         },
         {
           "date": "2026-07",
-          "value": 15.2264,
+          "value": 16.7962,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2026-08",
+          "value": 16.7962,
           "assessment_code": "2"
         }
       ]

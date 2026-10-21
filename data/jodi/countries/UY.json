@@ -1,7 +1,7 @@
 {
   "source": "JODI Oil World Database",
   "dataset": "Extended Primary",
-  "generated_at": "2026-10-15T16:40:30.795909+00:00",
+  "generated_at": "2026-10-21T19:42:38.656355+00:00",
   "country": {
     "code": "UY",
     "name": "Uruguay"
@@ -895,8 +895,8 @@
       "name": "Crude Oil Imports",
       "flow_code": "TOTIMPSB",
       "unit": "million barrels per day",
-      "latest_reported_month": "2025-09",
-      "latest_value": 0.024,
+      "latest_reported_month": "2025-12",
+      "latest_value": 0.0337,
       "observations": [
         {
           "date": "2002-01",
@@ -2322,6 +2322,21 @@
           "date": "2025-09",
           "value": 0.024,
           "assessment_code": "1"
+        },
+        {
+          "date": "2025-10",
+          "value": 0.0618,
+          "assessment_code": "2"
+        },
+        {
+          "date": "2025-11",
+          "value": 0.0346,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-12",
+          "value": 0.0337,
+          "assessment_code": "1"
         }
       ]
     },
@@ -3213,8 +3228,8 @@
       "name": "Refinery Crude Intake",
       "flow_code": "REFINOBS",
       "unit": "million barrels per day",
-      "latest_reported_month": "2025-08",
-      "latest_value": 0.0198,
+      "latest_reported_month": "2025-12",
+      "latest_value": 0.035,
       "observations": [
         {
           "date": "2002-01",
@@ -4635,6 +4650,21 @@
           "date": "2025-08",
           "value": 0.0198,
           "assessment_code": "1"
+        },
+        {
+          "date": "2025-10",
+          "value": 0.0234,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-11",
+          "value": 0.0443,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-12",
+          "value": 0.035,
+          "assessment_code": "1"
         }
       ]
     },
@@ -4642,8 +4672,8 @@
       "name": "Closing Crude Oil Stocks",
       "flow_code": "CLOSTLV",
       "unit": "million barrels",
-      "latest_reported_month": "2025-09",
-      "latest_value": 1.413,
+      "latest_reported_month": "2025-12",
+      "latest_value": 1.76,
       "observations": [
         {
           "date": "2002-01",
@@ -6068,6 +6098,21 @@
         {
           "date": "2025-09",
           "value": 1.413,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-10",
+          "value": 2.596,
+          "assessment_code": "2"
+        },
+        {
+          "date": "2025-11",
+          "value": 2.308,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-12",
+          "value": 1.76,
           "assessment_code": "1"
         }
       ]

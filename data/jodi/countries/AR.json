@@ -1,7 +1,7 @@
 {
   "source": "JODI Oil World Database",
   "dataset": "Extended Primary",
-  "generated_at": "2026-10-15T16:40:30.795909+00:00",
+  "generated_at": "2026-10-21T19:42:38.656355+00:00",
   "country": {
     "code": "AR",
     "name": "Argentina"
@@ -11,8 +11,8 @@
       "name": "Crude Oil Production",
       "flow_code": "INDPROD",
       "unit": "million barrels per day",
-      "latest_reported_month": "2020-07",
-      "latest_value": 0.599,
+      "latest_reported_month": "2026-07",
+      "latest_value": 0.9029,
       "observations": [
         {
           "date": "2002-01",
@@ -1127,6 +1127,101 @@
         {
           "date": "2020-07",
           "value": 0.599,
+          "assessment_code": "2"
+        },
+        {
+          "date": "2025-01",
+          "value": 0.7476,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-02",
+          "value": 0.7459,
+          "assessment_code": "2"
+        },
+        {
+          "date": "2025-03",
+          "value": 0.7486,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-04",
+          "value": 0.7422,
+          "assessment_code": "2"
+        },
+        {
+          "date": "2025-05",
+          "value": 0.7479,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-06",
+          "value": 0.7752,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-07",
+          "value": 0.8054,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-08",
+          "value": 0.8173,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-09",
+          "value": 0.8339,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-10",
+          "value": 0.8509,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-11",
+          "value": 0.8484,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-12",
+          "value": 0.8674,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2026-01",
+          "value": 0.8749,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2026-02",
+          "value": 0.865,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2026-03",
+          "value": 0.8699,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2026-04",
+          "value": 0.885,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2026-05",
+          "value": 0.8946,
+          "assessment_code": "2"
+        },
+        {
+          "date": "2026-06",
+          "value": 0.9017,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2026-07",
+          "value": 0.9029,
           "assessment_code": "2"
         }
       ]
@@ -2254,8 +2349,8 @@
       "name": "Crude Oil Exports",
       "flow_code": "TOTEXPSB",
       "unit": "million barrels per day",
-      "latest_reported_month": "2020-07",
-      "latest_value": 0.0772,
+      "latest_reported_month": "2026-05",
+      "latest_value": 0.272,
       "observations": [
         {
           "date": "2002-01",
@@ -3351,6 +3446,91 @@
           "date": "2020-07",
           "value": 0.0772,
           "assessment_code": "1"
+        },
+        {
+          "date": "2025-01",
+          "value": 0.1989,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-02",
+          "value": 0.1985,
+          "assessment_code": "2"
+        },
+        {
+          "date": "2025-03",
+          "value": 0.1992,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-04",
+          "value": 0.1975,
+          "assessment_code": "2"
+        },
+        {
+          "date": "2025-05",
+          "value": 0.199,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-06",
+          "value": 0.2062,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-07",
+          "value": 0.2143,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-08",
+          "value": 0.2175,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-09",
+          "value": 0.2219,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-10",
+          "value": 0.2264,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-11",
+          "value": 0.2257,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-12",
+          "value": 0.2308,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2026-01",
+          "value": 0.2301,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2026-02",
+          "value": 0.2675,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2026-03",
+          "value": 0.2537,
+          "assessment_code": "2"
+        },
+        {
+          "date": "2026-04",
+          "value": 0.2677,
+          "assessment_code": "2"
+        },
+        {
+          "date": "2026-05",
+          "value": 0.272,
+          "assessment_code": "2"
         }
       ]
     },

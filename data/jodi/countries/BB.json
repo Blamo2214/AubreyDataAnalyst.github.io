@@ -1,7 +1,7 @@
 {
   "source": "JODI Oil World Database",
   "dataset": "Extended Primary",
-  "generated_at": "2026-10-15T16:40:30.795909+00:00",
+  "generated_at": "2026-10-21T19:42:38.656355+00:00",
   "country": {
     "code": "BB",
     "name": "Barbados"
@@ -11,7 +11,7 @@
       "name": "Crude Oil Production",
       "flow_code": "INDPROD",
       "unit": "million barrels per day",
-      "latest_reported_month": "2021-09",
+      "latest_reported_month": "2026-06",
       "latest_value": 0.0004,
       "observations": [
         {
@@ -1051,6 +1051,96 @@
         },
         {
           "date": "2021-09",
+          "value": 0.0004,
+          "assessment_code": "2"
+        },
+        {
+          "date": "2025-01",
+          "value": 0.0004,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-02",
+          "value": 0.0004,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-03",
+          "value": 0.0004,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-04",
+          "value": 0.0004,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-05",
+          "value": 0.0004,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-06",
+          "value": 0.0003,
+          "assessment_code": "2"
+        },
+        {
+          "date": "2025-07",
+          "value": 0.0004,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-08",
+          "value": 0.0004,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-09",
+          "value": 0.0003,
+          "assessment_code": "2"
+        },
+        {
+          "date": "2025-10",
+          "value": 0.0004,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-11",
+          "value": 0.0003,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2025-12",
+          "value": 0.0003,
+          "assessment_code": "2"
+        },
+        {
+          "date": "2026-01",
+          "value": 0.0004,
+          "assessment_code": "1"
+        },
+        {
+          "date": "2026-02",
+          "value": 0.0005,
+          "assessment_code": "2"
+        },
+        {
+          "date": "2026-03",
+          "value": 0.0004,
+          "assessment_code": "2"
+        },
+        {
+          "date": "2026-04",
+          "value": 0.0004,
+          "assessment_code": "2"
+        },
+        {
+          "date": "2026-05",
+          "value": 0.0004,
+          "assessment_code": "2"
+        },
+        {
+          "date": "2026-06",
           "value": 0.0004,
           "assessment_code": "2"
         }
