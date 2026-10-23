@@ -1,9 +1,9 @@
 {
   "WTI_USD": {
-    "price": 99.06,
-    "change": -0.28,
-    "change_percent": -0.2819,
-    "timestamp": "2026-10-22T23:10:51.000Z",
+    "price": 100.08,
+    "change": 1.02,
+    "change_percent": 1.0297,
+    "timestamp": "2026-10-23T04:41:08.000Z",
     "currency": "USD",
     "type": "spot_price",
     "source": "market_reporting",
@@ -14,16 +14,16 @@
       "source": "market_reporting",
       "source_description": "Aggregated from published market sources",
       "discover": {
-        "endpoint": "/v1/prices/historical?by_code=WTI_USD",
-        "description": "See WTI_USD's price history"
+        "endpoint": "/v1/commodities",
+        "description": "Browse every commodity code we track"
       }
     }
   },
   "BRENT_CRUDE_USD": {
-    "price": 112.8,
-    "change": -0.31,
-    "change_percent": -0.2741,
-    "timestamp": "2026-10-22T22:44:01.000Z",
+    "price": 113.77,
+    "change": 0.97,
+    "change_percent": 0.8599,
+    "timestamp": "2026-10-23T04:35:00.000Z",
     "currency": "USD",
     "type": "spot_price",
     "source": "market_reporting",
@@ -34,28 +34,28 @@
       "source": "market_reporting",
       "source_description": "Aggregated from published market sources",
       "discover": {
-        "endpoint": "/v1/prices/historical?by_code=BRENT_CRUDE_USD",
-        "description": "See BRENT_CRUDE_USD's price history"
+        "endpoint": "/v1/commodities",
+        "description": "Browse every commodity code we track"
       }
     }
   },
   "GASOLINE_USD": {
-    "price": 3.16,
-    "change": 0.0,
-    "change_percent": 0.0,
-    "timestamp": "2026-10-20T12:00:00.000Z",
+    "price": 3.18,
+    "change": 0.02,
+    "change_percent": 0.6329,
+    "timestamp": "2026-10-23T04:40:28.000Z",
     "currency": "USD",
     "type": "spot_price",
-    "source": "eia_api",
+    "source": "market_reporting",
     "stale": false,
     "synthetic": false,
     "data_status": "current",
     "metadata": {
-      "source": "eia_api",
-      "source_description": "U.S. Energy Information Administration (EIA)",
+      "source": "market_reporting",
+      "source_description": "Aggregated from published market sources",
       "discover": {
-        "endpoint": "/v1/prices/historical?by_code=GASOLINE_USD",
-        "description": "See GASOLINE_USD's price history"
+        "endpoint": "/v1/commodities",
+        "description": "Browse every commodity code we track"
       }
     }
   }
