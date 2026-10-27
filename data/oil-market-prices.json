@@ -1,9 +1,9 @@
 {
   "WTI_USD": {
-    "price": 101.57,
-    "change": 0.13,
-    "change_percent": 0.1282,
-    "timestamp": "2026-10-26T20:16:04.000Z",
+    "price": 101.27,
+    "change": -0.3,
+    "change_percent": -0.2954,
+    "timestamp": "2026-10-27T00:11:06.000Z",
     "currency": "USD",
     "type": "spot_price",
     "source": "market_reporting",
@@ -14,36 +14,36 @@
       "source": "market_reporting",
       "source_description": "Aggregated from published market sources",
       "discover": {
-        "endpoint": "/v1/commodities",
-        "description": "Browse every commodity code we track"
+        "endpoint": "/v1/prices/historical?by_code=WTI_USD",
+        "description": "See WTI_USD's price history"
       }
     }
   },
   "BRENT_CRUDE_USD": {
-    "price": 115.44,
-    "change": -0.46,
-    "change_percent": -0.3969,
-    "timestamp": "2026-10-26T20:15:00.000Z",
+    "price": 115.32,
+    "change": -0.12,
+    "change_percent": -0.104,
+    "timestamp": "2026-10-26T23:21:02.000Z",
     "currency": "USD",
     "type": "spot_price",
     "source": "market_reporting",
     "stale": false,
     "synthetic": false,
-    "data_status": "current",
+    "data_status": "delayed",
     "metadata": {
       "source": "market_reporting",
       "source_description": "Aggregated from published market sources",
       "discover": {
-        "endpoint": "/v1/commodities",
-        "description": "Browse every commodity code we track"
+        "endpoint": "/v1/prices/historical?by_code=BRENT_CRUDE_USD",
+        "description": "See BRENT_CRUDE_USD's price history"
       }
     }
   },
   "GASOLINE_USD": {
     "price": 3.21,
-    "change": -0.04,
-    "change_percent": -1.2308,
-    "timestamp": "2026-10-26T20:25:15.000Z",
+    "change": 0.0,
+    "change_percent": 0.0,
+    "timestamp": "2026-10-27T00:25:04.000Z",
     "currency": "USD",
     "type": "spot_price",
     "source": "market_reporting",
@@ -54,8 +54,8 @@
       "source": "market_reporting",
       "source_description": "Aggregated from published market sources",
       "discover": {
-        "endpoint": "/v1/commodities",
-        "description": "Browse every commodity code we track"
+        "endpoint": "/v1/prices/historical?by_code=GASOLINE_USD",
+        "description": "See GASOLINE_USD's price history"
       }
     }
   }
