@@ -1,8 +1,8 @@
 {
   "WTI_USD": {
     "price": 89.15,
-    "change": 0.07,
-    "change_percent": 0.0786,
+    "change": 0.0,
+    "change_percent": 0.0,
     "timestamp": "2026-11-13T21:45:56.000Z",
     "currency": "USD",
     "type": "spot_price",
@@ -14,16 +14,16 @@
       "source": "market_reporting",
       "source_description": "Aggregated from published market sources",
       "discover": {
-        "endpoint": "/v1/commodities",
-        "description": "Browse every commodity code we track"
+        "endpoint": "/v1/prices/historical?by_code=WTI_USD",
+        "description": "See WTI_USD's price history"
       }
     }
   },
   "BRENT_CRUDE_USD": {
-    "price": 96.34,
-    "change": -0.08,
-    "change_percent": -0.083,
-    "timestamp": "2026-11-13T22:24:00.000Z",
+    "price": 96.29,
+    "change": -0.05,
+    "change_percent": -0.0519,
+    "timestamp": "2026-11-13T22:59:00.000Z",
     "currency": "USD",
     "type": "spot_price",
     "source": "market_reporting",
@@ -34,15 +34,15 @@
       "source": "market_reporting",
       "source_description": "Aggregated from published market sources",
       "discover": {
-        "endpoint": "/v1/commodities",
-        "description": "Browse every commodity code we track"
+        "endpoint": "/v1/prices/historical?by_code=BRENT_CRUDE_USD",
+        "description": "See BRENT_CRUDE_USD's price history"
       }
     }
   },
   "GASOLINE_USD": {
-    "price": 2.63,
-    "change": -0.02,
-    "change_percent": -0.7547,
+    "price": 2.62,
+    "change": -0.01,
+    "change_percent": -0.3802,
     "timestamp": "2026-11-13T01:42:58.000Z",
     "currency": "USD",
     "type": "spot_price",
@@ -54,8 +54,8 @@
       "source": "market_reporting",
       "source_description": "Aggregated from published market sources",
       "discover": {
-        "endpoint": "/v1/commodities",
-        "description": "Browse every commodity code we track"
+        "endpoint": "/v1/prices/historical?by_code=GASOLINE_USD",
+        "description": "See GASOLINE_USD's price history"
       }
     }
   }
