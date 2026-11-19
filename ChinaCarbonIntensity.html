@@ -1,0 +1,866 @@
+<!DOCTYPE HTML>
+
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html lang="en">
+<head>
+<title>China’s Electricity Carbon Intensity | Agitlytics Research</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport"/>
+<link href="assets/css/main.css" rel="stylesheet"/>
+<noscript><link href="assets/css/noscript.css" rel="stylesheet"/></noscript>
+<style>
+			:root {
+				--research-bg: #07090d;
+				--research-surface: #0f1319;
+				--research-surface-2: #151a22;
+				--research-text: #f3f5f7;
+				--research-muted: #aeb6c0;
+				--research-faint: #7f8995;
+				--research-border: rgba(255,255,255,.12);
+				--research-accent: #d45a68;
+				--research-accent-soft: rgba(212,90,104,.13);
+				--reading-width: 48rem;
+			}
+
+			* { box-sizing: border-box; }
+
+			html { scroll-behavior: smooth; }
+
+			body {
+				background: var(--research-bg);
+				color: var(--research-text);
+			}
+
+			#wrapper,
+			#wrapper.fade-in,
+			#main,
+			#footer {
+				background-color: var(--research-bg);
+			}
+
+			/* Article pages use a compact publication masthead rather than the
+			   full-screen landing intro used elsewhere in the template. */
+			#intro { display: none; }
+
+			#header {
+				min-height: 5rem;
+				background: rgba(7,9,13,.96);
+				border-bottom: 1px solid var(--research-border);
+			}
+
+			#header .logo {
+				border: 0;
+				color: var(--research-text) !important;
+				font-size: .82rem;
+				font-weight: 800;
+				letter-spacing: .2em;
+				padding: 0;
+				text-transform: uppercase;
+			}
+
+			#header .logo::before {
+				content: "Agitlytics  /  ";
+				color: var(--research-accent);
+			}
+
+			#nav {
+				background: rgba(15,19,25,.97);
+				border-bottom: 1px solid var(--research-border);
+			}
+
+			#nav a,
+			#nav .icon:before {
+				color: var(--research-muted) !important;
+			}
+
+			#nav ul.links li.active {
+				background: var(--research-accent-soft);
+			}
+
+			#nav ul.links li.active a,
+			#nav a:hover {
+				color: #fff !important;
+			}
+
+			#main {
+				max-width: 82rem;
+				padding: 0;
+				background: var(--research-bg);
+			}
+
+			#main > .post {
+				padding: 0;
+				background: transparent;
+			}
+
+			.article-hero {
+				position: relative;
+				padding: 5.25rem 5rem 3.5rem !important;
+				margin: 0 !important;
+				background:
+					radial-gradient(circle at 90% 10%, rgba(212,90,104,.14), transparent 28%),
+					linear-gradient(135deg, #0c1016, #080a0e);
+				border-bottom: 1px solid var(--research-border);
+				text-align: left !important;
+			}
+
+			.article-hero::before {
+				content: "Agitlytics Research Desk";
+				display: block;
+				margin-bottom: 1.35rem;
+				color: var(--research-accent);
+				font-size: .72rem;
+				font-weight: 800;
+				letter-spacing: .2em;
+				text-transform: uppercase;
+			}
+
+			.article-hero h1 {
+				max-width: 18ch;
+				margin: 0 0 1.4rem !important;
+				color: var(--research-text) !important;
+				font-size: clamp(2.55rem, 6vw, 5.3rem);
+				line-height: .98;
+				letter-spacing: -.015em;
+				text-align: left;
+			}
+
+			.article-hero p {
+				margin: 0 !important;
+				color: var(--research-muted) !important;
+				font-family: inherit;
+				font-size: .82rem;
+				font-style: normal;
+				font-weight: 700;
+				letter-spacing: .14em;
+				line-height: 1.5;
+				text-align: left;
+				text-transform: uppercase;
+			}
+
+			.article-hero .date:empty { display: none; }
+
+			.hero-image {
+				width: min(72rem, calc(100% - 5rem));
+				margin: -1px auto 0 !important;
+				background: var(--research-surface);
+				border: 1px solid var(--research-border);
+				border-top: 0;
+				overflow: hidden;
+			}
+
+			.hero-image img {
+				display: block;
+				width: 100%;
+				max-height: 42rem;
+				object-fit: cover;
+			}
+
+			.article-body {
+				width: min(var(--reading-width), calc(100% - 4rem));
+				margin: 0 auto;
+				padding: 4.5rem 0 6rem;
+				color: var(--research-text);
+			}
+
+			.article-body > h2:first-child:empty { display: none; }
+
+			.article-body h2,
+			.article-body h3,
+			.article-body h4 {
+				color: var(--research-text) !important;
+				text-align: left;
+			}
+
+			.article-body h2 {
+				position: relative;
+				margin: 4.5rem 0 1.4rem;
+				padding-top: 1.5rem;
+				font-size: clamp(1.55rem, 3vw, 2.25rem);
+				line-height: 1.15;
+				letter-spacing: -.005em;
+			}
+
+			.article-body h2::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 3.25rem;
+				height: 2px;
+				background: var(--research-accent);
+			}
+
+			.article-body h3 {
+				margin: 3rem 0 1rem;
+				font-size: 1.35rem;
+			}
+
+			.article-body p,
+			.article-body li,
+			.article-body blockquote {
+				color: #d9dee4 !important;
+				font-family: Georgia, "Times New Roman", serif;
+				font-size: 1.12rem;
+				line-height: 1.88;
+				text-align: left;
+			}
+
+			.article-body p {
+				margin: 0 0 1.55rem;
+			}
+
+			.article-body a {
+				color: #f08a96;
+				border-bottom-color: rgba(240,138,150,.45);
+			}
+
+			.article-body a:hover {
+				color: #fff !important;
+				border-bottom-color: var(--research-accent);
+			}
+
+			.article-body strong,
+			.article-body b {
+				color: #fff;
+			}
+
+			.article-body i,
+			.article-body em {
+				color: #eef1f4;
+			}
+
+			.article-body blockquote,
+			.article-body p:has(> i:only-child),
+			.article-body p:has(> em:only-child) {
+				margin: 2.25rem 0;
+				padding: 1.4rem 1.6rem;
+				background: var(--research-surface);
+				border-left: 3px solid var(--research-accent);
+			}
+
+			.article-body ul,
+			.article-body ol {
+				margin: 1.5rem 0 2rem;
+			}
+
+			.article-body .image,
+			.article-body .image.main,
+			.article-body .image.fit,
+			.article-body .image.left,
+			.article-body .image.right {
+				display: block;
+				float: none;
+				width: min(64rem, 100%);
+				max-width: none;
+				margin: 2.75rem auto;
+				padding: 0;
+				background: var(--research-surface);
+				border: 1px solid var(--research-border);
+				border-radius: 2px;
+				overflow: hidden;
+			}
+
+			.article-body .image img,
+			.article-body img {
+				display: block;
+				max-width: 100%;
+				height: auto;
+			}
+
+			.article-body table {
+				display: block;
+				width: 100%;
+				margin: 2rem 0;
+				overflow-x: auto;
+				background: var(--research-surface);
+				border: 1px solid var(--research-border);
+			}
+
+			.article-body table th,
+			.article-body table td {
+				color: var(--research-text);
+				border-color: var(--research-border);
+			}
+
+			.article-body .button,
+			.article-body button,
+			.article-body input[type="submit"],
+			.article-body input[type="reset"],
+			.article-body input[type="button"] {
+				background: transparent;
+				border-color: rgba(255,255,255,.65) !important;
+				box-shadow: inset 0 0 0 2px rgba(255,255,255,.65);
+				color: #fff !important;
+			}
+
+			.article-body .button:hover {
+				background: var(--research-accent-soft);
+				border-color: var(--research-accent) !important;
+				box-shadow: inset 0 0 0 2px var(--research-accent);
+			}
+
+			#footer {
+				background: #0d1117;
+				border-top: 1px solid var(--research-border);
+			}
+
+			#footer h3,
+			#footer p,
+			#footer a,
+			#copyright,
+			#copyright a {
+				color: var(--research-muted) !important;
+			}
+
+			#copyright {
+				background: var(--research-bg);
+			}
+
+			@media screen and (max-width: 980px) {
+				.article-hero {
+					padding: 4.25rem 3rem 3rem !important;
+				}
+
+				.hero-image {
+					width: calc(100% - 3rem);
+				}
+			}
+
+			@media screen and (max-width: 736px) {
+				#header {
+					min-height: 4rem;
+				}
+
+				#header .logo {
+					font-size: .68rem;
+					letter-spacing: .15em;
+				}
+
+				#header .logo::before {
+					content: "Agitlytics / ";
+				}
+
+				.article-hero {
+					padding: 3.2rem 1.4rem 2.4rem !important;
+				}
+
+				.article-hero::before {
+					margin-bottom: 1rem;
+					font-size: .62rem;
+				}
+
+				.article-hero h1 {
+					max-width: none;
+					font-size: clamp(2.15rem, 11vw, 3.35rem);
+					line-height: 1.02;
+					overflow-wrap: anywhere;
+				}
+
+				.article-hero p {
+					font-size: .68rem;
+					letter-spacing: .1em;
+				}
+
+				.hero-image {
+					width: 100%;
+					border-left: 0;
+					border-right: 0;
+				}
+
+				.hero-image img {
+					max-height: 25rem;
+				}
+
+				.article-body {
+					width: calc(100% - 2.5rem);
+					padding: 3rem 0 4.5rem;
+				}
+
+				.article-body p,
+				.article-body li,
+				.article-body blockquote {
+					font-size: 1.03rem;
+					line-height: 1.76;
+				}
+
+				.article-body h2 {
+					margin-top: 3.5rem;
+					font-size: 1.55rem;
+				}
+
+				.article-body .image,
+				.article-body .image.main,
+				.article-body .image.fit,
+				.article-body .image.left,
+				.article-body .image.right {
+					width: calc(100% + 1rem);
+					margin-left: -.5rem;
+				}
+			}
+		</style>
+<style>
+	/* ===== Agitlytics publication navigation ===== */
+	.publication-nav {
+		position: sticky;
+		top: 0;
+		z-index: 10000;
+		background: rgba(7, 9, 13, .9);
+		border-bottom: 1px solid rgba(255,255,255,.1);
+		-webkit-backdrop-filter: blur(16px);
+		backdrop-filter: blur(16px);
+	}
+
+	.publication-nav__inner {
+		max-width: 82rem;
+		min-height: 4.6rem;
+		margin: 0 auto;
+		padding: 0 2rem;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 2rem;
+	}
+
+	.publication-brand {
+		display: inline-flex;
+		align-items: center;
+		gap: .75rem;
+		color: #fff !important;
+		border: 0 !important;
+		font-family: inherit;
+		font-size: .82rem;
+		font-weight: 900;
+		letter-spacing: .22em;
+		text-decoration: none;
+		text-transform: uppercase;
+		white-space: nowrap;
+	}
+
+	.publication-brand::before {
+		content: "";
+		width: .62rem;
+		height: .62rem;
+		background: #d45a68;
+		border-radius: 50%;
+		box-shadow: 0 0 0 .35rem rgba(212,90,104,.12);
+	}
+
+	.publication-links {
+		display: flex;
+		align-items: center;
+		gap: 1.55rem;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.publication-links a {
+		color: #aeb6c0 !important;
+		border: 0 !important;
+		font-family: inherit;
+		font-size: .7rem;
+		font-weight: 800;
+		letter-spacing: .13em;
+		text-decoration: none;
+		text-transform: uppercase;
+		white-space: nowrap;
+		transition: color .2s ease;
+	}
+
+	.publication-links a:hover,
+	.publication-links a.is-active {
+		color: #fff !important;
+	}
+
+	.publication-links a.is-active {
+		position: relative;
+	}
+
+	.publication-links a.is-active::after {
+		content: "";
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: -.68rem;
+		height: 2px;
+		background: #d45a68;
+	}
+
+	.article-end {
+		width: min(64rem, calc(100% - 4rem));
+		margin: 0 auto 6rem;
+		padding: 3rem;
+		background:
+			linear-gradient(145deg, rgba(212,90,104,.08), transparent 36%),
+			#0f1319;
+		border: 1px solid rgba(255,255,255,.12);
+	}
+
+	.article-end__top {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 2rem;
+		padding-bottom: 2.1rem;
+		border-bottom: 1px solid rgba(255,255,255,.1);
+	}
+
+	.article-end__eyebrow {
+		margin: 0 0 .55rem;
+		color: #d45a68;
+		font-family: inherit;
+		font-size: .68rem;
+		font-weight: 900;
+		letter-spacing: .18em;
+		text-transform: uppercase;
+	}
+
+	.article-end h2 {
+		margin: 0 !important;
+		padding: 0 !important;
+		color: #fff !important;
+		font-size: clamp(1.45rem, 3vw, 2.2rem);
+		line-height: 1.08;
+	}
+
+	.article-end h2::before {
+		display: none !important;
+	}
+
+	.article-end__library {
+		flex: 0 0 auto;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 3.2rem;
+		padding: 0 1.3rem;
+		border: 1px solid rgba(255,255,255,.5) !important;
+		color: #fff !important;
+		font-family: inherit;
+		font-size: .68rem;
+		font-weight: 900;
+		letter-spacing: .13em;
+		text-decoration: none;
+		text-transform: uppercase;
+		transition: .2s ease;
+	}
+
+	.article-end__library:hover {
+		background: #d45a68;
+		border-color: #d45a68 !important;
+	}
+
+	.article-pager {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 1px;
+		margin-top: 1px;
+		background: rgba(255,255,255,.1);
+	}
+
+	.article-pager a {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		min-height: 10rem;
+		padding: 1.7rem;
+		background: #0b0f14;
+		border: 0 !important;
+		text-decoration: none;
+		transition: background .2s ease, transform .2s ease;
+	}
+
+	.article-pager a:hover {
+		background: #151a22;
+	}
+
+	.article-pager a:last-child {
+		text-align: right;
+	}
+
+	.article-pager__label {
+		margin-bottom: .7rem;
+		color: #7f8995;
+		font-family: inherit;
+		font-size: .62rem;
+		font-weight: 900;
+		letter-spacing: .17em;
+		text-transform: uppercase;
+	}
+
+	.article-pager__category {
+		margin-bottom: .38rem;
+		color: #d45a68;
+		font-family: inherit;
+		font-size: .64rem;
+		font-weight: 800;
+		letter-spacing: .12em;
+		text-transform: uppercase;
+	}
+
+	.article-pager__title {
+		color: #f3f5f7;
+		font-family: inherit;
+		font-size: 1rem;
+		font-weight: 800;
+		line-height: 1.35;
+	}
+
+	.article-topics {
+		display: flex;
+		flex-wrap: wrap;
+		gap: .65rem;
+		margin-top: 2rem;
+	}
+
+	.article-topics a {
+		display: inline-flex;
+		align-items: center;
+		min-height: 2.35rem;
+		padding: 0 .9rem;
+		background: rgba(255,255,255,.035);
+		border: 1px solid rgba(255,255,255,.11) !important;
+		color: #aeb6c0 !important;
+		font-family: inherit;
+		font-size: .62rem;
+		font-weight: 800;
+		letter-spacing: .11em;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+
+	.article-topics a:hover {
+		color: #fff !important;
+		border-color: #d45a68 !important;
+	}
+
+	@media screen and (max-width: 736px) {
+		.publication-nav__inner {
+			min-height: 4rem;
+			padding: 0 1rem;
+		}
+
+		.publication-brand {
+			font-size: .72rem;
+			letter-spacing: .16em;
+		}
+
+		.publication-links {
+			gap: .9rem;
+			overflow-x: auto;
+			scrollbar-width: none;
+		}
+
+		.publication-links::-webkit-scrollbar {
+			display: none;
+		}
+
+		.publication-links a {
+			font-size: .59rem;
+			letter-spacing: .09em;
+		}
+
+		.publication-links li:nth-child(2),
+		.publication-links li:nth-child(3) {
+			display: none;
+		}
+
+		.article-end {
+			width: calc(100% - 1.5rem);
+			margin-bottom: 3rem;
+			padding: 1.4rem;
+		}
+
+		.article-end__top {
+			align-items: flex-start;
+			flex-direction: column;
+		}
+
+		.article-end__library {
+			width: 100%;
+		}
+
+		.article-pager {
+			grid-template-columns: 1fr;
+		}
+
+		.article-pager a,
+		.article-pager a:last-child {
+			min-height: 8rem;
+			text-align: left;
+		}
+	}
+</style>
+<meta content="A Power BI decision analysis of the historical relationships between coal reliance, industrial growth, electricity demand and electricity carbon intensity in China, 2000–2024." name="description"/><meta content="Aubrey Waddle" name="author"/><meta content="What Drives China’s Electricity Carbon Intensity? | Agitlytics" property="og:title"/><style>
+/* China carbon intensity: long-form research article */
+:root { --research-accent:#58a7ca; --research-accent-soft:rgba(88,167,202,.14); }
+.publication-brand::before, .publication-links a.is-active::after,
+.article-body h2::before { background:var(--research-accent); }
+.article-hero { background:radial-gradient(circle at 86% 6%, rgba(88,167,202,.20), transparent 35%),linear-gradient(132deg,#101923,#080a0e); }
+.article-hero::before, .article-end__eyebrow, .article-pager__category {color:var(--research-accent)}
+.article-hero h1 { max-width:24ch; line-height:1.04; font-size:clamp(2.4rem,5.2vw,4.75rem); }
+.article-hero .research-subtitle { display:block; max-width:58rem; margin:0 0 2rem!important; color:#c4d0dc!important; font-size:clamp(1.05rem,1.6vw,1.35rem)!important; letter-spacing:0; text-transform:none; font-weight:400; line-height:1.6!important; }
+.article-hero .byline {color:#aeb6c0!important}
+.research-stats {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;max-width:82rem;margin:0 auto;background:rgba(255,255,255,.11);border-bottom:1px solid var(--research-border)}
+.research-stat {background:#0e141c;padding:1.9rem 2.8rem;}
+.research-stat .number {display:block;margin-bottom:.4rem;color:#f7fbff;font-family:inherit;font-size:clamp(1.35rem,2.4vw,2.3rem);font-weight:850;letter-spacing:-.025em;line-height:1.13}
+.research-stat .desc {display:block;font-family:inherit;color:#9eaebb;font-size:.7rem;line-height:1.5;text-transform:uppercase;letter-spacing:.12em;font-weight:700}
+.article-body {width:min(50rem,calc(100% - 4rem));}
+.article-body .lede { font-size:1.26rem;line-height:1.8;color:#f0f4f7!important; }
+.article-toc {display:flex;flex-wrap:wrap;column-gap:1rem;row-gap:.5rem;border-top:1px solid var(--research-border);border-bottom:1px solid var(--research-border);padding:1.4rem 0;margin:2.5rem 0 3.2rem;}
+.article-toc strong {font-family:Arial,Helvetica,sans-serif;font-size:.68rem;line-height:2;font-weight:800;letter-spacing:.13em;text-transform:uppercase;margin-right:.7rem;color:#c9d2dd;}
+.article-toc a {font-family:inherit;font-size:.74rem;font-weight:750;letter-spacing:.04em;text-decoration:none!important;border:0!important;color:#80bede!important}
+.article-toc a:hover {color:#fff!important}
+.article-section {scroll-margin-top:5.5rem}
+.article-section h2 {scroll-margin-top:5rem}
+.article-body .research-figure {width:min(68rem,calc(100% + 10rem));max-width:none;margin:3rem 0 3rem 50%;transform:translateX(-50%);padding:0;background:#f8fafc;border:1px solid rgba(255,255,255,.16);border-radius:6px;overflow:hidden;box-shadow:0 15px 48px rgba(0,0,0,.22)}
+.research-figure a {display:block;border:0!important;}
+.research-figure img {display:block;width:100%;height:auto;object-fit:contain;background:#fff}
+.article-body .research-figure figcaption {display:block;margin:0;padding:1.05rem 1.4rem 1.3rem;background:#121a23;color:#c4d1de!important;font-family:Arial,Helvetica,sans-serif;font-size:.82rem;line-height:1.65;font-weight:400;text-align:left}
+.research-figure figcaption strong {color:#fff;letter-spacing:.01em}
+.article-body .research-figure .figure-note {display:block;color:#9eacb9;margin-top:.45rem;font-size:.79rem;}
+.analysis-data-table {margin:2rem 0 1rem;width:100%;}
+.article-body .analysis-data-table table {display:table;width:100%;border-collapse:collapse;overflow:visible;}
+.analysis-data-table th,.analysis-data-table td {padding:1rem .8rem;vertical-align:top;text-align:left;font-family:inherit;font-size:.79rem;line-height:1.45;border-bottom:1px solid rgba(255,255,255,.12)}
+.analysis-data-table th {color:#d7e8f5!important;background:#192330;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em}
+.analysis-data-table caption {caption-side:top;text-align:left;font-family:inherit;color:#e8eff6;font-weight:750;font-size:.96rem;margin-bottom:.65rem}
+.analysis-data-table .table-note {margin:.4rem 0 2rem;color:#aeb6c0!important;font-family:Arial,Helvetica,sans-serif;font-size:.78rem;line-height:1.6;font-weight:400;}
+.article-body .references-list {margin:1.4rem 0;list-style:none;padding:0}
+.article-body .references-list li {margin-bottom:1rem;overflow-wrap:anywhere;font-size:.94rem;line-height:1.8;padding-left:1.5rem;text-indent:-1.5rem}
+.article-body .references-list a {overflow-wrap:anywhere}
+.research-disclaimer {margin:2.5rem 0 0;padding:1.2rem 1.5rem;border-left:3px solid var(--research-accent);background:#101924;font:400 .91rem/1.65 Georgia,serif;color:#c5d2df}
+.article-end__library:hover {background:var(--research-accent);border-color:var(--research-accent)!important}
+.article-topics a:hover {border-color:var(--research-accent)!important}
+@media(max-width:980px){.research-stat{padding:1.4rem 1.7rem}.article-body .research-figure{width:calc(100% + 4rem)}}
+@media(max-width:736px){.research-stats{grid-template-columns:1fr 1fr;}.research-stat{padding:1.1rem .9rem}.research-stat:last-child{grid-column:span 2;border-top:1px solid var(--research-border)}.research-stat .number{font-size:1.35rem}.article-hero h1{font-size:clamp(2rem,10vw,3.2rem)}.article-hero .research-subtitle{font-size:1rem!important}.article-body{width:calc(100% - 2.5rem)}.article-body .research-figure{width:calc(100% + 2rem)}.article-body .research-figure figcaption{padding:.9rem 1rem}.analysis-data-table{overflow-x:auto}.article-body .analysis-data-table table{min-width:34rem}.article-toc{gap:.6rem 1rem}}
+</style></head>
+<body class="is-preload">
+<!-- Wrapper -->
+<nav aria-label="Primary navigation" class="publication-nav">
+<div class="publication-nav__inner">
+<a class="publication-brand" href="elements.html">Agitlytics Research</a>
+<ul class="publication-links">
+<li><a href="index.html">Portfolio</a></li>
+<li><a href="DataProj.html">Data Projects</a></li>
+<li><a href="generic.html">About</a></li>
+<li><a class="is-active" href="elements.html">Research Library</a></li>
+</ul>
+</div>
+</nav><div class="fade-in" id="wrapper">
+<!-- Intro -->
+<div id="intro">
+<h1>Agitlytics</h1>
+<p>Commentary by <a href="https://www.linkedin.com/in/aubrey-waddle-962634314" rel="noopener noreferrer" target="_blank">Aubrey Waddle</a></p>
+<ul class="actions">
+<li><a class="button icon solid solo fa-arrow-down scrolly" href="#header">Continue</a></li>
+</ul>
+</div>
+<!-- Header -->
+<header id="header" style="display:none;">
+<a class="logo" href="elements.html">Research &amp; Commentary</a>
+</header>
+<!-- Nav -->
+<nav id="nav" style="display:none;">
+<ul class="links">
+<li><a href="index.html">Home</a></li>
+<li><a href="DataProj.html">Data Projects</a></li>
+<li class="active"><a href="elements.html">Agitlytics</a></li>
+<li class="active"><a href="Dieselban.html">Diesel Ban</a></li>
+</ul>
+<ul class="icons">
+<li><a class="cib-tableau" href="images/RESUME 2025Nov.pdf.pdf" rel="noopener noreferrer" target="_blank"><span class="label">Résumé</span></a></li>
+<li><a class="cib-tableau" href="images/SNHU Diploma.pdf" rel="noopener noreferrer" target="_blank"><span class="label">Diploma</span></a></li>
+<li><a class="cib-tableau" href="images/Transcript_AUBREYWADDLE FINAL.pdf" rel="noopener noreferrer" target="_blank"><span class="label">Transcript</span></a></li>
+<li><a class="cib-tableau" href="https://public.tableau.com/app/profile/aubrey.waddle/vizzes" rel="noopener noreferrer" target="_blank"><span class="label">Tableau Public</span></a></li>
+<li><a class="icon brands alt fa-linkedin" href="https://www.linkedin.com/in/aubrey-waddle-962634314" rel="noopener noreferrer" target="_blank"><span class="label">linkedin</span></a></li>
+<li><a class="icon brands fa-github" href="https://github.com/Blamo2214" rel="noopener noreferrer" target="_blank"><span class="label">GitHub</span></a></li>
+<li><a class="icon brands fa-facebook-f" href="https://www.facebook.com/aubrey.waddle/" rel="noopener noreferrer" target="_blank"><span class="label">Facebook</span></a></li>
+<li><a class="icon brands fa-instagram" href="https://www.instagram.com/aubrey_waddle12/" rel="noopener noreferrer" target="_blank"><span class="label">Instagram</span></a></li>
+</ul>
+</nav>
+<!-- Main -->
+<div id="main">
+<!-- Post -->
+<section class="post"><header class="major article-hero"><h1>What Drives China’s Electricity Carbon Intensity?</h1><span class="research-subtitle">A Power BI decision analysis of coal dependence, industrial growth, and the changing electricity mix, 2000–2024.</span><p class="byline">Data Analysis  ·  Aubrey Waddle  ·  November 2026</p></header><div aria-label="At a glance" class="research-stats"><div class="research-stat"><span class="number">25 years</span><span class="desc">Annual observations, 2000–2024</span></div><div class="research-stat"><span class="number">700.76</span><span class="desc">Mean electricity carbon intensity, gCO₂/kWh</span></div><div class="research-stat"><span class="number">170.75</span><span class="desc">High–low coal group difference, gCO₂/kWh</span></div></div><div class="article-body"><nav aria-label="In this article" class="article-toc"><strong>Jump to</strong><a href="#sources">Data</a><a href="#initial-models">Initial models</a><a href="#revised-model">Final tree</a><a href="#sensitivity">Sensitivity tests</a><a href="#limitations">Limitations</a><a href="#implementation">Decision support</a><a href="#ethics">Ethics</a><a href="#conclusion">Conclusion</a></nav><section class="article-section" id="introduction"><h2>Introduction</h2><p class="lede">China's industrial growth has required a major increase in electricity production. At the same time, China has been adding wind, solar, hydroelectric, and nuclear power to a system that has historically relied heavily on coal. This raises the main question I wanted to investigate: Which variables are most closely associated with the carbon intensity of China's electricity generation? Carbon intensity is measured in grams of carbon dioxide per kilowatt-hour (gCO₂/kWh). That is different from total emissions. A country can produce much more electricity while still reducing the emissions associated with each unit of power. I think that distinction is important when evaluating an energy transition in a country where electricity demand keeps growing.</p><p>My goal is to identify the factors that appear to be most closely associated with China's electricity carbon intensity between 2000 and 2024. I focused on coal's share of electricity generation, wind and solar generation, industrial value-added growth, and electricity demand growth. I am not trying to predict an exact emissions figure or argue that any one variable caused the changes we see. What I want to understand is which combinations of historical conditions were associated with higher or lower carbon intensity, and whether those relationships still hold up when I revise the model.</p><p>I think this is a useful question for decision analysis because energy planners, businesses, and industrial analysts have to consider both electricity demand and where that electricity comes from. For example, if faster industrial growth is associated with higher carbon intensity, that could reflect the greater reliance on coal during those years rather than an independent effect of industrial growth itself. To see how reliable the initial results are, I compare different thresholds, time periods, and branch sizes in Power BI decomposition trees. I view the result as a tool for identifying relationships worth investigating, not a substitute for a full energy-system model or a causal analysis.</p></section><section class="article-section" id="sources"><h2>Data &amp; sources</h2><p>I combined two publicly available sources for this project. The Our World in Data (OWID) Energy Dataset contains information on electricity generation, consumption, and the generation mix <a href="#ref-owid">(Our World in Data, n.d.)</a>. For industrial activity, I used the World Bank's indicator NV.IND.TOTL.KD.ZG, which measures annual growth in industry value added, including construction (World Bank, n.d.). Neither dataset was created specifically for my research question. I had to select the variables that were relevant, make sure the units and years lined up, and document how the two sources were combined.</p><p>The finished dataset contains 25 annual observations, one for each year from 2000 through 2024, and 13 columns. The main outcome is electricity carbon intensity, measured in gCO₂/kWh. The other variables include electricity generation and demand in terawatt-hours, the shares generated by coal, wind, solar, hydro, and nuclear power, the combined wind-and-solar and low-carbon shares, demand growth, and industrial value-added growth. Average carbon intensity across the period was 700.76 gCO₂/kWh, with annual values ranging from 555.40 to 790.92. Twenty-five observations is a small dataset, but having a consistent annual structure does make it possible to compare clearly defined groups.</p><p>Each variable contributes something different to the question. Coal share gives me a measure of reliance on a carbon-intensive fuel, while wind and solar share helps show how the generation mix has changed. Industrial value-added growth provides some context for economic activity, and electricity demand growth tells me how quickly the power system was expanding. By putting these variables into a decomposition tree, I can look at whether an apparent relationship with industrial growth still shows up after I separate the years by coal dependence. The same approach could be repeated as new annual data become available.</p><p>The limitations are just as important as the useful parts of this dataset. With only 25 years, I do not think it would make sense to build a complicated tree with a lot of small terminal branches. The figures are also national averages, so they do not capture differences among Chinese provinces, power grids, or industries. Industrial value-added growth is not the same thing as industrial electricity consumption. Another issue is that coal share and low-carbon share are parts of the same generation mix used to calculate carbon intensity, so these measures are not independent of one another. Finally, public datasets can be revised. I would keep the cleaned file and the Power BI report together so someone reviewing the project could reproduce the results rather than assuming a later download would match exactly.</p></section><section class="article-section" id="preparation"><h2>Preparing the data</h2><p>I started by filtering the energy dataset to China and the years 2000–2024, removing variables that were not relevant, and checking the annual records. The World Bank file was arranged with years in separate columns, so I reshaped the industrial-growth indicator into a two-column series with a year and a corresponding growth rate. I then merged the two sources by year and checked that each year appeared only once. After verifying the data types and units, I loaded the cleaned table into Power BI without changing the meaning of the original numerical measures.</p><p>For the wind-and-solar variable, I added the two generation shares together instead of averaging them. I also kept the other low-carbon sources, including hydro and nuclear, available in the dataset. Electricity demand growth was calculated as the percentage change from the previous year. Since the extract starts in 2000, there was no prior-year observation available for that first year, so I left its demand-growth value blank rather than making one up. I checked for missing values, incorrect data types, and percentages outside reasonable ranges. In Power BI, I used the average of carbon intensity rather than the sum because adding annual gCO₂/kWh values would not produce a meaningful result.</p><p>I created DAX categories for several continuous variables so I could compare groups in the decomposition trees. For coal dependence, the original cutoffs were high (75% or more), moderate (65% to less than 75%), and low (less than 65%). Wind and solar shares were grouped as emerging (less than 2%), growing (2% to less than 10%), or established (10% or more). I also grouped industrial value-added growth and electricity demand growth as slow (less than 6%), moderate (6% to less than 10%), or fast (10% or more). These are analytical cutoffs I chose, not official industry standards. I documented them because I wanted to see whether changing the boundaries would change the conclusions.</p><p>My approach had three main parts. First, I looked at the distribution of the data and built initial decomposition trees with different orders of explanatory variables. Next, I examined the branches to see whether any apparent pattern was based on only one or two years. Finally, I revised the coal-share thresholds, compared earlier and later periods, and removed branches that were too small to interpret confidently. That gave me a way to test the stability of the results without adding a level of model complexity that the dataset could not really support. The decomposition tree remained the main analysis, with descriptive comparisons used to evaluate it.</p></section><section class="article-section" id="model-choice"><h2>Why a decomposition tree?</h2><p>I chose a top-down Power BI decomposition tree rather than the bottom-up classification approach we used in some of the labs. A bottom-up classification tree can be useful when the goal is to predict a target category and evaluate how well those predictions perform. My question is different. I am trying to understand which historical conditions were associated with different levels of a continuous outcome: electricity carbon intensity. With only 25 annual observations, turning that outcome into more prediction categories could also make it easier to overfit the model.</p><p>Power BI's decomposition tree lets me break down a numeric measure using the dimensions placed in the Explain by field. I can choose the order of the splits and compare how the results change when I start with a different variable <a href="#ref-ms">(Microsoft, n.d.)</a>. I find that useful for decision analysis because it makes the relationships easy to inspect. At the same time, this is not a predictive classification model, so it does not give me a cross-validated accuracy score or classification error rate. Instead, I evaluate the analysis by reporting the number of years in each branch, testing reasonable alternatives, and checking whether the main relationships remain consistent.</p><p>I am using the model to compare possible decision-making questions, not to recommend a specific energy policy. One way to begin is with coal dependence and then ask whether industrial growth distinguishes the years within those coal groups. Another is to begin with industrial growth and see what coal reliance adds to the comparison. After testing both, I preferred the coal-first approach. It is easier to interpret, and I can limit the secondary splits to groups with enough observations. In my view, a larger difference between two averages is not automatically more useful if the result depends on just one or two years.</p></section><section class="article-section" id="initial-models"><h2>The initial models</h2><p>In my first tree, Model A, I started with coal dependence. The overall average electricity carbon intensity was 700.76 gCO₂/kWh. The high-coal group contained 14 years and averaged 762.44 gCO₂/kWh. The moderate-coal group averaged 658.91 gCO₂/kWh across five years, and the low-coal group averaged 591.69 gCO₂/kWh across six years. That is a difference of 170.75 gCO₂/kWh between the high- and low-coal groups. The direction of the relationship makes sense: years with less coal in the electricity mix also had lower emissions per unit of power.</p><figure class="research-figure" id="fig-01"><a aria-label="Open full-size image: Figure 1. Initial coal-first decomposition tree." href="graphics/china_carbon_intensity/01-original-coal-dependence-tree.png" rel="noopener noreferrer" target="_blank"><img alt="Figure 1. Initial coal-first decomposition tree. Original coal categories: high (75%+), moderate (65%–&lt;75%), and low (&lt;65%). Averages are gCO₂/kWh." decoding="async" loading="lazy" src="graphics/china_carbon_intensity/01-original-coal-dependence-tree.png"/></a><figcaption><strong>Figure 1. Initial coal-first decomposition tree.</strong><span class="figure-note">Original coal categories: high (75%+), moderate (65%–&lt;75%), and low (&lt;65%). Averages are gCO₂/kWh.</span></figcaption></figure><p>I then looked at wind and solar share within the high-coal group. In the 12 years when wind and solar accounted for less than 2% of generation, average carbon intensity was 769.70 gCO₂/kWh. In the two years when their combined share was between 2% and 10%, the average was 718.90. That caught my attention at first, but those two observations were just 2012 and 2013. When I added industrial growth as another split, both years landed in the moderate-growth category, and the average remained 718.90. I did not think a two-year branch with no further separation was enough to support a broad conclusion about industrial activity.</p><p>In Model B, I reversed the order and started with industrial value-added growth. Years with fast growth (10% or more) averaged 771.20 gCO₂/kWh. The moderate-growth group, with nine years, averaged 716.58, while the slow-growth group, with eight years, averaged 612.51. Looking only at that first split, it would be easy to conclude that faster industrial growth was associated with higher carbon intensity. But those fast-growth years also tended to be earlier years when China depended more heavily on coal. I wanted the next split to help put that relationship into context instead of treating industrial growth as the explanation by itself.</p><figure class="research-figure" id="fig-02"><a aria-label="Open full-size image: Figure 2. Industrial-growth-first model." href="graphics/china_carbon_intensity/02-industrial-growth-first-tree.png" rel="noopener noreferrer" target="_blank"><img alt="Figure 2. Industrial-growth-first model. The deeper electricity-demand split eventually reaches one-year terminal branches, which should not be treated as reliable independent effects." decoding="async" loading="lazy" src="graphics/china_carbon_intensity/02-industrial-growth-first-tree.png"/></a><figcaption><strong>Figure 2. Industrial-growth-first model.</strong><span class="figure-note">The deeper electricity-demand split eventually reaches one-year terminal branches, which should not be treated as reliable independent effects.</span></figcaption></figure><p>Within Model B's moderate industrial-growth group, the high-coal years averaged 750.76 gCO₂/kWh, the moderate-coal years averaged 672.80, and the low-coal years averaged 599.05. The problem was the branch sizes: six years in one group, two in another, and only one in the third. I also split the two-year moderate-coal group by electricity demand growth. That left 2014 at 693.85 and 2016 at 651.76 gCO₂/kWh, a difference of 42.09. With one observation per branch, I cannot reasonably interpret that difference as an independent effect of electricity demand. This was one of the clearest reasons to simplify the model.</p><p>Comparing Models A and B showed me how much the order of the variables affects what stands out in a decomposition tree. Coal dependence was the clearest relationship in the data, while industrial growth and electricity demand helped provide context. The more I continued splitting the branches, though, the more the results depended on very small groups. I did not want to mistake a complicated-looking tree for a better analysis. For the revised model, I kept coal dependence as the first split and only added another level when the branch had enough years to make the comparison meaningful.</p></section><section class="article-section" id="revised-model"><h2>Revising the decision tree</h2><p>In the revised version of Model A, I kept the original coal categories but changed what I examined within the high-coal group. Instead of splitting that group by wind and solar share, I used industrial value-added growth. The overall and coal-group averages stayed the same. Among the 14 high-coal years, the eight fast-growth years averaged 771.20 gCO₂/kWh, compared with 750.76 across the six moderate-growth years. The difference was 20.44 gCO₂/kWh, much smaller than the gap between the high- and low-coal groups. Both of these branches contain more observations than the original two-year wind-and-solar branch.</p><figure class="research-figure" id="fig-03"><a aria-label="Open full-size image: Figure 3. Preferred coal-first model after revision." href="graphics/china_carbon_intensity/03-revised-coal-first-industrial-growth-tree.png" rel="noopener noreferrer" target="_blank"><img alt="Figure 3. Preferred coal-first model after revision. The high-coal group splits by industrial growth into eight fast-growth years and six moderate-growth years." decoding="async" loading="lazy" src="graphics/china_carbon_intensity/03-revised-coal-first-industrial-growth-tree.png"/></a><figcaption><strong>Figure 3. Preferred coal-first model after revision.</strong><span class="figure-note">The high-coal group splits by industrial growth into eight fast-growth years and six moderate-growth years.</span></figcaption></figure><p>I think this makes the tree more useful as a decision-support tool. It starts by showing how carbon intensity differed across coal-dependence categories, then asks whether industrial growth helps distinguish years within the high-coal group. It does not mean industrial growth was unimportant, and it certainly does not mean changing coal share alone would reproduce the historical results. What the tree does give a decision maker is a straightforward way to identify the historical conditions that deserve a closer look.</p><div class="analysis-data-table"><table aria-label="Average electricity carbon intensity by coal-dependence classification"><caption>Table 1. Average electricity carbon intensity by coal-dependence classification</caption><tr><th>Specification</th><th>Coal share category</th><th>Years (n)</th><th>Mean gCO₂/kWh</th></tr><tr><td>Original thresholds</td><td>High: 75%+</td><td>14</td><td>762.44</td></tr><tr><td></td><td>Moderate: 65–&lt;75%</td><td>5</td><td>658.91</td></tr><tr><td></td><td>Low: &lt;65%</td><td>6</td><td>591.69</td></tr><tr><td>Revised thresholds</td><td>High: 77%+</td><td>10</td><td>773.27</td></tr><tr><td></td><td>Moderate: 67–&lt;77%</td><td>8</td><td>699.89</td></tr><tr><td></td><td>Low: &lt;67%</td><td>7</td><td>598.15</td></tr></table></div><p class="table-note">Note. Each observation is one year; means are unweighted across years. Category thresholds are analysis choices.</p></section><section class="article-section" id="sensitivity"><h2>Testing the results</h2><p>The first sensitivity check was to see what happened when I changed the coal-dependence thresholds. Under the original cutoffs, the difference between the high- and low-coal group averages was 170.75 gCO₂/kWh. I then moved the boundaries to high at 77% or more, moderate from 67% to less than 77%, and low below 67%. The revised high-coal group had 10 years and averaged 773.27 gCO₂/kWh. The moderate group had eight years and averaged 699.89, while the low group had seven years and averaged 598.15. The high-to-low difference became 175.12 gCO₂/kWh. Even though the group membership and averages changed, the overall ordering stayed the same.</p><figure class="research-figure" id="fig-04"><a aria-label="Open full-size image: Figure 4. Alternative thresholds for coal dependence." href="graphics/china_carbon_intensity/04-alternative-coal-share-thresholds-tree.png" rel="noopener noreferrer" target="_blank"><img alt="Figure 4. Alternative thresholds for coal dependence. Moving the category boundaries to 77% and 67% changes membership and means, but preserves the high-to-low ordering." decoding="async" loading="lazy" src="graphics/china_carbon_intensity/04-alternative-coal-share-thresholds-tree.png"/></a><figcaption><strong>Figure 4. Alternative thresholds for coal dependence.</strong><span class="figure-note">Moving the category boundaries to 77% and 67% changes membership and means, but preserves the high-to-low ordering.</span></figcaption></figure><p>The reason I tested those thresholds is that even a small change can move years from one category to another. For example, raising the high-coal cutoff from 75% to 77% moves 2012 and 2013 out of that group. Changing the lower boundary also affects which years are classified as low coal. Those cutoffs are modeling choices, not physical tipping points in the electricity system. If a small change in a cutoff completely reversed the relationship, I would be much less confident in the result. In this case, the high-to-low ordering remained consistent across the specifications I tested.</p><p>My second check was to separate the observations into 2000–2011 and 2012–2024. Carbon intensity averaged 769.70 gCO₂/kWh in the first 12 years and 637.12 in the following 13 years. One limitation became obvious right away: every year from 2000 through 2011 was in the high-coal category, so there was no meaningful comparison of coal groups within that period. From 2012 through 2024, the two high-coal years averaged 718.90, the five moderate-coal years averaged 658.91, and the six low-coal years averaged 591.69 gCO₂/kWh. The same ordering appeared, but the high-coal group only had two observations.</p><figure class="research-figure" id="fig-05"><a aria-label="Open full-size image: Figure 5. Coal dependence, 2000–2011." href="graphics/china_carbon_intensity/05-coal-dependence-2000-2011.png" rel="noopener noreferrer" target="_blank"><img alt="Figure 5. Coal dependence, 2000–2011. All twelve observations belong to the high-coal category under the original thresholds." decoding="async" loading="lazy" src="graphics/china_carbon_intensity/05-coal-dependence-2000-2011.png"/></a><figcaption><strong>Figure 5. Coal dependence, 2000–2011.</strong><span class="figure-note">All twelve observations belong to the high-coal category under the original thresholds.</span></figcaption></figure><figure class="research-figure" id="fig-06"><a aria-label="Open full-size image: Figure 6. Coal dependence, 2012–2024." href="graphics/china_carbon_intensity/06-coal-dependence-2012-2024.png" rel="noopener noreferrer" target="_blank"><img alt="Figure 6. Coal dependence, 2012–2024. The high-coal group contains only two years. Moderate and low coal groups contain five and six years." decoding="async" loading="lazy" src="graphics/china_carbon_intensity/06-coal-dependence-2012-2024.png"/></a><figcaption><strong>Figure 6. Coal dependence, 2012–2024.</strong><span class="figure-note">The high-coal group contains only two years. Moderate and low coal groups contain five and six years.</span></figcaption></figure><p>I did one more comparison without those two high-coal years from the later period. That left 11 observations, with an overall average of 622.25 gCO₂/kWh. The moderate-coal group contained five years and averaged 658.91, while the low-coal group contained six years and averaged 591.69. The difference was still 67.22 gCO₂/kWh. Removing the smallest group did not eliminate the moderate-versus-low relationship. At the same time, I do not think this test separates the effect of coal from all the other changes happening over the same years.</p><figure class="research-figure" id="fig-07"><a aria-label="Open full-size image: Figure 7. Later period after excluding the undersized group." href="graphics/china_carbon_intensity/07-later-period-with-small-group-removed.png" rel="noopener noreferrer" target="_blank"><img alt="Figure 7. Later period after excluding the undersized group. The remaining eleven years average 622.25 gCO₂/kWh; moderate and low coal years still differ by 67.22 gCO₂/kWh." decoding="async" loading="lazy" src="graphics/china_carbon_intensity/07-later-period-with-small-group-removed.png"/></a><figcaption><strong>Figure 7. Later period after excluding the undersized group.</strong><span class="figure-note">The remaining eleven years average 622.25 gCO₂/kWh; moderate and low coal years still differ by 67.22 gCO₂/kWh.</span></figcaption></figure><p>These checks tell me something about the stability of the pattern, but they do not establish predictive accuracy. A decomposition tree reports group averages; it does not automatically provide a classification error rate, confidence interval for group differences, or holdout prediction. I recorded the number of years in each branch and recalculated the averages to make sure they agreed with the underlying data. I also compared the two original variable orders and removed splits that were essentially single-year comparisons. This follows my professor's feedback: with only 25 observations, adding another complicated diagnostic would not necessarily make the analysis more reliable.</p></section><section class="article-section" id="limitations"><h2>Limitations &amp; sources of error</h2><p>Overall, the results seem reasonable in the context of electricity generation. Coal produces relatively high carbon emissions per unit of electricity, so I would expect periods with less coal in the generation mix to have lower carbon intensity. From 2000 to 2024, the combined wind-and-solar share increased from about 0.04% to 18.20%, while coal's share fell from about 78.21% to 57.77%. Over the same period, electricity carbon intensity declined from 783.51 to 555.40 gCO₂/kWh, even as electricity demand increased from 1,347 TWh to 10,070 TWh. To me, that is an important distinction: electricity demand can grow substantially while emissions per unit of electricity decline.</p><p>The biggest caution is that coal dependence and calendar time are closely connected in this dataset. With my original thresholds, the high-coal group consists of 2000–2013, the moderate-coal group of 2014–2018, and the low-coal group of 2019–2024. In other words, the tree is also separating three periods in China's energy transition. A lot more was changing during those years than just coal's share of generation: renewable capacity, efficiency, electricity demand, and economic conditions all changed as well. The data also leave out factors such as electricity transfers between provinces, coal-plant efficiency, hydroelectric variability, renewable curtailment, and the industrial mix of electricity consumption. The World Bank industry-growth measure adds some economic context, but it cannot replace data on actual industrial electricity use.</p><p>There are several easy mistakes to make with this kind of model, and I tried to avoid them. One is summing carbon-intensity values across years instead of averaging them. Another is choosing category boundaries without explaining where they came from or testing whether the results depend on them. The biggest concern in my trees was letting the analysis keep splitting until a branch represented just one year and then interpreting that result as a general pattern. I reported the sample sizes and removed the smallest late-period group for that reason. I also checked that wind-and-solar share was the sum of two shares, that the missing demand-growth value for 2000 was not treated as zero, and that merging the datasets did not duplicate years.</p><p>I can see a fairly consistent relationship between coal dependence and carbon intensity, but I cannot isolate the effects of industrial growth or electricity demand nearly as well. I think that is a useful finding in itself, as long as I am clear about what the data can and cannot support. With a larger dataset, especially one containing provincial observations or more detailed generation and industrial electricity data, I could compare more conditions within the same period. For this project, I do not want to claim that the 25 national observations can provide that level of detail.</p></section><section class="article-section" id="implementation"><h2>Putting the model to work</h2><p>After these comparisons, I chose the coal-first decomposition tree as the final model. It makes the main relationship easy to see, allows a limited second split for industrial growth, and avoids the most unreliable one-year branches. Its ordering also held up when I changed the coal-share thresholds. Those are the reasons I prefer it to the more complicated alternatives. I am not presenting it as a way to calculate the effect of a specific emissions policy. I am using it to show the clearest historical relationships in the data and to identify questions that would be worth examining with more detailed information.</p><p>If an organization wanted to put these results to use, I would start with a fairly straightforward process. First, an energy-planning team could use the tree to identify years when carbon intensity was lower and check whether the same patterns appear in more detailed data. Next, they would investigate what was actually happening in those years, including coal generation, additional low-carbon supply, demand, grid constraints, and plant efficiency. Finally, they would bring in information this dataset does not contain, especially regional differences, costs, and reliability. Only then would it make sense to evaluate investments, changes in the generation mix, or demand-side measures. The Power BI tree helps organize that investigation; it does not make the policy decision for them.</p><p>Another advantage is that the model can be updated. If new annual observations become available, I can add them using the same column structure and recalculate average carbon intensity. I can also change the DAX category thresholds or use different Explain by fields to see whether the relationships continue. I would keep a copy of the earlier version alongside the updated one so that changes in the findings could be traced. For that to work, the source versions, data transformations, category boundaries, year filters, and date of the analysis all need to be documented. I see that flexibility as useful for continuing energy-sector analysis rather than treating the project as a one-time result.</p><p>For decision makers, I would present one main decomposition tree rather than every exploratory path I tested. I would include a small table showing branch sizes and average carbon intensity, a short explanation of the sensitivity checks, and the limitations that matter most. More detailed definitions and screenshots could remain in the appendix for anyone who wants to examine the analysis more closely. That way, the main finding stays understandable without hiding the uncertainty behind it.</p></section><section class="article-section" id="ethics"><h2>Ethical considerations</h2><p>Because I used publicly available, aggregated energy and economic statistics, individual privacy is not a major concern for this project. I still have to give the original sources proper credit and follow their terms of use. World Bank data are generally available under attribution terms, although the specific conditions need to be checked, and OWID identifies the original sources behind its energy data (World Bank, n.d.; Our World in Data, n.d.). If this analysis were published or the cleaned dataset were distributed, I would document the indicators, acknowledge the original data providers, and check any third-party reuse requirements.</p><p>To me, the bigger ethical issue is the risk of giving decision makers more certainty than the analysis actually supports. Once the decomposition tree divides the data into categories, it is easy to look at the differences and assume one variable caused them. But this model cannot tell me how much carbon intensity would fall if coal's share were reduced by a particular amount, or separate the effects of industrialization and electricity demand. Presenting those averages as causal effects or precise forecasts could lead someone to overlook costs, reliability, and regional conditions. That is why I make a point of reporting branch sizes, the overlap with time, and the exploratory nature of the findings.</p><p>I also think it is important to consider who would be affected by decisions based on national averages. Changes in electricity infrastructure can affect industrial jobs, access to power, and affordability very differently from one region to another. My dataset does not measure those effects. Before recommending an intervention, I would want regional, economic, and operational information to supplement this analysis. The purpose of decision analysis is to support better judgment, not replace it with a chart.</p></section><section class="article-section" id="conclusion"><h2>Conclusion</h2><p>Looking across the 2000–2024 data, the clearest relationship I found was that years with lower coal dependence also tended to have lower electricity carbon intensity. The original tree showed a 170.75 gCO₂/kWh gap between the high- and low-coal groups, and the same ordering remained when I changed the thresholds. Even after I removed the two-year high-coal branch from the later period, the moderate- and low-coal groups still differed by 67.22 gCO₂/kWh. Those results are consistent, but the small sample and the overlap with historical time periods mean I cannot claim that coal share alone caused the differences.</p><p>That is why I ended up with a simpler final tree than the one I started with. I kept coal dependence as the main split, used industrial growth only where the group sizes supported it, and evaluated the result with threshold and time-period comparisons rather than trying to invent a prediction-accuracy measure. In my view, the value of this project is not that it proves a single explanation for China's electricity transition. It shows how I can use Power BI and decision analysis to identify useful historical associations, test whether they hold up, and be clear about the questions that still require more data.</p></section><section class="article-section" id="references"><h2>Sources &amp; further reading</h2><ul class="references-list"><li id="ref-ms">Microsoft. (n.d.). Create and view decomposition tree visuals in Power BI. Microsoft Learn. <a href="https://learn.microsoft.com/en-us/power-bi/visuals/power-bi-visualization-decomposition-tree" rel="noopener noreferrer" target="_blank">https://learn.microsoft.com/en-us/power-bi/visuals/power-bi-visualization-decomposition-tree</a></li><li id="ref-owid">Our World in Data. (n.d.). Energy data [Dataset and documentation]. GitHub. <a href="https://github.com/owid/energy-data" rel="noopener noreferrer" target="_blank">https://github.com/owid/energy-data</a></li><li id="ref-worldbank">World Bank. (n.d.). Industry (including construction), value added (annual % growth) (NV.IND.TOTL.KD.ZG). World Development Indicators. <a href="https://data.worldbank.org/indicator/NV.IND.TOTL.KD.ZG?locations=CN" rel="noopener noreferrer" target="_blank">https://data.worldbank.org/indicator/NV.IND.TOTL.KD.ZG?locations=CN</a></li><li id="ref-terms">World Bank. (n.d.). Summary terms of use. <a href="https://data.worldbank.org/summary-terms-of-use" rel="noopener noreferrer" target="_blank">https://data.worldbank.org/summary-terms-of-use</a></li></ul><div class="research-disclaimer">Research note: This analysis describes exploratory historical associations in 25 annual Chinese observations, not causal effects or a validated forecast. Reported category averages are unweighted across years.</div></section></div></section>
+</div><aside aria-label="Continue reading" class="article-end"><div class="article-end__top"><div><p class="article-end__eyebrow">Continue exploring</p><h2>More from Agitlytics Research</h2></div><a class="article-end__library" href="elements.html">Back to Research Library</a></div><div class="article-pager"><a aria-label="Read Why a Diesel Export Ban Would Not Solve the Diesel Crisis" href="Dieselban.html"><span class="article-pager__label">Related analysis</span><span class="article-pager__category">Energy &amp; Economics</span><span class="article-pager__title">Why a Diesel Export Ban Wouldn't Solve the Diesel Crisis</span></a><a aria-label="Explore data projects" href="DataProj.html"><span class="article-pager__label">Explore more</span><span class="article-pager__category">Data &amp; Research</span><span class="article-pager__title">Agitlytics Data Projects</span></a></div><nav aria-label="Research topics" class="article-topics"><a href="elements.html">Energy Markets</a><a href="elements.html">Data Analytics</a><a href="elements.html">Power BI</a><a href="elements.html">Decision Analysis</a><a href="elements.html">China</a></nav></aside>
+<!-- Footer -->
+<footer id="footer">
+<!-- <section>
+							<form method="post" action="#">
+								<div class="fields">
+									<div class="field">
+										<label for="name">Name</label>
+										<input type="text" name="name" id="name" />
+									</div>
+									<div class="field">
+										<label for="email">Email</label>
+										<input type="text" name="email" id="email" />
+									</div>
+									<div class="field">
+										<label for="message">Message</label>
+										<textarea name="message" id="message" rows="3"></textarea>
+									</div>
+								</div>
+								<ul class="actions">
+									<li><input type="submit" value="Send Message" /></li>
+								</ul>
+							</form>
+						</section> -->
+<section class="posts">
+<article>
+<header>
+<!-- <span class="date"></span>
+										<h2><a href="https://public.tableau.com/shared/YFXYJXN7D?:display_count=n&:origin=viz_share_link">Data Exploration of<br />
+										Covid Datasets in SQL</a></h2>  -->
+</header>
+<a class="image main" href="#"><img alt="" src="images/Headshot.png"/></a>
+<p></p>
+<ul class="actions special">
+</ul>
+</article>
+</section>
+<section class="split contact">
+<section class="alt">
+<h3>Location</h3>
+<p>Houston, TX<br/>
+</p>
+</section>
+<section>
+<h3>Phone</h3>
+<p><a href="#">(936)446-8053</a></p>
+</section>
+<section>
+<h3>Email</h3>
+<p><a href="#">aubreywaddle2@gmail.com</a></p>
+</section>
+<section>
+<h3>Social</h3>
+<ul class="icons alt">
+<li><a class="icon brands alt fa-linkedin" href="www.linkedin.com/in/aubrey-waddle-962634314"><span class="label">linkedin</span></a></li>
+<li><a class="icon brands alt fa-facebook-f" href="https://www.facebook.com/aubrey.waddle/"><span class="label">Facebook</span></a></li>
+<li><a class="icon brands alt fa-instagram" href="https://www.instagram.com/aubrey_waddle12/"><span class="label">Instagram</span></a></li>
+<li><a class="icon brands alt fa-github" href="https://github.com/Blamo2214"><span class="label">GitHub</span></a></li>
+</ul>
+</section>
+</section>
+</footer>
+<!-- Copyright -->
+<div id="copyright">
+<ul><li>© Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+</div>
+</div>
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
