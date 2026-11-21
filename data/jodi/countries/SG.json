@@ -1,7 +1,7 @@
 {
   "source": "JODI Oil World Database",
   "dataset": "Extended Primary",
-  "generated_at": "2026-11-19T06:01:09.367358+00:00",
+  "generated_at": "2026-11-21T21:14:53.768923+00:00",
   "country": {
     "code": "SG",
     "name": "Singapore"
@@ -11,8 +11,8 @@
       "name": "Crude Oil Imports",
       "flow_code": "TOTIMPSB",
       "unit": "million barrels per day",
-      "latest_reported_month": "2026-08",
-      "latest_value": 0.7146,
+      "latest_reported_month": "2026-09",
+      "latest_value": 0.8403,
       "observations": [
         {
           "date": "2002-01",
@@ -1493,6 +1493,11 @@
           "date": "2026-08",
           "value": 0.7146,
           "assessment_code": "3"
+        },
+        {
+          "date": "2026-09",
+          "value": 0.8403,
+          "assessment_code": "3"
         }
       ]
     },
@@ -1500,7 +1505,7 @@
       "name": "Crude Oil Exports",
       "flow_code": "TOTEXPSB",
       "unit": "million barrels per day",
-      "latest_reported_month": "2026-08",
+      "latest_reported_month": "2026-09",
       "latest_value": 0.0,
       "observations": [
         {
@@ -2495,6 +2500,11 @@
         },
         {
           "date": "2026-08",
+          "value": 0.0,
+          "assessment_code": "3"
+        },
+        {
+          "date": "2026-09",
           "value": 0.0,
           "assessment_code": "3"
         }
