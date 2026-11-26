@@ -1,9 +1,9 @@
 {
   "WTI_USD": {
-    "price": 83.12,
-    "change": 2.4,
-    "change_percent": 2.9732,
-    "timestamp": "2026-11-25T15:26:09.000Z",
+    "price": 84.05,
+    "change": 0.93,
+    "change_percent": 1.1189,
+    "timestamp": "2026-11-26T00:11:01.000Z",
     "currency": "USD",
     "type": "spot_price",
     "source": "market_reporting",
@@ -14,16 +14,16 @@
       "source": "market_reporting",
       "source_description": "Aggregated from published market sources",
       "discover": {
-        "endpoint": "/v1/prices/historical?by_code=WTI_USD",
-        "description": "See WTI_USD's price history"
+        "endpoint": "/v1/commodities",
+        "description": "Browse every commodity code we track"
       }
     }
   },
   "BRENT_CRUDE_USD": {
-    "price": 93.09,
-    "change": 2.98,
-    "change_percent": 3.3071,
-    "timestamp": "2026-11-25T15:26:00.000Z",
+    "price": 94.2,
+    "change": 1.11,
+    "change_percent": 1.1924,
+    "timestamp": "2026-11-25T22:59:00.000Z",
     "currency": "USD",
     "type": "spot_price",
     "source": "market_reporting",
@@ -34,15 +34,15 @@
       "source": "market_reporting",
       "source_description": "Aggregated from published market sources",
       "discover": {
-        "endpoint": "/v1/prices/historical?by_code=BRENT_CRUDE_USD",
-        "description": "See BRENT_CRUDE_USD's price history"
+        "endpoint": "/v1/commodities",
+        "description": "Browse every commodity code we track"
       }
     }
   },
   "GASOLINE_USD": {
-    "price": 2.45,
-    "change": 0.02,
-    "change_percent": 0.823,
+    "price": 2.42,
+    "change": -0.03,
+    "change_percent": -1.2245,
     "timestamp": "2026-11-25T01:11:33.000Z",
     "currency": "USD",
     "type": "spot_price",
@@ -54,8 +54,8 @@
       "source": "market_reporting",
       "source_description": "Aggregated from published market sources",
       "discover": {
-        "endpoint": "/v1/prices/historical?by_code=GASOLINE_USD",
-        "description": "See GASOLINE_USD's price history"
+        "endpoint": "/v1/commodities",
+        "description": "Browse every commodity code we track"
       }
     }
   }
