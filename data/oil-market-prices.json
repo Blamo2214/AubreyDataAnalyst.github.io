@@ -1,9 +1,9 @@
 {
   "WTI_USD": {
-    "price": 83.33,
-    "change": -1.81,
-    "change_percent": -2.1259,
-    "timestamp": "2026-11-27T21:51:26.000Z",
+    "price": 83.08,
+    "change": -0.25,
+    "change_percent": -0.3,
+    "timestamp": "2026-11-27T19:44:59.000Z",
     "currency": "USD",
     "type": "spot_price",
     "source": "market_reporting",
@@ -14,16 +14,16 @@
       "source": "market_reporting",
       "source_description": "Aggregated from published market sources",
       "discover": {
-        "endpoint": "/v1/prices/historical?by_code=WTI_USD",
-        "description": "See WTI_USD's price history"
+        "endpoint": "/v1/commodities",
+        "description": "Browse every commodity code we track"
       }
     }
   },
   "BRENT_CRUDE_USD": {
     "price": 95.27,
-    "change": -1.25,
-    "change_percent": -1.2951,
-    "timestamp": "2026-11-27T21:10:40.388Z",
+    "change": 0.0,
+    "change_percent": 0.0,
+    "timestamp": "2026-11-27T19:59:00.000Z",
     "currency": "USD",
     "type": "spot_price",
     "source": "market_reporting",
@@ -34,15 +34,15 @@
       "source": "market_reporting",
       "source_description": "Aggregated from published market sources",
       "discover": {
-        "endpoint": "/v1/prices/historical?by_code=BRENT_CRUDE_USD",
-        "description": "See BRENT_CRUDE_USD's price history"
+        "endpoint": "/v1/commodities",
+        "description": "Browse every commodity code we track"
       }
     }
   },
   "GASOLINE_USD": {
     "price": 2.41,
-    "change": -0.05,
-    "change_percent": -2.0325,
+    "change": 0.0,
+    "change_percent": 0.0,
     "timestamp": "2026-11-24T12:00:00.000Z",
     "currency": "USD",
     "type": "spot_price",
@@ -54,8 +54,8 @@
       "source": "eia_api",
       "source_description": "U.S. Energy Information Administration (EIA)",
       "discover": {
-        "endpoint": "/v1/prices/historical?by_code=GASOLINE_USD",
-        "description": "See GASOLINE_USD's price history"
+        "endpoint": "/v1/commodities",
+        "description": "Browse every commodity code we track"
       }
     }
   }
